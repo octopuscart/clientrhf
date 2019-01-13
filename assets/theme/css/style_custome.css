@@ -1,0 +1,668 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+    padding: 60px 15px 0;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    position: absolute;
+    bottom: 0px;
+}
+
+code {
+    font-size: 80%;
+}
+.fixpos{
+    position: absolute;
+    left: 0;
+    height: 430px;
+}
+
+
+
+.fabricbox{
+    height: 180px;
+    padding: 5px;
+    background-size: 224%!important;
+    background-position: -111px -29px!important;
+}
+
+
+.elementStyle{
+    height: 100px;
+    cursor: pointer;
+}
+
+.collar_style {
+
+    //background-size: 293%!important;
+    //background-position: -101% -14%!important;
+}
+
+.cuff_style{
+    background-size: 359%!important;
+    background-position: -179% -50%!important;
+}
+
+.elementItem{
+    /*border: 1px solid #9E9E9E;*/
+    box-shadow: 0px 0px 6px #c9c9c9
+}
+
+.button-expand{
+    margin-top: -37px;
+    padding: 2px;
+    float: right;
+    padding: 8px;
+    font-size: 20px;
+    border-radius: 52%;
+    background: #fff;
+}
+
+
+.customization_title{
+  height: auto;
+    background: #0d59af;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    padding: 5px 5px;
+}
+.customization_box{
+    margin-bottom: 50px;
+}
+
+.customization_box{
+    margin-bottom: 50px;
+}
+
+.customization_box_element{
+    background-size: cover!important;
+    background-position: center!important;
+    background-size: 46%!important;
+    background-repeat: no-repeat!important;
+}
+
+.customization_box_element.active{
+    border: 5px solid #252939;
+}
+
+.button_style1{
+    margin-left: 5px;
+    margin-top: 3px;
+}
+
+.shirtcontainer{
+    height: 430px;
+    clear: both;
+}
+
+
+.elementItemImage{
+    width: 33px;
+    float: left;
+    height: 33px;
+    background: #000;
+    margin-right: 10px;
+    background-size: contain!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+}
+
+
+.item.elementItem .activestyle {
+    border: 3px solid #0d59af;
+}
+
+.item.elementItem.noselected {
+    opacity: 0.8;
+}
+
+.customization_heading{
+    margin: 0px 12px 10px!important;
+    border-bottom: 1px solid #000;
+    font-weight: 400;
+    font-size: 20px;
+    padding-bottom: 10px;
+
+
+}
+
+
+.customization_block{
+    height: 485px;
+    width: 380px;
+    /*background: #c9c9c9;*/
+    /*border: 1px solid #dfdfdf;*/
+    margin: 0px auto;
+    position: relative;
+}
+
+.custom_rotate_button{
+    background: none;
+    padding: 5px;
+    font-size: 26px;
+    position: absolute;
+    z-index: 888;
+    margin: 0px 8px;
+    border:none;
+    top: -15px;
+}
+
+.custom_rotate_button:hover{
+    background: white;
+    color:black;
+}
+
+.customization_items{
+    height: 380px;overflow: auto;
+}
+
+
+
+
+.cuff_single_insert{
+    /* position: fixed; */
+    background: url(http://api.octopuscart.com/output_insert/p10/cuff_single_rounded0001.png);
+    position: absolute;
+    z-index: 88888888;
+
+    top: 346px;
+    height: 33px;
+    left: 45px;
+
+
+    width: 51px;
+    border: 1px solid #000;
+    background-position: -40px -321px;
+    background-size: 416px 416px;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+
+.fabricblock{
+    background-size: 237px !important;
+    background-position: 0px -115px!important;
+    border-radius: 50%;
+    opacity: 0.5;
+    height: 100px;
+    width:100px;
+}
+
+.fabricblock_a{
+    padding: 5px;
+    border-bottom-left-radius: 50%!important;
+    border-top-left-radius: 50%!important;
+}
+
+
+.custsomesummeryblock{
+
+}
+
+
+.fabricblockmobile{
+    display: none
+}
+
+.fabricblockdesktop{
+    display: block
+}
+
+.monogramtext_posistion{
+    color: white;
+    padding: 0 2px;
+    background: black;
+    height: 10px;
+    z-index: 200;
+    font-size: 8px;
+    position: absolute;
+    display: none;
+    font-weight: bold;
+}
+
+.monogramtext_posistion_none{
+    display: none;
+}
+
+.monogramtext_posistion_collar {
+    left: 180px;
+    display: block;
+    top: 11px;
+    line-height: 10px;
+    font-size: 8px;
+    height: 9px;
+}
+
+.monogramtext_posistion_cuff_left{
+        left: 324px;
+    display: block;
+    top: 368px;
+    transform: rotate(19deg);
+    line-height: 7px;
+    font-size: 7px;
+    height: 8px;
+}
+
+.monogramtext_posistion_left_pocket{
+        left: 240px;
+    display: block;
+    top: 126px;
+    line-height: 10px;
+    font-size: 7px;
+    height: 10px;
+    transform: rotate(0deg);
+}
+
+
+.customization_items  .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 5px 5px;
+}
+
+
+.selected-element-title{
+    font-size: 15px;margin-bottom: 0px;
+}
+
+.selected-element-result{
+    margin: 3px 0 0 0;
+    font-size: 11px;
+    line-height: 15px;
+}
+
+.custome_element_col {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0px 5px;
+}
+
+.monogram_color_style {
+    text-align: center;
+    height: 50px;
+    cursor: pointer;
+    border: 2px solid;
+    line-height: 45px;
+    margin-bottom: 15px;
+}
+
+
+.monogram_init{
+    padding: 5px 10px;
+    border-bottom: 1px solid;
+    margin: 5px 0px;
+}
+
+.monogram_init h6{
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+p.fabric_title {
+    position: absolute;
+    margin-top: -34px;
+    width: 65px;
+    margin-left: 27px;
+    text-align: center;
+    background: #000;
+    font-size: 12px;
+
+    /* border-bottom-left-radius: 50%; */
+    /* border-bottom-right-radius: 50%; */
+    border-radius: 43%;
+}
+
+.summary_title{
+    font-size: 14px;
+}
+
+.summary_result{
+    line-height: 11px;
+}
+
+.selected-fabric-block-image{
+    height: 47px;
+    width: 47px;
+    float: left;
+    background-size: 179px !important;
+    background-position: 0px 58px!important;
+}
+
+
+p.selected-element-title_text {
+    font-size: 10px;
+    line-height: 13px;
+    text-overflow: ellipsis;
+    width: 87%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 1px;
+}
+
+p.selected-element-title_text_price{
+    font-size: 10px;
+    line-height: 15px;
+    text-overflow: ellipsis;
+    width: 87%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+}
+
+.selected-fabric-block-mobile{
+    display: none;
+}
+
+
+.customization_order_block{
+    height: 60px;
+    background: #1565c0;
+    width: 100%;
+    /* padding: 37px; */
+    margin: 0px;
+    left: 0;
+}
+
+
+.cuff_collar_area_elements{
+    height:363px
+}
+
+
+
+.insert_button {
+    padding: 3px 5px;
+    margin-top: 2px;
+    margin-top: 2px;
+}
+.total_price_block h5 {
+    font-size: 19px;
+    color: white;
+        margin-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .insert_button {
+        padding: 3px 3px;
+        margin-top: 2px;
+        margin-top: 2px;
+    }
+
+    .customization_order_block {
+        height: 60px;
+    background: #0d59af;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0px 0px;
+    margin: 0px;
+    left: 0;
+    z-index: 100;
+    }
+
+    .cuff_collar_area_elements{
+        height:auto;
+    }
+
+    .selected-fabric-block-mobile{
+        display: block;
+        cursor: pointer;
+        padding: 0px 10px;
+    }
+
+    p.fabric_title{
+        margin-top: -57px;
+        width: 65px;
+        margin-left: 24px;
+    }
+
+    .elementItemDesktop{
+        display: none;
+    }
+
+    .mobile_view_element_tab{
+        height: 70px;
+        float: left;
+    margin-right: 15px;
+    }
+
+    .monogramtext_posistion_collar {
+        left: 46.5%;
+        display: block;
+        top: 4px;
+    }
+
+    .monogramtext_posistion_cuff_left {
+        left: 80%;
+        display: block;
+        top: 239px;
+        transform: rotate(8deg);
+    }
+
+    .monogramtext_posistion_left_pocket {
+        left: 59%;
+        display: block;
+        top: 83px;
+    }
+
+    .monogramtext_posistion {
+        color: white;
+        padding: 0 2px;
+        background: black;
+        height: 8px;
+        z-index: 200;
+        font-size: 6px;
+        position: absolute;
+        display: block;
+    }
+
+
+    .fabricblockmobile{
+        display: block;
+    }
+    .fabricblockdesktop{
+        display: none
+    }
+
+    .cuff_single_insert{
+        top: 318px;
+        height: 33px;
+        left: 39px;
+    }
+
+    .custom_rotate_button{
+        right: 0;
+    }
+
+    .customization_items {
+        height: 650px;
+        overflow: auto;
+    }
+
+    .customization_block{
+        height: 380px;
+            width: auto;
+    }
+
+    .customization_items_title{
+        height: 590px;overflow: auto;
+    }
+
+    .customization_items_elements{
+        height: 535px;overflow: auto;
+    }
+
+    .fixpos{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: auto;
+    }
+    .fabricbox{
+        height: 180px;
+        padding: 5px;
+        background-size: 224%!important;
+        background-position: -111px -29px!important;
+    }
+    .collar_style {
+        // background-size: 293%!important;
+        // background-position: -101% -7%!important;
+    }
+    .button_style1{
+        margin-left: 2px;
+        margin-top: -2px;
+    }
+    .cuff_style {
+        background-size: 285%!important;
+        background-position: -209% -45%!important;
+    }
+    .shirtcontainer{
+        height: 380px;
+    }
+
+    header .logo img {
+        z-index: 3;
+        height: 47px;
+        position: relative;
+    }
+
+}
+
+
+.owl-next {
+    background: #000;
+    float: right;
+    color: #fff;
+    padding: 8px;
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+
+.owl-prev {
+    background: #000;
+    float: left;
+    color: #fff;
+    padding: 8px;
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+
+
+.elementtab{
+    margin: 5px;
+}
+
+.elementtab .panel-heading{
+    /*box-shadow:0px 0px 30px -10px #000;*/
+    background: #fff;
+}
+
+
+
+.tabs-left>li.active>a, .tabs-left>li.active>a:hover, .tabs-left>li.active>a:focus {
+    border-bottom-color: #000;
+    border-right-color: transparent!important;
+}
+
+.tabs-left>li.active>a, .tabs-left>li.active>a:focus, .tabs-left>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #000;
+    /*border-bottom-color: transparent;*/
+}
+
+.tabs-left {
+    border-right: 1px solid #000;
+}
+
+
+
+
+/*
+ *  STYLE 4
+ */
+
+.customization_items::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #cbc9c9;
+}
+
+.customization_items::-webkit-scrollbar
+{
+    width: 15px;
+    background-color: #cbc9c9;
+}
+
+.customization_items::-webkit-scrollbar-thumb
+{
+    background-color: #053e80;
+    border: 0px solid #cbc9c9;
+}
+
+.elementTabList .nav-tabs>li.active>a, .elementTabList .nav-tabs>li.active>a:focus, .elementTabList .nav-tabs>li.active>a:hover {
+    color: #fff;
+    cursor: default;
+    background-color: red;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+.elementTabList .nav-tabs>li>a{
+    /*width: 147px;*/
+}
+
+.fabricblock.active{
+    border: 2px solid ;
+    opacity: 1;
+}
+
+.elementTabList .nav-tabs {
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0px 5px 13px -5px #000;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+.btn-small.insert_button {
+    height: 23px;
+    font-size: 12px;
+    margin-top: -14px;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background: #cfcccc;
+    color: #000 !important; 
+}
+
