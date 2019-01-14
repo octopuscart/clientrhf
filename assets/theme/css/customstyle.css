@@ -433,3 +433,9 @@ thead td.cart-form-heading {
 .text_field input[type="email"]{
     
 }
+
+.form-control {
+    border: 1px solid #e5e5e5;
+    border-radius: 0;
+    padding: 5px 5px;
+}

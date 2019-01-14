@@ -3,11 +3,6 @@
  */
 App.controller('ShopController', function ($scope, $http, $timeout, $interval, $filter) {
 
-    $timeout(function () {
-        lazyload();
-    }, 1500)
-
-    lazyload();
 
     var searchProducts = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),

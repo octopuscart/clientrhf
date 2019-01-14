@@ -98,8 +98,67 @@ class Shop extends CI_Controller {
     }
 
     public function appointment() {
+       $timeslot = [
+           "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", 
+           "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM",
+           "09:00 PM", 
+           ];
+       
+       $data['timeslot'] = $timeslot;
+       
+       $appointmentdetailslocal = [array(
+                "type"=>"local",
+                "id"=>"au0_app",
+                "country" => "Hong Kong",
+                "city_state" => "Kowloon,  T. S. T",
+                "hotel" => "SHOWROOM",
+                "address" => "Mirador Mansion, Shop No. 30 & 49, <br/>G/F 54-64 Nathan Road, <br/>Tsim Sha Tsui,
+Kowloon, Hong Kong",
+                "days" => "",
+                "start_date"=>"",
+                "end_date"=>"",
+                
+                "contact_no" => " +(852) 2369 1196",
+                "dates" => [
+                    array("date" => "Mon - Sat", "timing1" => "09:00 AM", "timing2" => "07:00 PM"),
+                    array("date" => "Sun & Holidays", "timing1" => "09:00 AM", "timing2" => "06:00 PM"),
+                ]
+            ),];
+       
+       $data['appointmentdetailslocal'] = $appointmentdetailslocal;
+       
+        $appointmentdetails = [
+            
+            array(
+                "type"=>"globle",
+                "id"=>"au1_app",
+                "country" => "Australia",
+                "city_state" => "Sydney, NSW",
+                "hotel" => "InterContinental Sydney Hotel",
+                "address" => "117 Macquarie Street,<br/> Sydney NSW 2000,<br/> Australia",
+                "days" => "21st Jan Until 22nd Jan 2019",
+                "start_date"=>"21-01-2019",
+                "end_date"=>"22-01-2019",
+                
+                "contact_no" => "+61 4 1142 6048",
+                "dates" => [
+                    array("date" => "21st Jan 2019", "timing1" => "11:00 AM", "timing2" => "09:00 PM"),
+                    array("date" => "22nd Jan 2019", "timing1" => "09:00 AM", "timing2" => "09:00 PM"),
+                ]
+            ),
+           
+        ];
+        $appointmentdetails = [];
+
+        $data['appointmentdata'] = $appointmentdetails;
         if (isset($_POST['submit'])) {
             $appointment = array(
+                
+                "country" => $this->input->post('country'),
+                "city_state" => $this->input->post('city_state'),
+                "hotel" => $this->input->post('hotel'),
+                "address" => $this->input->post('address'),
+                
                 'last_name' => $this->input->post('last_name'),
                 'first_name' => $this->input->post('first_name'),
                 'email' => $this->input->post('email'),
@@ -113,6 +172,8 @@ class Shop extends CI_Controller {
             );
 
             $this->db->insert('appointment_list', $appointment);
+            $appointment['contact_no2'] = $this->input->post('contact_no2');
+          
 
             $emailsender = email_sender;
             $sendername = email_sender_name;
@@ -123,7 +184,7 @@ class Shop extends CI_Controller {
                 $this->email->from(email_bcc, $sendername);
                 $this->email->to($this->input->post('email'));
                 $this->email->bcc(email_bcc);
-                $subjectt = "Bespoke Tailors Appointment : ".$appointment['select_date']." (".$appointment['select_time'].")";
+                $subjectt = "Bespoke Tailors Appointment : " . $appointment['select_date'] . " (" . $appointment['select_time'] . ")";
                 $orderlog = array(
                     'log_type' => 'Appointment',
                     'log_datetime' => date('Y-m-d H:i:s'),
@@ -138,7 +199,7 @@ class Shop extends CI_Controller {
                 $appointment['appointment'] = $appointment;
 
                 $checksend = 1;
-                $htmlsmessage = $this->load->view('Email/appointment', $appointment, true);
+                 $htmlsmessage = $this->load->view('Email/appointment', $appointment, true);
                 if ($checksend) {
                     $this->email->message($htmlsmessage);
                     $this->email->print_debugger();
@@ -156,7 +217,7 @@ class Shop extends CI_Controller {
 
             redirect('Shop/appointment');
         }
-        $this->load->view('pages/appointment');
+        $this->load->view('pages/appointment', $data);
     }
 
     public function testinsert() {

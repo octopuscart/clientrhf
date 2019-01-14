@@ -2,304 +2,192 @@
 $this->load->view('layout/header');
 ?>
 
-<script>
-            $(function () {
-                $("#slider").responsiveSlides({
-                    auto: true,
-                    nav: true,
-                    speed: 500,
-                    namespace: "callbacks",
-                    pager: true,
-                });
-            });
-        </script>
-
-<!--slider part-->
-<div class="banner-w3">
-    <div class="demo-1">            
-        <div id="example1" class="core-slider core-slider__carousel example_1">
-            <div class="core-slider_viewport">
-                <div class="core-slider_list">
-                    <div class="core-slider_item">
-                        <img src="<?php echo base_url(); ?>assets/theme/slider/4.jpg" class="img-responsive" alt="">
-                    </div>
-                    <div class="core-slider_item">
-                        <img src="<?php echo base_url(); ?>assets/theme/slider/2.jpg" class="img-responsive" alt="">
-                    </div>
-                    <div class="core-slider_item">
-                        <img src="<?php echo base_url(); ?>assets/theme/slider/3.jpg" class="img-responsive" alt="">
-                    </div>
-                    <div class="core-slider_item">
-                        <img src="<?php echo base_url(); ?>assets/theme/slider/5.jpg" class="img-responsive" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="core-slider_nav">
-                <div class="core-slider_arrow core-slider_arrow__right"></div>
-                <div class="core-slider_arrow core-slider_arrow__left"></div>
-            </div>
-            <div class="core-slider_control-nav"></div>
-        </div>
-    </div>
-    <link href="<?php echo base_url(); ?>assets/theme/css/coreSlider.css" rel="stylesheet" type="text/css">
-    <script src="<?php echo base_url(); ?>assets/theme/js/coreSlider.js"></script>
-    <script>
-        $('#example1').coreSlider({
-            pauseOnHover: false,
-            interval: 3000,
-            controlNavEnabled: true
-        });</script>
-
-</div>	
-<!--end of slider part-->
-
-
-
-<!--content-->
-<div class="content">
-
-
-    <!--custome block-->
-    <div class="latest-w3">
-        <div class="container">
-            <h3 class="tittle1">Customize Now</h3>
-            <div class="latest-grids">
-                <div class="col-md-3 latest-grid">
-                    <div class="latest-top">
-                        <img  src="<?php echo base_url(); ?>assets/theme/images/suitb.jpg" class="img-responsive"  alt="">
-                        <div class="latest-text">
-                            <h4>Suits</h4>
-                        </div>
-                        <div class="latest-text2 hvr-sweep-to-top">
-                            <h4 style="    font-size: 12px;">From<br/> HK$ 1700.00</h4>
+<!-- start hero slider -->
+        <div class="hero-slider heroflex flexslider" data-autoplay="yes" data-pagination="yes" data-arrows="no" data-style="slide" data-pause="no" data-speed="3000">
+            <ul class="slides">
+                <li style="background: url('<?php echo base_url(); ?>assets/theme/images/1.jpg');height: 600px;" >
+                    <!-- start hero caption -->
+                    <div class="hero-caption-area">
+                        <div class="container">
+                            <a href="" title="Shop Now" class="btn btn-secondary">Shop Now</a>
+                            <h1>Rahman <span>Fashion</span></h1>
+                            <p>BESPOKE OR MADE TO MEASURE SUITS & FORMAL WEARS</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 latest-grid">
-                    <div class="latest-top">
-                        <img  src="<?php echo base_url(); ?>assets/theme/images/shirts.jpg" class="img-responsive"  alt="">
-                        <div class="latest-text">
-                            <h4>Shirt</h4>
-                        </div>
-                        <div class="latest-text2 hvr-sweep-to-top">
-                            <h4 style="    font-size: 12px;">From<br/> HK$ 220.00</h4>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 latest-grid">
-                    <div class="latest-top">
-                        <img  src="<?php echo base_url(); ?>assets/theme/images/suita.jpg" class="img-responsive"  alt="">
-                        <div class="latest-text">
-                            <h4>Jacket</h4>
-                        </div>
-                        <div class="latest-text2 hvr-sweep-to-top">
-                            <h4 style="    font-size: 12px;">From<br/> HK$ 1200.00</h4>
+                    <!-- end hero caption -->
+                </li>
+                <li style="background: url('<?php echo base_url(); ?>assets/theme/images/2.jpg');height: 600px;">
+                    <!-- start hero caption -->
+                    <div class="hero-caption-area">
+                        <div class="container">
+                            <a href="" title="Shop Now" class="btn btn-secondary">Shop Now</a>
+                            <h1><span>HONGKONG'S</span> LEADING BESPOKE <span>TAILOR</span></h1>
+                            <p>BESPOKE OR MADE TO MEASURE SUITS & FORMAL WEARS</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-3 latest-grid">
-                    <div class="latest-top">
-                        <img  src="<?php echo base_url(); ?>assets/theme/images/pant.jpg" class="img-responsive"  alt="">
-                        <div class="latest-text">
-                            <h4>Pant</h4>
-                        </div>
-                        <div class="latest-text2 hvr-sweep-to-top">
-                            <h4 style="    font-size: 12px;">From<br/> HK$ 500.00</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="clearfix"></div>
-            </div>
-
-        </div>
-    </div>
-    <!--end of custom block-->
-    <hr/>
-
-
-
-    <!--new-arrivals-->
-    <div class="new-arrivals-w3agile">
-        <div class="container">
-            <h2 class="tittle">New Arrivals in Shirts</h2>
-            <div class="arrivals-grids">
-                <?php
-                foreach ($product_home_slider_bottom['home_slider'] as $key => $value) {
-                    ?>
-                    <div class="col-md-3 cap-left simpleCart_shelfItem">
-                        <div class="grid-arr">
-                            <div  class="grid-arrival">
-                                <figure>		
-                                    <a href="#">
-                                        <div class="grid-img">
-                                            <img  src="<?php echo custome_image_server . "/coman/output/"; ?><?php echo $value['folder']; ?>/cutting20001.png" class="img-responsive" alt="" style="height: 245px;">
-                                        </div>
-
-                                    </a>		
-                                </figure>	
-                            </div>
-
-                            <div class="women">
-                                <h6><a href=""><?php echo $value['title']; ?> </a></h6>
-                                <span class="size"><?php echo $value['short_description']; ?> </span>
-                                <p ><em class="item_price">{{<?php echo $shirtcustome->price; ?>|currency:"<?php echo globle_currency; ?> "}}</em></p>
-                                <a href="<?php echo site_url("Product/customizationRedirect/" . $shirtcustome->id) ?>/<?php echo $value['id']; ?>" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
-                            </div>
+                    <!-- end hero caption -->
+                </li>
+                <li style="background: url('<?php echo base_url(); ?>assets/theme/images/3.jpg');height: 600px;">
+                    <!-- start hero caption -->
+                    <div class="hero-caption-area">
+                        <div class="container">
+                            <a href="" title="Shop Now" class="btn btn-secondary">Shop Now</a>
+                            <h1>ORDER TO MADE!</h1>
+                            <p>HAND MADE AND HAND CUT</p>
                         </div>
                     </div>
-                <?php } ?>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-    <!--new-arrivals-->
-    <hr/>
-
-    <!--accessories-->
-    <div class="accessories-w3l">
-        <div class="container">
-            <h3 class="tittle">ORIGINAL ITALIAN FABRICS</h3>
-            <span style="font-size: 35px;">The best men's suits are tailored from the best cloth.</span>
-            <div class="button">
-                <a href="#" class="button1"> Shop Now</a>
-                <a href="#" class="button1"> Quick View</a>
-            </div>
-        </div>
-    </div>
-    <!--accessories-->
-
-
-    <!--Products-->
-    <!--Products-->
-    <div class="product-agile">
-        <div class="container">
-            <h3 class="tittle1"> New Fabrics In Suits</h3>
-            <div class="slider">
-                <div class="callbacks_container">
-                    <ul class="rslides" id="slider">
-                        <li>	 
-                            <div class="caption">
-                                <?php
-                                foreach ($product_home_slider_bottom['home_bottom'] as $key => $value) {
-                                    ?>
-                                    <div class="col-md-3 cap-left simpleCart_shelfItem">
-                                        <div class="grid-arr">
-                                            <div  class="grid-arrival">
-                                                <figure>		
-                                                    <a href="#">
-                                                        <div class="grid-img">
-                                                            <img  src="<?php echo custome_image_server . "/coman/output/"; ?><?php echo $value['folder']; ?>/cutting20001.png" class="img-responsive" alt="">
-                                                        </div>
-
-                                                    </a>		
-                                                </figure>	
-                                            </div>
-
-                                            <div class="women">
-                                                <h6><a href=""><?php echo $value['title']; ?> </a></h6>
-                                                <span class="size"><?php echo $value['short_description']; ?> </span>
-                                                <p ><em class="item_price">{{<?php echo $suitcustome->price; ?>|currency:"<?php echo globle_currency; ?> "}}</em></p>
-                                                <a href="<?php echo site_url("Product/customizationRedirect/" . $suitcustome->id) ?>/<?php echo $value['id']; ?>" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                <div class="clearfix"></div>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <?php
-    $clients = ["1DerrickWilliams.jpg", "2PrinceAkim.jpg", "3RapperGotti.jpg", "5.jpg", "6.jpg", "7.jpg", "14.jpg", "17.jpg"];
-
-    $clientsa = ["a.jpg", "b.jpg", "c.jpg", "d.jpg"];
-    ?>
-</div>
-<!--content-->
-<hr/>
-
-<!--clients area-->
-<div class="latest-w3">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/theme/GridGallery/css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/theme/GridGallery/css/component.css" />
-
-    <script src="<?php echo base_url(); ?>assets/theme/GridGallery/js/modernizr.custom.js"></script>
-    <h3 class="tittle1"> Our Clients</h3>
-    <div id="grid-gallery" class="grid-gallery" style="    margin-top: 2em;">
-        <section class="grid-wrap">
-            <ul class="grid">
-                <li class="grid-sizer"></li><!-- for Masonry column width -->
-
-                <?php foreach ($clients as $key => $value) {
-                    ?>
-                    <li>
-                        <div class="panel panel-default" style="border:none;margin: 0px">
-                            <div class="panel-body" style="    padding: 5px;">
-                                <div class="thumbnail" style="border:none; padding: 0px;   margin-bottom: 0px;">
-                                    <img src="<?php echo base_url(); ?>assets/theme/clients/<?php echo $value; ?>" alt="img01" style=""/>
-
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <?php
-                }
-                ?>
-
-
+                    <!-- end hero caption -->
+                </li>
             </ul>
-            <div style="clear:both"></div>
-        </section><!-- // grid-wrap -->
-        <section class="slideshow" >
-            <ul>
+        </div>
+        <!-- end hero slider -->
+        <!-- start main container -->
+        <div class="content main-container" id="site-content">
+            <div class="padding-tb-10">
+                <div class="container">
+                    <div class="spacer-45"></div>
+                    <h2 class="m-0"><strong>All</strong> about Fashions</h2>
+                    <!-- start tab -->
+                    <div class="tab">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-12 col-sm-12">
+                                <!-- start tab nav -->
+                                <div class="tab-nav">
+                                    <ul>
+                                        <li class="active">
+                                            <a href="#tab1" title="">
+                                                <span class="tab-items clearfix">
+                                                    <span class="tab-number">01</span>
+                                                    <span class="tab-items-content">
+                                                        <strong>Made To Measure</strong>
 
-                <?php foreach ($clients as $key => $value) {
-                    ?>
-                    <li>
-                        <div class="panel panel-default" style="background: none;border:none;">
-                            <div class="panel-body" style="">
-                                <div class="thumbnail" style="background: none;border:none">
-                                    <img src="<?php echo base_url(); ?>assets/theme/clients/<?php echo $value; ?>" alt="img01"  style="    height: 600px;
-                                         margin-top: -40px;"/>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab2" title="">
+                                                <span class="tab-items clearfix">
+                                                    <span class="tab-number">02</span>
+                                                    <span class="tab-items-content">
+                                                        <strong>Professional Shanghainese Workmanship</strong>
 
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab3" title="">
+                                                <span class="tab-items clearfix">
+                                                    <span class="tab-number">03</span>
+                                                    <span class="tab-items-content">
+                                                        <strong>Made In Hong Kong</strong>
+
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
+                                <!-- end tab nav -->
+                            </div>
+                            <div class="col-lg-7 col-md-12 col-sm-12">
+                                <!-- start tab content -->
+                                <div class="tab-content" id="tab1">
+                                    <img src="<?php echo base_url(); ?>assets/theme/images/2block/1.jpg" alt="">
+                                </div>
+                                <!-- end tab content -->
+                                <!-- start tab content -->
+                                <div class="tab-content" id="tab2">
+                                    <img src="<?php echo base_url(); ?>assets/theme/images/2block/2.jpg" alt="">
+                                </div>
+                                <!-- end tab content -->
+                                <!-- start tab content -->
+                                <div class="tab-content" id="tab3">
+                                    <img src="<?php echo base_url(); ?>assets/theme/images/2block/3.jpg" alt="">
+                                </div>
+                                <!-- end tab content -->
                             </div>
                         </div>
-                    </li>
-                    <?php
-                }
-                ?>
+                    </div>
+                    <!-- end tab -->
+                </div>
+            </div>
 
-            </ul>
-
-            <nav>
-                <span class="icon nav-prev"></span>
-                <span class="icon nav-next"></span>
-                <span class="icon nav-close"></span>
-            </nav>
-
-        </section><!-- // slideshow -->
-    </div><!-- // grid-gallery -->
-
-
-    <!-- // grid-gallery -->
-    <script src="<?php echo base_url(); ?>assets/theme/GridGallery/js/imagesloaded.pkgd.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/theme/GridGallery/js/masonry.pkgd.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/theme/GridGallery/js/classie.js"></script>
-    <script src="<?php echo base_url(); ?>assets/theme/GridGallery/js/cbpGridGallery.js"></script>
-    <script>
-        new CBPGridGallery(document.getElementById('grid-gallery'));
-    </script>
-</div>
-<!--end of client area-->
+            <div class="padding-tb-10 text-center">
+                <div class="container">
+                    <h2>What <br> our client’s say</h2>
+                    <div class="thumb-slider2 flexslider">
+                        <ul class="slides">
+                            <li>
+                                <!-- start testimonial -->
+                                <div class="testimonial testimonial-style4">
+                                    <blockquote>
+                                        <p style='    padding: 0px 60px;'>I have been a very pleased customer for three years. The owner Michael gives very personalized service in helping selecting fabrics and meeting scheduling needs.
+                                            Please go see Michael! I’m sure you will find him to meet your tailoring needs in Hong Kong</p>
+                                    </blockquote>
+                                </div>
+                                <!-- end testimonial -->
+                            </li>
+                            <li>
+                                <!-- start testimonial -->
+                                <div class="testimonial testimonial-style4">
+                                    <blockquote>
+                                        <p style='    padding: 0px 60px;'>
+Was in HK for about a week and stumbled into this shop after exploring quite a few others in the neighborhood.  The service was excellent, and the staff was very friendly and helpful.                                        </p>
+                                    </blockquote>
+                                </div>
+                                <!-- end testimonial -->
+                            </li>
+                            <li>
+                                <!-- start testimonial -->
+                                <div class="testimonial testimonial-style4">
+                                    <blockquote>
+                                        <p style='    padding: 0px 60px;'>
+I came into Hong Kong and only had a couple of days in the city and I came upon Rahman fashions in the city and I am very impressed.                                         </p>
+                                    </blockquote>
+                                </div>
+                                <!-- end testimonial -->
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="testimonial-author thumb-carousel2 flexslider">
+                        <ul class="slides">
+                            <li class="testimonial">
+                                <a href="#">
+                                  
+                                    <cite>
+                                        <strong>Ric Young</strong>
+                                        <span>Google Review</span>
+                                    </cite>
+                                </a>
+                            </li>
+                            <li class="testimonial">
+                                <a href="#">
+                                   
+                                    <cite>
+                                        <strong>Avraham Feingold</strong>
+                                        <span>Google Review</span>
+                                    </cite>
+                                </a>
+                            </li>
+                            <li class="testimonial">
+                                <a href="#">
+                                   
+                                    <cite>
+                                        <strong>Naftali Gross</strong>
+                                        <span>Google Review</span>
+                                    </cite>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="spacer-10 hidden-sm"></div>
+            
+        </div>
+        <!-- end main container -->
 <?php
 $this->load->view('layout/footer');
 ?>
