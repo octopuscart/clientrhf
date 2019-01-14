@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('Asia/Hong_Kong');
 defined('BASEPATH') OR exit('No direct script access allowed');
 require("configdbconnect.php");
 $configuration = $globleConnectDB;
