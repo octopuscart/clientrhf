@@ -150,13 +150,13 @@ $image2 = "";
 
         <!-- Breadcrumb -->
         <br/>
-       <small style="font-size: 15px;" class="barcomb">
-           <a href="<?php echo site_url("/"); ?>">Home</a>
+        <small style="font-size: 15px;" class="barcomb">
+            <a href="<?php echo site_url("/"); ?>">Home</a>
             <?php echo count($linklist) ? "<i class='fa fa-arrow-right'></i>" : ''; ?>
             <?php
             echo implode("<i class='fa fa-arrow-right'></i>", $linklist)
             ?>
-       </small>
+        </small>
 
     </h1>
 </div>
@@ -174,12 +174,12 @@ $image2 = "";
                 <!-- Shop Side Bar -->
                 <div class="col-md-3">
                     <div class="side-bar">
-<!--                        <div class="search">
-                            <form>
-                                <input type="text" placeholder="SEARCH">
-                                <button type="submit"> <i class="fa fa-search"></i></button>
-                            </form>
-                        </div>-->
+                        <!--                        <div class="search">
+                                                    <form>
+                                                        <input type="text" placeholder="SEARCH">
+                                                        <button type="submit"> <i class="fa fa-search"></i></button>
+                                                    </form>
+                                                </div>-->
 
                         <?php if (count($categories)) { ?>
                             <!-- HEADING -->
@@ -286,11 +286,8 @@ $image2 = "";
                 </div>
 
                 <!-- Main Shop Itesm -->          
-                <div class="col-md-9"> 
+                <div class="col-md-9" style="margin-bottom: 50px"> 
 
-                    <button class="btn btn-default btn-small pull-right" style="    position: absolute;
-                            right: 10px;
-                            top: -45px;" data-toggle="modal" data-target="#productcustome">View Custom Cart</button>
 
                     <div id="content1"  ng-if="productProcess.state == 1" style="padding: 100px 0px;"> 
 
@@ -316,135 +313,33 @@ $image2 = "";
 
                         <div class="row products-container content" ng-if="productProcess.state == 2">
                             <!-- Item -->
-                            <div class="col-sm-4 animated zoomIn"  ng-repeat="(k, product) in productResults.products">
-                                <article class="shop-artical"> 
-                                    <?php
-                                    switch ($custom_id) {
-                                        case "1":
-                                            ?>
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/shirt/output/{{product.folder}}/shirtFoldm0001.png" alt="product">
 
-                                            <div class="item-hover" style="background: url(<?php echo custome_image_server; ?>/shirt/output/{{product.folder}}/shirt_model10001.png);    background-size: 96%;
-                                                 background-color: white;
-                                                 background-repeat: no-repeat;"> 
+                            <div class="col-lg-4 col-md-4 col-sm-12" style="padding: 10px;" ng-repeat="(k, product) in productResults.products">
+                                <!-- start gallery items -->
+                                <div class="gallery-items">
+                                    <div class=" thumbnail card" style="    border: none;">
+                                        <center>
+                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/output/{{product.folder}}/cutting20001.png" alt="product" >
 
-                                                <a href="#." class="btn by" style="    font-size: 9px;" ng-click="addToCart(product.product_id, 1, <?php echo $custom_id; ?>)" title="Choose fabric for multiple customization">Design Multiple</a> 
-                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn" style="font-size: 9px;" title="Customize this fabric">Design Single</a> 
-                                            </div>
 
-                                            <?php
-                                            break;
-                                        case "2":
-                                            ?>
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/s1_master_style60001.png" alt="product">
-                                            <div class="item-hover" style="background: url(<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/style_buttons.png);    background-size: 139%;
-                                                 background-color: white;
-                                                 background-repeat: no-repeat;"> 
-                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn" style="font-size: 9px;" title="Customize this fabric">Design Single
+
+                                            <h3 style="text-align: center">{{product.title}}
+                                                <br>
+                                                <span style="font-size: 12px">{{product.short_description}} </span></h3>
+                                            <p style="text-align: center">{{product.price|currency:"<?php echo globle_currency; ?> "}}</p>
+                                            <p>
+                                            <center> 
+                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger" style="font-size: 9px;" title="Customize this fabric">Design Now
                                                 </a> 
-                                                <a href="#." class="btn by" style="    font-size: 9px;" ng-click="addToCart(product.product_id, 1, <?php echo $custom_id; ?>)" title="Choose fabric for multiple customization">Design Multiple</a> 
-                                            </div>
-                                            <?php
-                                            break;
-                                        case "5":
-                                            ?>
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/s1_master_style60001.png" alt="product">
-                                            <div class="item-hover" style="background: url(<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/style_buttons.png);    background-size: 139%;
-                                                 background-color: white;
-                                                 background-repeat: no-repeat;"> 
-                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn" style="font-size: 9px;" title="Customize this fabric">Design Single
-                                                </a> 
-                                                <a href="#." class="btn by" style="    font-size: 9px;" ng-click="addToCart(product.product_id, 1, <?php echo $custom_id; ?>)" title="Choose fabric for multiple customization">Design Multiple</a> 
-                                            </div>
-                                            <?php
-                                            break;
-                                        case "6":
-                                            ?>
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/s1_master_style60001.png" alt="product">
-                                            <div class="item-hover" style="background: url(<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/style_buttons.png);    background-size: 139%;
-                                                 background-color: white;
-                                                 background-repeat: no-repeat;"> 
-                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn" style="font-size: 9px;" title="Customize this fabric">Design Single
-                                                </a> 
-                                                <a href="#." class="btn by" style="    font-size: 9px;" ng-click="addToCart(product.product_id, 1, <?php echo $custom_id; ?>)" title="Choose fabric for multiple customization">Design Multiple</a> 
-                                            </div>
-                                            <?php
-                                            break;
-
-                                        case "7":
-                                            ?>
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/s1_master_style60001.png" alt="product">
-                                            <div class="item-hover" style="background: url(<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/style_buttons.png);    background-size: 139%;
-                                                 background-color: white;
-                                                 background-repeat: no-repeat;"> 
-                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn" style="font-size: 9px;" title="Customize this fabric">Design Single
-                                                </a> 
-                                                <a href="#." class="btn by" style="    font-size: 9px;" ng-click="addToCart(product.product_id, 1, <?php echo $custom_id; ?>)" title="Choose fabric for multiple customization">Design Multiple</a> 
-                                            </div>
-                                            <?php
-                                            break;
-
-                                        case "3":
-                                            ?>
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/pant_style10001.png" alt="product">
-                                            <div class="item-hover" style="background: url(<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/fabricx0001.png);    background-size: 139%;
-                                                 background-color: white;
-                                                 background-repeat: no-repeat;"> 
-                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn" style="font-size: 9px;" title="Customize this fabric">Design Single
-                                                </a> 
-                                                <a href="#." class="btn by" style="    font-size: 9px;" ng-click="addToCart(product.product_id, 1, <?php echo $custom_id; ?>)" title="Choose fabric for multiple customization">Design Multiple</a> 
-                                            </div>
-                                            <?php
-                                            break;
-                                        case "4":
-                                            ?>
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/s1_master_style60001.png" alt="product">
-
-                                            <div class="item-hover" style="background: url(<?php echo custome_image_server; ?>/jacket/output/{{product.folder}}/style_buttons.png);    background-size: 139%;
-                                                 background-color: white;
-                                                 background-repeat: no-repeat;"> 
-                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn" style="font-size: 9px;" title="Customize this fabric">Design Single
-                                                </a> 
-                                                <a href="#." class="btn by" style="    font-size: 9px;" ng-click="addToCart(product.product_id, 1, <?php echo $custom_id; ?>)" title="Choose fabric for multiple customization">Design Multiple</a> 
-                                            </div>
-                                            <?php
-                                            break;
-                                        default:
-                                            echo $custom_item;
-                                            ?>
-                                            <div class="item-hover" style=""> 
-                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn" style="font-size: 9px;" title="Customize this fabric">Design Single
-                                                </a> 
-                                                <a href="#." class="btn by" style="    font-size: 9px;" ng-click="addToCart(product.product_id, 1, <?php echo $custom_id; ?>)" title="Choose fabric for multiple customization">Design Multiple</a> 
-                                            </div>
-                                        <?php
-                                    }
-                                    ?>
-
-                                    <div class="info"> 
-                                        <a href="#.">
-                                            {{product.title}}
-                                            <br>
-                                            <span style="font-size: 12px">{{product.short_description}} </span>
-                                        </a> 
-                                        <p style="    margin-bottom: 0px;
-                                           height: 5px;
-                                           float: left;
-                                           width: 100%;" ng-if="product.attr.length">
-
-                                            <span class="colorblock" style="background: {{product.attr[0]['Colors']}};"></span>
-                                        </p>
-                                        <p style="    margin-bottom: 0px;
-                                           height: 5px;
-                                           float: left;
-                                           width: 100%;" ng-if="product.attr.length == 0">
-
-                                            <span class="colorblock" ></span>
-                                        </p>
-                                        <span class="price">{{product.price|currency:"<?php echo globle_currency; ?> "}}</span> 
+                                                        <!--<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#mdl<?php echo $value['title']; ?>" style="margin: 10px auto">View</a>-->
+                                            </center>
+                                            </p>
                                     </div>
-                                </article>
+                                </div>
+                                <!-- end gallery items -->
                             </div>
+
+                            
 
                         </div>
 
@@ -482,7 +377,7 @@ $image2 = "";
 
                     <div class="col-md-12" id="paging_container1">
                         <div class="showing-info">
-                            <p class="text-center"><span class="info_text ">Showing {0}-{1} of {2} results</span></p>
+                            <!--<p class="text-center"><span class="info_text ">Showing {0}-{1} of {2} results</span></p>-->
                         </div>
                         <div class="row products-container content" ng-if="productProcess.state == 2">
                             <!-- Item -->
@@ -591,7 +486,7 @@ $image2 = "";
 
 <script>
     var category_id = <?php echo $category; ?>;
-            var custom_id = <?php echo $custom_id; ?>;</script>
+    var custom_id = <?php echo $custom_id; ?>;</script>
 <!--angular controllers-->
 
 
@@ -608,7 +503,7 @@ $this->load->view('layout/footer');
 
 
 <script type="text/javascript">
-            $(document).ready(function () {
+    $(document).ready(function () {
 
     });
 </script>
