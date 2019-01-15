@@ -23,7 +23,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
 }
 </style>
 
-<div class="page-header bg-image" style="background: url(<?php echo base_url(); ?>assets/theme/images/appointment.jpg);">
+<div class="page-header bg-image" style="background: url(<?php echo base_url(); ?>assets/theme/images/appointment.jpg);background-size: cover;">
     <h1 class="text-white">Appointment</h1>
 </div>
 

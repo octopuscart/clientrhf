@@ -2,23 +2,22 @@
 $this->load->view('layout/header');
 ?>
 
+<section class="sub-bnr" data-stellar-background-ratio="0.5" style="margin-bottom: 10px;">
+    <div class="position-center-center">
+        <div class="container">
+            <h4>My Profile</h4>
 
-
-<div class="inner-page-banner-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcrumb-area">
-                    <h1>My Profile</h1>
-                    <ul>
-                        <li><a href="#">Home</a> /</li>
-                        <li>Account</li>
-                    </ul>
-                </div>
-            </div>
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Account</li>
+            </ol>
         </div>
     </div>
-</div>
+</section>
+
+
+
 
 
 
@@ -62,7 +61,7 @@ $this->load->view('layout/header');
 
                                 <form class="create_account_form row woocommerce-EditAccountForm edit-account" method="post" action="#">
                                     <input type="hidden" name="user_id" value="45">
-                                    <ul class="">
+                                    <ul class="row">
                                         <li class="col-sm-6 woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
                                             <label>
                                                 First Name
@@ -106,18 +105,18 @@ $this->load->view('layout/header');
                                             </label> 
                                         </li>
 
-                                        <li class="col-sm-6 woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
+<!--                                        <li class="col-sm-6 woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
 
                                             <label>
                                                 Date of Birth
                                                 <input type="date" class="woocommerce-Input woocommerce-Input--text input-text" name="birth_date"  value="<?php echo $user_details->birth_date; ?>">
                                             </label>
-                                        </li>
+                                        </li>-->
 
 
-                                        <li class="col-sm-6" style="padding-top: 20px;">
+                                        <li class="col-sm-12" style="padding-top: 20px;">
 
-                                            <button name="update_profile" type="submit" class="woocommerce-Button button btn-shop-now-fill">Update Profile</button>
+                                            <button name="update_profile" type="submit" class="woocommerce-Button button btn-shop-now-fill btn btn-default">Update Profile</button>
                                         </li>
 
 

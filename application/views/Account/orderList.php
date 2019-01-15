@@ -26,21 +26,19 @@ $this->load->view('layout/header');
     }
 </style>
 
-<div class="inner-page-banner-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcrumb-area">
-                    <h1>My Orders</h1>
-                    <ul>
-                        <li><a href="#">Home</a> /</li>
-                        <li>Account</li>
-                    </ul>
-                </div>
-            </div>
+<section class="sub-bnr" data-stellar-background-ratio="0.5" style="margin-bottom: 10px;">
+    <div class="position-center-center">
+        <div class="container">
+            <h4>My Profile</h4>
+
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Account</li>
+            </ol>
         </div>
     </div>
-</div>
+</section>
 
 
 
@@ -77,7 +75,7 @@ $this->load->view('layout/header');
                                             </h6>
                                         </div>
                                         <div class="col-md-4">
-                                            Total Amount: {{<?php echo $value->total_price; ?>|currency:"Rs. "}}
+                                            Total Amount: {{<?php echo $value->total_price; ?>|currency:"<?php echo globle_currency; ?> "}}
                                             <br/>
                                             Total Products: {{<?php echo $value->total_quantity; ?>}}
                                         </div>

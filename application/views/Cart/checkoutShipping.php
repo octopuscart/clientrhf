@@ -76,6 +76,23 @@ $this->load->view('layout/header');
 
 
 
+<!-- Inner Page Banner Area Start Here -->
+<div class="inner-page-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcrumb-area">
+                    <h1>Checkout</h1>
+                    <ul>
+                        <li><a href="#">Home</a> /</li>
+                        <li>Checkout</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Inner Page Banner Area End Here -->
 
 <!-- Content -->
 
@@ -182,22 +199,9 @@ $this->load->view('layout/header');
 
 
 
-<!-- Content -->
-<div id="content" class="cart-page-area"  ng-if="globleCartData.total_quantity == 0"> 
-    <!-- Tesm Text -->
-    <section class="error-page text-center pad-t-b-130">
-        <div class="container "> 
-
-            <!-- Heading -->
-            <h1 style="font-size: 40px">No Product Found</h1>
-            <p>Please add product to cart<br>
-                You can go back to</p>
-            <hr class="dotted">
-            <a href="<?php echo site_url(); ?>" class="btn-send-message ">BACK TO HOME</a>
-        </div>
-    </section>
-</div>
-<!-- End Content --> 
+<?php
+    $this->load->view('Cart/noproduct');
+    ?>
 
 
 
@@ -290,9 +294,9 @@ $this->load->view('layout/header');
 <!--angular controllers-->
 <script src="<?php echo base_url(); ?>assets/theme/angular/productController.js"></script>
 <script>
-    var avaiblecredits =<?php echo $user_credits; ?>;
+    var avaiblecredits =0;
 </script>
 
 <?php
-$this->load->view('layout/footer');
+$this->load->view('layout/footer', array('custom_item'=>0, 'custom_id'=>0));
 ?>

@@ -18,15 +18,6 @@ $this->load->view('layout/header');
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/theme/css/bootstrap.vertical-tabs.css">
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/theme/css/style_custome.css">
 <style>
-     .tabs-left>li.active>a, .tabs-left>li.active>a:focus, .tabs-left>li.active>a:hover {
-    color: #555;
-    cursor: default;
-     background: #0d59af!important; 
-    border: 1px solid #000;
-     }
-     .media-body{
-        padding: 0px 5px;
-    }
     .product_image_back {
         background-size: contain!important;
         background-repeat: no-repeat!important;
@@ -170,113 +161,28 @@ $this->load->view('layout/header');
         <!--======= PAGES INNER =========-->
         <section class="item-detail-page padding-top-30 ">
             <div class="container" style="width: 100%">
-                <div class="row m_bottom_30"> 
+                <div class="row"> 
 
 
                     <!--======= IMAGES SLIDER =========-->
 
 
-                    <div class="col-sm-5 large-detail shirtcontainer customization_margin_top_<?php echo $custom_id;?> " >
+                    <div class="col-sm-5 large-detail shirtcontainer  " style="    height: 530px;">
 
                         <div class="col-sm-12 col-xs-12"  style="padding: 0">
                             <div class="tab-content">
 
-                                <div class="{{$index === 0?'active':''}} frame1" ng-repeat="fab in cartFabrics" id="fabric_{{fab.product_id}}">
-<!--                                    <button class="btn btn-default btn-lg custom_rotate_button" ng-click="rotateModel()">
-                                        <i class="icon ion-refresh"></i>
-                                    </button>
-                                    <button class="btn btn-default btn-lg custom_rotate_button show_shirt_button" ng-click="show_shirt('with_shirt')" style="margin-right: 65px;">
-                                        <img src="<?php echo base_url(); ?>assets/images/customization_suit/jacket_with_shirt.png" class="show_shirt_image" >
-                                    </button>
-                                    <button class="btn btn-default btn-lg custom_rotate_button show_shirt_button" ng-click="show_shirt('without_shirt')">
-                                        <img src="<?php echo base_url(); ?>assets/images/customization_suit/jacket_without_shirt.png" class="show_shirt_image" >
-                                    </button>-->
-                                    <div class="fontview_custom customization_block animated zoom "  ng-if="screencustom.view_type == 'front'" >
-
-                                        <img src="<?php echo base_url(); ?>assets/images/suit_elements/body_base.png" class="fixpos animated" >
-
-                                        <!--breast pocket-->
-                                        <img src="<?php echo base_url(); ?>assets/images/suit_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Breast Pocket'].elements">
-
-
-                                        <!--button sleeve-->
-                                        <img src="<?php echo base_url(); ?>assets/images/suit_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Sleeve Buttons'].elements" >
-
-                                        <!--jacket body left-->
-                                        <img src="<?php echo base_url(); ?>assets/images/suit_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Jacket Style'].elements" >
-
-                                        <!--buttons-->
-                                        <img src="<?php echo base_url(); ?>assets/images/suit_elements/{{img}}.png" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Jacket Style'].buttons2" >
-
-                                       
-
-
-                                        <!--lower pocket-->
-                                        <img src="<?php echo base_url(); ?>assets/images/suit_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Lower Pocket'].elements">
-
-
-                                        <img src="<?php echo base_url(); ?>assets/images/suit_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Lapel Style'].laple_style[selecteElements[fab.product_id]['Jacket Style'].title].elements">
-
-
-                                        <div class="" ng-if="selecteElements[fab.product_id]['Handstitching'].title == 'Yes'">
-                                            <img src="<?php echo base_url(); ?>assets/images/suit_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Lapel Style'].laple_style[selecteElements[fab.product_id]['Jacket Style'].title].stitcing">
-                                        </div>
-
-                                        <div class="" ng-if="selecteElements[fab.product_id]['Lapel Button Hole'].title == 'Yes'">
-                                            <img src="<?php echo base_url(); ?>assets/images/suit_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Lapel Style'].laple_style[selecteElements[fab.product_id]['Jacket Style'].title].hole" >
-                                        </div>
-
-                                        <!--buttons-->
-                                        <img src="<?php echo base_url(); ?>assets/images/suit_elements/{{img}}.png" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Jacket Style'].buttons" >
-
-
-
-                                    </div>   
-
-
-                                    <div class="backview_custom customization_block zoom animated " ng-if="screencustom.view_type == 'back'">
-
-
-
-                                        <img src="<?php echo base_url(); ?>assets/images/suit_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Back Vent'].elements">
-
-
-                                    </div> 
-
-
-                                    <div class="backview_custom customization_block zoom animated " ng-if="screencustom.view_type == 'pant'">
-
-                                        <img src="<?php echo base_url(); ?>assets/images/pant_elements/base.png" class="fixpos animated">
-
-                                        <!--font-->
-                                        <img src="<?php echo base_url(); ?>assets/images/pant_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Number of Pleat'].elements">
-
-                                        <img src="<?php echo base_url(); ?>assets/images/pant_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Front Pocket Style'].elements">  
-
-                                        <img src="<?php echo base_url(); ?>assets/images/pant_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Waistband'].elements">
-
-                                        <img src="<?php echo base_url(); ?>assets/images/pant_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Cuff'].elements">
-
-                                    </div> 
-
-
-                                    <div class="backview_custom customization_block zoom animated " ng-if="screencustom.view_type == 'pantback'">
-
-                                        <img src="<?php echo base_url(); ?>assets/images/pant_elements/base_back.png" class="fixpos animated">
-
-                                        <img src="<?php echo base_url(); ?>assets/images/pant_elements/pocket_back_belt_loop.png" class="fixpos animated" ng-if="selecteElements[fab.product_id]['Waistband'].backbeltloop=='true'">
-
-                                        <img src="<?php echo base_url(); ?>assets/images/pant_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Cuff'].elements">
-
-                                        <img src="<?php echo base_url(); ?>assets/images/pant_elements/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Number of Back Pocket'].elements">  
-                                    </div> 
-
+                                <div class="{{$index === 0?'active':''}} frame" ng-repeat="fab in cartFabrics" id="fabric_{{fab.product_id}}">
+                                    
+                                   <?php
+                                    $this->load->view('customization/suitBlock');
+                                    ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--======= ITEM DETAILS =========-->
-                    <div class="col-sm-7 col-xs-12 mobile_bottom_20">
+                    <div class="col-sm-7 col-xs-12">
                         <!--shirt customization-->
                         <div class="row" style="margin-top: 10px;">
                             <?php
@@ -286,7 +192,7 @@ $this->load->view('layout/header');
                     </div>
                 </div>
 
-                <div class="row customization_order_block bg_gradiant">
+                <div class="row customization_order_block">
 
                     <?php
                     $this->load->view('Product/custom_bottom');
@@ -305,8 +211,8 @@ $this->load->view('layout/header');
 
 <script>
     var product_id = <?php echo $productdetails['id']; ?>;
-    var defaut_view = "<?php echo $custom_item;?>";
-    var gcustome_id = <?php echo $custom_id;?>;
+    var defaut_view = "<?php echo $custom_item; ?>";
+    var gcustome_id = <?php echo $custom_id; ?>;
 </script>
 
 <!--angular controllers-->

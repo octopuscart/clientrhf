@@ -69,23 +69,19 @@ $this->load->view('layout/header');
     }
 
 </style>
+<section class="sub-bnr" data-stellar-background-ratio="0.5" style="margin-bottom: 10px;">
+    <div class="position-center-center">
+        <div class="container">
+            <h4>My Profile</h4>
 
-<div class="inner-page-banner-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcrumb-area">
-                    <h1>My Addresses</h1>
-                    <ul>
-                        <li><a href="#">Home</a> /</li>
-                        <li>Account</li>
-                    </ul>
-                </div>
-            </div>
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Account</li>
+            </ol>
         </div>
     </div>
-</div>
-
+</section>
 
 
 <!-- Content -->
@@ -108,7 +104,9 @@ $this->load->view('layout/header');
                         <!-- Address Details -->
                         <div class="col-md-12">
                             <div class="">
-                                <h6>Addresses <button class="btn btn-small" data-toggle="modal" data-target="#changeAddress" style="margin-left: 20px;padding: 5px 11px;color:white;"><i class="fa fa-plus"></i> Add New</button></h6>
+                                <h6>Addresses
+                                    <!--<button class="btn btn-small" data-toggle="modal" data-target="#changeAddress" style="margin-left: 20px;padding: 5px 11px;color:white;"><i class="fa fa-plus"></i> Add New</button>-->
+                                </h6>
                             </div>
                             <div class="noti-check1" style="#f5f5f5">  
                                 <div class="row">

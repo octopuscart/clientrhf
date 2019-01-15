@@ -2,15 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Order No#</title>
+        <title></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
-            table, tr, td, th{
-                    border: none;
-            }
-            
             .carttable{
-                 
+                border-color: #fff;
             }
 
             .carttable td{
@@ -64,23 +60,24 @@
 
     <body style="margin: 0;
           padding: 0;
-          background: white;;
+          background: rgb(225, 225, 225);
           font-family: sans-serif;">
-        <div class="" style="padding:50px 0px;border: 5px solid;
-    border-color: #9347df;">
-            <table align="center" border="0" cellpadding="0" cellspacing="0" width="700" style="background: #fff;padding: 0 20px">
+        
+         <div class="" style="padding:50px 0px;    background: #ababab;">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="700" style=" background: linear-gradient(to right, #FFD194, #D1913C);padding: 0 20px">
                 <tr>
                     <td >
-                        <center><img src="<?php echo site_mail_logo; ?> " style="margin: 10px;
-                                     height: 100px;
+                         <center><img src="<?php echo site_mail_logo; ?> " style="margin: 10px;
+                                     height: 50px;
                                      width: auto;"/><br/>
-                            <h4 style="color: rgb(147, 71, 223);"> Welcome</h4>
+                            <h4 style="color: white;"> Welcome</h4>
                         </center>
                     </td>
 
                 </tr>
-
             </table>
+        
+        
 
             <table class="carttable"  border-color= "#9E9E9E" align="center" border="1" cellpadding="0" cellspacing="0" width="700" style="background: #fff;padding:20px">
 
@@ -91,57 +88,32 @@
 
                         <p>Dear <?php echo $customer->first_name; ?> <?php echo $customer->last_name; ?>,</p><br/>
 
-                        <p> Thank you for registering your online Shaniel Fashions account from <?php echo $customer->country; ?>. </p>
+                        <p> Thank you for registering your online Royal Tailor account from <?php echo $customer->country; ?>. </p>
                         <p>You will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more. </p> 
                         <p>Your Login Credentials: </p>
-                        <table style="        margin-top: 12px;
-    border: 3px solid #9347df;
-    width: 100%;
-    text-align: center;
-    background: #3b71ed;
-    color: white;
-    border-radius: 61px;">
+                        <table style="    margin-top: 12px;
+                               border: 1px solid #e1e1e1;">
                             <tr>
-                                <td style="    font-size: 20px;">
-                                    <span style="color: #779df6">Username/Email</span>
+                                <td>
+                                    <span style="color: #e70000">Username/Email</span>
                                     <br/>
-                                    <b style="color: #fff"><?php echo $customer->email; ?></b>
+                                    <b><?php echo $customer->email; ?></b>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="    font-size: 20px;">
-                                    <span style="color: #779df6">Password</span>
+                                <td>
+                                    <span style="color: #e70000">Password</span>
 
                                     <br/>
-                                    <b style="color: #fff"><?php echo $customer->password2; ?></b>
+                                    <b><?php echo $customer->password2; ?></b>
                                 </td>
                             </tr>
                         </table>
-                        <p>
-                            Mr.Shaniel is the owner of Shaniel Fashions Ltd. “We provide the modern gentleman with high quality menswear that fits your body perfectly. All of our products are hand tailored and delivered to any part of the world within 3 weeks.
-                        </p>
 
 
-                        <br/>
-                        <div style="height: 200px;margin-top: 30px;">Kindest Regards,<br />
-                            <img src="<?php echo site_mail_logo; ?>" style="height: 30px;  background: #000 ;margin: 5px 0px 10px ;"><br/>
-                                <span style="float: left; font-size: 12px;">
+                       
+                        <div >                        <?php echo EMAIL_FOOTER; ?>
 
-                                    <address>
-
-                                        <b>Address</b><br/>
-                                        B & C, G/F, 
-                                        Comfort Building,     <br/>
-                                        86-88A Nathan Road,    <br/>
-                                        Tsim Sha Tsui, 
-                                        Kowloon, Hong Kong                                      <br/>
-                                        <b style="    float: left;width: 34px;">Tel#</b>: +(852) 2730 1251, +(852) 2730 1287<br/>
-                                        <b style="    float: left;width: 34px;">Email</b>: shaniel@netvigator.com, sales@shanielfashions.com <br/>
-                                        <b style="    float: left;width: 34px;">Web</b>: www.shanielfashions.com
-
-
-                                    </address>
-                                </span>
                         </div>
 
                     </td>

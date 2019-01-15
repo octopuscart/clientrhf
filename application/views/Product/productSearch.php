@@ -183,14 +183,48 @@ $linklist = [];
 <!-- Shop Page Area End Here -->
 
 
+<!-- Shop Page Area End Here -->
+<div id="paging_container1" class="container1">
+    <h2>Vanilla</h2>
+    <div class="page_navigation"></div>
+
+    <ul class="content">
+        <li><p>One</p></li> 
+        <li><p>Two</p></li> 
+        <li><p>Three</p></li> 
+        <li><p>Four</p></li> 
+        <li><p>Five</p></li> 
+        <li><p>Six</p></li> 
+        <li><p>Seven</p></li> 
+        <li><p>Eight</p></li> 
+        <li><p>Nine</p></li> 
+        <li><p>Ten</p></li> 
+        <li><p>Eleven</p></li> 
+        <li><p>Twelve</p></li> 
+        <li><p>Thirteen</p></li> 
+        <li><p>Fourteen</p></li> 
+        <li><p>Fifteen</p></li> 
+        <li><p>Sixteen</p></li> 
+    </ul>	
+</div>	
+
+
 <script>
     
     var keywords = "<?php echo $keyword?>";
 </script>
-<!--angular controllers-->
-<script src="<?php echo base_url(); ?>assets/theme/angular/productController.js"></script>
+
+<script src="<?php echo base_url(); ?>assets/theme2/angular/productController.js"></script>
 
 
 <?php
 $this->load->view('layout/footer');
 ?>
+<!--angular controllers-->
+<script src="<?php echo base_url(); ?>assets/theme2/js/jquery.pajinate.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#paging_container1').pajinate();
+    });
+</script>

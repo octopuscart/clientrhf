@@ -5,10 +5,8 @@
         <title>Order No#</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
-
-
             .carttable{
-
+                border-color: #fff;
             }
 
             .carttable td{
@@ -39,10 +37,11 @@
                 margin: 2.5px;
                 /* background: #000; */
                 color: white;
-                    border-bottom: 1px solid #1565c0;
+                border: 1px solid #e4e4e4;
                 width: 47%;
-                    font-size: 12px;
+                font-size: 12px;
             }
+
 
             .style_block span {
                 background: #fff;
@@ -57,39 +56,34 @@
                 /*background: #dedede;*/
                 color: black;
             }
-                span.fr_value {
-    margin-left: 1px;
-    padding: 0;
-    font-size: 9px;
-    text-align: -webkit-left;
-    position: absolute;
-    margin-top: 0px;
-    width: 20px;
-}
+            span.fr_value {
+                margin-left: 1px;
+                padding: 0;
+                font-size: 9px;
+                text-align: -webkit-left;
+                position: absolute;
+                margin-top: 0px;
+                width: 20px;
+            }
         </style>
     </head>
-
     <body style="margin: 0;
           padding: 0;
-          background: white;;
+
           font-family: sans-serif;">
-        <div class="" style="padding:50px 0px;">
-            <table align="center" border="0" cellpadding="0" cellspacing="0" width="700" style="background: #1565c0;padding: 0 20px">
+        <div class="" style="padding:50px 0px;    background: #ababab;">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="700" style=" background: linear-gradient(to right, #FFD194, #D1913C);padding: 0 20px">
                 <tr>
                     <td >
                         <center><img src="<?php echo site_mail_logo; ?> " style="margin: 10px;
-                                     height: 100px;
+                                     height: 50px;padding: 10px;background: white;
+                                     border-radius: 50%;
                                      width: auto;"/><br/>
-
-                            <h4 style="color: #fff"> Order No.: <?php echo $order_data->order_no; ?></h4>
-
+                            <h4 style="color: white;"> Order No.: <?php echo $order_data->order_no; ?></h4>
                         </center>
-
-
                     </td>
 
                 </tr>
-
             </table>
             <table class="detailstable" align="center" border="0" cellpadding="0" cellspacing="0" width="700" style="background: #fff">
                 <tr>
@@ -120,7 +114,7 @@
 
 
                     </td>
-                    <td style="font-size: 12px;width: 30%" >
+                    <td style="font-size: 12px;width: 50%" >
 
                         <table class="gn_table">
                             <tr>
@@ -160,7 +154,7 @@
                     </td>
                 </tr>
             </table>
-            <table class="carttable"   align="center" border="1" cellpadding="0" cellspacing="0" width="700" style="background: #fff;">
+            <table class="carttable"  border-color= "#9E9E9E" align="center" border="1" cellpadding="0" cellspacing="0" width="700" style="background: #fff;padding:20px">
                 <tr style="font-weight: bold">
                     <td style="width: 20px;text-align: center">S.No.</td>
                     <td colspan="2"  style="text-align: center">Product</td>
@@ -191,6 +185,19 @@
 
                         <td style="text-align: right">
                             <?php echo $product->price; ?>
+                            <?php
+                            if ($product->extra_price > 0) {
+                                ?>
+                                <span  style="font-size: 10px;
+                                       
+                                       ">
+                                    <br/>
+                                     <?php echo $product->price - $product->extra_price; ?> 
+                                    + <?php echo $product->extra_price; ?>
+                                </span>
+                                <?php
+                            }
+                            ?>
                         </td>
 
                         <td style="text-align: right">
@@ -251,35 +258,16 @@
                     <td style="text-align: right;width: 60px"><?php echo globle_currency . " " . number_format($order_data->credit_price, 2, '.', ''); ?> </td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="text-align: right">Toal Amount</td>
+                    <td colspan="2" style="text-align: right">Total Amount</td>
                     <td style="text-align: right;width: 60px"><?php echo globle_currency . " " . number_format($order_data->total_price, 2, '.', ''); ?> </td>
                 </tr>
 
 
-                <tr style="background: #1565c0;
-    color: #fff;">
+                <tr>
                     <td colspan="6" style="font-size: 12px;">
 
 
-
-
-
-
-
-                        <p>We assure you of best services at all times.</p>
-
-                        <div style="height: 200px;margin-top: 30px;">Kindest Regards,<br />
-                            <img src="<?php echo site_mail_logo; ?>" style="height: 30px; ;margin: 5px 0px 10px ;"><br/>
-                                <span style="float: left; font-size: 12px;">
-                                    <address>
-                                        <b>Address</b><br/>
-                                        Shop# 13, G/F, Wing Lee Building,<br> 27-33 Kimberley Rd, Tsim Sha Tsui,<br> Hong Kong                                    <br/>
-                                        <b style="    float: left;width: 34px;">Tel#</b>: +(852) 6626 4429<br/>
-                                        <b style="    float: left;width: 34px;">Email</b>: john@perfectfashion.com.hk, sales@johnsperfectfashion.com<br/>
-                                        <b style="    float: left;width: 34px;">Web</b>: www..johnsperfectfashion.com
-                                    </address>
-                                </span>
-                        </div>
+                        <?php echo EMAIL_FOOTER; ?>
 
                         <br/>
                         <span style="    text-align: center;

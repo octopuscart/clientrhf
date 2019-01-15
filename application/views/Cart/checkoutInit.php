@@ -115,57 +115,97 @@ $this->load->view('layout/header');
 
                         <div class="clearfix"></div>
                         <div class="cart-page-top table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <td class="cart-form-heading text_center" style="width: 50%" colspan="2">Product</td>
-                                        <td class="cart-form-heading text_center">Price</td>
+                            <div class="cart-page-top table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td class="cart-form-heading text-left" style="width: 50%" colspan="2">Product</td>
+                                            <td class="cart-form-heading text-center">Price</td>
+                                            <td class="cart-form-heading text-center" style="    width: 135px;">Quantity</td>
+                                            <td class="cart-form-heading text-center">Total</td>
+                                            <td class="cart-form-heading"></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="quantity-holder">
+                                        <tr ng-repeat="product in globleCartData.products">
+                                            <td class="cart-img-holder " style="    border-right: 0px;    width: 35px;">
+                                                <a href="#">
+                                                    <img  src="{{product.file_name}}" alt=""  alt="cart" class="img-responsive cart_image_block">
+                                                </a>
+                                            </td>
+                                            <td  style="    border-left: 0px;">
+                                                <h3 style="font-size: 20px;"><a href="#">{{product.title}} - {{product.item_name}}</a>
+                                                    <br/>
+                                                    <small style="font-size: 10px">{{product.sku}}</small>
+                                                </h3>
+                                                <button type="button" ng-click="viewStyle(product)" class="btn btn-primary"  style="margin-top: 10px;    margin-top: 10px;
+                                                        padding: 0px 10px;
+                                                        line-height: 19px;">View Design</a>
 
-                                        <td class="cart-form-heading text_center">Total</td>
-                                        <td class="cart-form-heading"></td>
-                                    </tr>
-                                </thead>
-                                <tbody id="quantity-holder">
-                                    <tr ng-repeat="product in globleCartData.products">
-                                        <td class="cart-img-holder" style="    border-right: 0px;">
-                                            <a href="#">
-                                                <img  src="{{product.file_name}}" alt=""  alt="cart" class="img-responsive cart_image_block">
-                                            </a>
-                                        </td>
-                                        <td  style="    border-left: 0px;">
-                                            <h3><a href="#">{{product.title}} - {{product.item_name}}</a>
-                                                <br/>
-                                                <small style="font-size: 10px">{{product.sku}}</small>
-                                            </h3>
-                                        </td>
-                                        <td class="amount">{{product.price|currency:" "}} X {{product.quantity}}
-                                        </td>
-                                        <td class="amount">{{product.total_price|currency:" "}}</td>
-                                        <td class="dismiss"><a href="#"  ng-click="removeCart(product.product_id)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" class="text_right">
-                                            TOTAL
-                                        </td>
-                                        <td class="text-center amount">
-                                            {{globleCartData.total_price|currency:"<?php echo globle_currency; ?>"}}
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="5" class="text_right">
-                                            <div class="proceed-button pull-left " >
-                                                <a href=" <?php echo site_url("Cart/details"); ?>" class="btn-apply-coupon checkout_button_pre disabled" ><i class="fa fa-arrow-left"></i> Back To Cart</a>
-                                            </div>
-                                            <div class="proceed-button pull-right ">
-                                                <a href=" <?php echo site_url("Cart/checkoutSize"); ?>" class="btn-apply-coupon checkout_button_next disabled" >Your Size <i class="fa fa-arrow-right"></i></a>
-                                            </div>
-                                        </td>
+                                            </td>
+                                            <td class="amount text-center" >{{product.price|currency:" "}}</td>
+                                            <td class="quantity text-center">
 
-                                    </tr>
+                                                {{product.quantity}}
 
-                                </tbody>
-                            </table>
+
+                                            </td>
+                                            <td class="amount text-center">{{product.total_price|currency:" "}}</td>
+                                            <td class="dismiss">
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" class="text-right">
+                                                TOTAL
+                                            </td>
+                                            <td class="text-center amount text-center">
+                                                {{globleCartData.total_price|currency:"<?php echo globle_currency; ?>"}}
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6" class="text_right">
+                                                <section class="pad-t-b-30 light-gray-bg shopping-cart small-cart"  >
+                                                    <div class="container"> 
+                                                        <!-- SHOPPING INFORMATION -->
+                                                        <div class="cart-ship-info margin-top-0" style="    margin-bottom: 10px;"> 
+                                                            <div class="row">
+                                                                <!-- SUB TOTAL -->
+
+                                                                <div class="col-md-4">
+                                                                    <a href="<?php echo site_url("Cart/details"); ?>" class="btn btn-primary pull-left" ><i class=" fa fa-arrow-left"></i> Customize More </a>
+
+                                                                </div>
+                                                                <div class="col-md-4">
+
+                                                                    <!-- SUB TOTAL -->
+                                                                    <h2 class=" text-center" style="font-size: 20px;
+                                                                        margin-top: 10px;">TOTAL: <span>{{globleCartData.total_price|currency:"<?php echo globle_currency_type; ?>"}}</span></h2>
+
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <a href="<?php echo site_url('Cart/checkoutInit') ?>" class="btn btn-primary pull-right" >Proceed To Checkout <i class=" fa fa-arrow-right"></i></a>
+
+                                                                </div>
+
+
+
+
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
 
                         </div>
 
@@ -190,23 +230,10 @@ $this->load->view('layout/header');
 
     </div>
 
-    <!-- Content -->
-    <div id="content"  ng-if="!globleCartData.total_quantity"> 
-        <!-- Tesm Text -->
-        <section class="error-page text-center pad-t-b-130">
-            <div class="container "> 
 
-                <!-- Heading -->
-                <h1 style="font-size: 40px">No Product Found</h1>
-                <p>Please add product to cart<br>
-                    You can go back to</p>
-                <hr class="dotted">
-                <a href="<?php echo site_url(); ?>" class="btn-send-message ">BACK TO HOME</a>
-            </div>
-        </section>
-    </div>
-    <!-- End Content --> 
-
+    <?php
+    $this->load->view('Cart/noproduct');
+    ?>
 
 </div>
 
@@ -218,9 +245,9 @@ $this->load->view('layout/header');
 <!--angular controllers-->
 <script src="<?php echo base_url(); ?>assets/theme/angular/productController.js"></script>
 <script>
-    var avaiblecredits =<?php echo $user_credits; ?>;
+                                                var avaiblecredits = 0;
 </script>
 
 <?php
-$this->load->view('layout/footer');
+$this->load->view('layout/footer', array('custom_item' => 0, 'custom_id' => 0));
 ?>

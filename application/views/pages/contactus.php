@@ -33,7 +33,9 @@ $this->load->view('layout/header');
                     </div>
                     <div class="contact-info">
                         <h4>Address</h4>
-                        <p> Mirador Mansion, Shop No. 30 & 49,<br/> G/F 54-64 Nathan Road <br/>Tsim Sha Tsui, Hong Kong</p>
+                        <p> 
+                            Mirador Mansion, Shop No. 30 & 49,<br/> G/F 54-64 Nathan Road <br/>Tsim Sha Tsui, Hong Kong
+                        </p>
                     </div>
                 </div>
             </div>

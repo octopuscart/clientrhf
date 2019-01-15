@@ -83,6 +83,8 @@ class Cart extends CI_Controller {
             $data['user_address_details'] = $user_address_details;
         } else {
             $session_cart = $this->Product_model->cartDataCustome();
+            $address = $this->session->userdata('shipping_address');
+            $data['user_address_details'] = $address ? [$this->session->userdata('shipping_address')] : [];
         }
 
         $custome_items = $session_cart['custome_items'];
@@ -119,7 +121,13 @@ class Cart extends CI_Controller {
             }
 
             $this->session->set_userdata('measurement_style', $measurement_style);
+            
+            if ($this->checklogin) {
             redirect('Cart/checkoutShipping');
+            }
+            else{
+                redirect('CartGuest/checkoutShipping');
+            }
         }
         $this->load->view('Cart/checkoutSize', $data);
     }

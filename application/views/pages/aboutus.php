@@ -3,9 +3,8 @@ $this->load->view('layout/header');
 ?>
 
 
-
 <!-- start page header -->
-	<div class="page-header bg-image" style="background: url(<?php echo base_url(); ?>assets/theme/images/older-man-in-suit-banner.jpg);">
+	<div class="page-header bg-image" style="background: url(<?php echo base_url(); ?>assets/theme/images/older-man-in-suit-banner.jpg);background-size: cover;">
 		<h1 class="text-white">About Us</h1>
 	</div>
 	<!-- end page header -->

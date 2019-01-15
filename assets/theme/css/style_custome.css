@@ -40,7 +40,7 @@ code {
 .fixpos{
     position: absolute;
     left: 0;
-    height: 430px;
+    height: 480px;
 }
 
 
@@ -86,12 +86,12 @@ code {
 
 
 .customization_title{
-  height: auto;
-    background: #0d59af;
+    height: 45px;
+    background: #000;
     color: #fff;
     text-align: center;
     font-size: 12px;
-    padding: 5px 5px;
+    padding: 0px 5px;
 }
 .customization_box{
     margin-bottom: 50px;
@@ -118,8 +118,7 @@ code {
 }
 
 .shirtcontainer{
-    height: 430px;
-    clear: both;
+       height: 530px;
 }
 
 
@@ -136,7 +135,7 @@ code {
 
 
 .item.elementItem .activestyle {
-    border: 3px solid #0d59af;
+    border: 3px solid #666;
 }
 
 .item.elementItem.noselected {
@@ -155,12 +154,10 @@ code {
 
 
 .customization_block{
-    height: 485px;
-    width: 380px;
+    height: 430px;
+    width: 500px;
     /*background: #c9c9c9;*/
     /*border: 1px solid #dfdfdf;*/
-    margin: 0px auto;
-    position: relative;
 }
 
 .custom_rotate_button{
@@ -211,8 +208,6 @@ code {
     background-position: 0px -115px!important;
     border-radius: 50%;
     opacity: 0.5;
-    height: 100px;
-    width:100px;
 }
 
 .fabricblock_a{
@@ -238,7 +233,7 @@ code {
 .monogramtext_posistion{
     color: white;
     padding: 0 2px;
-    background: black;
+    /*background: black;*/
     height: 10px;
     z-index: 200;
     font-size: 8px;
@@ -252,33 +247,84 @@ code {
 }
 
 .monogramtext_posistion_collar {
-    left: 180px;
+    left: 225px;
     display: block;
-    top: 11px;
-    line-height: 10px;
-    font-size: 8px;
-    height: 9px;
+    top: 26px;
+        transform: rotate(0deg);
 }
 
-.monogramtext_posistion_cuff_left{
-        left: 324px;
+.multicustom .monogramtext_posistion_collar {
+    left: 223px;
     display: block;
-    top: 368px;
-    transform: rotate(19deg);
-    line-height: 7px;
-    font-size: 7px;
-    height: 8px;
+    top: 24px;
+        transform: rotate(0deg);
+
 }
 
-.monogramtext_posistion_left_pocket{
-        left: 240px;
+
+.monogramtext_posistion_cuff_left {
+       left: 331px;
     display: block;
-    top: 126px;
-    line-height: 10px;
-    font-size: 7px;
-    height: 10px;
-    transform: rotate(0deg);
+    top: 304px;
+    transform: rotate(42deg)
 }
+
+.multicustom .monogramtext_posistion_cuff_left {
+    left: 332px;
+    display: block;
+    top: 306px;
+    transform: rotate(43deg);
+}
+
+
+.monogramtext_posistion_left_pocket {
+    left: 279px;
+    display: block;
+    top: 139px;
+        transform: rotate(0deg);
+}
+.multicustom .monogramtext_posistion_left_pocket {
+    left: 277px;
+    display: block;
+    top: 136px;
+        transform: rotate(0deg);
+}
+
+.monogramtext_posistion_abdomen{
+    left: 263px;
+    display: block;
+    top: 285px;
+        transform: rotate(0deg);
+    /*transform: rotate(43deg);*/
+} 
+           
+
+.monogramtext_posistion_shirt_tail{
+        left: 251px;
+    display: block;
+    top: 431px;
+        transform: rotate(0deg);
+}
+
+
+.multicustom .monogramtext_posistion_abdomen{
+    left: 250px;
+    display: block;
+    top: 285px;
+        transform: rotate(0deg);
+    /*transform: rotate(43deg);*/
+} 
+           
+
+.multicustom .monogramtext_posistion_shirt_tail{
+        left: 251px;
+    display: block;
+    top: 431px;
+        transform: rotate(0deg);
+}
+
+
+
 
 
 .customization_items  .nav>li>a {
@@ -333,7 +379,6 @@ p.fabric_title {
     text-align: center;
     background: #000;
     font-size: 12px;
-
     /* border-bottom-left-radius: 50%; */
     /* border-bottom-right-radius: 50%; */
     border-radius: 43%;
@@ -350,9 +395,8 @@ p.fabric_title {
 .selected-fabric-block-image{
     height: 47px;
     width: 47px;
-    float: left;
     background-size: 179px !important;
-    background-position: 0px 58px!important;
+       background-position: -25px 69px!important;
 }
 
 
@@ -385,7 +429,9 @@ p.selected-element-title_text_price{
 
 .customization_order_block{
     height: 60px;
-    background: #1565c0;
+    background: #000;
+
+
     width: 100%;
     /* padding: 37px; */
     margin: 0px;
@@ -407,7 +453,6 @@ p.selected-element-title_text_price{
 .total_price_block h5 {
     font-size: 19px;
     color: white;
-        margin-top: 20px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -419,15 +464,15 @@ p.selected-element-title_text_price{
     }
 
     .customization_order_block {
-        height: 60px;
-    background: #0d59af;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 0px 0px;
-    margin: 0px;
-    left: 0;
-    z-index: 100;
+        height: 54px;
+        background: #000;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        /* padding: 37px; */
+        margin: 0px;
+        left: 0;
+        z-index: 100;
     }
 
     .cuff_collar_area_elements{
@@ -451,9 +496,7 @@ p.selected-element-title_text_price{
     }
 
     .mobile_view_element_tab{
-        height: 70px;
-        float: left;
-    margin-right: 15px;
+        height: 70px
     }
 
     .monogramtext_posistion_collar {
@@ -461,6 +504,7 @@ p.selected-element-title_text_price{
         display: block;
         top: 4px;
     }
+
 
     .monogramtext_posistion_cuff_left {
         left: 80%;
@@ -505,13 +549,12 @@ p.selected-element-title_text_price{
     }
 
     .customization_items {
-        height: 650px;
+        height: 600px;
         overflow: auto;
     }
 
     .customization_block{
         height: 380px;
-            width: auto;
     }
 
     .customization_items_title{
@@ -616,19 +659,19 @@ p.selected-element-title_text_price{
 .customization_items::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #cbc9c9;
+    background-color: red;
 }
 
 .customization_items::-webkit-scrollbar
 {
     width: 15px;
-    background-color: #cbc9c9;
+    background-color: red;
 }
 
 .customization_items::-webkit-scrollbar-thumb
 {
-    background-color: #053e80;
-    border: 0px solid #cbc9c9;
+    background-color: #000;
+    border: 0px solid red;
 }
 
 .elementTabList .nav-tabs>li.active>a, .elementTabList .nav-tabs>li.active>a:focus, .elementTabList .nav-tabs>li.active>a:hover {
@@ -655,14 +698,50 @@ p.selected-element-title_text_price{
     padding-left: 5px;
 }
 
-.btn-small.insert_button {
-    height: 23px;
+.customization_title {
+    height: 45px;
+    background: #fff;
+    color: #000;
+    text-align: center;
     font-size: 12px;
-    margin-top: -14px;
+    padding: 0px 5px;
+    font-weight: 600;
+    vertical-align: middle;
 }
 
-.nav > li > a:hover, .nav > li > a:focus {
-    background: #cfcccc;
-    color: #000 !important; 
+.fabricblock {
+    background-size: 237px !important;
+    background-position: -33px -118px!important;
+    border-radius: 50%;
+    opacity: 0.5;
 }
 
+.multicustom .fixpos{
+    height: 480px;
+}
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Oswald", sans-serif !important;
+    color: #1a2028;
+    width: 100%;
+}
+
+.customization_items .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 5px 5px;
+    width: 100%;
+}
+
+.tabs-left>li {
+    margin-right: -1px;
+      width: 100%;
+}
+
+.custome_element_col {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0px 5px;
+    float: left;
+}

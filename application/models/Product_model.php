@@ -369,11 +369,11 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
                     array_push($session_cart['custome_items'], $value['item_id']);
                     array_push($session_cart['custome_items_name'], $value['item_name']);
                 }
-                if (isset($value['custom_dict'])) {
+              
                     $returndata['products'][$key] = $value;
                     $returndata['total_quantity'] += $value['quantity'];
                     $returndata['total_price'] += $value['total_price'];
-                }
+                
             }
             return $returndata;
         }
@@ -768,7 +768,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
             );
             $this->db->insert('user_order_log', $orderlog);
 
-            $subject = "Order Confirmation - Your Order with www.royaltailor.hk [" . $order_no . "] has been successfully placed!";
+            $subject = "Order Confirmation - Your Order with Rahman Fashion [" . $order_no . "] has been successfully placed!";
             $this->email->subject($subject);
 
             if ($checkcode) {
