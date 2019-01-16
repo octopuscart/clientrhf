@@ -56,7 +56,7 @@ Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, 
                     </div>
                     <div class="contact-info">
                         <h4>Contact No.</h4>
-                        <p><span class="timeing_open">Phone</span> : <a href="tel:+(852) 2369 1196"> +(852) 2369 1196</a> <br> <span class="timeing_open">FAX </span>: <a href="tel:+(852) 9500 0744">+(852) 9500 0744</a></p>
+                        <p><span class="timeing_open">Phone</span> : <a href="tel:+(852) 2369 1196"> +(852) 2369 1196</a> <br> <span class="timeing_open">FAX </span>: <a href="tel:+(852) 9500 0744">+(852) 2369 7298</a></p>
                     </div>
                 </div>
             </div>
