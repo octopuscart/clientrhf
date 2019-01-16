@@ -113,7 +113,7 @@ class CustomApi extends REST_Controller {
                         "title" => "Collar",
                         "css_class" => "monogramtext_posistion_collar",
                         "not_show_when" => [],
-                        "view_type" => "back",
+                        "view_type" => "front",
                         "image" => "customization/monogram_outside_coller_band.jpg"
                     ),
                     array(
