@@ -87,7 +87,7 @@
         <!-- end footer top -->
         <!-- start footer bottom -->
         <div class="footer-bottom">
-            <cite class="copy-right">Copyright <?php echo date('Y') ?>. All Rights Reserved by <a href="http://www.rahmanfashion.com" target="_blank" title="www.rahmanfashion.com">www.rahmanfashion.com</a>.</cite>
+            <cite class="copy-right">Copyright <?php echo date('Y') ?>. All Rights Reserved by <a href="http://www.rahmanfashions.com" target="_blank" title="www.rahmanfashion.com">www.rahmanfashion.com</a>.</cite>
         </div>
         <!-- end footer bottom -->
     </div>
