@@ -180,7 +180,7 @@ $image2 = "";
                                                         <button type="submit"> <i class="fa fa-search"></i></button>
                                                     </form>
                                                 </div>-->
-
+ <div class="spacer-30"></div>
                         <?php if (count($categories)) { ?>
                             <!-- HEADING -->
                             <div class="heading">
@@ -189,7 +189,7 @@ $image2 = "";
                             </div>
 
                             <!-- CATEGORIES -->
-                            <ul class="cate">
+                            <ul class="cate" style="padding-left: 20px;">
 
                                 <?php
                                 foreach ($categories as $key => $value) {
@@ -295,7 +295,7 @@ $image2 = "";
                         <section class="error-page text-center pad-t-b-130">
                             <div class="{{productResults.products.length?'container1':'container'}}"> 
                                 <center>
-                                    <img src="<?php echo base_url() . 'assets/theme2/img/loader.gif' ?>">
+                                    <!--<img src="<?php echo base_url() . 'assets/theme2/img/loader.gif' ?>">-->
                                 </center>
                                 <!-- Heading -->
                                 <h1 style="font-size: 40px;text-align: center">Loading...</h1>
