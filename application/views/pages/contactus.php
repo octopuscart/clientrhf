@@ -34,8 +34,7 @@ $this->load->view('layout/header');
                     <div class="contact-info">
                         <h4>Address</h4>
                         <p> 
-                            Mirador Mansion, Shop No. 30 & 49,<br/> G/F 54-64 Nathan Road <br/>Tsim Sha Tsui, Hong Kong
-                        </p>
+Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, Tsim Sha Tsui,<br/> Kowloon, Hong Kong<br>(MTR Exit No. N5)<br>                        </p>
                     </div>
                 </div>
             </div>
@@ -46,7 +45,7 @@ $this->load->view('layout/header');
                     </div>
                     <div class="contact-info">
                         <h4>Email</h4>
-                        <p><a href="mailto:sales@rahmanfashion.com" title=" rftailor@biznetvigator.com"> rftailor@biznetvigator.com</a> <br> <a href="mailto:sales@rahmanfashion.com" title="sales">sales@rahmanfashion.com</a></p>
+                        <p><a href="mailto:sales@rahmanfashion.com" title=" rftailor@biznetvigator.com"> rftailor@biznetvigator.com</a> <br> <a href="mailto:sales@rahmanfashion.com" title="sales">sales@rahmanfashions.com</a></p>
                     </div>
                 </div>
             </div>
