@@ -430,7 +430,7 @@ class CustomApi extends REST_Controller {
                         "customization_category_id" => "5",
                         "halfsleeve" => ["back_half_sleeve0001.png", "back_half_sleeve_cuff0001.png"],
                         "fullsleeve" => ["back_full_sleeve0001.png",],
-                        "elements" => [ "body_round0001.png", "b_shirtbody_squre0001.png", "yoke0001.png"],
+                        "elements" => [ "back_body_round0001.png", "b_shirtbody_squre0001.png", "yoke0001.png"],
                         "overlay" => "",
                         "image" => "customization/back_plain.jpeg"
                     ), array(
@@ -440,7 +440,7 @@ class CustomApi extends REST_Controller {
                         "halfsleeve" => ["back_half_sleeve0001.png", "back_half_sleeve_cuff0001.png"],
                         "fullsleeve" => ["back_full_sleeve0001.png", "back_full_sleeve0001.png",],
                         "overlay" => "back_two_side_plea_over_lay.png",
-                        "elements" => ["body_round0001.png", "b_shirtbody_squre0001.png", "shirtbody_pleat_side0001.png", "yoke0001.png"],
+                        "elements" => ["back_body_round0001.png", "b_shirtbody_squre0001.png", "shirtbody_pleat_side0001.png", "yoke0001.png"],
                         "image" => "customization/back_two_side.jpeg"
                     ), array(
                         "status" => "0",
@@ -449,7 +449,7 @@ class CustomApi extends REST_Controller {
                         "halfsleeve" => ["back_half_sleeve0001.png", "back_half_sleeve_cuff0001.png"],
                         "fullsleeve" => ["back_full_sleeve0001.png", "back_sleeve_cuff0001.png"],
                         "overlay" => "box_pleat_overlay1.png",
-                        "elements" => [ "body_round0001.png", "b_shirtbody_squre0001.png", "shirtbody_pleat_box0001.png", "yoke0001.png"],
+                        "elements" => [ "back_body_round0001.png", "b_shirtbody_squre0001.png", "shirtbody_pleat_box0001.png", "yoke0001.png"],
                         "image" => "customization/back_box_pleat.jpeg"
                     ), array(
                         "status" => "1",
@@ -458,7 +458,7 @@ class CustomApi extends REST_Controller {
                         "halfsleeve" => ["back_half_sleeve0001.png", "back_half_sleeve_cuff0001.png"],
                         "fullsleeve" => ["back_full_sleeve0001.png", "back_full_sleeve_cuff0001.png"],
                         "overlay" => "dart_overlay1.png",
-                        "elements" => ["body_round0001.png", "b_shirtbody_squre0001.png", "dart20001.png", "yoke0001.png"],
+                        "elements" => ["back_body_round0001.png", "b_shirtbody_squre0001.png", "dart20001.png", "yoke0001.png"],
                         "image" => "customization/dart.jpeg"
                     )],
                 "Pocket" => [

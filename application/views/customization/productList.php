@@ -181,6 +181,7 @@ $this->load->view('layout/header');
                                 </div>
                             </div>
                         </div>
+                        <div style="clear:both"></div>
                     </div>
 
                     <div ng-if="!productResults.products.length">
