@@ -76,9 +76,9 @@
                     <div class="spacer-10"></div>
                     <dl>
                         <dt>Monday to Saturday</dt>
-                        <dd>9:00 AM to 9:00 PM</dd>
+                        <dd>09:00 AM to 09:00 PM</dd>
                         <dt>Sunday</dt>
-                        <dd>10 AM to 7 PM</dd>
+                        <dd>10:00 AM to 07:00 PM</dd>
                     </dl>
                     <div class="spacer-30"></div>
                 </div>

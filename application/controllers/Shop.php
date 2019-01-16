@@ -110,7 +110,7 @@ class Shop extends CI_Controller {
                 "type"=>"local",
                 "id"=>"au0_app",
                 "country" => "Hong Kong",
-                "city_state" => "Kowloon,  T. S. T",
+                "city_state" => "Kowloon,  T. S. T.",
                 "hotel" => "SHOWROOM",
                 "address" => "Mirador Mansion, Shop No. 30 & 49, <br/>G/F 54-64 Nathan Road, <br/>Tsim Sha Tsui,
 Kowloon, Hong Kong",
@@ -121,7 +121,7 @@ Kowloon, Hong Kong",
                 "contact_no" => " +(852) 2369 1196",
                 "dates" => [
                     array("date" => "Mon - Sat", "timing1" => "09:00 AM", "timing2" => "07:00 PM"),
-                    array("date" => "Sun & Holidays", "timing1" => "09:00 AM", "timing2" => "06:00 PM"),
+                    array("date" => "Sun", "timing1" => "09:00 AM", "timing2" => "06:00 PM"),
                 ]
             ),];
        
