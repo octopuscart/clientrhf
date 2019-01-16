@@ -113,8 +113,8 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                             <li class="">
 
                                                 <span class="timeing_opensm"> <i class="fa fa-clock-o"></i> Timing</span><br/>
-                                                <span class="timeing_open">Mon - Sat</span>: 09:00 AM to 9:30 PM<br/>
-                                                <span class="timeing_open">Sun & Holidays</span>: 10:00 AM to 07:00 PM
+                                                <span class="timeing_open">Mon - Sat</span>: 09:00 AM to 09:00 PM<br/>
+                                                <span class="timeing_open">Sun</span>: 10:00 AM to 07:00 PM
                                             </li>
                                         </ul>
 
