@@ -66,7 +66,7 @@ class CustomApi extends REST_Controller {
                 array(
                     "title" => "Bottom",
                     "viewtype" => "front",
-                    "type" => "main",
+                    "type" => "submain",
                      "colrow" => "3",
                 ),
                 
@@ -387,7 +387,7 @@ class CustomApi extends REST_Controller {
                     array(
                         "status" => "1",
                         "title" => "Rounded",
-                        "elements" => ["shirtbody_round0001.png"],
+                        "elements" => ["shirtbody_round0001.png", "body_front_left0001.png"],
                         "customization_category_id" => "6",
                         "image" => "customization/bottom_rounded.jpeg",
                         "overlay" => []
@@ -395,7 +395,7 @@ class CustomApi extends REST_Controller {
                     array(
                         "status" => "0",
                         "title" => "Squared",
-                        "elements" => ["shirtbody_round0001.png"],
+                        "elements" => ["shirtbody_round0001.png", "body_front_left0001.png"],
                         "customization_category_id" => "6",
                         "image" => "customization/bottom_squred.jpeg"
                     )],
@@ -687,7 +687,7 @@ class CustomApi extends REST_Controller {
                         "insert_collar" => [ "collar_ragular_5w_ins0001.png"],
                         "insert_full" => ["collar_ragular_5w_insf0001.png"],
                         "image" => "customization/collar_regular.jpeg",
-                        "buttons" => "buttonsh1.png",
+                       
                     ), array(
                         "status" => "1",
                         "title" => "Medium Spread",
@@ -700,7 +700,7 @@ class CustomApi extends REST_Controller {
                         "stitching14" => [ "collar_medium_spread_5w0001st14.png"],
                         "insert_full" => ["collar_medium_spread_5w_insf0001.png"],
                         "image" => "customization/collar_medium_spread.jpeg",
-                        "buttons" => "buttonsh1.png",
+                       
                     ), array(
                         "status" => "0",
                         "title" => "Full Cutaway",
@@ -713,7 +713,7 @@ class CustomApi extends REST_Controller {
                         "stitching38" => [ "collar_fullcutaway_5w0001st38.png"],
                         "stitching14" => [ "collar_fullcutaway_5w0001st14.png"],
                         "image" => "customization/collar_full_cutaway.jpeg",
-                        "buttons" => "buttonsh1.png",
+                        
                     ), array(
                         "status" => "0",
                         "title" => "Wide Spread",
@@ -726,7 +726,7 @@ class CustomApi extends REST_Controller {
                         "insert_style" => "collar_m_comman_insert20001.png",
                         "insert_overlay" => "collar_simple_insert_overlay.png",
                         "insert_full" => ["collar_wide_spread_5w_insf0001.png"],
-                        "buttons" => "buttonsh1.png",
+                        
                     )
                     , array(
                         "status" => "0",
