@@ -630,11 +630,13 @@ class CustomApi extends REST_Controller {
                         "title" => "1 Regular Pocket",
                         "customization_category_id" => "7",
                         "elements" => ["shirtbody_pocket_right20001.png",],
+                        "overlay"=>["right_pocketoverlay.png"],
                         "image" => "customization/pocket_one.jpeg"
                     ), array(
                         "status" => "0",
                         "title" => "2 Regular Pockets",
                         "customization_category_id" => "7",
+                        "overlay"=>["left_pocketoverlay.png", "right_pocketoverlay.png"],
                         "elements" => ["shirtbody_pocket_right20001.png", "shirtbody_pocket_left20001.png"],
                         "image" => "customization/pocket_two.jpeg"
                     ),
