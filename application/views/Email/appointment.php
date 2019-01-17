@@ -69,7 +69,7 @@
                         <center><img src="<?php echo site_mail_logo; ?> " style="margin: 10px;
                                      height: 50px;
                                      width: auto;"/><br/>
-                            <h4 style="color: white;    margin-top: 0px;"> Your Appointment <br>
+                            <h4 style="color: black;    margin-top: 0px;"> Your Appointment <br>
                                     <small>
                                         Appointment Date & Time: <?php echo date_format(date_create($appointment['select_date'] . ' ' . $appointment['select_time']), "l, d F Y"); ?> (<?php echo $appointment['select_time']; ?>)
                                     </small>
