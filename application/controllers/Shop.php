@@ -119,8 +119,8 @@ class Shop extends CI_Controller {
                 
                 "contact_no" => " +(852) 2369 1196",
                 "dates" => [
-                    array("date" => "Mon - Sat", "timing1" => "09:00 AM", "timing2" => "07:00 PM"),
-                    array("date" => "Sun", "timing1" => "09:00 AM", "timing2" => "06:00 PM"),
+                    array("date" => "Mon - Sat", "timing1" => "09:00 AM", "timing2" => "09:00 PM"),
+                    array("date" => "Sun", "timing1" => "09:00 AM", "timing2" => "07:00 PM"),
                 ]
             ),];
        

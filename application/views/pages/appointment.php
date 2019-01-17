@@ -91,7 +91,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                     ?>
                                                                     <div class="form-group tab-pane " ng-if="dateselection<?php echo $value['id']; ?> == '<?php echo $dtvalue['date']; ?>'" style="font-color:#dd0101">
                                                                         <label for="select_time">Available Time</label> 
-                                                                        <select class="form-control" name="select_time" id="select_time" style="height:34px;" required />
+                                                                        <select class="form-control" name="select_time" id="select_time" style="" required />
                                                                         <?php
                                                                         for ($tm = $cnt1; $tm < $cnt2 + 1; $tm++) {
                                                                             $time1 = $timeslot[$tm];
@@ -131,14 +131,9 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                             <div class = "modal-content">
                                                 <form method="post" action="#">
                                                     <div class = "modal-header" style=" color: #fff;background: #dd0101 ">
-                                                        <button type = "button" style="    background-color: #dd0101;
-                                                                border: 1px solid #dd0101;" class = " btn btn-danger btn-xm pull-right" data-dismiss = "modal" aria-hidden = "true">
+                                                        
 
-                                                            <i class="fa fa-close"></i>
-
-                                                        </button>
-
-                                                        <div class = "modal-title row" id = "myModalLabel">
+                                                        <div class = "modal-title " id = "myModalLabel">
 
                                                             <address style="    margin-bottom: 0;">
                                                                 <span id="location"><b><?php echo $value['hotel']; ?></b>
@@ -150,6 +145,12 @@ if (isset($prefixshopappointment[$cdateshort])) {
 
                                                             <div style="clear: both"></div>
                                                         </div>
+                                                        <button type = "button" style="    background-color: #dd0101;
+                                                                border: 1px solid #dd0101;" class = " btn btn-danger btn-xm pull-right" data-dismiss = "modal" aria-hidden = "true">
+
+                                                            <i class="fa fa-close"></i>
+
+                                                        </button>
                                                     </div>
 
 
@@ -164,7 +165,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                 <div class="form-group" style="font-color:#dd0101">
 
                                                                     <label for="first_name">Last Name</label> 
-                                                                    <input type="text" class="time start form-control" name="last_name"  style="height:34px;" required/>
+                                                                    <input type="text" class="time start form-control" name="last_name"  style="" required/>
 
                                                                 </div>
                                                             </div>
@@ -172,7 +173,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                 <div class="form-group" style="font-color:#dd0101">
 
                                                                     <label for="first_name">First Name</label> 
-                                                                    <input type="text" class="time start form-control" name="first_name"  style="height:34px;" required />
+                                                                    <input type="text" class="time start form-control" name="first_name"  style="" required />
 
                                                                 </div>
                                                             </div>
@@ -181,7 +182,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                             <div class="col-md-4" >
                                                                 <div class="form-group" style="font-color:#dd0101">
                                                                     <label for="first_name">No. Of Persons</label> 
-                                                                    <input  class="time start form-control" type="number"  name="no_of_person"  style="height:34px;" min="1" value="1" />
+                                                                    <input  class="time start form-control" type="number"  name="no_of_person"  style="" min="1" value="1" />
 
                                                                 </div>
                                                             </div>
@@ -192,7 +193,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                 <div class="form-group" style="font-color:#dd0101">
 
                                                                     <label for="first_name">Email</label> 
-                                                                    <input type="text" class="time start form-control" name="email"   style="height:34px;" required />
+                                                                    <input type="text" class="time start form-control" name="email"   style="" required />
 
                                                                 </div>
                                                             </div>
@@ -201,7 +202,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                 <div class="form-group" style="font-color:#dd0101">
 
                                                                     <label for="first_name">Contact No.</label> 
-                                                                    <input type="text" class="time start form-control" name="contact_no"  style="height:34px;" required />
+                                                                    <input type="text" class="time start form-control" name="contact_no"  style="" required />
 
                                                                 </div>
                                                             </div>
@@ -213,7 +214,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                 <div class="form-group" style="font-color:#dd0101">
 
                                                                     <label for="select_date">Available Date</label> 
-                                                                    <select class="form-control" name="select_date" id="dateselection" style="height:34px;" required ng-model="dateselection<?php echo $value['id']; ?>"  ng-init="dateselection<?php echo $value['id']; ?> = '<?php echo $value['dates'][0]['date']; ?>'" >
+                                                                    <select class="form-control" name="select_date" id="dateselection" style="" required ng-model="dateselection<?php echo $value['id']; ?>"  ng-init="dateselection<?php echo $value['id']; ?> = '<?php echo $value['dates'][0]['date']; ?>'" >
 
                                                                         <?php
                                                                         $dataes = $value['dates'];
@@ -245,7 +246,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                     ?>
                                                                     <div class="form-group tab-pane " ng-if="dateselection<?php echo $value['id']; ?> == '<?php echo $dtvalue['date']; ?>'" style="font-color:#dd0101">
                                                                         <label for="select_time">Available Time</label> 
-                                                                        <select class="form-control" name="select_time" id="select_time" style="height:34px;" required />
+                                                                        <select class="form-control" name="select_time" id="select_time" style="" required />
                                                                         <?php
                                                                         for ($tm = $cnt1; $tm < $cnt2 + 1; $tm++) {
                                                                             $time1 = $timeslot[$tm];
@@ -264,7 +265,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
 
                                                                     <label for="select_date">Referral</label> 
 
-                                                                    <select class="form-control" name="referral" id="select_time" style="height:34px;" required >
+                                                                    <select class="form-control" name="referral" id="select_time" style="" required >
                                                                         <option value="">Select</option>
                                                                         <option value="Newspaper">Newspaper</option>
                                                                         <option value="Facebook">Facebook</option>
@@ -448,7 +449,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                             <div class="form-group" style="font-color:#dd0101">
 
                                                                 <label for="first_name">Last Name</label> 
-                                                                <input type="text" class="time start form-control" name="last_name"  style="height:34px;" required/>
+                                                                <input type="text" class="time start form-control" name="last_name"  style="" required/>
 
                                                             </div>
                                                         </div>
@@ -456,7 +457,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                             <div class="form-group" style="font-color:#dd0101">
 
                                                                 <label for="first_name">First Name</label> 
-                                                                <input type="text" class="time start form-control" name="first_name"  style="height:34px;" required />
+                                                                <input type="text" class="time start form-control" name="first_name"  style="" required />
 
                                                             </div>
                                                         </div>
@@ -465,7 +466,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                         <div class="col-md-4" >
                                                             <div class="form-group" style="font-color:#dd0101">
                                                                 <label for="first_name">No. Of Persons</label> 
-                                                                <input  class="time start form-control" type="number"  name="no_of_person"  style="height:34px;" min="1" value="1" />
+                                                                <input  class="time start form-control" type="number"  name="no_of_person"  style="" min="1" value="1" />
 
                                                             </div>
                                                         </div>
@@ -476,7 +477,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                             <div class="form-group" style="font-color:#dd0101">
 
                                                                 <label for="first_name">Email</label> 
-                                                                <input type="text" class="time start form-control" name="email"   style="height:34px;" required />
+                                                                <input type="text" class="time start form-control" name="email"   style="" required />
 
                                                             </div>
                                                         </div>
@@ -485,7 +486,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                             <div class="form-group" style="font-color:#dd0101">
 
                                                                 <label for="first_name">Contact No.</label> 
-                                                                <input type="text" class="time start form-control" name="contact_no"  style="height:34px;" required />
+                                                                <input type="text" class="time start form-control" name="contact_no"  style="" required />
 
                                                             </div>
                                                         </div>
@@ -497,7 +498,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                             <div class="form-group" style="font-color:#dd0101">
 
                                                                 <label for="select_date">Available Date</label> 
-                                                                <select class="form-control" name="select_date" id="dateselection" style="height:34px;" required ng-model="dateselection<?php echo $value['id']; ?>"  ng-init="dateselection<?php echo $value['id']; ?> = '<?php echo $value['dates'][0]['date']; ?>'" >
+                                                                <select class="form-control" name="select_date" id="dateselection" style="" required ng-model="dateselection<?php echo $value['id']; ?>"  ng-init="dateselection<?php echo $value['id']; ?> = '<?php echo $value['dates'][0]['date']; ?>'" >
 
                                                                     <?php
                                                                     $dataes = $value['dates'];
@@ -529,7 +530,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                 ?>
                                                                 <div class="form-group tab-pane " ng-if="dateselection<?php echo $value['id']; ?> == '<?php echo $dtvalue['date']; ?>'" style="font-color:#dd0101">
                                                                     <label for="select_time">Available Time</label> 
-                                                                    <select class="form-control" name="select_time" id="select_time" style="height:34px;" required />
+                                                                    <select class="form-control" name="select_time" id="select_time" style="" required />
                                                                     <?php
                                                                     for ($tm = $cnt1; $tm < $cnt2 + 1; $tm++) {
                                                                         $time1 = $timeslot[$tm];
@@ -548,7 +549,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
 
                                                                 <label for="select_date">Referral</label> 
 
-                                                                <select class="form-control" name="referral" id="select_time" style="height:34px;" required >
+                                                                <select class="form-control" name="referral" id="select_time" style="" required >
                                                                     <option value="">Select</option>
                                                                     <option value="Newspaper">Newspaper</option>
                                                                     <option value="Facebook">Facebook</option>
