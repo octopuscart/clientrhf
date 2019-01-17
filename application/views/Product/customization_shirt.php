@@ -108,7 +108,7 @@ $this->load->view('layout/header');
 
                         <div class="col-sm-12 col-xs-12"  style="padding: 0">
                             <div class="">
-                                <div class=" frame" ng-repeat="fab in [cartFabrics[0]]" id="fabric_{{fab.product_id}}">
+                                <div class=" frame1" ng-repeat="fab in [cartFabrics[0]]" id="fabric_{{fab.product_id}}">
                                     <button class="btn btn-default btn-lg custom_rotate_button" ng-click="rotateModel()">
                                         <i class="icon ion-refresh"></i>
                                     </button>
