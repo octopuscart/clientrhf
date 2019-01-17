@@ -19,9 +19,9 @@ $this->load->view('layout/header');
 
 <!-- Inner Page Banner Area End Here -->
 <!-- Login Registration Page Area Start Here -->
-<div class="login-registration-page-area" style="padding: 20px 0;">
+<div class="login-registration-page-area" style="padding: 20px 0;    color: white;background: url(<?php echo base_url(); ?>assets/theme/images/backimages.jpg);background-size: cover">
     <div class="container">
-        <div class="row">
+        <div class="row" style="    margin-bottom: 50px;">
             <div class="col-lg-12">
                 <?php
                 if ($next_link === 'checkoutInit') {
@@ -31,7 +31,7 @@ $this->load->view('layout/header');
                             <i class=" fa fa-user"></i> Checkout As Guest <i class="fa fa-arrow-right"></i>
                         </a>
                     </h5>
-                    <h3  class="text-center" style="    padding:20px 50px 0px">OR</h3>
+                    <h3  class="text-center" style="    padding:20px 50px 0px;color:white">OR</h3>
                     <?php
                 }
                 ?>
@@ -52,8 +52,10 @@ $this->load->view('layout/header');
                 <?php
             }
             ?>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="background: wheat;padding-bottom: 15px;">
-                <div class="login-registration-field">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-bottom: 15px;">
+                <div class="login-registration-field" style="padding: 30px;
+    background: white;
+    color: black;">
                     <h2 class="cart-area-title">Login</h2>
                     <form method="post" action="#">
                         <label>Email address *</label>
@@ -61,14 +63,16 @@ $this->load->view('layout/header');
                         <label>Password *</label>
                         <input type="password"  class="form-control"name="password" placeholder="Password *" required=""/>
    <br/>
-                        <button class="btn btn-default" name="signIn" type="submit" value="signIn">Login</button>
+                        <button class="btn btn-primary" name="signIn" type="submit" value="signIn">Login</button>
                         <!--<span><input type="checkbox" name="remember"/>Remember Me</span>-->
                     </form>
                 </div>
             </div>
             <div class="col-md-2"></div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="background: wheat;padding-bottom: 15px;">
-                <div class="login-registration-field">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding-bottom: 15px;">
+                <div class="login-registration-field" style="padding: 30px;
+    background: white;
+    color: black;">
                     <h2 class="cart-area-title">Register</h2>
                     <form action="#" method="post">
                         <div class="row">
@@ -181,7 +185,7 @@ $this->load->view('layout/header');
                         <br/>
 
 
-                        <button name = "registration" class="btn btn-default" type="submit" value="Login">Register</button>
+                        <button name = "registration" class="btn btn-primary" type="submit" value="Login">Register</button>
                     </form>
                 </div>
             </div>

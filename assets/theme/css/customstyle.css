@@ -132,3 +132,13 @@ span.badge {
 .site-footer .footer-top {
      padding-bottom: 0px; 
 }
+
+.bith_date_select_year {
+    width: 30%;
+    padding: 12px 4px;
+}
+
+.bith_date_select{
+     width: 30%;
+    padding: 12px 4px;
+} 
