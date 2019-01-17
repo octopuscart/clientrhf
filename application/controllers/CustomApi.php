@@ -383,7 +383,8 @@ class CustomApi extends REST_Controller {
                         "title" => "Squared",
                         "elements" => ["shirtbody_round0001.png", "body_front_left0001.png"],
                         "customization_category_id" => "6",
-                        "image" => "customization/bottom_squred.jpeg"
+                        "image" => "customization/bottom_squred.jpeg",
+                        "overlay" => ["bottomsqr.png"]
                     )],
                 "Cuff & Sleeve" => [
                     array(
@@ -653,7 +654,7 @@ class CustomApi extends REST_Controller {
                     ), array(
                         "status" => "0",
                         "title" => "Fly Front",
-                        "elements" => [ "flyfront0001.png"],
+                        "elements" => [ "front_pleat0001.png"],
                         "stitching38" => [ "flyfront0001st38sd.png"],
                         "stitching14" => [ "flyfront0001st14sd.png"],
                         "customization_category_id" => "4",
