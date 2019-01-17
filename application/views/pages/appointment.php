@@ -91,7 +91,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                     ?>
                                                                     <div class="form-group tab-pane " ng-if="dateselection<?php echo $value['id']; ?> == '<?php echo $dtvalue['date']; ?>'" style="font-color:#dd0101">
                                                                         <label for="select_time">Available Time</label> 
-                                                                        <select class="form-control" name="select_time" id="select_time" style="" required />
+                                                                        <select class="form-control" style="padding:12px;"  name="select_time" id="select_time" style="" required />
                                                                         <?php
                                                                         for ($tm = $cnt1; $tm < $cnt2 + 1; $tm++) {
                                                                             $time1 = $timeslot[$tm];
@@ -141,7 +141,13 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                 <span id="address">  
                                                                     <?php echo $value['address']; ?></span><br>
                                                             </address>
-                                                            <input type="hidden" name="country" value="">
+                                                            <input type="hidden" name="hotel" value="<?php echo $value['hotel']; ?>">
+                                                        <input type="hidden" name="address" value="<?php echo $value['address']; ?>">
+                                                        <input type="hidden" name="city_state" value="<?php echo $value['city_state']; ?>">
+                                                        <input type="hidden" name="country" value="<?php echo $value['country']; ?>">
+                                                        <input type="hidden" name="contact_no2" value="<?php echo $value['contact_no']; ?>">
+                                                        
+                                                        
 
                                                             <div style="clear: both"></div>
                                                         </div>
@@ -214,7 +220,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                 <div class="form-group" style="font-color:#dd0101">
 
                                                                     <label for="select_date">Available Date</label> 
-                                                                    <select class="form-control" name="select_date" id="dateselection" style="" required ng-model="dateselection<?php echo $value['id']; ?>"  ng-init="dateselection<?php echo $value['id']; ?> = '<?php echo $value['dates'][0]['date']; ?>'" >
+                                                                    <select class="form-control" style="padding:12px;"  name="select_date" id="dateselection" style="" required ng-model="dateselection<?php echo $value['id']; ?>"  ng-init="dateselection<?php echo $value['id']; ?> = '<?php echo $value['dates'][0]['date']; ?>'" >
 
                                                                         <?php
                                                                         $dataes = $value['dates'];
@@ -246,7 +252,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                     ?>
                                                                     <div class="form-group tab-pane " ng-if="dateselection<?php echo $value['id']; ?> == '<?php echo $dtvalue['date']; ?>'" style="font-color:#dd0101">
                                                                         <label for="select_time">Available Time</label> 
-                                                                        <select class="form-control" name="select_time" id="select_time" style="" required />
+                                                                        <select class="form-control" style="padding:12px;"  name="select_time" id="select_time" style="" required />
                                                                         <?php
                                                                         for ($tm = $cnt1; $tm < $cnt2 + 1; $tm++) {
                                                                             $time1 = $timeslot[$tm];
@@ -265,7 +271,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
 
                                                                     <label for="select_date">Referral</label> 
 
-                                                                    <select class="form-control" name="referral" id="select_time" style="" required >
+                                                                    <select class="form-control" style="padding:12px;"  name="referral" id="select_time" style="" required >
                                                                         <option value="">Select</option>
                                                                         <option value="Newspaper">Newspaper</option>
                                                                         <option value="Facebook">Facebook</option>
@@ -498,7 +504,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                             <div class="form-group" style="font-color:#dd0101">
 
                                                                 <label for="select_date">Available Date</label> 
-                                                                <select class="form-control" name="select_date" id="dateselection" style="" required ng-model="dateselection<?php echo $value['id']; ?>"  ng-init="dateselection<?php echo $value['id']; ?> = '<?php echo $value['dates'][0]['date']; ?>'" >
+                                                                <select class="form-control" style="padding:12px;"  name="select_date" id="dateselection" style="" required ng-model="dateselection<?php echo $value['id']; ?>"  ng-init="dateselection<?php echo $value['id']; ?> = '<?php echo $value['dates'][0]['date']; ?>'" >
 
                                                                     <?php
                                                                     $dataes = $value['dates'];
@@ -530,7 +536,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                                                 ?>
                                                                 <div class="form-group tab-pane " ng-if="dateselection<?php echo $value['id']; ?> == '<?php echo $dtvalue['date']; ?>'" style="font-color:#dd0101">
                                                                     <label for="select_time">Available Time</label> 
-                                                                    <select class="form-control" name="select_time" id="select_time" style="" required />
+                                                                    <select class="form-control" style="padding:12px;"  name="select_time" id="select_time" style="" required />
                                                                     <?php
                                                                     for ($tm = $cnt1; $tm < $cnt2 + 1; $tm++) {
                                                                         $time1 = $timeslot[$tm];
@@ -549,7 +555,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
 
                                                                 <label for="select_date">Referral</label> 
 
-                                                                <select class="form-control" name="referral" id="select_time" style="" required >
+                                                                <select class="form-control" style="padding:12px;"  name="referral" id="select_time" style="" required >
                                                                     <option value="">Select</option>
                                                                     <option value="Newspaper">Newspaper</option>
                                                                     <option value="Facebook">Facebook</option>

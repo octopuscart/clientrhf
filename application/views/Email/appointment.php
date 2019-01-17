@@ -90,32 +90,12 @@
 
                         <p>Dear <?php echo $appointment['first_name']; ?> <?php echo $appointment['last_name']; ?>,</p><br/>
 
-                        <p> Thank you for choosing to book an appointment with Bespoke Tailors. </p>
+                        <p> Thank you for choosing to book an appointment with <?php echo email_sender_name;?>. </p>
                         <p>We have booked your appointment to see our Chief Tailor, on <b><?php echo date_format($opdater = date_create($appointment['select_date'] . ' ' . $appointment['select_time']), "l, d F Y"); ?>, <?php echo $appointment['select_time']; ?></b> at our shop.</p> 
 
-                        <p>For any appointment related queries, please email us at info@bespoketailorshk.com</p>
 
                         <br/>
-                        <div style="height: 200px;">Kindest Regards,<br />
-                            <img src="<?php echo site_mail_logo; ?>" style="height: 30px;  background: #000 ;margin: 5px 0px 10px ;"><br/>
-                                <span style="float: left; font-size: 12px;">
-
-                                    <address>
-                                        <b>Address 1</b><br/>
-                                        2nd Floor, 45 Haiphong Road,<br/> 
-                                        Tsim Sha Tsui, Kowloon, Hong Kong
-                                        <br/><br/>
-                                        <b>Address 2</b><br/>
-                                        Shop D, Ground Floor, Hanyee Building, 19-21 Hankow Road, <br/>
-                                        Tsim Sha Tsui, Kowloon, Hong Kong                                        <br/>
-                                        <b>Tel#</b>: +(852) 2730 8566  <b>Fax#</b>: +(852) 2730 8577<br/>
-                                        <b>Email</b>: info@bespoketailorshk.com  
-                                        <b>Web</b>: www.bespoketailorshk.com
-
-
-                                    </address>
-                                </span>
-                        </div>
+                              <?php echo EMAIL_FOOTER; ?>
 
                     </td>
                 </tr>

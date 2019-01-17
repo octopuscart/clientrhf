@@ -119,7 +119,7 @@ class Shop extends CI_Controller {
                 
                 "contact_no" => " +(852) 2369 1196",
                 "dates" => [
-                    array("date" => "Mon - Sat", "timing1" => "09:00 AM", "timing2" => "09:00 PM"),
+                    array("date" => date("Y-m-d"), "timing1" => "09:00 AM", "timing2" => "09:00 PM"),
                     array("date" => "Sun", "timing1" => "09:00 AM", "timing2" => "07:00 PM"),
                 ]
             ),];
@@ -183,7 +183,7 @@ class Shop extends CI_Controller {
                 $this->email->from(email_bcc, $sendername);
                 $this->email->to($this->input->post('email'));
                 $this->email->bcc(email_bcc);
-                $subjectt = "Bespoke Tailors Appointment : " . $appointment['select_date'] . " (" . $appointment['select_time'] . ")";
+                $subjectt = email_sender_name . " Appointment : " . $appointment['select_date'] . " (" . $appointment['select_time'] . ")";
                 $orderlog = array(
                     'log_type' => 'Appointment',
                     'log_datetime' => date('Y-m-d H:i:s'),
@@ -197,9 +197,9 @@ class Shop extends CI_Controller {
 
                 $appointment['appointment'] = $appointment;
 
-                $checksend = 1;
+              
                  $htmlsmessage = $this->load->view('Email/appointment', $appointment, true);
-                if ($checksend) {
+                if (REPORT_MODE==1) {
                     $this->email->message($htmlsmessage);
                     $this->email->print_debugger();
                     $send = $this->email->send();
