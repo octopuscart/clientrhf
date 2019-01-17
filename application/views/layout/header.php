@@ -101,6 +101,8 @@
 
 
                                     <li><a href="<?php echo site_url('Shop/contactus'); ?>" title="Contact">contact</a></li>
+
+                                    <li><a href="<?php echo site_url('Cart/details'); ?>" title="Contact"><i class="fa fa-cart-plus"></i> Cart ({{globleCartData.total_quantity}})</a></li>
                                 </ul>
                             </nav>
                             <a href="javascript:;" id="menu-toggle" title="Menu"></a>

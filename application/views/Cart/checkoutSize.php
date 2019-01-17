@@ -184,12 +184,15 @@ $this->load->view('layout/header');
 
                                                 <div class="contact-us-right">
                                                     <b>Send to:</b>
-                                                    <br/>
-                            Mirador Mansion, Shop No. 30 & 49,<br/> G/F 54-64 Nathan Road <br/>Tsim Sha Tsui, Hong Kong
+                                                    <address>
+                                       
+                                       Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, Tsim Sha Tsui,<br/> Kowloon, Hong Kong<br>(MTR Exit No. N5)                              <br/>
+                                        <b>Tel#</b>: +(852) 2369 1196  <b>Fax#</b>: +(852) 2369 7298<br/>
+                                        <b>Email</b>: rftailor@biznetvigator.com, sales@rahmanfashions.com<br/>
+                                        <b>Web</b>: www.rahmanfashions.com</b>
 
-                                                    <br/>
-                                                    <i class="fa fa-envelope"></i> <?php echo email_sender;?><br/>
-                                                    <i class="fa fa-phone"></i>  +(852) 2369 1196
+
+                                    </address>
 
                                                 </div>
                                                 </p>

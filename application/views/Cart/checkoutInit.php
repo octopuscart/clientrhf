@@ -72,26 +72,20 @@ $this->load->view('layout/header');
 
 
 
-<!-- Inner Page Banner Area Start Here -->
-<div class="inner-page-banner-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcrumb-area">
-                    <h1>Checkout</h1>
-                    <ul>
-                        <li><a href="#">Home</a> /</li>
-                        <li>Checkout</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Inner Page Banner Area End Here -->
 
 <!-- Content -->
 
+<div class="page-header" style="height: 160px">
+    <div class="container">
+
+        <h1 style="    color: black;
+            margin-bottom: 30px;
+            font-size: 30px;
+            text-shadow: 0px 0px;">Checkout</h1>
+
+
+    </div>
+</div>
 
 <div class="cart-page-area">
     <div class="container" ng-if="globleCartData.total_quantity">
@@ -100,7 +94,7 @@ $this->load->view('layout/header');
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne">
+                    <div class="panel-heading active" role="tab" id="headingOne">
                         <h4 class="panel-title">
                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <span class="fa-stack">
@@ -119,11 +113,10 @@ $this->load->view('layout/header');
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <td class="cart-form-heading text-left" style="width: 50%" colspan="2">Product</td>
+                                            <td class="cart-form-heading text-left" colspan="2" style="width: 50%" colspan="2">Product</td>
                                             <td class="cart-form-heading text-center">Price</td>
                                             <td class="cart-form-heading text-center" style="    width: 135px;">Quantity</td>
                                             <td class="cart-form-heading text-center">Total</td>
-                                            <td class="cart-form-heading"></td>
                                         </tr>
                                     </thead>
                                     <tbody id="quantity-holder">
@@ -151,9 +144,7 @@ $this->load->view('layout/header');
 
                                             </td>
                                             <td class="amount text-center">{{product.total_price|currency:" "}}</td>
-                                            <td class="dismiss">
-
-                                            </td>
+                                            
                                         </tr>
                                         <tr>
                                             <td colspan="4" class="text-right">
@@ -162,45 +153,18 @@ $this->load->view('layout/header');
                                             <td class="text-center amount text-center">
                                                 {{globleCartData.total_price|currency:"<?php echo globle_currency; ?>"}}
                                             </td>
-                                            <td></td>
                                         </tr>
-                                        <tr>
-                                            <td colspan="6" class="text_right">
-                                                <section class="pad-t-b-30 light-gray-bg shopping-cart small-cart"  >
-                                                    <div class="container"> 
-                                                        <!-- SHOPPING INFORMATION -->
-                                                        <div class="cart-ship-info margin-top-0" style="    margin-bottom: 10px;"> 
-                                                            <div class="row">
-                                                                <!-- SUB TOTAL -->
+                                      <tr>
+                                        <td colspan="5" class="text_right">
+                                            <div class="proceed-button pull-left " >
+                                                <a href=" <?php echo site_url("Cart/details"); ?>" class="btn btn-danger checkout_button_pre " ><i class="fa fa-arrow-left"></i> Back To Cart</a>
+                                            </div>
+                                            <div class="proceed-button pull-right ">
+                                                <a href=" <?php echo site_url("Cart/checkoutSize"); ?>" class="btn btn-danger checkout_button_next " >Your Size <i class="fa fa-arrow-right"></i></a>
+                                            </div>
+                                        </td>
 
-                                                                <div class="col-md-4">
-                                                                    <a href="<?php echo site_url("Cart/details"); ?>" class="btn btn-primary pull-left" ><i class=" fa fa-arrow-left"></i> Customize More </a>
-
-                                                                </div>
-                                                                <div class="col-md-4">
-
-                                                                    <!-- SUB TOTAL -->
-                                                                    <h2 class=" text-center" style="font-size: 20px;
-                                                                        margin-top: 10px;">TOTAL: <span>{{globleCartData.total_price|currency:"<?php echo globle_currency_type; ?>"}}</span></h2>
-
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <a href="<?php echo site_url('Cart/checkoutInit') ?>" class="btn btn-primary pull-right" >Proceed To Checkout <i class=" fa fa-arrow-right"></i></a>
-
-                                                                </div>
-
-
-
-
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                            </td>
-
-                                        </tr>
+                                    </tr>
 
                                     </tbody>
                                 </table>

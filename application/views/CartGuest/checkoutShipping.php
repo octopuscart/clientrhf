@@ -165,7 +165,8 @@ $this->load->view('layout/header');
                                     }
                                 } else {
                                     ?>
-                                    <h4 class="text-center " style="color: red"><i class="fa fa-warning"></i> Please Add Shipping Address</h4>
+                                    <h4 class="text-center " style="color: red;    width: 100%;
+    padding: 10px 0px 30px;"><i class="fa fa-warning"></i> Please Add Shipping Address</h4>
 
                                     <?php
                                 }
