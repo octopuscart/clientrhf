@@ -66,31 +66,17 @@ class CustomApi extends REST_Controller {
                 array(
                     "title" => "Bottom",
                     "viewtype" => "front",
-                    "type" => "submain",
+                    "type" => "main",
                      "colrow" => "3",
                 ),
                 
                 array(
                     "title" => "Buttons",
                     "viewtype" => "front",
-                    "type" => "main",
+                   "type" => "submain",
                      "colrow" => "2",
                 ),
-                array(
-                    "title" => "Button Hole Color",
-                    "viewtype" => "front",
-                    "type" => "main",
-                    "style_side" => "    background-size: 100%!important;height:50px",
-                     "colrow" => "2",
-                ),
-                
-                array(
-                    "title" => "Button Thread Color",
-                    "viewtype" => "front",
-                    "type" => "main",
-                    "style_side" => "    background-size: 100%!important;height:50px",
-                     "colrow" => "2",
-                ),
+               
                 array(
                     "title" => "Monogram",
                     "viewtype" => "front",
