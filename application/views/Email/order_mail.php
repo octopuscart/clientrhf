@@ -72,14 +72,14 @@
 
           font-family: sans-serif;">
         <div class="" style="padding:50px 0px;    background: #ababab;">
-            <table align="center" border="0" cellpadding="0" cellspacing="0" width="700" style=" background: linear-gradient(to right, #FFD194, #D1913C);padding: 0 20px">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="700" style=" background: #fff;padding: 0 20px">
                 <tr>
                     <td >
                         <center><img src="<?php echo site_mail_logo; ?> " style="margin: 10px;
                                      height: 50px;padding: 10px;background: white;
-                                     border-radius: 50%;
+                                   
                                      width: auto;"/><br/>
-                            <h4 style="color: white;"> Order No.: <?php echo $order_data->order_no; ?></h4>
+                            <h4 style="color: black;"> Order No.: <?php echo $order_data->order_no; ?></h4>
                         </center>
                     </td>
 
