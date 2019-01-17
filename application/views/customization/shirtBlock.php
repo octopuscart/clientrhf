@@ -107,12 +107,12 @@
                 </div>
             </div>
         </div>-->
-    <img src="<?php echo custome_image_server; ?>/shirt/output/{{screencustom.productobj.folder}}/{{img}}" ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].sleeve" class="fixpos animated" >
     <img src="<?php echo custome_image_server; ?>/shirt/output/{{screencustom.productobj.folder}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Back'].elements" >
+        <img src="<?php echo custome_image_server; ?>/shirt/overlay/{{img}}" ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].backoverlay" class="fixpos animated" >
+
     <img src="<?php echo custome_image_server; ?>/shirt/overlay/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Back'].overlay" >
    
 
     
-    <img src="<?php echo custome_image_server; ?>/shirt/overlay/backoverlay.png" class="fixpos animated"  >
 
 </div>

@@ -392,6 +392,7 @@ class CustomApi extends REST_Controller {
                         "french" => "No",
                         "title" => "Short Sleeve Without Cuff",
                         "elements" => [],
+                        "backoverlay"=>["halfoverlay.png"],
                         "customization_category_id" => "3",
                         "image" => "customization/withoutcuff_sort.jpg",
                         "sleeve1" => ["shirtbody_half_sleeve0001.png",],
