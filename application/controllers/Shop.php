@@ -132,22 +132,107 @@ class Shop extends CI_Controller {
                 "type"=>"globle",
                 "id"=>"au1_app",
                 "country" => "Australia",
-                "city_state" => "Sydney, NSW",
-                "hotel" => "InterContinental Sydney Hotel",
-                "address" => "117 Macquarie Street,<br/> Sydney NSW 2000,<br/> Australia",
-                "days" => "21st Jan Until 22nd Jan 2019",
-                "start_date"=>"21-01-2019",
-                "end_date"=>"22-01-2019",
+                "city_state" => "Melbourne",
+                "hotel" => "Holiday Inn Melbourne on Flinders",
+                "address" => "575 Flinders Lane,<br/>  Melbouurne, Victoria 3000,<br/> Austraila",
+                "days" => "11th Feb - 12th Feb 2019",
+                "start_date"=>"11-02-2019",
+                "end_date"=>"12-02-2019",
                 
-                "contact_no" => "+61 4 1142 6048",
+                "contact_no" => "19179156552",
                 "dates" => [
-                    array("date" => "21st Jan 2019", "timing1" => "11:00 AM", "timing2" => "09:00 PM"),
-                    array("date" => "22nd Jan 2019", "timing1" => "09:00 AM", "timing2" => "09:00 PM"),
+                    array("date" => "11th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
+                    array("date" => "12th Feb 2019", "timing1" => "09:00 AM", "timing2" => "02:00 PM"),
+                ]
+            ),
+            array(
+                "type"=>"globle",
+                "id"=>"au2_app",
+                "country" => "Australia",
+                "city_state" => "Canberra",
+                "hotel" => "Diplomat Hotel",
+                "address" => "2 Hely St, Griffith ACT 2603,<br/> Australia",
+                "days" => "13th Feb - 14th Feb 2019",
+                "start_date"=>"13-02-2019",
+                "end_date"=>"14-02-2019",
+                
+                "contact_no" => "19179156552",
+                "dates" => [
+                    array("date" => "13th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
+                    array("date" => "14th Feb 2019", "timing1" => "09:00 AM", "timing2" => "02:00 PM"),
+                ]
+            ),
+            array(
+                "type"=>"globle",
+                "id"=>"au3_app",
+                "country" => "Australia",
+                "city_state" => "Sydney",
+                "hotel" => "Holiday Inn Potts Point-Sydney",
+                "address" => "203 Victoria St, <br/>Potts Point NSW 2011,<br/> Australia",
+                "days" => "15th Feb - 17th Feb 2019",
+                "start_date"=>"15-02-2019",
+                "end_date"=>"17-02-2019",
+                
+                "contact_no" => "19179156552",
+                "dates" => [
+                    array("date" => "15th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
+                    array("date" => "16th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
+                    array("date" => "17th Feb 2019", "timing1" => "09:00 AM", "timing2" => "02:00 PM"),
+                ]
+            ),
+            array(
+                "type"=>"globle",
+                "id"=>"au4_app",
+                "country" => "Australia",
+                "city_state" => "Brisbane",
+                "hotel" => "Holiday Inn Express Brisbane Central",
+                "address" => "168 Wharf St, <br/>Spring Hill QLD 4000,<br/> Australia",
+                "days" => "18th Feb - 19th Feb 2019",
+                "start_date"=>"18-02-2019",
+                "end_date"=>"19-02-2019",
+                
+                "contact_no" => "19179156552",
+                "dates" => [
+                    array("date" => "18th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
+                    array("date" => "19th Feb 2019", "timing1" => "09:00 AM", "timing2" => "02:00 PM"),
+                ]
+            ),
+            array(
+                "type"=>"globle",
+                "id"=>"au5_app",
+                "country" => "Australia",
+                "city_state" => "Adelaide",
+                "hotel" => "Holiday Inn Express Adelaide City Centre",
+                "address" => "30 Blyth St, <br/>Adelaide SA 5000,<br/> Australia",
+                "days" => "20th Feb - 21st Feb 2019",
+                "start_date"=>"20-02-2019",
+                "end_date"=>"21-02-2019",
+                
+                "contact_no" => "19179156552",
+                "dates" => [
+                    array("date" => "20th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
+                    array("date" => "21st Feb 2019", "timing1" => "09:00 AM", "timing2" => "02:00 PM"),
+                ]
+            ),
+            array(
+                "type"=>"globle",
+                "id"=>"au6_app",
+                "country" => "Australia",
+                "city_state" => "Perth",
+                "hotel" => "Holiday Inn Perth City Centre",
+                "address" => "778/788 Hay St, <br/>Perth WA 6000, <br/>Australia",
+                "days" => "22nd Feb 2019",
+                "start_date"=>"22-02-2019",
+                "end_date"=>"22-02-2019",
+                
+                "contact_no" => "19179156552",
+                "dates" => [
+                    array("date" => "22nd Feb 2019", "timing1" => "09:00 AM", "timing2" => "04:00 PM"),
                 ]
             ),
            
         ];
-        $appointmentdetails = [];
+        //$appointmentdetails = [];
 
         $data['appointmentdata'] = $appointmentdetails;
         if (isset($_POST['submit'])) {

@@ -91,8 +91,8 @@
                         <p>Dear <?php echo $appointment['first_name']; ?> <?php echo $appointment['last_name']; ?>,</p><br/>
 
                         <p> Thank you for choosing to book an appointment with <?php echo email_sender_name;?>. </p>
-                        <p>We have booked your appointment to see our Chief Tailor, on <b><?php echo date_format($opdater = date_create($appointment['select_date'] . ' ' . $appointment['select_time']), "l, d F Y"); ?>, <?php echo $appointment['select_time']; ?></b> at our shop.</p> 
-
+                        <p>We have booked your appointment to see our Chief Tailor, on <b><?php echo date_format($opdater = date_create($appointment['select_date'] . ' ' . $appointment['select_time']), "l, d F Y"); ?>, <?php echo $appointment['select_time']; ?></b> at <b><?php echo $appointment['hotel']; ?></b>.</p> 
+                        <p>On the day of your appointment, please call our tailor on his contact no. (<b><?php echo $appointment['country']; ?>:  <?php echo $appointment['contact_no2']; ?></b>) and he will give you his suite number.</p>
 
                         <br/>
                               <?php echo EMAIL_FOOTER; ?>

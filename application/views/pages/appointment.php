@@ -418,14 +418,9 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                         <div class = "modal-content">
                                             <form method="post" action="#">
                                                 <div class = "modal-header" style=" color: #fff;background: #dd0101 ">
-                                                    <button type = "button" style="    background-color: #dd0101;
-                                                            border: 1px solid #dd0101;" class = " btn btn-danger btn-xm pull-right" data-dismiss = "modal" aria-hidden = "true">
+                                                    
 
-                                                        <i class="fa fa-close"></i>
-
-                                                    </button>
-
-                                                    <div class = "modal-title row" id = "myModalLabel">
+                                                    <div class = "modal-title " id = "myModalLabel">
 
                                                         <address style="    margin-bottom: 0;">
                                                             <span id="location"><b><?php echo $value['hotel']; ?></b>
@@ -441,6 +436,12 @@ if (isset($prefixshopappointment[$cdateshort])) {
 
                                                         <div style="clear: both"></div>
                                                     </div>
+                                                    <button type = "button" style="    background-color: #dd0101;
+                                                            border: 1px solid #dd0101;" class = " btn btn-danger btn-xm pull-right" data-dismiss = "modal" aria-hidden = "true">
+
+                                                        <i class="fa fa-close"></i>
+
+                                                    </button>
                                                 </div>
 
 
