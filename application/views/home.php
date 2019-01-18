@@ -118,7 +118,7 @@ $this->load->view('layout/header');
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="spacer-20 visible-sm"></div>
-                <a href="contact-us.html" title="Email us now" class="btn btn-secondary pull-right">Make an Appointment</a>
+                <a href="<?php echo site_url('Shop/appointment');?>" title="Email us now" class="btn btn-secondary pull-right">Make an Appointment</a>
             </div>
         </div>
     </div>
