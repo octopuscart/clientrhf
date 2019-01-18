@@ -24,6 +24,8 @@
 
     <!--buttom-->
     <img src="<?php echo custome_image_server; ?>/shirt/output/{{screencustom.productobj.folder}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Bottom'].elements">
+        <img src="<?php echo custome_image_server; ?>/shirt/overlay/body_front_leftoverlay.png" class="fixpos animated" >
+
     <img src="<?php echo custome_image_server; ?>/shirt/overlay/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Bottom'].overlay">
 
     <!--cuff-->
