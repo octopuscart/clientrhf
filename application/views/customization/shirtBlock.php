@@ -39,19 +39,19 @@
     <!--<img src="<?php echo custome_image_server; ?>/shirt/hole_thread/{{screencustom.productobj.folder}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].button_hole"  >-->
 
 
-<!--    <div ng-switch="selecteElements[fab.product_id]['Button Hole Color Position'].ptype">
-        <div ng-switch-when="1">
-            <img src="<?php echo custome_image_server; ?>/shirt/hole_thread/{{selecteElements[fab.product_id]['Button Hole Color'].color}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].button_hole"  >
-        </div>
-        <div ng-switch-when="2">
-            <img src="<?php echo custome_image_server; ?>/shirt/hole_thread/{{selecteElements[fab.product_id]['Button Hole Color'].color}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].button_hole"  >
-        </div>
-        <div ng-switch-when="3">
-            <img src="<?php echo custome_image_server; ?>/shirt/hole_thread/{{selecteElements[fab.product_id]['Button Hole Color'].color}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].button_hole"  >
-        </div>
-        <div ng-switch-when="4">
-        </div>
-    </div>-->
+    <!--    <div ng-switch="selecteElements[fab.product_id]['Button Hole Color Position'].ptype">
+            <div ng-switch-when="1">
+                <img src="<?php echo custome_image_server; ?>/shirt/hole_thread/{{selecteElements[fab.product_id]['Button Hole Color'].color}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].button_hole"  >
+            </div>
+            <div ng-switch-when="2">
+                <img src="<?php echo custome_image_server; ?>/shirt/hole_thread/{{selecteElements[fab.product_id]['Button Hole Color'].color}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].button_hole"  >
+            </div>
+            <div ng-switch-when="3">
+                <img src="<?php echo custome_image_server; ?>/shirt/hole_thread/{{selecteElements[fab.product_id]['Button Hole Color'].color}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].button_hole"  >
+            </div>
+            <div ng-switch-when="4">
+            </div>
+        </div>-->
 
 
     <img src="<?php echo custome_image_server; ?>/shirt/buttons/{{selecteElements[fab.product_id]['Buttons'].button}}/{{selecteElements[fab.product_id]['Cuff & Sleeve'].buttons}}" class="fixpos animated" ng-if="selecteElements[fab.product_id]['Cuff & Sleeve'].french == '0'"  >
@@ -69,7 +69,7 @@
 
 
     <!--pocket-->
-        <img src="<?php echo custome_image_server; ?>/shirt/overlay/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Pocket'].overlay">
+    <img src="<?php echo custome_image_server; ?>/shirt/overlay/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Pocket'].overlay">
 
     <img src="<?php echo custome_image_server; ?>/shirt/output/{{screencustom.productobj.folder}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Pocket'].elements">
 
@@ -108,11 +108,11 @@
             </div>
         </div>-->
     <img src="<?php echo custome_image_server; ?>/shirt/output/{{screencustom.productobj.folder}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Back'].elements" >
-        <img src="<?php echo custome_image_server; ?>/shirt/overlay/{{img}}" ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].backoverlay" class="fixpos animated" >
+    <img src="<?php echo custome_image_server; ?>/shirt/overlay/{{img}}" ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].backoverlay" class="fixpos animated" >
 
     <img src="<?php echo custome_image_server; ?>/shirt/overlay/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Back'].overlay" >
-   
 
-    
+
+
 
 </div>

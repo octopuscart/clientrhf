@@ -41,78 +41,91 @@ $this->load->view('layout/header');
     </ul>
 </div>
 <!-- end hero slider -->
-<!-- start main container -->
-<div class="content main-container" id="site-content">
-    <div class="padding-tb-30">
-        <div class="container">
-            <div class="spacer-45"></div>
-            <h2 class="m-0"><strong>All</strong> about Fashions</h2>
-            <!-- start tab -->
-            <div class="tab">
-                <div class="row">
-                    <div class="col-lg-5 col-md-12 col-sm-12">
-                        <!-- start tab nav -->
-                        <div class="tab-nav">
-                            <ul>
-                                <li class="active">
-                                    <a href="#tab1" title="">
-                                        <span class="tab-items clearfix">
-                                            <span class="tab-number">01</span>
-                                            <span class="tab-items-content">
-                                                <strong>Made To Measure</strong>
 
-                                            </span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#tab2" title="">
-                                        <span class="tab-items clearfix">
-                                            <span class="tab-number">02</span>
-                                            <span class="tab-items-content">
-                                                <strong>Professional Shanghainese Workmanship</strong>
 
-                                            </span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#tab3" title="">
-                                        <span class="tab-items clearfix">
-                                            <span class="tab-number">03</span>
-                                            <span class="tab-items-content">
-                                                <strong>Made In Hong Kong</strong>
+<div class="row" style="    background: #ececec;">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <!-- start class media -->
+        <div class="class-media" style="    margin-bottom: 0px;">
+            <img src="<?php echo base_url(); ?>assets/theme/images/style1.jpg" alt="">
+        </div>
+        <!-- end class media -->
+    </div>
+    <div class="col-lg-4 col-md-12 col-sm-12">
+        <!-- start class info -->
+        <div class="class-info">
+            <div class="spacer-40"></div>
+            <h2  style="width: 100%"><strong>All</strong> about Fashions
+            </h2>
+            <div class="spacer-20"></div>
+            <p>
+                Our suits and shirts are carefully made by our skilled tailors. They create a unique pattern based on your measurements and chalk it directly upon the fabric of your choice.
+            </p>
+            <div class="spacer-40"></div>
+            <div class="">
+                <div class="">
+                    <h5>
+                        <span class="tab-number">01</span>
+                        <span class="tab-items-content">
+                            <strong>Made To Measure</strong>
 
-                                            </span>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- end tab nav -->
-                    </div>
-                    <div class="col-lg-7 col-md-12 col-sm-12">
-                        <!-- start tab content -->
-                        <div class="tab-content" id="tab1">
-                            <img src="<?php echo base_url(); ?>assets/theme/images/2block/1.jpg" alt="">
-                        </div>
-                        <!-- end tab content -->
-                        <!-- start tab content -->
-                        <div class="tab-content" id="tab2">
-                            <img src="<?php echo base_url(); ?>assets/theme/images/2block/2.jpg" alt="">
-                        </div>
-                        <!-- end tab content -->
-                        <!-- start tab content -->
-                        <div class="tab-content" id="tab3">
-                            <img src="<?php echo base_url(); ?>assets/theme/images/2block/4.jpg" alt="">
-                        </div>
-                        <!-- end tab content -->
-                    </div>
+                        </span>
+
+                        <br/>
+                        <span class="tab-number">02</span>
+                        <span class="tab-items-content">
+                            <strong>Professional Shanghainese Workmanship</strong>
+
+                        </span>
+                        <br/>
+
+
+                        <span class="tab-number">03</span>
+                        <span class="tab-items-content">
+                            <strong>Made In Hong Kong</strong>
+
+                        </span>
+                    </h5>
+
                 </div>
             </div>
-            <!-- end tab -->
+            <div class="spacer-40"></div>
+            <a href="<?php echo site_url("Shop/aboutus"); ?>" title="Read More" class="btn btn-secondary">Read More</a>
+        </div>
+        <!-- end class info -->
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <!-- start class media -->
+        <div class="class-media" style="    margin-top: 70px;">
+            <img src="<?php echo base_url(); ?>assets/theme/images/shirt-stack4.jpg" alt="">
+        </div>
+        <!-- end class media -->
+    </div>
+</div>
+
+
+<div class="padding-tb-100" style="background: url(<?php echo base_url(); ?>assets/theme/images/mapback.png);    background-size: contain;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-1 col-md-1 col-sm-12">
+                <i class="fa fa-globe" style="font-size: 90px;    color: #ec1f3f;"></i>
+            </div>
+            <div class="col-lg-7 col-md-8 col-sm-12">
+                <h4 class="text-uppercase text-color-primary">SCHEDULE AN APPOINTMENT 
+                    WITH US TODAY</h4>
+                <div class="spacer-10"></div>
+                <p style="color:black">Your can book appointment to see our Chief Tailor (<b>Mr. Micheal</b>)</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="spacer-20 visible-sm"></div>
+                <a href="contact-us.html" title="Email us now" class="btn btn-secondary pull-right">Make an Appointment</a>
+            </div>
         </div>
     </div>
+</div>
+<!-- start main container -->
+<div class="content main-container" id="site-content" style="">
+
 
 
 
@@ -161,7 +174,7 @@ $this->load->view('layout/header');
                             </p>
                         </div>
                     </div>
-                    
+
                     <div class="icon-box clearfix">
                         <div class="ibox"><i class="fa fa-truck"></i></div>
                         <div class="ibox-content">
@@ -172,12 +185,12 @@ $this->load->view('layout/header');
                             </p>
                         </div>
                     </div>
-                    
-                    
-                    
-                    
-                    
-                    
+
+
+
+
+
+
                 </div>
             </div>
         </div>
@@ -223,7 +236,7 @@ $this->load->view('layout/header');
                     </li>
                 </ul>
             </div>
-            <div class="testimonial-author thumb-carousel2 flexslider">
+            <div class="testimonial-author thumb-carousel2 flexslider" style="    margin: 0 0 20px;">
                 <ul class="slides">
                     <li class="testimonial">
                         <a href="#">
