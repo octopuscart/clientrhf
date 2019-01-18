@@ -262,7 +262,7 @@ $image2 = "";
                             </div>
 
                             <!-- COLORE -->
-                            <ul class="cate" ng-if='attrv.widget == "color"'>
+                            <ul class="cate" ng-if='attrv.widget == "color"' style="    list-style-type: none;">
                                 <li ng-repeat="atv in attrv" ng-if='atv.product_count'>
 
                                     <label style="font-weight: 500;background: {{atv.additional_value}};padding: 0px 5px;float: left;
