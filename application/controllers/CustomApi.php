@@ -93,7 +93,7 @@ class CustomApi extends REST_Controller {
                         "css_class" => "monogramtext_posistion_none",
                         "not_show_when" => [],
                         "checkwith" => "",
-                        "image" => "customization/no_monogram.jpg",
+                        "image" => "customization/monogram_left_cuff.jpg",
                         "view_type" => "front",
                     ),
                     array(

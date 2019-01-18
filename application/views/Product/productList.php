@@ -329,7 +329,7 @@ $image2 = "";
                                             <p style="text-align: center">{{product.price|currency:"<?php echo globle_currency; ?> "}}</p>
                                             <p>
                                             <center> 
-                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger" style="font-size: 9px;" title="Customize this fabric">Design Now
+                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric">Design Now
                                                 </a> 
                                                         <!--<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#mdl<?php echo $value['title']; ?>" style="margin: 10px auto">View</a>-->
                                             </center>
