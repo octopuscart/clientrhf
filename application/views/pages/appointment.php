@@ -605,14 +605,13 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                 </div>
                             </td>
                             <td style="">
-                                
-                                <iframe  frameborder='0' scrolling='no'  marginheight='0' marginwidth='0'  height="100px" width="300px"  src="https://maps.google.com/?q=<?php echo $value['hotel']; ?>+<?php echo $value['address']; ?>&output=embed">
-                                </iframe> 
                                 <span style="    line-height: 15px;
                                       padding: 0px 0px 10px;    color: #dd0101;
                                       float: left;">
                                     <i class="fa fa-phone-square"></i>  <?php echo $value['contact_no']; ?>
                                 </span>
+                                <iframe  frameborder='0' scrolling='no'  marginheight='0' marginwidth='0'  height="100px" width="300px"  src="https://maps.google.com/?q=<?php echo $value['hotel']; ?>+<?php echo $value['address']; ?>&output=embed">
+                                </iframe>  
 
                             </td>
                         </tr>
