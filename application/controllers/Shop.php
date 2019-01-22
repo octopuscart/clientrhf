@@ -139,7 +139,7 @@ class Shop extends CI_Controller {
                 "start_date"=>"11-02-2019",
                 "end_date"=>"12-02-2019",
                 
-                "contact_no" => "19179156552",
+                "contact_no" => "+61 0424 715 368",
                 "dates" => [
                     array("date" => "11th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
                     array("date" => "12th Feb 2019", "timing1" => "09:00 AM", "timing2" => "02:00 PM"),
@@ -156,7 +156,7 @@ class Shop extends CI_Controller {
                 "start_date"=>"13-02-2019",
                 "end_date"=>"14-02-2019",
                 
-                "contact_no" => "19179156552",
+                "contact_no" => "+61 0424 715 368",
                 "dates" => [
                     array("date" => "13th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
                     array("date" => "14th Feb 2019", "timing1" => "09:00 AM", "timing2" => "02:00 PM"),
@@ -173,7 +173,7 @@ class Shop extends CI_Controller {
                 "start_date"=>"15-02-2019",
                 "end_date"=>"17-02-2019",
                 
-                "contact_no" => "19179156552",
+                "contact_no" => "+61 0424 715 368",
                 "dates" => [
                     array("date" => "15th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
                     array("date" => "16th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
@@ -191,7 +191,7 @@ class Shop extends CI_Controller {
                 "start_date"=>"18-02-2019",
                 "end_date"=>"19-02-2019",
                 
-                "contact_no" => "19179156552",
+                "contact_no" => "+61 0424 715 368",
                 "dates" => [
                     array("date" => "18th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
                     array("date" => "19th Feb 2019", "timing1" => "09:00 AM", "timing2" => "02:00 PM"),
@@ -208,7 +208,7 @@ class Shop extends CI_Controller {
                 "start_date"=>"20-02-2019",
                 "end_date"=>"21-02-2019",
                 
-                "contact_no" => "19179156552",
+                "contact_no" => "+61 0424 715 368",
                 "dates" => [
                     array("date" => "20th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
                     array("date" => "21st Feb 2019", "timing1" => "09:00 AM", "timing2" => "02:00 PM"),
@@ -225,7 +225,7 @@ class Shop extends CI_Controller {
                 "start_date"=>"22-02-2019",
                 "end_date"=>"22-02-2019",
                 
-                "contact_no" => "19179156552",
+                "contact_no" => "+61 0424 715 368",
                 "dates" => [
                     array("date" => "22nd Feb 2019", "timing1" => "09:00 AM", "timing2" => "04:00 PM"),
                 ]
