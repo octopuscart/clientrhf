@@ -208,7 +208,7 @@ class Shop extends CI_Controller {
                 "start_date"=>"20-02-2019",
                 "end_date"=>"21-02-2019",
                 
-                "contact_no" => "+61 0424 715 368",
+                "contact_no" => "+61 0424 715 368", 
                 "dates" => [
                     array("date" => "20th Feb 2019", "timing1" => "09:00 AM", "timing2" => "08:00 PM"),
                     array("date" => "21st Feb 2019", "timing1" => "09:00 AM", "timing2" => "02:00 PM"),
