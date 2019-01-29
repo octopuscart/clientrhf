@@ -60,9 +60,6 @@
         <div class="tab-pane {{$index == 0?'active':''}}" ng-repeat="k in keys" id="custome{{$index}}" ng-if="k.type == 'main'">
             <div class="row elementTabList">
                 <div ng-switch="k.title">
-
-
-
                     <div ng-switch-when="Lapel Button Hole">
                         <h5 class="customization_heading">{{k.title}}</h5>
                         <div class="col-md-12 customization_items customization_items_elements">
@@ -78,11 +75,7 @@
                                     </div>
                                 </div>
                                 <div style="clear:both "></div>
-
                                 <div class="row" style="margin: 0;opacity: {{selecteElements[screencustom.fabric]['summary'][k.title]=='No'?0.2:1 }};" >
-
-
-
                                     <div class="col-md-4 col-xs-6 custome_element_col" ng-repeat="ele in data_list[k.title]" >
                                         <div class="item elementItem {{  ele.title == selecteElements[screencustom.fabric][k.title].title?'' :'noselected' }} "  ng-click='selectElement(k, ele)'>
                                             <div >
@@ -93,7 +86,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="col-md-12 monogram_init">
                                         <h6>Contrast Button Hole On Lapel </h6>
                                         <div class="row" style="margin: 0">
@@ -110,9 +102,6 @@
                                         </div>
                                     </div>
                                     <div style="clear:both "></div>
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -133,11 +122,7 @@
                                     </div>
                                 </div>
                                 <div style="clear:both "></div>
-
                                 <div class="row" style="margin: 0;opacity: {{selecteElements[screencustom.fabric]['summary'][k.title]=='No'?0.2:1 }};" >
-
-
-
                                     <div class="col-md-4 col-xs-6 custome_element_col" ng-repeat="ele in data_list[k.title]" >
                                         <div class="item elementItem {{  ele.title == selecteElements[screencustom.fabric][k.title].title?'' :'noselected' }} "  ng-click='selectElement(k, ele)'>
                                             <div >
@@ -164,10 +149,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div style="clear:both "></div>
-
-
-
                                 </div>
                             </div>
                         </div>

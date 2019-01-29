@@ -2,12 +2,12 @@
 $this->load->view('layout/header');
 ?>
 <?php
-$linklist = [];
+$linklist = ["<a href='" . site_url("Product/ProductList/" . $custom_id. "/0") . "'>$custom_item</a>"];
 foreach ($categorie_parent as $key => $value) {
     $cattitle = $value['category_name'];
     $catid = $value['id'];
     $liobj = "<a href='" . site_url("Product/ProductList/" . $catid) . "'>$cattitle</a>";
-    array_push($linklist, $liobj);
+    //array_push($linklist, $liobj);
 }
 
 

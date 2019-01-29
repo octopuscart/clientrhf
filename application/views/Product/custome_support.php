@@ -172,7 +172,7 @@ $this->load->view('Product/custom_select_left');
                         </div>
                     </div>
                     <div ng-switch-when="Button Thread Color" class="customization_items ">
-                        <div class="col-md-12 row">
+                        <div class="col-md-12">
                             <h5 class="customization_heading">{{k.title}}</h5>
                             <div class="col-md-2 col-xs-6 custome_element_col" ng-repeat="ele in data_list[k.title]" >
                                 <div class="item elementItem {{  ele.title == selecteElements[screencustom.fabric][k.title].title?'' :'noselected' }} "  ng-click='selectElement(k, ele)'>
@@ -188,7 +188,7 @@ $this->load->view('Product/custom_select_left');
 
                     </div>
                     <div ng-switch-when="Button Hole Color Position" class="customization_items ">
-                        <div class="col-md-12 row">
+                        <div class="col-md-12">
                             <h5 class="customization_heading">Button Hole Color Position {{selecteElements[fab.product_id]['Button Hole Color Position'].ptype}}</h5>
                             <div class="col-md-3 col-xs-6 custome_element_col" ng-repeat="ele in data_list[k.title]" >
                                 <div class="item elementItem {{  ele.title == selecteElements[screencustom.fabric][k.title].title?'' :'noselected' }} "  ng-click='selectElement(k, ele)'>
@@ -204,7 +204,7 @@ $this->load->view('Product/custom_select_left');
                     </div>
                     <div ng-switch-when="Button Hole Color" class="customization_items ">
 
-                        <div class="col-md-12 row">
+                        <div class="col-md-12">
                             <h5 class="customization_heading">{{k.title}}</h5>
                             <div class="col-md-2 col-xs-6 custome_element_col" ng-repeat="ele in data_list[k.title]" >
                                 <div class="item elementItem {{  ele.title == selecteElements[screencustom.fabric][k.title].title?'' :'noselected' }} "  ng-click='selectElement(k, ele)'>

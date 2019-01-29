@@ -143,17 +143,13 @@ $this->load->view('layout/header');
 
 
 <div class="" ng-controller="customizationShirt">
-    <!-- Slider -->
-<!--    <section class="sub-bnr" data-stellar-background-ratio="0.5" style="font-weight: 300;
-             font-size: 20px;">
-        <div class="position-center-center">
-            <div class="container">
-                <div  class="row">
+<div class="page-header bg-image" style="background: url(<?php echo base_url(); ?>assets/theme/images/customheader.jpg);background-size: cover;height: 160px">
+    <h1 class="text-white" style="font-size: 30px;margin-bottom: 25px;    text-shadow: 0px 0px;">
+          {{screencustom.productobj.item_name}} Customization
 
-                </div>
-            </div>
-        </div>
-    </section>-->
+        
+    </h1>
+</div>
 
     <!-- Content -->
     <div id="content"> 
@@ -172,7 +168,7 @@ $this->load->view('layout/header');
                         <div class="col-sm-12 col-xs-12"  style="padding: 0">
                             <div class="tab-content">
 
-                                <div class="{{$index === 0?'active':''}} frame" ng-repeat="fab in cartFabrics" id="fabric_{{fab.product_id}}">
+                                <div class="{{$index === 0?'active':''}} frame1" ng-repeat="fab in cartFabrics" id="fabric_{{fab.product_id}}">
                                     
                                    <?php
                                     $this->load->view('customization/suitBlock');

@@ -437,7 +437,7 @@ $('.thumb-slider2').flexslider({
 });
 
 /* ----------- Tab Jquery ----------- */		
-$(".tab-content").hide(); //Hide all content
+//$(".tab-content").hide(); //Hide all content
 $(".tab-nav li:first").addClass("active").show(); //Activate first tab
 $(".tab-content:first").show(); //Show first tab content
 //On Click Event
