@@ -2,7 +2,7 @@
 $this->load->view('layout/header');
 ?>
 <?php
-$linklist = ["<a href='" . site_url("Product/ProductList/" . $custom_id. "/0") . "'>$custom_item</a>"];
+$linklist = ["<a href='" . site_url("Product/ProductList/" . $custom_id . "/0") . "'>$custom_item</a>"];
 foreach ($categorie_parent as $key => $value) {
     $cattitle = $value['category_name'];
     $catid = $value['id'];
@@ -180,7 +180,7 @@ $image2 = "";
                                                         <button type="submit"> <i class="fa fa-search"></i></button>
                                                     </form>
                                                 </div>-->
- <div class="spacer-30"></div>
+                        <div class="spacer-30"></div>
                         <?php if (count($categories)) { ?>
                             <!-- HEADING -->
                             <div class="heading">
@@ -242,16 +242,16 @@ $image2 = "";
 
 
                         <!-- HEADING -->
-<!--                        <div  ng-if='atv.product_count'>
-                            <div class="heading">
-                                <h6>Filter by price</h6>
-                                <hr class="dotted">
-                            </div>
-                             PRICE 
-                            <div class="cost-price-content">
-                                <div id="price-range" class="price-range"></div>
-                                <span id="price-min" class="price-min">20</span> <span id="price-max" class="price-max">80</span> <a href="#." class="btn btn-small btn-inverse pull-right" >FILTER</a> </div>
-                        </div>-->
+                        <!--                        <div  ng-if='atv.product_count'>
+                                                    <div class="heading">
+                                                        <h6>Filter by price</h6>
+                                                        <hr class="dotted">
+                                                    </div>
+                                                     PRICE 
+                                                    <div class="cost-price-content">
+                                                        <div id="price-range" class="price-range"></div>
+                                                        <span id="price-min" class="price-min">20</span> <span id="price-max" class="price-max">80</span> <a href="#." class="btn btn-small btn-inverse pull-right" >FILTER</a> </div>
+                                                </div>-->
 
                         <!-- HEADING -->
 
@@ -310,7 +310,9 @@ $image2 = "";
 
 
                     <div class="" > 
-
+                        <?php
+                        $citem_id = $custom_id;
+                        ?>
                         <div class="row products-container content" ng-if="productProcess.state == 2">
                             <!-- Item -->
 
@@ -327,12 +329,15 @@ $image2 = "";
                                                 <br>
                                                 <span >{{product.short_description}} </span></h3>
                                             <!--<p style="text-align: center">{{product.price|currency:"<?php echo globle_currency; ?> "}}</p>-->
-                                           <br>
+                                            <br>
                                             <p>
                                             <center> 
-                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric">Design Now
+                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 10px;">Design Now
                                                 </a> 
-                                                        <!--<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#mdl<?php echo $value['title']; ?>" style="margin: 10px auto">View</a>-->
+                                                <button type="button" class="btn btn-primary" ng-click="askPriceSelection(product.product_id)" style="    padding: 0 10px;">Price Enq.
+
+                                                </button>
+                                                            <!--<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#mdl<?php echo $value['title']; ?>" style="margin: 10px auto">View</a>-->
                                             </center>
                                             </p>
                                     </div>
@@ -340,7 +345,7 @@ $image2 = "";
                                 <!-- end gallery items -->
                             </div>
 
-                            
+
 
                         </div>
 
@@ -391,6 +396,86 @@ $image2 = "";
                         <div style="clear: both"></div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal  fade" id="productprice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="    z-index: 20000000;">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel" style="font-size: 15px">
+                        Price Enquiry For 
+                        <?php
+                        echo $custom_item;
+                        ?>
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                </div>
+
+
+
+                <!-- Cart Details -->
+                <div class="modal-body checkout-form">
+                    <div class="custom_block_item">
+
+
+                        <div class="row cart-details" >
+                            <div class="col-sm-12 col-md-3" ng-repeat="product in askpricedata" ng-if="product.item_id == '<?php echo $citem_id; ?>'">
+                                <div class="thumbnail">
+                                    <img src="<?php echo custome_image_server; ?>/coman/output/{{product.folder}}/cutting20001.png" alt="" style="width: auto;" alt="...">
+                                    <div class="caption">
+                                        <h5 style="font-size:15px;" class="text-center m_bottom_10">{{product.title}}</h5>
+                                        <p><a href="#."  ng-click="removePriceData(product.id)" class="btn btn-danger btn-xs btn-block" style="    padding: 0 10px;line-height:10px;"><i class="fa fa-remove d_inline_m fs_large" ></i> Remove</a> </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <form method="post" action="#">
+                                    <div style="margin-top:10px;">
+                                        <input type="hidden" name="item" value="<?php echo $custom_item; ?>" />
+                                        <input type="hidden" name="item_id" value="<?php echo $citem_id; ?>" />
+
+                                        <span ng-repeat="product in askpricedata">
+                                            <input type="hidden" name="productid[]" value="{{product.id}}" />
+                                        </span>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 w_xs_full m_xs_bottom_10">
+                                                <input type="text" name="last_name" placeholder="Last Name*" class="form-control" required="">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 w_xs_full m_xs_bottom_10" >
+                                                <input type="text" name="first_name" placeholder="First Name*" class="form-control" required="">
+                                            </div>
+
+                                        </div>
+                                        <input type="email" name="email" placeholder="Email*" class="form-control" required="">
+
+
+                                        <input type="tel" name="contact" placeholder="Contact No." class="form-control">
+
+
+                                        <button type="submit" name="priceenquiry" class="btn btn-danger">Submit</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Add More</button>
+
+
+                                    </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
             </div>
         </div>
     </div>

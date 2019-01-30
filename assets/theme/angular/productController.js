@@ -3,6 +3,44 @@
  */
 
 App.controller('ProductController', function ($scope, $http, $timeout, $interval) {
+$scope.askPriceSelected = function () {
+        var url = baseurl + "Api/priceAsk/" + custom_id;
+        $http.get(url).then(function (rdata) {
+            $scope.askpricedata = rdata.data;
+
+        })
+    }
+
+
+    $scope.removePriceData = function (product_id) {
+        var url = baseurl + "Api/priceAskDelete/" + custom_id + "/" + product_id;
+        $http.get(url).then(function (rdata) {
+
+            $scope.askPriceSelected();
+        })
+    }
+
+    $scope.askPriceSelected();
+
+
+    $scope.showPriceProducts = function () {
+        $scope.askPriceSelected();
+        $("#productprice").modal("show");
+    }
+
+    $scope.askPriceSelection = function (product_id) {
+        var url = baseurl + "Api/priceAsk";
+        var form = new FormData()
+        form.append('product_id', product_id);
+        form.append('item_id', custom_id);
+        $http.post(url, form).then(function (rdata) {
+            $scope.showPriceProducts();
+        })
+    }
+
+
+
+
 
     $scope.productResults = {};
     $scope.init = 0;

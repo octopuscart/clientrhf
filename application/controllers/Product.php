@@ -34,6 +34,62 @@ class Product extends CI_Controller {
         $data["custom_item"] = $customeitem->item_name;
         $data["custom_id"] = $custom_id;
         $data["item_price"] = $customeitem->price;
+        
+          $session_last_custom = $this->session->userdata('session_last_custom');
+
+        $data["session_last_custom"] = $session_last_custom;
+        
+          if (isset($_POST['priceenquiry'])) {
+            $price_enquiry = array(
+                'last_name' => $this->input->post('last_name'),
+                'first_name' => $this->input->post('first_name'),
+                'email' => $this->input->post('email'),
+                'contact' => $this->input->post('contact'),
+            );
+            $sendernameeq = $this->input->post('last_name') . " " . $this->input->post('first_name');
+            if ($this->input->post('email')) {
+                $emailsender = email_sender;
+                $sendername = email_sender_name;
+                $email_bcc = email_bcc;
+                $this->email->set_newline("\r\n");
+                $this->email->from(email_bcc, $sendername);
+                $this->email->to($this->input->post('email'));
+                $this->email->bcc(email_bcc);
+                $item = $this->input->post('item');
+                $item_id = $this->input->post('item_id');
+                $products = $this->input->post('productid');
+                $productarray = array();
+                foreach ($products as $key => $value) {
+                    $product_details = $this->Product_model->productDetails($value, $item_id);
+                    array_push($productarray, $product_details);
+                    $session_enquiry_price = $this->session->userdata('session_enquiry_price');
+                    unset($session_enquiry_price[$item_id][$value]);
+                    $this->session->set_userdata('session_enquiry_price', $session_enquiry_price);
+                }
+
+
+                $subject = "Price Enquiry for " . $item;
+                $this->email->subject($subject);
+                $price_enquiry['item'] = $item;
+                $price_enquiry['name'] = $sendernameeq;
+                $price_enquiry['products'] = $productarray;
+                $price_enquiry['subject'] = $subject;
+
+
+
+                $htmlsmessage = $this->load->view('Email/price_enquiry', $price_enquiry, true);
+                $this->email->message($htmlsmessage);
+
+                $this->email->print_debugger();
+                $send = $this->email->send();
+                if ($send) {
+                    // echo json_encode("send");
+                } else {
+                    $error = $this->email->print_debugger(array('headers'));
+                    //  echo json_encode($error);
+                }
+            }
+        }
 
         $this->load->view('Product/productList', $data);
     }
