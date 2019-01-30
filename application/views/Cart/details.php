@@ -26,7 +26,6 @@ $this->load->view('layout/header');
                         <thead>
                             <tr>
                                 <td class="cart-form-heading text-left" style="width: 50%" colspan="2">Product</td>
-                                <td class="cart-form-heading text-center">Price</td>
                                 <td class="cart-form-heading text-center" style="    width: 135px;">Quantity</td>
                                 <td class="cart-form-heading"></td>
                             </tr>
@@ -48,7 +47,6 @@ $this->load->view('layout/header');
                                             line-height: 19px;">View Design</a>
 
                                 </td>
-                                <td class="amount text-center" >{{product.price|currency:" "}}</td>
                                 <td class="quantity text-center">
 
                                     <div class="input-group">
