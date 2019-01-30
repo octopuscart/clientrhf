@@ -137,7 +137,7 @@ $paymentstatus = "";
 
                 </div>
                 <div class="col-md-9">
-                    <div class="pricing">
+                    <div class="pricing row">
                          <div class="col-md-4">
                         <article class="order_box color_dark">
                             <div class="list-group">
@@ -170,9 +170,6 @@ $paymentstatus = "";
                                <i class="fa fa-calendar"></i> <?php echo $order_data->order_date; ?> <br/>
                                 <i class="fa fa-clock-o"></i>  <?php echo $order_data->order_time; ?> <br/>
                                 
-                                    <button class="btn btn-default btn-xs" ng-click="sendOrderMail('<?php echo $order_data->order_no; ?>')">
-                                        Request Order Copy On Mail
-                                    </button>
                                 </li>
                             </div>
                         </article>
@@ -283,7 +280,7 @@ $paymentstatus = "";
 
                                             <h4 class="panel-title">
                                                 <a role="button" class="btn  btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $product->id; ?>" aria-expanded="true" aria-controls="collapseOne" style="    margin: 5px 0px;
-    padding: 4px;">
+    padding: 4px;line-height: 10px;">
                                                     View Summary
                                                 </a>
                                             </h4>
