@@ -28,7 +28,6 @@ $this->load->view('layout/header');
                                 <td class="cart-form-heading text-left" style="width: 50%" colspan="2">Product</td>
                                 <td class="cart-form-heading text-center">Price</td>
                                 <td class="cart-form-heading text-center" style="    width: 135px;">Quantity</td>
-                                <td class="cart-form-heading text-center">Total</td>
                                 <td class="cart-form-heading"></td>
                             </tr>
                         </thead>
@@ -64,18 +63,10 @@ $this->load->view('layout/header');
 
 
                                 </td>
-                                <td class="amount text-center">{{product.total_price|currency:" "}}</td>
+                                <!--<td class="amount text-center">{{product.total_price|currency:" "}}</td>-->
                                 <td class="dismiss"><a href="#"  ng-click="removeCart(product.product_id)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                             </tr>
-                            <tr>
-                                <td colspan="4" class="text-right">
-                                    TOTAL
-                                </td>
-                                <td class="text-center amount text-center">
-                                    {{globleCartData.total_price|currency:"<?php echo globle_currency; ?>"}}
-                                </td>
-                                <td></td>
-                            </tr>
+                            
                             <tr>
                                 <td colspan="6" class="text_right">
                                       <section class="pad-t-b-30 light-gray-bg shopping-cart small-cart"  >
@@ -91,10 +82,7 @@ $this->load->view('layout/header');
                                     </div>
                                     <div class="col-md-4">
 
-                                        <!-- SUB TOTAL -->
-                                        <h2 class=" text-center" style="font-size: 20px;
-                                            margin-top: 10px;">TOTAL: <span>{{globleCartData.total_price|currency:"<?php echo globle_currency_type; ?>"}}</span></h2>
-
+                                    
                                     </div>
                                     <div class="col-md-4">
                                         <a href="<?php echo site_url('Cart/checkoutInit') ?>" class="btn btn-primary pull-right" >Proceed To Checkout <i class=" fa fa-arrow-right"></i></a>

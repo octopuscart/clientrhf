@@ -242,16 +242,16 @@ $image2 = "";
 
 
                         <!-- HEADING -->
-                        <div  ng-if='atv.product_count'>
+<!--                        <div  ng-if='atv.product_count'>
                             <div class="heading">
                                 <h6>Filter by price</h6>
                                 <hr class="dotted">
                             </div>
-                            <!-- PRICE -->
+                             PRICE 
                             <div class="cost-price-content">
                                 <div id="price-range" class="price-range"></div>
                                 <span id="price-min" class="price-min">20</span> <span id="price-max" class="price-max">80</span> <a href="#." class="btn btn-small btn-inverse pull-right" >FILTER</a> </div>
-                        </div>
+                        </div>-->
 
                         <!-- HEADING -->
 
@@ -326,7 +326,8 @@ $image2 = "";
                                             <h3 style="text-align: center;font-size: 15px">{{product.title}}
                                                 <br>
                                                 <span >{{product.short_description}} </span></h3>
-                                            <p style="text-align: center">{{product.price|currency:"<?php echo globle_currency; ?> "}}</p>
+                                            <!--<p style="text-align: center">{{product.price|currency:"<?php echo globle_currency; ?> "}}</p>-->
+                                           <br>
                                             <p>
                                             <center> 
                                                 <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric">Design Now

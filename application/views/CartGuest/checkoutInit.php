@@ -114,9 +114,7 @@ $this->load->view('layout/header');
                                     <thead>
                                         <tr>
                                             <td class="cart-form-heading text-left" colspan="2" style="width: 50%" colspan="2">Product</td>
-                                            <td class="cart-form-heading text-center">Price</td>
                                             <td class="cart-form-heading text-center" style="    width: 135px;">Quantity</td>
-                                            <td class="cart-form-heading text-center">Total</td>
                                         </tr>
                                     </thead>
                                     <tbody id="quantity-holder">
@@ -136,24 +134,15 @@ $this->load->view('layout/header');
                                                         line-height: 19px;">View Design</a>
 
                                             </td>
-                                            <td class="amount text-center" >{{product.price|currency:" "}}</td>
                                             <td class="quantity text-center">
 
                                                 {{product.quantity}}
 
 
                                             </td>
-                                            <td class="amount text-center">{{product.total_price|currency:" "}}</td>
                                             
                                         </tr>
-                                        <tr>
-                                            <td colspan="4" class="text-right">
-                                                TOTAL
-                                            </td>
-                                            <td class="text-center amount text-center">
-                                                {{globleCartData.total_price|currency:"<?php echo globle_currency; ?>"}}
-                                            </td>
-                                        </tr>
+                                        
                                       <tr>
                                         <td colspan="5" class="text_right">
                                             <div class="proceed-button pull-left " >

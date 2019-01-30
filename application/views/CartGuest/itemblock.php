@@ -11,7 +11,7 @@
                             <i class="fa fa-shopping-cart fa-stack-1x"></i>
                             <i class="ion-bag fa-stack-1x "></i>
                         </span>   My Shopping Bag
-                        <span style="float: right; line-height: 29px;" class="ng-binding">Total: {{globleCartData.total_price|currency:"<?php echo globle_currency; ?>"}} (<small style="color: #000" class="ng-binding">{{globleCartData.total_quantity}}</small>)</span> 
+                        <span style="float: right; line-height: 29px;" class="ng-binding">Total: {{globleCartData.total_quantity}}</span> 
                     </a>
                     <?php
                 }
@@ -71,9 +71,9 @@
                         <span class="fa-stack">
                             <i class="fa fa-money fa-stack-1x"></i>
                             <i class="ion-bag fa-stack-1x "></i>
-                        </span>  Payment Method
+                        </span>  Confirm Order Now
                         <span style="float: right; line-height: 29px;font-size: 12px;font-weight: 300" class="ng-binding">
-                            PayPal
+                        
                         </span> 
                     </a>
                     <?php

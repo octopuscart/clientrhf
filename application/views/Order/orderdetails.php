@@ -92,9 +92,9 @@ $paymentstatus = "";
                              padding-bottom: 10px;">
                             <div class="media-left">
                                 <a href="#">
-                                    <i class='icon-circle'><?php
+                                    <?php
                                         echo $countord - $count;
-                                        ?></i>
+                                        ?>
                                 </a>
                             </div>
                             <div class="media-body">
@@ -137,35 +137,46 @@ $paymentstatus = "";
 
                 </div>
                 <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-md-4">
+                    <div class="pricing">
+                         <div class="col-md-4">
+                        <article class="order_box color_dark">
+                            <div class="list-group">
+                                <li class="list-group-item list-group-item-default "><i class="icon-user"></i> Customer Information</li>
+                                <li class="list-group-item list-group-item-default" style="height: 150px;">
+                                    <i class="icon-user"></i><?php echo $order_data->name; ?> <br/>
+                                    <i class="icon-phone"></i> <?php echo $order_data->contact_no; ?><br/>
+                                    <i class="icon-mail"></i> <?php echo $order_data->email; ?> 
+                                </li>
+                            </div>
+                        </article>
+                    </div>
 
-                            <article class="order_box">
-                                <h3 class="headerorder"><i class="fa fa-user"></i> Customer Information</h3>
-                                <li><i class="fa fa-user"></i> <?php echo $order_data->name; ?> </li>
-                                <li><i class="fa fa-phone"></i> <?php echo $order_data->contact_no; ?></li> 
-                                <li><i class="fa fa-envelope"></i> <?php echo $order_data->email; ?> </li>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="order_box">
-                                <h3 class="headerorder"><i class="fa fa-map"></i> Shipping Address</h3>
-
-                                <li>  <?php echo $order_data->address1; ?><br/><?php echo $order_data->address2; ?><br/>
+                    <div class="col-md-4">
+                        <article class="order_box color_dark">
+                            <div class="list-group">
+                                <li class="list-group-item list-group-item-default "><i class="icon-map"></i> Shipping Adddress </li>
+                                <li class="list-group-item list-group-item-default" style="height: 150px;">  <?php echo $order_data->address1; ?><br/><?php echo $order_data->address2; ?><br/>
                                     <?php echo $order_data->state; ?>  <?php echo $order_data->city; ?> <?php echo $order_data->country; ?>, <?php echo $order_data->zipcode; ?></li>
-                            </article>
-                        </div>
+                            </div>
+                        </article>
+                    </div>
 
-                        <div class="col-md-4">
-                            <article class="order_box">
-                                <h3 class="headerorder"><i class="fa fa-list"></i> Order Information</h3>
-                                <li> <i class=" fa fa-chevron-circle-right"></i> <?php echo $order_data->order_no; ?></li>
-                                <li> <i class="fa fa-calendar"></i> <?php echo $order_data->order_date; ?> </li>
-                                <li> <i class="fa fa-clock-o"></i>  <?php echo $order_data->order_time; ?> </li>
+                    <div class="col-md-4">
+                        <article class="order_box color_dark">
+                            <div class="list-group">
+                                <li class="list-group-item list-group-item-default "><i class="icon-clipboard"></i>  Order Information </li>
 
-                            </article>
-                        </div>
+                                <li class="list-group-item list-group-item-default" style="height: 150px;"> <i class=" fa fa-chevron-circle-right"></i> <?php echo $order_data->order_no; ?><br/>
+                               <i class="fa fa-calendar"></i> <?php echo $order_data->order_date; ?> <br/>
+                                <i class="fa fa-clock-o"></i>  <?php echo $order_data->order_time; ?> <br/>
+                                
+                                    <button class="btn btn-default btn-xs" ng-click="sendOrderMail('<?php echo $order_data->order_no; ?>')">
+                                        Request Order Copy On Mail
+                                    </button>
+                                </li>
+                            </div>
+                        </article>
+                    </div>
 
                         <div class="col-md-12">
                             <?php
@@ -247,9 +258,7 @@ $paymentstatus = "";
                                         <td style="width: 20px;text-align: right">S.No.</td>
                                         <td colspan="2"  style="text-align: center">Product</td>
 
-                                        <td style="text-align: right;width: 100px"">Price</td>
-                                        <td style="text-align: right;width: 10px">Qantity</td>
-                                        <td style="text-align: right;width: 100px">Total</td>
+                                        <td style="text-align: right;width: 10px">Quantity</td>
                                     </tr>
                                     <!--cart details-->
                                     <?php
@@ -273,8 +282,8 @@ $paymentstatus = "";
                                             <small style="font-size: 12px;">(<?php echo $product->sku; ?>)</small>
 
                                             <h4 class="panel-title">
-                                                <a role="button" class="btn  btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $product->id; ?>" aria-expanded="true" aria-controls="collapseOne" style=" line-height: 15px;   margin: 5px 0px;
-                                                   padding: 4px;">
+                                                <a role="button" class="btn  btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $product->id; ?>" aria-expanded="true" aria-controls="collapseOne" style="    margin: 5px 0px;
+    padding: 4px;">
                                                     View Summary
                                                 </a>
                                             </h4>
@@ -284,18 +293,7 @@ $paymentstatus = "";
                                                     <?php
                                                     echo "<ul class='list-group'>";
                                                     foreach ($product->custom_dict as $key => $value) {
-                                                        $checkextra = $value;
-                                                        $isextra = strpos($value, "$");
-                                                        if ($isextra) {
-                                                            $extraarry = explode(" ", $value);
-                                                            $prefix = array_slice($extraarry, 0, count($extraarry) - 1);
-                                                            $sufix = "<b class='extrapricesummryorder'>" . $extraarry[count($extraarry) - 1] . "</b>";
-                                                            array_push($prefix, $sufix);
-                                                            $fvalue = (implode(" ", $prefix));
-                                                            echo "<li class='list-group-item' style='font-size:12px'>$key <span class='badge'>$fvalue</span></li>";
-                                                        } else {
-                                                            echo "<li class='list-group-item'  style='font-size:12px'>$key <span class='badge'>$value</span></li>";
-                                                        }
+                                                        echo "<li class='list-group-item'>$key <span class='badge'>$value</span></li>";
                                                     }
                                                     echo "</ul>";
                                                     ?>                                            </div>
@@ -304,30 +302,13 @@ $paymentstatus = "";
 
                                         </td>
 
-                                        <td style="text-align: right">
-                                            {{ <?php echo $product->price; ?> |currency:"<?php echo globle_currency; ?> "}}
-                                            <?php
-                                            if ($product->extra_price > 0) {
-                                                ?>
-                                            <span  style="font-size: 12px;
-                                          font-weight: 600;
-                                          text-align: center;">
-                                        <br/>
-                                       {{ <?php echo $product->price - $product->extra_price; ?> |currency:""}}
-                                              + {{ <?php echo $product->extra_price; ?> |currency:""}}
-                                                </span>
-                                                <?php
-                                            }
-                                            ?>
-                                        </td>
+                                       
 
-                                        <td style="text-align: right;width: 50px;">
+                                        <td style="text-align: right">
                                             <?php echo $product->quantity; ?> 
                                         </td>
 
-                                        <td style="text-align: right;">
-                                            {{ <?php echo $product->total_price; ?>|currency:"<?php echo globle_currency; ?> "}}
-                                        </td>
+                                        
                                         </tr>
 
                                         <?php
@@ -425,24 +406,11 @@ $paymentstatus = "";
                                         </td>
                                     </tr>
 
+    
+                                  
                                     <tr>
-                                        <td colspan="3"  rowspan="4" style="font-size: 12px">
-                                            <b>Total Amount in Words:</b><br/>
-                                            <span style="text-transform: capitalize"> <?php echo $order_data->amount_in_word; ?></span>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" style="text-align: right">Sub Total</td>
-                                        <td style="text-align: right;width: 60px">{{"<?php echo $order_data->sub_total_price; ?>"|currency:"<?php echo globle_currency; ?> "}} </td>
-                                    </tr>
-    <!--                                <tr>
-                                        <td colspan="2" style="text-align: right">Credit Used</td>
-                                        <td style="text-align: right;width: 60px"><?php echo $order_data->credit_price; ?> </td>
-                                    </tr>-->
-                                    <tr>
-                                        <td colspan="2" style="text-align: right">Total Amount</td>
-                                        <td style="text-align: right;width: 60px">{{"<?php echo $order_data->total_price; ?>"|currency:"<?php echo globle_currency; ?> "}} </td>
+                                        <td colspan="3" style="text-align: right">Total Quantity</td>
+                                        <td style="text-align: right;width: 60px">{{<?php echo $order_data->total_quantity;?>}} </td>
                                     </tr>
 
 
