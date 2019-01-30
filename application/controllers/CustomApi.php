@@ -1456,6 +1456,7 @@ class CustomApi extends REST_Controller {
                         "canvas_o"=>"jacketstyleoverlay",
                         "function"=>"setJacketBody",
                         "overlay" => ["bodysingleoverlay.png"],
+                        "overlay2" => [ "overlaysingle2.png"],
                     ), array(
                         "status" => "0",
                         "title" => "2 Buttons",
@@ -1471,6 +1472,7 @@ class CustomApi extends REST_Controller {
                         "canvas_m"=>"jacketstyle",
                         "canvas_o"=>"jacketstyleoverlay",
                         "overlay" => [ "bodysingleoverlay.png"],
+                        "overlay2" => [ "overlaysingle2.png"],
                     )
                     , array(
                         "status" => "0",
