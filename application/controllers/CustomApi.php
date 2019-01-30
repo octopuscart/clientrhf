@@ -2098,13 +2098,9 @@ class CustomApi extends REST_Controller {
                     "type" => "main",
                     "colrow" => "4",
                 ),
-                array(
-                    "title" => "Lapel Button Hole Color",
-                    "viewtype" => "front",
-                    "type" => "main",
-                    "style_side" => "    background-size: 100%!important;height:50px",
-                    "colrow" => "4",
-                ),
+                
+                
+                
                 array(
                     "title" => "Breast Pocket",
                     "viewtype" => "front",
@@ -2137,13 +2133,7 @@ class CustomApi extends REST_Controller {
                     "colrow" => "4",
                     "style_side" => "    background-size: 100%!important;",
                 ),
-                array(
-                    "title" => "Contrast First Button Hole",
-                    "viewtype" => "front",
-                    "type" => "main",
-                    "style_side" => "    background-size: 100%!important;height:50px",
-                    "colrow" => "4",
-                ),
+                
             ],
             "collar_cuff_insert" => array(),
             "data" => $this->suitCustomeElements(),
