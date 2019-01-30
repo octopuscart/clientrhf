@@ -93,8 +93,8 @@ $paymentstatus = "";
                             <div class="media-left">
                                 <a href="#">
                                     <?php
-                                        echo $countord - $count;
-                                        ?>
+                                    echo $countord - $count;
+                                    ?>
                                 </a>
                             </div>
                             <div class="media-body">
@@ -138,42 +138,42 @@ $paymentstatus = "";
                 </div>
                 <div class="col-md-9">
                     <div class="pricing row">
-                         <div class="col-md-4">
-                        <article class="order_box color_dark">
-                            <div class="list-group">
-                                <li class="list-group-item list-group-item-default "><i class="icon-user"></i> Customer Information</li>
-                                <li class="list-group-item list-group-item-default" style="height: 150px;">
-                                    <i class="icon-user"></i><?php echo $order_data->name; ?> <br/>
-                                    <i class="icon-phone"></i> <?php echo $order_data->contact_no; ?><br/>
-                                    <i class="icon-mail"></i> <?php echo $order_data->email; ?> 
-                                </li>
-                            </div>
-                        </article>
-                    </div>
+                        <div class="col-md-4">
+                            <article class="order_box color_dark">
+                                <div class="list-group">
+                                    <li class="list-group-item list-group-item-default "><i class="icon-user"></i> Customer Information</li>
+                                    <li class="list-group-item list-group-item-default" style="height: 150px;">
+                                        <i class="icon-user"></i><?php echo $order_data->name; ?> <br/>
+                                        <i class="icon-phone"></i> <?php echo $order_data->contact_no; ?><br/>
+                                        <i class="icon-mail"></i> <?php echo $order_data->email; ?> 
+                                    </li>
+                                </div>
+                            </article>
+                        </div>
 
-                    <div class="col-md-4">
-                        <article class="order_box color_dark">
-                            <div class="list-group">
-                                <li class="list-group-item list-group-item-default "><i class="icon-map"></i> Shipping Adddress </li>
-                                <li class="list-group-item list-group-item-default" style="height: 150px;">  <?php echo $order_data->address1; ?><br/><?php echo $order_data->address2; ?><br/>
-                                    <?php echo $order_data->state; ?>  <?php echo $order_data->city; ?> <?php echo $order_data->country; ?>, <?php echo $order_data->zipcode; ?></li>
-                            </div>
-                        </article>
-                    </div>
+                        <div class="col-md-4">
+                            <article class="order_box color_dark">
+                                <div class="list-group">
+                                    <li class="list-group-item list-group-item-default "><i class="icon-map"></i> Shipping Adddress </li>
+                                    <li class="list-group-item list-group-item-default" style="height: 150px;">  <?php echo $order_data->address1; ?><br/><?php echo $order_data->address2; ?><br/>
+                                        <?php echo $order_data->state; ?>  <?php echo $order_data->city; ?> <?php echo $order_data->country; ?>, <?php echo $order_data->zipcode; ?></li>
+                                </div>
+                            </article>
+                        </div>
 
-                    <div class="col-md-4">
-                        <article class="order_box color_dark">
-                            <div class="list-group">
-                                <li class="list-group-item list-group-item-default "><i class="icon-clipboard"></i>  Order Information </li>
+                        <div class="col-md-4">
+                            <article class="order_box color_dark">
+                                <div class="list-group">
+                                    <li class="list-group-item list-group-item-default "><i class="icon-clipboard"></i>  Order Information </li>
 
-                                <li class="list-group-item list-group-item-default" style="height: 150px;"> <i class=" fa fa-chevron-circle-right"></i> <?php echo $order_data->order_no; ?><br/>
-                               <i class="fa fa-calendar"></i> <?php echo $order_data->order_date; ?> <br/>
-                                <i class="fa fa-clock-o"></i>  <?php echo $order_data->order_time; ?> <br/>
-                                
-                                </li>
-                            </div>
-                        </article>
-                    </div>
+                                    <li class="list-group-item list-group-item-default" style="height: 150px;"> <i class=" fa fa-chevron-circle-right"></i> <?php echo $order_data->order_no; ?><br/>
+                                        <i class="fa fa-calendar"></i> <?php echo $order_data->order_date; ?> <br/>
+                                        <i class="fa fa-clock-o"></i>  <?php echo $order_data->order_time; ?> <br/>
+
+                                    </li>
+                                </div>
+                            </article>
+                        </div>
 
                         <div class="col-md-12">
                             <?php
@@ -280,7 +280,7 @@ $paymentstatus = "";
 
                                             <h4 class="panel-title">
                                                 <a role="button" class="btn  btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $product->id; ?>" aria-expanded="true" aria-controls="collapseOne" style="    margin: 5px 0px;
-    padding: 4px;line-height: 10px;">
+                                                   padding: 4px;line-height: 10px;">
                                                     View Summary
                                                 </a>
                                             </h4>
@@ -299,13 +299,13 @@ $paymentstatus = "";
 
                                         </td>
 
-                                       
+
 
                                         <td style="text-align: right">
                                             <?php echo $product->quantity; ?> 
                                         </td>
 
-                                        
+
                                         </tr>
 
                                         <?php
@@ -403,11 +403,11 @@ $paymentstatus = "";
                                         </td>
                                     </tr>
 
-    
-                                  
+
+
                                     <tr>
                                         <td colspan="3" style="text-align: right">Total Quantity</td>
-                                        <td style="text-align: right;width: 60px">{{<?php echo $order_data->total_quantity;?>}} </td>
+                                        <td style="text-align: right;width: 60px">{{<?php echo $order_data->total_quantity; ?>}} </td>
                                     </tr>
 
 
@@ -432,44 +432,17 @@ $paymentstatus = "";
 
 <script>
 
-    App.controller('OrderDetailsController', function ($scope, $http, $timeout, $interval) {
-        var url = baseurl + "Api/order_mail/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
-        $scope.checkmailsend = 0;
-        $scope.sendOrderMail = function (order_no) {
-            swal({
-                title: 'Sending Mail...',
-                onOpen: function () {
-                    swal.showLoading()
-                },
-            })
-            $http.get(url).then(function (rdata) {
-                swal({timer: 1500,
-                    title: 'Mail Sent!',
-                    type: 'success', })
-            }, function () {
-                swal({timer: 1500,
-                    title: 'Unable To Send Mail!',
-                    type: 'error', })
-            })
-        }
-
-        $interval(function () {
-            if ($scope.checkmailsend == 1) {
-            }
-            else {
-                $scope.sendOrderMailCheck();
-            }
-        }, 2000)
-
-        $scope.sendOrderMailCheck = function (order_no) {
-            var url1 = baseurl + "Api/order_mailcheck/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
-
-
-            $http.get(url1).then(function (rdata) {
-                $scope.checkmailsend = rdata.data.checkpre;
-                if ($scope.checkmailsend == 0) {
-                    var url2 = baseurl + "Api/order_mailchecksend/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
-                    $http.get(url2).then(function (rdata) {
+            App.controller('OrderDetailsController', function ($scope, $http, $timeout, $interval) {
+                var url = baseurl + "Api/order_mail/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
+                $scope.checkmailsend = 0;
+                $scope.sendOrderMail = function (order_no) {
+                    swal({
+                        title: 'Sending Mail...',
+                        onOpen: function () {
+                            swal.showLoading()
+                        },
+                    })
+                    $http.get(url).then(function (rdata) {
                         swal({timer: 1500,
                             title: 'Mail Sent!',
                             type: 'success', })
@@ -480,12 +453,39 @@ $paymentstatus = "";
                     })
                 }
 
-            }, function () {
+                $interval(function () {
+                    if ($scope.checkmailsend == 1) {
+                    }
+                    else {
+                        $scope.sendOrderMailCheck();
+                    }
+                }, 2000)
+
+                $scope.sendOrderMailCheck = function (order_no) {
+                    var url1 = baseurl + "Api/order_mailcheck/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
+
+
+                    $http.get(url1).then(function (rdata) {
+                        $scope.checkmailsend = rdata.data.checkpre;
+                        if ($scope.checkmailsend == 0) {
+                            var url2 = baseurl + "Api/order_mailchecksend/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
+                            $http.get(url2).then(function (rdata) {
+                                swal({timer: 1500,
+                                    title: 'Mail Sent!',
+                                    type: 'success', })
+                            }, function () {
+                                swal({timer: 1500,
+                                    title: 'Unable To Send Mail!',
+                                    type: 'error', })
+                            })
+                        }
+
+                    }, function () {
+
+                    })
+                }
 
             })
-        }
-
-    })
 
 
 </script>

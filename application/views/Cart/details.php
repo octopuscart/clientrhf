@@ -26,8 +26,8 @@ $this->load->view('layout/header');
                         <thead>
                             <tr>
                                 <td class="cart-form-heading text-left" style="width: 50%" colspan="2">Product</td>
-                                <td class="cart-form-heading text-center" style="    width: 135px;">Quantity</td>
-                                <td class="cart-form-heading"></td>
+                                <td class="cart-form-heading text-center" >Quantity</td>
+                                <td class="cart-form-heading" style="    width: 135px;"></td>
                             </tr>
                         </thead>
                         <tbody id="quantity-holder">
