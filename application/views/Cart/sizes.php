@@ -16,7 +16,7 @@
         border: 1px solid #000;
     }
 
-    .cart-page-area .cart-page-top table tr td:last-child {
+    .cart-page-area .cart-page-top .standardmeasurement table tr td:last-child {
         border-right: 1px solid;
     }
 
@@ -88,7 +88,7 @@ $shirtsize = array(
 
 function sizeTable($ctype, $lable) {
     ?>
-    <table class="standardmeasurement">
+    <table class="standardmeasurement" id="id<?php echo $lable;?>">
         <tr>
             <td rowspan="4" class="mestitle"><?php
                 echo $lable;
@@ -149,10 +149,33 @@ function sizeTable($ctype, $lable) {
     <?php
 }
 
+//sizeTable($shirtsize, 'Shirt');
+//
+//sizeTable($jacketsize, 'Jacket');
+//
+//
+//sizeTable($panttsize, 'Pant');
+        
+        
+        $mesdatacheck = array_unique($items);
+$anotherarray = array();
+foreach ($mesdatacheck as $key => $value) {
+    $anotherarray[$value] = $key;
+}
+
+
+if(isset($anotherarray[1])){
 sizeTable($shirtsize, 'Shirt');
-
+}
+if(isset($anotherarray[4])){
 sizeTable($jacketsize, 'Jacket');
+}
+if(isset($anotherarray[2])){
+sizeTable($jacketsize, 'Jacket');
+sizeTable($panttsize, 'Pant');
+}
 
-
-sizeTable($panttsize, 'Pant')
+if(isset($anotherarray[3])){
+sizeTable($panttsize, 'Pant');
+}
 ?>

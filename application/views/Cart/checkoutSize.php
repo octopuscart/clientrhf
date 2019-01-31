@@ -130,8 +130,6 @@ $this->load->view('layout/header');
 
 <!-- Content -->
 
-
-
 <div class="cart-page-area"  ng-controller="measurementController">
     <div class="container" ng-if="globleCartData.total_quantity">
         <div class="row">
@@ -144,7 +142,7 @@ $this->load->view('layout/header');
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading active" role="tab" id="headingOne">
+                    <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <span class="fa-stack">
@@ -161,20 +159,166 @@ $this->load->view('layout/header');
                         <div class="clearfix"></div>
                         <div class="cart-page-top table-responsive  product-details2-area">
                             <div class="product-details-tab-area" style="margin: 0;">
-                                <div class="">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 nav nav-tabs tabs-left">
-                                        <ul>
-                                            <li class="active"><a href="#cash" data-toggle="tab" aria-expanded="false" ng-click="slidedemo('Mail-in Garments')">Mail-in Garments</a></li>
-                                            <li><a href="#cheque" data-toggle="tab" aria-expanded="false" ng-click="slidedemo('Recent Measurement')">For Existing Clients</a></li>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+
+
+                                        
+
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#size_standard" data-toggle="tab" role="tab" ng-click="slidedemostandard()">Standard Size</a></li>
+                                            <li><a href="#bank" data-toggle="tab" role="tab" ng-click="slidedemo('Custom Measurement')">Measure Your Body</a></li>
+                                            <li><a href="#cash" data-toggle="tab"  role="tab" ng-click="slidedemo('Mail-in Garments')">Mail-in Garments</a></li>
+                                            <li><a href="#cheque" data-toggle="tab" role="tab"  ng-click="slidedemo('Recent Measurement')">For Existing Clients</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="tab-content" style="padding: 2px 35px;">
-                                     
+                                            <div class="tab-pane  active in"  id="size_standard">
 
-                                         
 
-                                            <div class="tab-pane active" id="cash">
+
+
+
+
+                                                <div class="row">
+                                                    <?php
+                                                    $this->load->view('Cart/sizes', array('vtype' => 'items', 'items'=>$custome_items));
+                                                    ?>
+
+
+                                                </div>
+
+
+                                                <div class="cart-page-top table-responsive">
+                                                    <table class="table table-hover">
+                                                        <tbody id="quantity-holder">
+                                                            <tr>
+                                                                <td colspan="4" class="text_right">
+                                                                    <div class="proceed-button pull-left " >
+                                                                        <a href=" <?php echo site_url("Cart/checkoutInit"); ?>" class="btn btn-danger " ><i class="fa fa-arrow-left"></i> View Cart</a>
+                                                                    </div>
+                                                                    <div class="proceed-button pull-right ">
+                                                                        <form action="#" method="post">
+                                                                            <input class="input_display_none" type ="hidden1" name="measurement_type" ng-model="measurementstyle.title"  >
+                                                                            <button type="submit" name="submit_measurement" class="btn btn-danger "  value="measurement">
+                                                                                Choose Shipping Address <i class="fa fa-arrow-right"></i>
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+
+                                            <!--start of custome measurement-->
+                                            <div class="tab-pane  " id="bank">
+                                                <form action="#" method="post">
+                                                    <p>
+                                                    <table class="table table-responsive table-striped">
+                                                        <tr>
+                                                            <td style="width: 150px;">Measurements</td>
+                                                            <td class="text-center" style="    width: 100%;">Tap to select and slide left to right to change value</td>
+                                                            <!--<td style="width: 150px;"></td>-->
+                                                            <td style="width: 100px">Values <br><span style="font-size: 9px;">(In Inches)</span></td>
+                                                        </tr>
+                                                        <!--custome meausrements-->
+                                                        <?php
+                                                        foreach ($measurements_list as $key => $value) {
+                                                            $vlname = $value['title'];
+                                                            $vimg = $value['imagespath'];
+                                                            ?>
+                                                            <tr style="height: 150px;">
+                                                                <th>
+
+
+                                                            <div class="thumbnail" style="margin-bottom: 0px;">
+                                                                <img src="<?php echo $vimg; ?>" class="measurement_img">
+                                                                <h4 class="measurement_lable">
+                                                                    <?php
+                                                                    echo $vlname;
+                                                                    echo "<input class='input_display_none' name='measurement_title[]' value='$vlname'>"
+                                                                    ?>    
+
+                                                                </h4>
+
+                                                            </div>
+
+
+
+                                                            </th>
+                                                            <td>
+
+                                                                <div id="slider-pips<?php echo $value['id']; ?>"></div>
+
+                                                            </td>
+    <!--                                                            <td>
+                                                                <select name="measurement_<?php echo $value['id']; ?>" ng-model="measurement_<?php echo $value['id']; ?>" ng-init="measurement_<?php echo $value['id']; ?> =<?php echo $value['standard_value']; ?>">
+                                                            <?php
+                                                            for ($i = $value['min_value']; $i <= $value['max_value']; $i++) {
+                                                                $vl1 = $i;
+
+                                                                echo "<option value='$vl1' " . ($value['standard_value'] == $i ? "selected" : '') . ">$vl1</option>";
+                                                            }
+                                                            ?>
+                                                                </select>
+                                                                <select ng-model="measurement_<?php echo $value['id']; ?>_fr">
+                                                                    <option></option>
+                                                                    <option value="1/8">1/8</option>
+                                                                    <option value="1/4">1/4</option>
+                                                                    <option value="3/8">3/8</option>
+                                                                    <option value="1/2">1/2</option>
+                                                                    <option value="5/8">5/8</option>
+                                                                    <option value="3/4">3/4</option>
+                                                                    <option value="7/8">7/8</option>
+                                                                </select>
+
+                                                            </td>-->
+
+                                                            <td>
+                                                                <input class="input_display_none" name="measurement_value[]" value="{{measurementDict['m<?php echo $value['id']; ?>'].mvalue}} {{measurementDict['m<?php echo $value['id']; ?>'].frvalue}}">
+                                                                <span class="measurement_text">{{measurementDict['m<?php echo $value['id']; ?>'].mvalue}}</span> <small class="fr_value">{{measurementDict['m<?php echo $value['id']; ?>'].frvalue}}"</small>
+                                                            </td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </table>
+
+
+
+                                                    </p>
+                                                    <div class="cart-page-top table-responsive">
+                                                        <table class="table table-hover">
+                                                            <tbody id="quantity-holder">
+                                                                <tr>
+                                                                    <td colspan="4" class="text_right">
+                                                                        <div class="proceed-button pull-left " >
+                                                                            <a href=" <?php echo site_url("Cart/checkoutInit"); ?>" class="btn btn-danger  checkout_button_pre " ><i class="fa fa-arrow-left"></i> View Cart</a>
+                                                                        </div>
+                                                                        <div class="proceed-button pull-right ">
+
+                                                                            <input class="input_display_none" type ="hidden1" name="measurement_type" ng-model="measurementstyle.title"  >
+                                                                            <button type="submit" name="submit_measurement" class="btn btn-danger  checkout_button_next "  value="measurement">
+                                                                                Choose Shipping Address <i class="fa fa-arrow-right"></i>
+                                                                            </button>
+
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!--end of custome meausrement-->
+
+
+                                            <div class="tab-pane " id="cash">
                                                 <p style="margin: 20px 0px 10px;">
                                                     Want to copy the fit of a shirt you already have, but aren't sure how to measure it properly?
 
@@ -184,15 +328,10 @@ $this->load->view('layout/header');
 
                                                 <div class="contact-us-right">
                                                     <b>Send to:</b>
-                                                    <address>
-                                       
-                                       Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, Tsim Sha Tsui,<br/> Kowloon, Hong Kong<br>(MTR Exit No. N5)                              <br/>
-                                        <b>Tel#</b>: +(852) 2369 1196  <b>Fax#</b>: +(852) 2369 7298<br/>
-                                        <b>Email</b>: rftailor@biznetvigator.com, sales@rahmanfashions.com<br/>
-                                        <b>Web</b>: www.rahmanfashions.com</b>
-
-
-                                    </address>
+                                                    <br/>
+                                                        Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, Tsim Sha Tsui,<br/> Kowloon, Hong Kong<br>(MTR Exit No. N5)<br>
+                        <span class="text-black">Email:</span> <a href="mailto:rftailor@biznetvigator.com" title="rftailor@biznetvigator.com">rftailor@biznetvigator.com, sales@rahmanfashions.com/</a><br>
+                        <span class="text-black">Phone:</span> <a href="tel:+852 2369 1196">+(852) 2369 1196</a>
 
                                                 </div>
                                                 </p>
@@ -202,12 +341,12 @@ $this->load->view('layout/header');
                                                             <tr>
                                                                 <td colspan="4" class="text_right">
                                                                     <div class="proceed-button pull-left " >
-                                                                        <a href=" <?php echo site_url("Cart/checkoutInit"); ?>" class="btn btn-primary checkout_button_pre " ><i class="fa fa-arrow-left"></i> View Cart</a>
+                                                                        <a href=" <?php echo site_url("Cart/checkoutInit"); ?>" class="btn btn-danger checkout_button_pre " ><i class="fa fa-arrow-left"></i> View Cart</a>
                                                                     </div>
                                                                     <div class="proceed-button pull-right ">
                                                                         <form action="#" method="post">
                                                                             <input class="input_display_none" type ="hidden1" name="measurement_type" ng-model="measurementstyle.title"  >
-                                                                            <button type="submit" name="submit_measurement" class="btn btn-primary checkout_button_next "  value="measurement">
+                                                                            <button type="submit" name="submit_measurement" class="btn btn-danger  checkout_button_next "  value="measurement">
                                                                                 Choose Shipping Address <i class="fa fa-arrow-right"></i>
                                                                             </button>
                                                                         </form>
@@ -231,12 +370,12 @@ $this->load->view('layout/header');
                                                             <tr>
                                                                 <td colspan="4" class="text_right">
                                                                     <div class="proceed-button pull-left " >
-                                                                        <a href=" <?php echo site_url("Cart/checkoutInit"); ?>" class="btn btn-primary checkout_button_pre " ><i class="fa fa-arrow-left"></i> View Cart</a>
+                                                                        <a href=" <?php echo site_url("Cart/checkoutInit"); ?>" class="btn btn-danger  checkout_button_pre " ><i class="fa fa-arrow-left"></i> View Cart</a>
                                                                     </div>
                                                                     <div class="proceed-button pull-right ">
                                                                         <form action="#" method="post">
                                                                             <input class="input_display_none" type ="hidden1" name="measurement_type" ng-model="measurementstyle.title"  >
-                                                                            <button type="submit" name="submit_measurement" class="btn btn-primary checkout_button_next "  value="measurement">
+                                                                            <button type="submit" name="submit_measurement" class="btn btn-danger  checkout_button_next "  value="measurement">
                                                                                 Choose Shipping Address <i class="fa fa-arrow-right"></i>
                                                                             </button>
                                                                         </form>
@@ -284,12 +423,10 @@ $this->load->view('layout/header');
 
 
 
+
 <script type="text/javascript">
     var custom_items = "<?php echo implode(", ", $custome_items) ?>";
     var avaiblecredits = 0;</script>
-
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/theme/noslider/nouislider.min.css">
-<script src="<?php echo base_url(); ?>assets/theme/noslider/nouislider.min.js" type="text/javascript"></script>
 
 
 
@@ -304,14 +441,127 @@ $this->load->view('layout/footer', array('custom_item' => 0, 'custom_id' => 0));
 
         $scope.measurementstyle = {'title': 'Standard Size - M'};
 
-      
+        $scope.predefine = {'1': ['Shirt'],
+            '2': ['Jacket', 'Pant'],
+            '3': ['Pant'],
+            '4': ['Jacket'],
+        };
+
+        $scope.standard_measurement1 = {'Shirt': '16L(Shirt)', 'Jacket': '34(Jacket)', 'Suit': '34(Jacket)', 'Pant': '32S(Pant)'};
+
+        $scope.standard_measurement = {'Shirt': '', 'Jacket': '', 'Pant': ''};
+        var cussta = custom_items.split(", ")
+        $timeout(function () {
+            for (i in cussta) {
+                var temp = $scope.predefine[cussta[i]];
+                for (k in temp) {
+                    $scope.standard_measurement[temp[k]] = $scope.standard_measurement1[temp[k]];
+                    $(".activemeasurement" + temp[k]).click();
+                }
+
+
+            }
+            $scope.slidedemostandard();
+        }, 500)
+
+
+//        $("#measurement_profile_M").attr("checked", "true");
+
+        $scope.custome_items = <?php echo json_encode($custome_items); ?>;
+        $scope.getstandardsize = "<?php echo site_url("Api/getstsize"); ?>";
+
+        console.log($scope.getstandardsize);
+
+
+
+
+
+        $scope.measurementDict = {};
+<?php
+foreach ($measurements_list as $key => $value) {
+    ?>
+            $scope.measurementDict["m<?php echo $value['id']; ?>"] = {'mvalue': <?php echo $value['standard_value']; ?>, 'frvalue': ''};
+    <?php
+}
+?>
+
+
+
+
+<?php
+foreach ($measurements_list as $key => $value) {
+    ?>
+            //slider section start
+            $timeout(function () {
+                //                $("#measurement_profile_M").click();
+
+
+                var pipsSlider<?php echo $value['id']; ?> = document.getElementById('slider-pips<?php echo $value['id']; ?>');
+                noUiSlider.create(pipsSlider<?php echo $value['id']; ?>, {
+                    start: [<?php echo $value['standard_value']; ?>],
+                    connect: true,
+                    step: 0.125,
+                    tooltips: [true, ],
+                    range: {
+                        'min': <?php echo $value['min_value']; ?>,
+                        'max': <?php echo $value['max_value']; ?>
+                    }
+                });
+                pipsSlider<?php echo $value['id']; ?>.noUiSlider.on('update', function (values, handle) {
+                    var value = values[handle];
+                    var mvalue = ("" + value).split(".")[0];
+                    var frvalue = ("" + value).split(".")[1];
+                    var frdict = {13: "1/8", 25: "1/4", 38: "3/8", 50: "1/2", 63: "5/8", 75: "3/4", 88: "7/8"};
+                    var frmvalue = frdict[frvalue];
+                    $timeout(function () {
+                        $scope.measurementDict["m<?php echo $value['id']; ?>"]["mvalue"] = mvalue;
+                        $scope.measurementDict["m<?php echo $value['id']; ?>"]["frvalue"] = frmvalue;
+                    }, 100)
+                });
+
+
+
+
+            }, 1000)
+
+
+            //  end of slider section
+    <?php
+}
+?>
+
+
         $scope.slidedemo = function (mestitle) {
 
+            console.log($scope.standard_measurement);
 
             $scope.measurementstyle.title = mestitle;
-            
+            var sliderval = <?php echo $measurements_list[0]['id']; ?>;
+            var svalue = <?php echo $measurements_list[0]['standard_value']; ?>;
+            var pipsSlider123 = document.getElementById('slider-pips' + sliderval);
+//       $(".noUi-tooltip").first().show("slow")
+            $timeout(function () {
+
+                pipsSlider123.noUiSlider.set([svalue + 20, null]);
+                $timeout(function () {
+//                    $(".noUi-tooltip").first().css("display", "none")
+                    pipsSlider123.noUiSlider.set([svalue, null]);
+                }, 700)
+            }, 1000)
+
 
         }
+
+        $scope.slidedemostandard = function () {
+            console.log($scope.standard_measurement);
+            var stsize = [$scope.standard_measurement.Jacket, $scope.standard_measurement.Shirt, $scope.standard_measurement.Pant];
+
+            var trsize = (stsize.join("  ")).trim();
+            $scope.measurementstyle.title = trsize.replace("  ", ", ");
+            console.log("--" + (stsize.join(" ")).trim() + "--");
+        }
+
+
 
 
 
@@ -321,3 +571,5 @@ $this->load->view('layout/footer', array('custom_item' => 0, 'custom_id' => 0));
 
 
 </script>
+
+<script src="<?php echo base_url(); ?>assets/theme/bootstrap/js/bootstrap.min.js"></script> <!-- Bootstrap javascript functions -->
