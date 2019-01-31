@@ -10,7 +10,7 @@ $this->load->view('layout/header');
             <div class="hero-caption-area">
                 <div class="container">
                     <a href="" title="Shop Now" class="btn btn-secondary">Shop Now</a>
-                    <h1>Rahman <span>Fashion</span></h1>
+                    <h1>Rahman <span>Fashions</span></h1>
                     <p>BESPOKE OR MADE TO MEASURE SUITS & FORMAL WEARS</p>
                 </div>
             </div>
