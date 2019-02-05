@@ -5,6 +5,13 @@ $this->load->view('layout/header');
 <!-- start hero slider -->
 <div class="hero-slider heroflex flexslider" data-autoplay="yes" data-pagination="yes" data-arrows="no" data-style="slide" data-pause="no" data-speed="3000">
     <ul class="slides">
+        <li style="background: url('<?php echo base_url(); ?>assets/theme/images/slider1.jpg');height: 600px;" >
+            <!-- start hero caption -->
+            <div class="hero-caption-area">
+               
+            </div>
+            <!-- end hero caption -->
+        </li>
         <li style="background: url('<?php echo base_url(); ?>assets/theme/images/1.jpg');height: 600px;" >
             <!-- start hero caption -->
             <div class="hero-caption-area">
@@ -35,6 +42,13 @@ $this->load->view('layout/header');
                     <h1>ORDER TO MADE!</h1>
                     <p>HAND MADE AND HAND CUT</p>
                 </div>
+            </div>
+            <!-- end hero caption -->
+        </li>
+        <li style="background: url('<?php echo base_url(); ?>assets/theme/images/slider2.jpg');height: 600px;" >
+            <!-- start hero caption -->
+            <div class="hero-caption-area">
+               
             </div>
             <!-- end hero caption -->
         </li>
