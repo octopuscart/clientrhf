@@ -92,7 +92,7 @@ input.form-control {
 }
 
 .panel-body{
-        padding: 0px 17px;
+    padding: 0px 17px;
 }
 
 span.badge {
@@ -130,7 +130,7 @@ span.badge {
 }
 
 .site-footer .footer-top {
-     padding-bottom: 0px; 
+    padding-bottom: 0px; 
 }
 
 .bith_date_select_year {
@@ -139,6 +139,49 @@ span.badge {
 }
 
 .bith_date_select{
-     width: 30%;
+    width: 30%;
     padding: 12px 4px;
 } 
+
+.tabview_desktop{
+    width: 50%
+}
+
+
+
+.tabappointment {
+    opacity: 0.5;
+}
+
+.tabappointment.active {
+    opacity: 1;
+}
+
+.appointmentheader{
+        padding: 10px 0px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background: red;
+    margin-bottom: 15px
+}
+
+.contact-us-right {
+    margin-bottom: 10px;
+        padding: 0px 40px 0px 40px;
+}
+
+.row.appointmentfooter {
+    margin-bottom: 17px;
+    border-bottom: 2px solid;
+    border-bottom-style: dotted;
+    padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .tabview_desktop{
+        width: auto;
+        padding: 10px 30px;
+    }
+}

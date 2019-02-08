@@ -459,8 +459,17 @@ p.selected-element-title_text_price{
     color: white;
 }
 
+.tabview_desktop{
+    width: 50%
+}
+
+
+
 @media only screen and (max-width: 768px) {
 
+    .tabview_desktop{
+    width: 100%
+}
     .insert_button {
         padding: 3px 3px;
         margin-top: 2px;
