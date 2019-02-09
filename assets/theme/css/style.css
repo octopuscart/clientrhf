@@ -7323,7 +7323,7 @@ textarea {
     right: 15px;
     font-size: 24px;
     transition: all 0.2s ease-in-out;
-    color: #fff; }
+    color: #dd0101; }
   .site-header #menu-toggle:before {
     content: "\f0c9";
     font-family: 'FontAwesome'; }
@@ -7333,7 +7333,7 @@ textarea {
   .site-header .col-lg-9, .site-header .col-md-9, .site-header .col-sm-12 {
     position: inherit; }
   .site-header .main-navigation {
-    background: #000;
+    background: #fffffff7;
     width: 100%;
     left: 0;
     position: absolute;
