@@ -93,8 +93,9 @@
     </div>
 </footer>
 <!-- end site footer -->
+<script src="<?php echo base_url(); ?>assets/theme/js/jquery-2.1.0.min.js"></script> <!-- jQuery Library Import -->
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> <!-- jQuery Library Import -->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>  jQuery Library Import -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> <!-- jQuery Easing Library Import -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script> <!-- Popper plugin for Bootstrap -->
 <script src="<?php echo base_url(); ?>assets/theme/bootstrap/js/bootstrap.min.js"></script> <!-- Bootstrap javascript functions -->

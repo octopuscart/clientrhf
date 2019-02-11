@@ -155,11 +155,16 @@ class Api extends REST_Controller {
     }
 
     //ProductList APi
-    public function productListApi_get($category_id, $custom_id) {
+    public function productListApi_get($category_id) {
         $attrdatak = $this->get();
         $products = [];
         $countpr = 0;
         $pricequery = "";
+
+        $startpage = $attrdatak["start"] - 1;
+        $endpage = $attrdatak["end"];
+        unset($attrdatak["start"]);
+        unset($attrdatak["end"]);
 
         if (isset($attrdatak["minprice"])) {
             $mnpricr = $attrdatak["minprice"] - 1;
@@ -209,7 +214,7 @@ class Api extends REST_Controller {
         $categoriesString = ltrim($categoriesString, ", ");
 
         $product_query = "select pt.id as product_id, pt.*
-            from products as pt where pt.category_id in ($categoriesString) $pricequery $proquery order by display_index desc";
+            from products as pt where pt.category_id in ($categoriesString) $pricequery $proquery";
         $product_result = $this->Product_model->query_exe($product_query);
 
         $productListSt = [];
@@ -220,9 +225,6 @@ class Api extends REST_Controller {
 
         foreach ($product_result as $key => $value) {
             $value['attr'] = $this->Product_model->singleProductAttrs($value['product_id']);
-            $item_price = $this->Product_model->category_items_prices_id($value['category_items_id'], $custom_id);
-
-            $value['price'] =$item_price ? $item_price->price :0;
             array_push($productListSt, $value['product_id']);
             array_push($pricecount, $value['price']);
             array_push($productListFinal, $value);
@@ -237,28 +239,26 @@ class Api extends REST_Controller {
             $productString = implode(",", $productListSt);
 
 
-            $attr_query = "select count(cav.id) product_count, '' as checked, cvv.widget, cav.attribute_value, cav.additional_value, cav.id, pa.attribute, pa.attribute_id from product_attribute as pa
+            $attr_query = "select count(cav.id) product_count, '' as checked, cav.attribute_value, cav.id, pa.attribute, pa.attribute_id from product_attribute as pa
         join category_attribute_value as cav on cav.id = pa.attribute_value_id
-        join category_attribute as cvv on cvv.id = cav.attribute_id
         where pa.product_id in ($productString)
         group by cav.id";
             $attr_result = $this->Product_model->query_exe($attr_query);
 
 
             foreach ($attr_result as $key => $value) {
-                $filter = $value['attribute_id'];
-                $attitle = $value['attribute'];
-                $widget = $value['widget'];
+                $filter = $value['attribute'];
                 if (isset($attr_filter[$filter])) {
                     array_push($attr_filter[$filter], $value);
                 } else {
-                    $attr_filter[$filter] = array("title" => $attitle, "attrs" => [], "widget" => $widget);
+                    $attr_filter[$filter] = [];
                     array_push($attr_filter[$filter], $value);
                 }
             }
         }
 
         $this->output->set_header('Content-type: application/json');
+        $productListFinal = array_slice($productListFinal, $startpage, 12);
         $productArray = array('attributes' => $attr_filter,
             'products' => $productListFinal,
             'product_count' => count($product_result),
@@ -475,10 +475,10 @@ class Api extends REST_Controller {
         $extra_cost = $this->post('extra_price');
 
         if ($this->checklogin) {
-            $session_cart = $this->Product_model->cartOperationCustomMulti($product_id, $quantity, $custome_id, $customekey, $customevalue,$extra_cost, $this->user_id);
+            $session_cart = $this->Product_model->cartOperationCustomMulti($product_id, $quantity, $custome_id, $customekey, $customevalue, $extra_cost, $this->user_id);
             $session_cart = $this->Product_model->cartDataCustome($this->user_id);
         } else {
-            $session_cart = $this->Product_model->cartOperationCustomMulti($product_id, $quantity, $custome_id, $customekey, $customevalue,$extra_cost);
+            $session_cart = $this->Product_model->cartOperationCustomMulti($product_id, $quantity, $custome_id, $customekey, $customevalue, $extra_cost);
             $session_cart = $this->Product_model->cartDataCustome();
         }
 
@@ -1005,9 +1005,8 @@ class Api extends REST_Controller {
         }
         $this->response($customeele);
     }
-    
-    
-       //function for product list
+
+    //function for product list
     function priceAsk_post() {
         $product_id = $this->post('product_id');
         $item_id = $this->post('item_id');
@@ -1028,7 +1027,12 @@ class Api extends REST_Controller {
     function priceAsk_get($item_id) {
         $session_enquiry_price = $this->session->userdata('session_enquiry_price');
         if ($session_enquiry_price) {
-            $rdata = $session_enquiry_price[$item_id];
+            if (isset($session_enquiry_price[$item_id])) {
+                $rdata = $session_enquiry_price[$item_id];
+            }
+            else{
+                $rdata = array();
+            }
         } else {
             $session_enquiry_price = array($item_id => array());
             $rdata = $session_enquiry_price[$item_id];

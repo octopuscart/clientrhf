@@ -337,7 +337,6 @@ $image2 = "";
                                                 <button type="button" class="btn btn-primary" ng-click="askPriceSelection(product.product_id)" style="    padding: 0 10px;">Price Enq.
 
                                                 </button>
-                                                            <!--<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#mdl<?php echo $value['title']; ?>" style="margin: 10px auto">View</a>-->
                                             </center>
                                             </p>
                                     </div>
@@ -383,11 +382,11 @@ $image2 = "";
 
                     <div class="col-md-12" id="paging_container1">
                         <div class="showing-info">
-                            <!--<p class="text-center"><span class="info_text ">Showing {0}-{1} of {2} results</span></p>-->
+                            <p class="text-center"><span class="info_text ">Showing {0}-{1} of {2} results</span></p>
                         </div>
                         <div class="row products-container content" ng-if="productProcess.state == 2">
                             <!-- Item -->
-                            <div class="col-sm-4 animated zoomIn"  ng-repeat="(k, product) in productResults.products">
+                            <div class="col-sm-4 animated zoomIn"  ng-repeat="(k, product) in productResults.productscounter">
                             </div>
                         </div>
                         <center>
@@ -560,7 +559,7 @@ $image2 = "";
 
             createItemBlock($custom_id);
             ?>
-
+            
 
 
 
