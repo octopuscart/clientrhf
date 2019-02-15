@@ -343,6 +343,7 @@ $image2 = "";
                                 </div>
                                 <!-- end gallery items -->
                             </div>
+                            <div style="clear: both"></div>
 
 
 
