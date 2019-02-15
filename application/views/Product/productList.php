@@ -172,7 +172,7 @@ $image2 = "";
             <div class="row"> 
 
                 <!-- Shop Side Bar -->
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="side-bar">
                         <!--                        <div class="search">
                                                     <form>
@@ -286,7 +286,7 @@ $image2 = "";
                 </div>
 
                 <!-- Main Shop Itesm -->          
-                <div class="col-md-9" style="margin-bottom: 50px"> 
+                <div class="col-md-10" style="margin-bottom: 50px"> 
 
 
                     <div id="content1"  ng-if="productProcess.state == 1" style="padding: 100px 0px;"> 
@@ -316,12 +316,12 @@ $image2 = "";
                         <div class="row products-container content" ng-if="productProcess.state == 2">
                             <!-- Item -->
 
-                            <div class="col-lg-4 col-md-4 col-sm-12" style="padding: 10px;" ng-repeat="(k, product) in productResults.products">
+                            <div class="col-lg-3 col-md-3 col-sm-12" style="padding: 10px;" ng-repeat="(k, product) in productResults.products">
                                 <!-- start gallery items -->
                                 <div class="gallery-items" style="height: auto!important">
                                     <div class=" thumbnail card" style="    border: none;">
                                         <center>
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/output/{{product.folder}}/fabricx20001.png" alt="product" style="height: 300px;">
+                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/output/{{product.folder}}/fabricx20001.png" alt="product" style="height: 250px;border-radius: 10px;">
 
 
 
