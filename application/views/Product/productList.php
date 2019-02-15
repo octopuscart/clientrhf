@@ -318,10 +318,10 @@ $image2 = "";
 
                             <div class="col-lg-4 col-md-4 col-sm-12" style="padding: 10px;" ng-repeat="(k, product) in productResults.products">
                                 <!-- start gallery items -->
-                                <div class="gallery-items1" style="height: auto!important">
+                                <div class="gallery-items" style="height: auto!important">
                                     <div class=" thumbnail card" style="    border: none;">
                                         <center>
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/output/{{product.folder}}/fabricx20001.png" alt="product" >
+                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/output/{{product.folder}}/fabricx20001.png" alt="product" style="height: 300px;">
 
 
 
