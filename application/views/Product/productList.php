@@ -134,13 +134,35 @@ $image2 = "";
         }
         ?>
     }
-    
+
     .gallery-items {
-    border: 1px solid #e0e0e0;
-    padding: 10px 10px;
-    height: 370px!important;
-    border-radius: 15px;
-}
+        border: 1px solid #e0e0e0;
+        padding: 10px 10px;
+        height: 370px!important;
+        border-radius: 15px;
+    }
+
+    .imagehover{
+        height: 250px;border-radius: 10px;border-radius: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+    }
+
+    .imagehover i{
+        color: black;
+        margin-top: 53%;
+        font-size: 48px;
+        text-shadow: 1px 1px 1px #fff;
+
+    }
+
+    .imagehover:hover{
+        opacity: 1;
+    }
+
 
 </style>
 
@@ -329,6 +351,10 @@ $image2 = "";
                                     <div class=" thumbnail card" style="    border: none;">
                                         <center>
                                             <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/output/{{product.folder}}/fabricx20001.png" alt="product" style="height: 250px;border-radius: 10px;">
+                                            <div class="img-responsive imagehover" style="" ng-click="zoomProduct(product)" data-toggle="modal" data-target="#zoomModel">
+                                                <i class="fa fa-search-plus" style="    color: black;
+                                                   margin-top: 53%;"></i>
+                                            </div>
 
 
 
@@ -431,6 +457,7 @@ $image2 = "";
                             <div class="col-sm-12 col-md-3" ng-repeat="product in askpricedata" ng-if="product.item_id == '<?php echo $citem_id; ?>'">
                                 <div class="thumbnail">
                                     <img src="<?php echo custome_image_server; ?>/coman/output/{{product.folder}}/cutting20001.png" alt="" style="width: auto;" alt="...">
+
                                     <div class="caption">
                                         <h5 style="font-size:15px;" class="text-center m_bottom_10">{{product.title}}</h5>
                                         <p><a href="#."  ng-click="removePriceData(product.id)" class="btn btn-danger btn-xs btn-block" style="    padding: 0 10px;line-height:10px;"><i class="fa fa-remove d_inline_m fs_large" ></i> Remove</a> </p>
@@ -486,6 +513,26 @@ $image2 = "";
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="zoomModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">{{selectedProduct.product.title}}</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                </div>
+                <div class="modal-body">
+                    <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/output/{{selectedProduct.product.folder}}/fabricx20001.png" alt="product" style="border-radius: 10px;">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 </div>
 <!-- End Content --> 
 
@@ -567,7 +614,7 @@ $image2 = "";
 
             createItemBlock($custom_id);
             ?>
-            
+
 
 
 

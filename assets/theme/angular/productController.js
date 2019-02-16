@@ -3,6 +3,13 @@
  */
 
 App.controller('ProductController', function ($scope, $http, $timeout, $interval) {
+    
+    $scope.selectedProduct = {'product':{}};
+    
+    $scope.zoomProduct = function(product){
+        $scope.selectedProduct.product = product;
+    }
+    
     $scope.askPriceSelected = function () {
         var url = baseurl + "Api/priceAsk/" + custom_id;
         $http.get(url).then(function (rdata) {
