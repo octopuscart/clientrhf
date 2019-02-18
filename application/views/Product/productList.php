@@ -524,7 +524,7 @@ $image2 = "";
 
                 </div>
                 <div class="modal-body">
-                    <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/output/{{selectedProduct.product.folder}}/fabricx20001.png" alt="product" style="border-radius: 10px;">
+                    <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/output/{{selectedProduct.product.folder}}/cutting20001.png" alt="product" style="border-radius: 10px;">
 
                 </div>
 
