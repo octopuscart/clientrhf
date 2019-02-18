@@ -360,7 +360,7 @@ $image2 = "";
                                 <div class="gallery-items" style="height: auto!important">
                                     <div class=" thumbnail card" style="    border: none;">
                                         <center>
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/output/{{product.folder}}/cutting20001.png" alt="product" style="height: 250px;border-radius: 10px;">
+                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/fabrics/{{product.folder}}.jpg" alt="product" style="height: 250px;border-radius: 10px;">
                                             <div class="img-responsive imagehover" style="" ng-click="zoomProduct(product)" data-toggle="modal" data-target="#zoomModel">
                                                 <i class="fa fa-search-plus" style="    color: black;
                                                    margin-top: 53%;"></i>
