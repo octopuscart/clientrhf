@@ -266,8 +266,18 @@ $image2 = "";
                             </ul>
 
                             <?php
-                        }
+                        }else{
                         ?>
+                            <div class="heading">
+                                <h6>
+                                                                <a href="<?php echo site_url('Product/ProductList/4/0')?>"><i class="fa fa-arrow-left"></i> Back</a>   
+
+                                </h6>
+                                        <hr class="dotted">
+                                </div>
+                            <?php
+                        }
+                            ?>
 
 
                         <!-- HEADING -->
