@@ -345,7 +345,7 @@ $image2 = "";
                         <div class="row products-container content" ng-if="productProcess.state == 2">
                             <!-- Item -->
 
-                            <div class="col-lg-3 col-md-3 col-sm-12" style="padding: 10px;" ng-repeat="(k, product) in productResults.products">
+                            <div class="col-lg-4 col-md-4 col-sm-12" style="padding: 10px;" ng-repeat="(k, product) in productResults.products">
                                 <!-- start gallery items -->
                                 <div class="gallery-items" style="height: auto!important">
                                     <div class=" thumbnail card" style="    border: none;">
