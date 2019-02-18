@@ -138,7 +138,7 @@ $image2 = "";
     .gallery-items {
         border: 1px solid #e0e0e0;
         padding: 10px 10px;
-        height: 370px!important;
+        height:480px!important;
         border-radius: 15px;
     }
 
@@ -266,18 +266,18 @@ $image2 = "";
                             </ul>
 
                             <?php
-                        }else{
-                        ?>
+                        } else {
+                            ?>
                             <div class="heading">
                                 <h6>
-                                                                <a href="<?php echo site_url('Product/ProductList/4/0')?>"><i class="fa fa-arrow-left"></i> Back</a>   
+                                    <a href="<?php echo site_url('Product/ProductList/4/0') ?>"><i class="fa fa-arrow-left"></i> Back</a>   
 
                                 </h6>
-                                        <hr class="dotted">
-                                </div>
+                                <hr class="dotted">
+                            </div>
                             <?php
                         }
-                            ?>
+                        ?>
 
 
                         <!-- HEADING -->
@@ -359,8 +359,20 @@ $image2 = "";
                                 <!-- start gallery items -->
                                 <div class="gallery-items" style="height: auto!important">
                                     <div class=" thumbnail card" style="    border: none;">
+                                        <div class="product-img-holder">
+                                            <a href="#">
+
+                                                <div class="product_image_back" style="background: url(<?php echo custome_image_server; ?>/coman/fabrics/{{product.folder}}.jpg);     height: 350px;background-size: cover;"></div>
+
+
+                                            </a>
+                                        </div>
                                         <center>
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/fabrics/{{product.folder}}.jpg" alt="product" style="height: 250px;border-radius: 10px;">
+
+
+
+
+                                            <!--<img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/fabrics/{{product.folder}}.jpg" alt="product" style="height: 250px;border-radius: 10px;">-->
                                             <div class="img-responsive imagehover" style="" ng-click="zoomProduct(product)" data-toggle="modal" data-target="#zoomModel">
                                                 <i class="fa fa-search-plus" style="    color: black;
                                                    margin-top: 53%;"></i>
