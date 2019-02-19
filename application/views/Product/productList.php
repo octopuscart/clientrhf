@@ -138,9 +138,9 @@ $image2 = "";
     .gallery-items {
         border: 1px solid #e0e0e0;
         padding: 10px 10px;
-        height:480px!important;
+        height:520px!important;
         border-radius: 15px;
-    }
+    }   
 
     .imagehover{
         height: 250px;border-radius: 10px;border-radius: 10px;
@@ -359,20 +359,20 @@ $image2 = "";
                                 <!-- start gallery items -->
                                 <div class="gallery-items" style="height: auto!important">
                                     <div class=" thumbnail card" style="    border: none;">
-                                        <div class="product-img-holder">
+<!--                                        <div class="product-img-holder">
                                             <a href="#">
 
-                                                <div class="product_image_back" style="background: url(<?php echo custome_image_server; ?>/coman/fabrics/{{product.folder}}.jpg);     height: 350px;background-size: cover;"></div>
+                                                <div class="product_image_back" style="background: url(<?php echo custome_image_server; ?>/coman/fabricsx/{{product.folder}}.jpg);     height: 350px;background-size: cover;"></div>
 
 
                                             </a>
-                                        </div>
+                                        </div>-->
                                         <center>
 
 
 
 
-                                            <!--<img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/fabrics/{{product.folder}}.jpg" alt="product" style="height: 250px;border-radius: 10px;">-->
+                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/fabricsx/{{product.folder}}.jpg" alt="product" style="height: 400px;border-radius: 10px;">
                                             <div class="img-responsive imagehover" style="" ng-click="zoomProduct(product)" data-toggle="modal" data-target="#zoomModel">
                                                 <i class="fa fa-search-plus" style="    color: black;
                                                    margin-top: 53%;"></i>
@@ -546,7 +546,7 @@ $image2 = "";
 
                 </div>
                 <div class="modal-body">
-                    <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/output/{{selectedProduct.product.folder}}/cutting20001.png" alt="product" style="border-radius: 10px;">
+                    <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/fabricsx/{{selectedProduct.product.folder}}.jpg" alt="product" style="border-radius: 10px;">
 
                 </div>
 
