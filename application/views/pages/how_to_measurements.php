@@ -19,13 +19,13 @@ $this->load->view('layout/header');
         padding: 10px;
             border: 2px solid #f3f3f3;
         margin: 10px;
-        height: 450px;
+        height: 400px;
     }
 </style>
 
 <!-- start page header -->
 <div class="page-header bg-image" style="background: url(<?php echo base_url(); ?>assets/theme/images/older-man-in-suit-banner.jpg);background-size: cover;height: 150px;">
-    <h1 class="text-white">How to Measurements</h1>
+    <h1 class="text-white">How To Measure</h1>
 </div>
 <div id="page">
 
@@ -39,7 +39,7 @@ $this->load->view('layout/header');
                 <div class="container">
                     <div class="catalog">
                         <div class="row">
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">
@@ -52,7 +52,7 @@ $this->load->view('layout/header');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">
@@ -65,7 +65,7 @@ $this->load->view('layout/header');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">
@@ -78,7 +78,7 @@ $this->load->view('layout/header');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">
@@ -91,7 +91,7 @@ $this->load->view('layout/header');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">
@@ -104,7 +104,7 @@ $this->load->view('layout/header');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">
@@ -117,7 +117,7 @@ $this->load->view('layout/header');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">
@@ -130,7 +130,7 @@ $this->load->view('layout/header');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">
@@ -143,7 +143,7 @@ $this->load->view('layout/header');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">
@@ -156,7 +156,7 @@ $this->load->view('layout/header');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">
@@ -169,7 +169,7 @@ $this->load->view('layout/header');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">
@@ -182,7 +182,7 @@ $this->load->view('layout/header');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 animation">
+                            <div class="col-xs-6 col-sm-4 animation">
                                 <div class="product">
                                     <div class="product-thumb-info">
                                         <div class="product-thumb-info-image">

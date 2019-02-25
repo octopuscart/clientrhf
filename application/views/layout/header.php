@@ -104,7 +104,7 @@
 
                                     <li><a href="<?php echo site_url("Shop/lookbook"); ?>" title="Trainers">Look Book</a></li>
 
-                                    <li><a href="<?php echo site_url("Shop/measurements_guide"); ?>" title="Trainers">Measurements Guide</a></li>
+                                    <li><a href="<?php echo site_url("Shop/measurements_guide"); ?>" title="Trainers">Measurement Guide</a></li>
 
 
                                     <li><a href="<?php echo site_url('Shop/contactus'); ?>" title="Contact">contact</a></li>
