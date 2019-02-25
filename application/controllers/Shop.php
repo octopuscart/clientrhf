@@ -96,14 +96,19 @@ class Shop extends CI_Controller {
     public function catalogue() {
         $this->load->view('pages/catalogue');
     }
+    
+    
     public function lookbook() {
-        
-        
         $query = $this->db->get('look_books');
         $data['lookbook'] = $query->result_array();
-        
         $this->load->view('pages/look_book', $data);
     }
+    
+    
+    public function measurements_guide() {    
+        $this->load->view('pages/how_to_measurements');
+    }
+    
 
     public function appointment() {
         $timeslot = [

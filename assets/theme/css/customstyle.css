@@ -185,3 +185,10 @@ span.badge {
         padding: 10px 30px;
     }
 }
+
+.site-header .main-navigation ul li {
+    line-height: 2.3125rem;
+    margin-left: 1.1rem;
+    float: left;
+    text-transform: uppercase;
+}
