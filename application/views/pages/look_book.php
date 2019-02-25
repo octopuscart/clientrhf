@@ -28,7 +28,7 @@ $this->load->view('layout/header');
         <div class="container">
             <div class="" style="margin-top: 50px;">
 
-                <div class="row format-gallery">
+                <div class="row format-gallery1">
 
 
                     <?php foreach ($lookbook as $b) { ?>
@@ -37,7 +37,7 @@ $this->load->view('layout/header');
                             <!-- start gallery items -->
                             <div class="gallery-items">
                                 <div class="gallery-media format-image">
-                                    <a href="<?php echo base_url(); ?>assets/look_books/th_<?php echo $b['look_book_image'] ?>" class="media-box popup-image">
+                                    <a href="http://files.costcokart.com/rahman/pdf/<?php echo $b['look_book_file'] ?>" class="media-box popup-image" target="_blank">
                                         <img src="<?php echo base_url(); ?>assets/look_books/th_<?php echo $b['look_book_image'] ?>" alt="gallery">
                                     </a>
                                 </div>
