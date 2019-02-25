@@ -100,7 +100,7 @@ class Shop extends CI_Controller {
     
     public function lookbook() {
         $query = $this->db->get('look_books');
-        $data['lookbook'] = $query->result_array();
+        $data['lookbook'] = $query->results_array();
         $this->load->view('pages/look_book', $data);
     }
     
