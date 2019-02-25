@@ -1,0 +1,9 @@
+CREATE TABLE `look_books` (
+  `look_book_id` int(11) NOT NULL AUTO_INCREMENT,
+  `look_book_file` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `look_book_image` varchar(300) NOT NULL,
+  `look_book_title` varchar(500) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  PRIMARY KEY (`look_book_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+INSERT INTO `look_books` (`look_book_id`, `look_book_file`, `look_book_image`, `look_book_title`) VALUES (6,'look_D-Summer2013_1434365264.pdf','look_books-1429867290-6-Lookbook-D-Summer2013.jpg','D Summer 2013'),(7,'look_C-FallWinter2012-13_1434366326.pdf','look_books-1429867125-7-Lookbook-FallWinter2014-15.jpg','G - F/W 2014/15'),(9,'look_F-SS2014-1_1434536575.pdf','look_books-1429867510-9-Lookbook-F-SS2014.jpg','F - SS 2014'),(12,'look_h-1_1434599543.pdf','look_books-1434599572-12-lookbook.jpg','H 2015/16'),(13,'look_Z-1_1434599984.pdf','look_books-1434600165-13-lookbook.jpg','Z 2015/16'),(14,'look_C-FallWinter2012-13_1434602919.pdf','look_books-1434603467-14-C-FallWinter2012-13-lookbook.jpg','C-F/W 2012/13');
