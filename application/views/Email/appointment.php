@@ -92,7 +92,6 @@
 
                         <p> Thank you for making an appointment with <?php echo email_sender_name;?>. </p>
                         <p>We have booked your appointment with our Master Tailor (<b>Mr. Micheal</b>), on <b><?php echo date_format($opdater = date_create($appointment['select_date'] . ' ' . $appointment['select_time']), "l, d F Y"); ?>, <?php echo $appointment['select_time']; ?></b> at <b><?php echo $appointment['hotel']; ?>, <?php echo $appointment['city_state']; ?>, <?php echo $appointment['country']; ?></b>.</p> 
-                        <p>On the day of your appointment, please call our tailor on his contact no. (<b><?php echo $appointment['country']; ?>:  <?php echo $appointment['contact_no2']; ?></b>) and he will give you his suite number.</p>
                         <p>Please provide us with your cell number, so we can contact you once we check-in to the hotel so we can text you suite number.</p>
 
                         <br/>
