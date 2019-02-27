@@ -344,16 +344,128 @@ function createModel($value, $dtvalue, $timeslot) {
                 <div>
 
                     <!-- Nav tabs -->
-                   
+                    <ul class="nav nav-tabs " role="tablist">
+                        <li class="active tabview_desktop" role="presentation">
+                            <a href="#aus_appointment" aria-controls="aus_appointment" class="row tabappointment active" role="tab" data-toggle="tab">
+                                <h2 class="title-sidebar text-center" style="margin: 15px;padding-bottom:  15px;border-bottom: 1px dotted ;    width: 100%;">
+                                    <img class="media-object" src="<?php echo base_url(); ?>assets/images/flag/australia.jpg" alt="..." style="height: 75px"/>
+
+                                    Australia Appointment
+
+                                </h2>
+
+                            </a>
+                        </li>
+                        <li role="presentation" class="tabview_desktop" >
+                            <a href="#usa_appointment" aria-controls="usa_appointment" class="row tabappointment" role="tab" data-toggle="tab">
                                 <h2 class="title-sidebar text-center" style="margin: 15px;padding-bottom:  15px;border-bottom: 1px dotted ;    width: 100%;">
                                     <img class="media-object" src="<?php echo base_url(); ?>assets/images/flag/usa.jpg" alt="..." style="height: 75px"/>
 
                                     U.S.A Appointment</h2>
+                            </a>
+                        </li>
+                    </ul>
 
                     <!-- Tab panes -->
                     <div class="tab-content">
-         
-                        <div role="tabpanel" class="tab-pane contact-us-right active" id="usa_appointment">
+                        <div role="tabpanel" class="tab-pane contact-us-right active" id="aus_appointment">
+                            <?php
+                            if (count($appointmentdata)) {
+                                ?>
+                                <div class="row appointmentheader">
+                                    <div class="col-md-1">
+                                        Country
+                                    </div>
+                                    <div class="col-md-2">
+                                        City/State
+                                    </div>
+                                    <div class="col-md-3">
+                                        Hotel Name & Address
+                                    </div>
+                                    <div class="col-md-3">
+                                        From Date - To Date
+                                    </div>
+                                    <div class="col-md-2">
+
+
+                                    </div>
+                                </div>
+                                <?php
+                                foreach ($appointmentdata as $key => $value) {
+                                    ?>
+                                    <div class="row appointmentfooter">
+                                        <div class="col-md-1"> <?php echo $value['country']; ?></div>
+                                        <div class="col-md-2"><?php echo ucfirst(strtolower($value['city_state'])); ?></div>
+                                        <div class="col-md-3">
+                                            <b>
+                                                <i class="fa fa-building-o"></i>
+                                                <span style="line-height: 14px;"> <?php echo $value['hotel']; ?></span>
+                                            </b>
+                                            <br/>
+                                            <small>
+                                                <?php echo $value['address']; ?>
+                                            </small>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <i class="fa fa-calendar"></i>
+
+                                            <b><?php
+                                                echo $value["days"];
+                                                $date1 = date_create($value['start_date']);
+                                                // echo date_format($date1, "j<\s\u\p>S</\s\u\p>   F");
+                                                ?></b>
+                                            <br/><ul style="    margin-bottom: 0px;margin-top: 10px;    font-size: 12px;">
+
+
+
+
+
+
+                                                <?php
+                                                $dataes = $value['dates'];
+                                                foreach ($dataes as $dtkey1 => $dtvalue1) {
+                                                    echo "<li>";
+
+                                                    echo '<span class = "timeing_open" style="    width: 100px;">' . $dtvalue1['date'] . "</span>: " . $dtvalue1['timing1'] . " to " . $dtvalue1['timing2'] . "<br/>";
+
+                                                    echo "</li>";
+                                                }
+                                                ?>
+                                            </ul>
+
+
+                                            <br/>
+
+                                            <button class="btn btn-danger btn-lg" style="background: #dd0101;    margin: 10px 0px;" data-toggle="modal" data-target="#<?php echo $value['id']; ?>">Book Now</button>
+                                            <?php
+                                            createModel($value, $dtvalue1, $timeslot);
+                                            ?>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span style="    line-height: 15px;
+                                                  padding: 0px 0px 10px;    color: #dd0101;
+                                                  float: left;">
+                                                <i class="fa fa-phone-square"></i>  <?php echo $value['contact_no']; ?>
+                                            </span>
+                                            <iframe  frameborder='0' scrolling='no'  marginheight='0' marginwidth='0'  height="100px" width="100%"  src="https://maps.google.com/?q=<?php echo $value['hotel']; ?>+<?php echo $value['address']; ?>&output=embed">
+                                            </iframe>  
+                                        </div>
+
+                                    </div>
+
+                                    <?php
+                                }
+                                ?>
+
+                                <?php
+                            } else {
+                                ?>
+                                <h5 class="text-center" style="width: 100%;margin-bottom: 20px">Coming Soon....</h5>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <div role="tabpanel" class="tab-pane contact-us-right" id="usa_appointment">
                             <?php
                             if (count($appointmentdatausa)) {
                                 ?>
