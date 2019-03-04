@@ -37,7 +37,7 @@ $this->load->view('layout/header');
                             <!-- start gallery items -->
                             <div class="gallery-items">
                                 <div class="gallery-media format-image">
-                                    <a href="http://costcointernational.com/rahmanfashions/lookbook/<?php echo $b['look_book_file'] ?>" class="media-box popup-image" target="_blank">
+                                    <a href="<?php echo base_url(); ?>assets/look_books/<?php echo $b['look_book_file'] ?>" class="media-box popup-image" target="_blank">
                                         <img src="<?php echo base_url(); ?>assets/look_books/<?php echo $b['look_book_image'] ?>" alt="gallery">
                                     </a>
                                 </div>
