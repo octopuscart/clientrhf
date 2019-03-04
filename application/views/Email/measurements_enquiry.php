@@ -108,6 +108,14 @@
                             }
                             ?>
                         </table>
+                        <p>
+                            <?php if($remark){?>
+                            <b>Remark</b> <?php echo $remark;?>
+                            <?php
+                            }
+                            ?>
+                        </p>
+                        
                         <?php echo EMAIL_FOOTER; ?>
                         </div>
 
