@@ -96,19 +96,166 @@ class Shop extends CI_Controller {
     public function catalogue() {
         $this->load->view('pages/catalogue');
     }
-    
-    
+
     public function lookbook() {
         $query = $this->db->get('look_books');
         $data['lookbook'] = $query->result_array();
         $this->load->view('pages/look_book', $data);
     }
-    
-    
-    public function measurements_guide() {    
-        $this->load->view('pages/how_to_measurements');
+
+    public function measurements_guide() {
+        $mesurementdata = array(
+            array(
+                "id" => "mes1",
+                "title" => "Neck",
+                "description" => "Place measuring tape around base of neck with one finger space.",
+                "standard_value" => "15",
+                "min_value" => "12",
+                "max_value" => "20",
+                "image" => "measurment_01.png"),
+            array(
+                "id" => "mes2",
+                "title" => "Chest",
+                "standard_value" => "35",
+                "min_value" => "25",
+                "max_value" => "76",
+                "description" => "Place measuring tape around the fullest part of the chest, high up under the arms with two fingers space. Tape should be at level and not so tight.",
+                "image" => "measurment_02.png"),
+            array(
+                "id" => "mes3",
+                "title" => "Stomach",
+                "standard_value" => "38",
+                "min_value" => "25",
+                "max_value" => "76",
+                "description" => "Place measuring tape around the stomach with two fingers space and at level over the fullest part of the stomach. Make sure the tape is not so tight.",
+                "image" => "measurment_03.png"),
+            array(
+                "id" => "mes4",
+                "title" => "Full Sleeve",
+                "standard_value" => "24",
+                "min_value" => "13",
+                "max_value" => "36",
+                "description" => "Place measuring Tape from the point where the shoulder seam joins the sleeve, down along the arm to the point below the wrist, and please note add extra 1.5 CM",
+                "image" => "measurment_04.png"),
+            array(
+                "id" => "mes5",
+                "title" => "Shoulder",
+                "standard_value" => "17",
+                "min_value" => "10",
+                "max_value" => "31",
+                "description" => "Place measuring tape from the point where the shoulder seam joins the sleeve of one hand to shoulder seam joining the sleeve of the other hand, and then add allowance according to the body shape .(generally 2-4 CM)",
+                "image" => "measurment_05.png"),
+            array(
+                "id" => "mes6",
+                "title" => "Front Length",
+                "standard_value" => "24",
+                "min_value" => "20",
+                "max_value" => "42",
+                "description" => "Place measuring tape from the point where the shoulder seam joins the collar vertically to the point of length you require.",
+                "image" => "measurment_06.png"),
+            array(
+                "id" => "mes7",
+                "title" => "Biceps",
+                "standard_value" => "15",
+                "min_value" => "8",
+                "max_value" => "30",
+                "description" => "Place measuring tape around the fullest part of the upper bicep with two fingers space and parallel to the level.",
+                "image" => "measurment_07.png"),
+            array(
+                "id" => "mes8",
+                "title" => "Out & Inseam",
+                "standard_value" => "35",
+                "min_value" => "20",
+                "max_value" => "55",
+                "description" => "Place measuring tape from the top of the right waistband to the floor, less 1-1.5 CM.",
+                "image" => "measurment_08.png"),
+            array(
+                "id" => "mes9",
+                "title" => "Waist",
+                "standard_value" => "35",
+                "min_value" => "20",
+                "max_value" => "55",
+                "description" => "Place measuring tape around the waistband with two fingers space and make the tape snug or tight according to the body shape.",
+                "image" => "measurment_09.png"),
+            array(
+                "id" => "mes10",
+                "title" => "Hips",
+                "standard_value" => "35",
+                "min_value" => "20",
+                "max_value" => "85",
+                "description" => "Place measuring tape around hips at the hip bone area (fullest part) with two fingers space. Tape should be snug and at level.",
+                "image" => "measurment_10.png"),
+            array(
+                "id" => "mes11",
+                "title" => "Thigh",
+                "standard_value" => "25",
+                "min_value" => "15",
+                "max_value" => "40",
+                "description" => "Place measuring tape around the thigh near the lowest point of the crotch with two fingers space. Tape should be snug and at level.",
+                "image" => "measurment_11.png"),
+            array(
+                "id" => "mes12",
+                "title" => "U-rise",
+                "standard_value" => "30",
+                "min_value" => "15",
+                "max_value" => "40",
+                "description" => "Place the measuring tape from the center of front rise, across the crotch and then up to the center of the back waistband. Make sure to fit well and usually the measurement can be 1 CM large.",
+                "image" => "measurment_12.png"),
+        );
+
+        $data["measurements"] = $mesurementdata;
+
+        if (isset($_POST['priceenquiry'])) {
+            $price_enquiry = array(
+                'last_name' => $this->input->post('last_name'),
+                'first_name' => $this->input->post('first_name'),
+                'email' => $this->input->post('email'),
+                'contact' => $this->input->post('contact'),
+                 'remark' => $this->input->post('remark'),
+            );
+            $sendernameeq = $this->input->post('last_name') . " " . $this->input->post('first_name');
+            if ($this->input->post('email')) {
+                $emailsender = email_sender;
+                $sendername = email_sender_name;
+                $email_bcc = email_bcc;
+                $this->email->set_newline("\r\n");
+                $this->email->from(email_bcc, $sendername);
+                $this->email->to($this->input->post('email'));
+                $this->email->bcc(email_bcc);
+              
+                $measurement_key= $this->input->post('measurement_key');
+                $measurement_value= $this->input->post('measurement_value');
+              
+              
+
+
+                $subject = "Measurement From Customer";
+                $this->email->subject($subject);
+           
+                $price_enquiry['name'] = $sendernameeq;
+                $price_enquiry['measurement_key'] = $measurement_key;
+                $price_enquiry['measurement_value'] = $measurement_value;
+                $price_enquiry['subject'] = $subject;
+
+
+
+                 $htmlsmessage = $this->load->view('Email/measurements_enquiry', $price_enquiry, true);
+                $this->email->message($htmlsmessage);
+
+                $this->email->print_debugger();
+                $send = $this->email->send();
+                if ($send) {
+                    // echo json_encode("send");
+                } else {
+                    $error = $this->email->print_debugger(array('headers'));
+                    //  echo json_encode($error);
+                }
+            }
+        }
+
+
+        $this->load->view('pages/how_to_measurements', $data);
     }
-    
 
     public function appointment() {
         $timeslot = [
@@ -137,10 +284,10 @@ class Shop extends CI_Controller {
             ),];
 
         $data['appointmentdetailslocal'] = $appointmentdetailslocal;
-        
-        
-        
-        
+
+
+
+
 
         $appointmentdetails = [
 
@@ -242,16 +389,16 @@ class Shop extends CI_Controller {
             ),
         ];
         //$appointmentdetails = [];
-        
+
         $ausappointment = $this->Product_model->AppointmentDataByCountry("Australia");
 
         $data['appointmentdata'] = $ausappointment;
-        
+
         $usasappointment = $this->Product_model->AppointmentDataByCountry("U.S.A");
 
         $data['appointmentdatausa'] = $usasappointment;
-        
-        
+
+
         if (isset($_POST['submit'])) {
             $appointment = array(
                 "country" => $this->input->post('country'),
