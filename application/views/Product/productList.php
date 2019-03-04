@@ -270,7 +270,7 @@ $image2 = "";
                             ?>
                             <div class="heading">
                                 <h6>
-                                    <a href="<?php echo site_url('Product/ProductList/4/0') ?>"><i class="fa fa-arrow-left"></i> Back</a>   
+                                    <a href="<?php echo site_url('Product/ProductList/'.$custom_id.'/0') ?>"><i class="fa fa-arrow-left"></i> Back</a>   
 
                                 </h6>
                                 <hr class="dotted">
