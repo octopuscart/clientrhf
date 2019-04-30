@@ -341,7 +341,7 @@ function createModel($value, $dtvalue, $timeslot) {
             <div class="row"  style="border-bottom: 2px solid;    background: #ffffffb8; ">
 
 
-                <div>
+                <div style="width:100%">
 
                     <!-- Nav tabs -->
                    
