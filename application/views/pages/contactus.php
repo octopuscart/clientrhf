@@ -45,7 +45,7 @@ Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, 
                     </div>
                     <div class="contact-info">
                         <h4>Email</h4>
-                        <p><a href="mailto:sales@rahmanfashion.com" title=" rftailor@biznetvigator.com"> rftailor@biznetvigator.com</a> <br> <a href="mailto:sales@rahmanfashion.com" title="sales">sales@rahmanfashions.com</a></p>
+                        <p><a href="mailto:rftailor@biznetvigator.com" title=" rftailor@biznetvigator.com"> rftailor@biznetvigator.com</a> </p>
                     </div>
                 </div>
             </div>
