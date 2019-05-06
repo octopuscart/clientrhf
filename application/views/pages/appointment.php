@@ -347,8 +347,13 @@ function createModel($value, $dtvalue, $timeslot) {
                    
                                 <h2 class="title-sidebar text-center" style="margin: 15px;padding-bottom:  15px;border-bottom: 1px dotted ;    width: 100%;">
 
-                                    Global Appointment</h2>
-
+                                    Global Appointment
+                                   
+                                </h2>
+                    <p style="    text-align: center;">Please note that the room will be registered under the name of Chief Fashion Consultant <b> Mr. MD S Rahman (Michael).</b><br/>
+     Contact Call/Whatsapp U.S.A mobile no. <b>+(1) 917 915 6552.</b><br/>
+                                    Hong Kong mobile no.  <b>+(852) 9500 0744.</b> 
+                                    </p>
                     <!-- Tab panes -->
                     <div class="tab-content">
          
