@@ -428,7 +428,8 @@ class Shop extends CI_Controller {
             $sendernameeq = $this->input->post('last_name') . " " . $this->input->post('first_name');
             if ($this->input->post('email')) {
                 $this->email->set_newline("\r\n");
-                $this->email->from(email_bcc, $sendername);
+                $this->email->from(email_sender, $sendername);
+                $this->email->reply_to(email_bcc, $sendername);
                 $this->email->to($this->input->post('email'));
                 $this->email->bcc(email_bcc);
                 $subjectt = email_sender_name . " Appointment : " . $appointment['select_date'] . " (" . $appointment['select_time'] . ")";
