@@ -420,7 +420,7 @@ function createModel($value, $dtvalue, $timeslot) {
                                                     echo "<li>";
                                                    
 
-                                                    echo '<span class = "timeing_open" style="    width: 100px;">' . $dtvalue1['date'] . "</span>: " . $dtvalue1['timing1'] . " to " . $dtvalue1['timing2'] . "<br/>";
+                                                    echo '<span class = "timeing_open" style="    width: 100px;">' .   date_format(date_create($dtvalue1['date']), "d F Y")  . "</span>: " . $dtvalue1['timing1'] . " to " . $dtvalue1['timing2'] . "<br/>";
 
                                                     echo "</li>";
                                                 }
