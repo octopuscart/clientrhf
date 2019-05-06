@@ -397,7 +397,8 @@ class Shop extends CI_Controller {
         $usasappointment = $this->Product_model->AppointmentDataByCountry("U.S.A");
 
         $data['appointmentdatausa'] = $usasappointment;
-
+        $allappointment = $this->Product_model->AppointmentDataAll();
+        $data['appointmentdatausa'] = $allappointment;
 
         if (isset($_POST['submit'])) {
             $appointment = array(

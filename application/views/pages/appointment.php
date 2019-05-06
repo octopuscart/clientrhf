@@ -346,9 +346,8 @@ function createModel($value, $dtvalue, $timeslot) {
                     <!-- Nav tabs -->
                    
                                 <h2 class="title-sidebar text-center" style="margin: 15px;padding-bottom:  15px;border-bottom: 1px dotted ;    width: 100%;">
-                                    <img class="media-object" src="<?php echo base_url(); ?>assets/images/flag/usa.jpg" alt="..." style="height: 75px"/>
 
-                                    U.S.A Appointment</h2>
+                                    Global Appointment</h2>
 
                     <!-- Tab panes -->
                     <div class="tab-content">

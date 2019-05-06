@@ -1151,5 +1151,35 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
         
         return $appointmentData;
     }
+    
+    public function AppointmentDataAll() {
+        $this->db->group_by('aid');
+        $this->db->order_by('id');
+        $query = $this->db->get('appointment_entry');
+        $countryAppointment = $query->result_array();
+
+        $appointmentData = array();
+
+        foreach ($countryAppointment as $akey => $avalue) {
+            $aid = $avalue['aid'];
+            $this->db->where('aid', $aid);
+            
+            $query = $this->db->get('appointment_entry');
+            $timeData = $query->result_array();
+            $avalue['dates'] = array();
+            foreach ($timeData as $tkey => $tvalue) { 
+                $temparray = array();
+                $temparray['date'] = $tvalue['date'];
+                $temparray['timing1'] = $tvalue['from_time'];
+                $temparray['timing2'] = $tvalue['to_time'];
+                array_push($avalue['dates'], $temparray);
+            }
+            array_push($appointmentData, $avalue);
+        }
+        
+        return $appointmentData;
+    }
+    
+    
 
 }
