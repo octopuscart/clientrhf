@@ -63,7 +63,7 @@
           background: rgb(225, 225, 225);
           font-family: sans-serif;">
         <div class="" style="padding:50px 0px">
-            <table align="center" border="0" cellpadding="0" cellspacing="0" width="700" style=" background: linear-gradient(to right, #FFD194, #D1913C);padding: 0 20px">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="700" style=" background: #fff;padding: 0 20px">
                 <tr>
                     <td >
                        
