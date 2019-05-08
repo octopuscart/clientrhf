@@ -106,7 +106,7 @@ Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, 
 
 
                                 <div  class="col-sm-12">
-                                        <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message" required=""></textarea>
+                                        <textarea class="form-control" name="message"  rows="5" placeholder="Message" required=""></textarea>
                                 </div >
                                 <div  class="col-sm-12 text-left">
                                     <button type="submit"  class="btn btn-inverse" name="sendmessage" value="sendmessage" >SUBMIT</button>
