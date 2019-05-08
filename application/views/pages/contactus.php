@@ -78,7 +78,7 @@ Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, 
                  
                     <!-- start fillform -->
                     <div class="fillform">
-                        <form role="form" id="contact_form" action="#" class="contact-form" method="post" >
+                        <form role="form"  action="#" class="contact-form" method="post" >
                             <div  class="row">
                                 <div  class="col-sm-6">
                                         <input type="text" class="form-control" name="last_name" id="name" placeholder="Last Name" required="">
@@ -113,7 +113,7 @@ Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, 
                                 </div >
                             </div >
                         </form>
-                        <div id="message"></div>
+                   
                     </div>
                     <!-- end fillform -->
                 </div>
