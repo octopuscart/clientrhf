@@ -1694,6 +1694,7 @@ class CustomApi extends REST_Controller {
                     "title" => "Jacket Style",
                     "viewtype" => "front",
                     "type" => "main",
+                    "colrow" => "6",
                 ),
                 array(
                     "title" => "Lapel Style",
@@ -1773,7 +1774,7 @@ class CustomApi extends REST_Controller {
                     "title" => "Jacket Style",
                     "viewtype" => "front",
                     "type" => "main",
-                    "colrow" => "4",
+                    "colrow" => "6",
                 ),
                 array(
                     "title" => "Lapel Style",
@@ -1923,7 +1924,7 @@ class CustomApi extends REST_Controller {
                     "title" => "Jacket Style",
                     "viewtype" => "front",
                     "type" => "main",
-                    "colrow" => "4",
+                    "colrow" => "6",
                 ),
                 array(
                     "title" => "Lapel Style",
@@ -2084,7 +2085,7 @@ class CustomApi extends REST_Controller {
                     "title" => "Jacket Style",
                     "viewtype" => "front",
                     "type" => "main",
-                    "colrow" => "4",
+                    "colrow" => "6",
                 ),
                 array(
                     "title" => "Lapel Style",
