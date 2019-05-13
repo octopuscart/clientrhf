@@ -36,10 +36,10 @@ foreach ($categorie_parent as $key => $value) {
             foreach ($categorie_parent as $key => $value) {
                 $title = $value['category_name'];
                 $cid = $value['id'];
-              //  echo "<span >" . $title . "</span>";
+                //  echo "<span >" . $title . "</span>";
             }
             ?>
-            <span><?php echo $custom_item;?></span>
+            <span><?php echo $custom_item; ?></span>
         </h2>
         <div class="container">
             <div class="product-agileinfo-grids" style="    margin-top: -10px;">
@@ -108,9 +108,11 @@ foreach ($categorie_parent as $key => $value) {
                                 <div class="women">
                                     <h6><a href="single.html">{{product.title}}</a></h6>
                                     <span class="size">{{product.short_description}} </span>
-                                    <p ><del  ng-if="product.sale_price > 0">{{product.regular_price|currency:"<?php echo globle_currency;?> "}}</del>
-                                        <em class="item_price">{{product.price|currency:"<?php echo globle_currency;?> "}}</em></p>
-                                    <a href="<?php echo site_url("Product/customizationRedirect/")?><?php echo $custom_id;?>/{{product.product_id}}" data-text="Customize Now" class="my-cart-b item_add" >Customize Now</a>
+                                    <p ><del  ng-if="product.sale_price > 0">{{product.regular_price|currency:"<?php echo globle_currency; ?> "}}</del>
+                                        <em class="item_price">{{product.price|currency:"<?php echo globle_currency; ?> "}}</em></p>
+                                    <!--<a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" data-text="Customize Now" class="my-cart-b item_add" >Customize Now</a>-->
+
+                                    <a href="#" data-text="Customize Now" class="my-cart-b item_add" >Customize Now</a>
                                 </div>
                             </div>
                         </div>
