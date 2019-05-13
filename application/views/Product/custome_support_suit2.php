@@ -70,6 +70,40 @@ $this->load->view('Product/custom_select_left');
                             </div>
                         </div>
                     </div>
+                    
+                    <div ng-switch-when="Back Vent">
+                        <h5 class="customization_heading">{{k.title}}</h5>
+                        <div class="col-md-6 col-xs-6 custome_element_col" ng-repeat="ele in data_list[k.title]" >
+                            <div class="item elementItem {{  ele.title == selecteElements[screencustom.fabric][k.title].title?'' :'noselected' }} "  ng-click='selectElement(k, ele)'>
+                                <div >
+                                    <div class="elementStyle customization_box_element {{  ele.title == selecteElements[screencustom.fabric][k.title].title?'activestyle' :'noselected' }}" style="background:url('<?php echo base_url(); ?>assets/images/{{ele.image}}');    background-size: 80%!important;height: 200px; {{k.style_side}}" > </div>
+                                    <div class='customization_title'>
+                                        {{ele.title}} 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    <div ng-switch-when="Sleeve Buttons">
+                        <h5 class="customization_heading">{{k.title}}</h5>
+                        <div class="col-md-6 col-xs-6 custome_element_col" ng-repeat="ele in data_list[k.title]" >
+                            <div class="item elementItem {{  ele.title == selecteElements[screencustom.fabric][k.title].title?'' :'noselected' }} "  ng-click='selectElement(k, ele)'>
+                                <div >
+                                    <div class="elementStyle customization_box_element {{  ele.title == selecteElements[screencustom.fabric][k.title].title?'activestyle' :'noselected' }}" style="background:url('<?php echo base_url(); ?>assets/images/{{ele.image}}');    {{k.style_side}}; background-size: 80%!important;height: 200px;" > </div>
+                                    <div class='customization_title'>
+                                        {{ele.title}} 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
 
                     <div ng-switch-default>
                         <h5 class="customization_heading">{{k.title}}</h5>
