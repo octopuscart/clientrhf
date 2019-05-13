@@ -397,7 +397,7 @@ $image2 = "";
                                                 <?php
                                                 }
                                                 ?>
-                                                <a ng-if="" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
+                                                <a  class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
                                                 </a> 
                                                 <a ng-if="product.video_link==''" href="#" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
                                                 </a> 
