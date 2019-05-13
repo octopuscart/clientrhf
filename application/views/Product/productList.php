@@ -387,17 +387,7 @@ $image2 = "";
                                             <br>
                                             <p>
                                             <center> 
-                                                <?php 
-                                                if(false){
-                                                    ?>
-                                               <a ng-if="product.video_link=='yes'" href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
-                                                </a> 
-                                                <a ng-if="product.video_link==''" href="#" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
-                                                </a>
-                                                <?php
-                                                }
-                                                ?>
-                                                <a  class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
+                                                <a ng-if="product.video_link=='yes'" href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
                                                 </a> 
                                                 <a ng-if="product.video_link==''" href="#" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
                                                 </a> 
