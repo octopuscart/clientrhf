@@ -881,54 +881,41 @@ class CustomApi extends REST_Controller {
                     "title" => "Black"
                 ),
             ],
-            "monogram_style" => [
+             "monogram_style" => [
                 array(
-                    "title" => "1",
-                    "image" => "1.png",
+             
+                    "title" => "8",
+                    "image" => "8.jpg",
                 ),
                 array(
-                    "title" => "2",
-                    "image" => "2.png",
-                ),
-                array(
-                    "title" => "3",
-                    "image" => "3.png",
-                ),
-                array(
-                    "title" => "4",
-                    "image" => "4.png",
-                ),
-                array(
-                    "title" => "5",
-                    "image" => "5.png",
-                ),
-                array(
-                    "title" => "6",
-                    "image" => "6.png",
-                ),
-                array(
-                    "title" => "7",
-                    "image" => "7.png",
-                ),
-                array(
-                    "title" => "9",
-                    "image" => "9.png",
-                ),
-                array(
+                
                     "title" => "10",
-                    "image" => "10.png",
+                    "image" => "10.jpg",
                 ),
                 array(
-                    "title" => "11",
-                    "image" => "11.png",
+                 
+                    "title" => "13",
+                    "image" => "13.jpg",
                 ),
                 array(
-                    "title" => "14",
-                    "image" => "14.png",
+                 
+                    "title" => "16",
+                    "image" => "16.jpg",
                 ),
                 array(
-                    "title" => "15",
-                    "image" => "15.png",
+                 
+                    "title" => "17",
+                    "image" => "17.jpg",
+                ),
+                array(
+                   
+                    "title" => "19",
+                    "image" => "19.jpg",
+                ),
+                array(
+                   
+                    "title" => "21",
+                    "image" => "21.jpg",
                 ),
             ],
         );
@@ -1626,7 +1613,7 @@ class CustomApi extends REST_Controller {
                     ),
                     array(
                         "status" => "0",
-                        "title" => "Shwal Lapel",
+                        "title" => "Shawl Lapel",
                         "elements" => ["body_round0001.png"],
                         "laple_style" => array(
                             "1 Button" => array("elements" => [
