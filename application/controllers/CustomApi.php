@@ -1345,7 +1345,7 @@ class CustomApi extends REST_Controller {
                         "title" => "3 Flat Buttons",
                         "customization_category_id" => "4",
                         "elements" => ["buttons_flat3_hole0001.png"],
-                        "image" => "suit_elements/button/button_3_kissing.png",
+                        "image" => "suit_elements/button/button_3_flat.png",
                         "buttons" => ["buttons_flat30001.png"],
                         "buttonhole" => ["sleeve_button_hole_40001.png", "sleeve_button_hole_comman0001.png",],
                         "show_buttons" => "true",
