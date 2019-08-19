@@ -402,7 +402,7 @@ function createModel($value, $dtvalue, $timeslot) {
                                         <div class="col-md-3">
                                             <i class="fa fa-calendar"></i>
 
-                                            <b><?php
+                                            <b style="    font-size: 12px;"><?php
                                                 echo $value["days"];
                                                 $date1 = date_create($value['start_date']);
                                                 // echo date_format($date1, "j<\s\u\p>S</\s\u\p>   F");
