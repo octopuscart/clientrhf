@@ -298,7 +298,7 @@ function createModel($value, $dtvalue, $timeslot) {
                                         // echo date_format($date1, "j<\s\u\p>S</\s\u\p>   F");
                                         ?></b>
                                    
-                                    <ul style="    margin-bottom: 0px;margin-top: 10px;    font-size: 12px;">
+                                    <ul style="    margin-bottom: 0px;margin-top: 10px;    font-size: 10px;">
 
 
                                         <li class="">
@@ -407,7 +407,7 @@ function createModel($value, $dtvalue, $timeslot) {
                                                 $date1 = date_create($value['start_date']);
                                                 // echo date_format($date1, "j<\s\u\p>S</\s\u\p>   F");
                                                 ?></b>
-                                            <br/><ul style="    margin-bottom: 0px;margin-top: 10px;    font-size: 12px;">
+                                            <br/><ul style="    margin-bottom: 0px;margin-top: 10px;    font-size: 10px;">
 
 
 
