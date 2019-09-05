@@ -292,7 +292,7 @@ function createModel($value, $dtvalue, $timeslot) {
                         ?>
 
 
-                        <div class="row">
+                        <div class="row" style='font-weight: 600;'>
                             <div class="col-md-1"> <?php echo $value['country']; ?></div>
                             <div class="col-md-2"><?php echo $value['city_state']; ?></div>
                             <div class="col-md-3">
@@ -301,7 +301,7 @@ function createModel($value, $dtvalue, $timeslot) {
                                     <span style="line-height: 14px;"> <?php echo $value['hotel']; ?></span>
                                 </b>
                                 <br/>
-                                <small>
+                                <small style='font-weight: 600;'>
                                     <?php echo $value['address']; ?>
                                 </small>
                             </div>
