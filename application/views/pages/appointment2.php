@@ -239,7 +239,8 @@ function createModel($value, $dtvalue, $timeslot) {
 </style>
 
 <div class="page-header bg-image" style="background: url(<?php echo base_url(); ?>assets/images/dallas.jpg);background-size: cover;">
-    <h1 class="text-white">Appointment</h1>
+    <h1 class="text-white">Rahman Fashions Hong Kong</h1>
+
 </div>
 
 <div >
@@ -253,7 +254,21 @@ function createModel($value, $dtvalue, $timeslot) {
         <div class="container contact-us-page-area" style="padding: 50px 0 30px;">
             <div class="row" style="border-bottom: 2px solid;    background: #ffffffb5; ">
                 <div class="contact-us-right">
-                    <h2 class="title-sidebar text-center" style="margin-bottom: 30px;padding-bottom:  30px;border-bottom: 1px dotted ">Dallas, Texas</h2>
+                    <h2 class="title-sidebar text-center" style="margin-bottom: 30px;padding-bottom:  10px;border-bottom: 1px dotted ">Dallas, Texas</h2>
+                    <div style="    text-align: center;">
+                    <table style='    display: inline-block;margin-bottom: 20px;'>
+                        <tr>
+                            <td style='text-align: right'>U.S.A Mobile No.</td>
+                            <th>: +(1) 917 915 6552</th>
+                        </tr>
+                        <tr>
+                            <td style='text-align: right'>Hong Kong Mobile No.</td>
+                            <th>: +(852) 9500 0744</th>
+                        </tr>
+                    </table>
+                    <br/>
+                   
+                    </div>
                     <div class="row appointmentheader">
                         <div class="col-md-1">
                             Country
@@ -321,7 +336,7 @@ function createModel($value, $dtvalue, $timeslot) {
 
                                 <br/>
 
-                                        <!--<button class="btn btn-danger btn-lg" style="background: #dd0101;    margin: 10px 0px;" data-toggle="modal" data-target="#<?php echo $value['id']; ?>">Book Now</button>-->
+                                                        <!--<button class="btn btn-danger btn-lg" style="background: #dd0101;    margin: 10px 0px;" data-toggle="modal" data-target="#<?php echo $value['id']; ?>">Book Now</button>-->
                                 <?php
 //                                createModel($value, $dtvalue1, $timeslot);
                                 ?>
@@ -330,7 +345,7 @@ function createModel($value, $dtvalue, $timeslot) {
                                 <span style="    line-height: 15px;
                                       padding: 0px 0px 10px;    color: #dd0101;
                                       float: left;">
-                                    <i class="fa fa-phone-square"></i>  <?php echo $value['contact_no']; ?>
+
                                 </span>
                                 <iframe  frameborder='0' scrolling='no'  marginheight='0' marginwidth='0'  height="100px" width="100%"  src="https://maps.google.com/?q=<?php echo $value['hotel']; ?>+<?php echo $value['address']; ?>&output=embed">
                                 </iframe>  
@@ -340,7 +355,7 @@ function createModel($value, $dtvalue, $timeslot) {
 
                             <div class='col-md-3'></div>
                             <div class='col-md-6' style='    background: #dd0101;    border-radius: 30px;
-    color: white;'>
+                                 color: white;'>
                                 <form method="post" action="#">
                                     <div class = "modal-header1" >
 
@@ -438,49 +453,27 @@ function createModel($value, $dtvalue, $timeslot) {
                                             </div>
 
                                             <div class="col-md-4" >
-                                                {{dateselection}}
+
 
 
                                                 <?php
                                                 if ($value) {
-                                                    foreach ($dataes as $dtkey => $dtvalue) {
-                                                        $dateid = $value['id'] . $dkey;
-                                                        $t1 = $dtvalue['timing1'];
-                                                        $t2 = $dtvalue['timing2'];
-
-                                                        $cnt1 = array_search($t1, $timeslot);
-                                                        $cnt2 = array_search($t2, $timeslot);
-                                                        ?>
-                                                        <div class="form-group tab-pane " ng-if="dateselection<?php echo $value['id']; ?> == '<?php echo $dtvalue['date']; ?>'" style="font-color:#dd0101">
-                                                            <label for="select_time">Available Time</label> 
-                                                            <select class="form-control" style="padding:12px;"  name="select_time" id="select_time" style="" required />
-                                                            <?php
-                                                            for ($tm = $cnt1; $tm < $cnt2 + 1; $tm++) {
-                                                                $time1 = $timeslot[$tm];
-                                                                echo "<option >$time1</option>";
-                                                            }
-                                                            ?>
-                                                            </select>
-                                                        </div>
+                                                    ?>
+                                                    <div class="form-group tab-pane "  style="font-color:#dd0101">
+                                                        <label for="select_time">Available Time</label> 
+                                                        <select class="form-control" style="padding:12px;"  name="select_time" id="select_time" style="" required />
                                                         <?php
-                                                    }
+                                                        foreach ($timeslot2 as $key => $value) {
+                                                            echo "<option >$value</option>";
+                                                        }
+                                                        ?>
+                                                        </select>
+                                                    </div>
+                                                    <?php
                                                 } else {
                                                     ?>
 
 
-                                                    <label for="select_date">Available Date</label> 
-                                                    <select class="form-control" style="padding:12px;"  name="select_date" id="dateselection" style="" required ng-model="dateselection<?php echo $value['id']; ?>"  ng-init="dateselection<?php echo $value['id']; ?> = '<?php echo $value['dates'][0]['date']; ?>'" >
-
-                                                        <?php
-                                                        $dataes = $value['dates'];
-                                                        foreach ($dataes as $dkey => $dvalue) {
-                                                            $dateid = $value['id'] . $dkey;
-                                                            ?>    
-                                                            <option  value="<?php echo $dvalue['date']; ?>"><?php echo $dvalue['date']; ?></option>
-                                                            <?php
-                                                        }
-                                                        ?>
-                                                    </select>
                                                     <?php
                                                 }
                                                 ?>
@@ -560,18 +553,18 @@ function createModel($value, $dtvalue, $timeslot) {
 <!--angular controllers-->
 <script src="<?php echo base_url(); ?>assets/theme/angular/productController.js"></script>
 <script>
-                                                $(document).ready(function () {
-                                                    $("#appintmentDate").datepicker({
-                                                        minDate: 0,
-                                                        dateFormat: "yy-mm-dd"
-                                                    });
-                                                    $.datepicker.parseDate("yy-mm-dd", "<?php echo date('Y-m-d'); ?>");
-                                                    $('#dateselection').on('change', function (e) {
-                                                        var $optionSelected = $("option:selected", this);
-                                                        console.log(this);
-                                                        $optionSelected.tab('show')
-                                                    });
-                                                });
+                                                        $(document).ready(function () {
+                                                            $("#appintmentDate").datepicker({
+                                                                minDate: 0,
+                                                                dateFormat: "yy-mm-dd"
+                                                            });
+                                                            $.datepicker.parseDate("yy-mm-dd", "<?php echo date('Y-m-d'); ?>");
+                                                            $('#dateselection').on('change', function (e) {
+                                                                var $optionSelected = $("option:selected", this);
+                                                                console.log(this);
+                                                                $optionSelected.tab('show')
+                                                            });
+                                                        });
 
 </script>
 

@@ -363,30 +363,43 @@ class Shop extends CI_Controller {
 
     public function appointment2() {
         $timeslot = [
-            "07:00 AM", "08:00AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM",
+            "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM",
             "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM",
-            "09:00 PM", "10:00 AM", "11:00 AM",
+            "09:00 PM", "10:00 PM", "11:00 PM",
         ];
+        $timeslot2 = [];
+        foreach ($timeslot as $key => $value) {
+             $t1 = explode(":", $value)[0];
+            $ap = explode(" ", $value)[1];
+            array_push($timeslot2, $value);
+            array_push($timeslot2, $t1 . ":10 " . $ap);
+            array_push($timeslot2, $t1 . ":20 " . $ap);
+            array_push($timeslot2, $t1 . ":30 " . $ap);
+            array_push($timeslot2, $t1 . ":40 " . $ap);
+            array_push($timeslot2, $t1 . ":50 " . $ap);
+        }
+
+
 
         $data['timeslot'] = $timeslot;
+        $data['timeslot2'] = $timeslot2;
 
         $appointmentdetailslocal = [array(
         "type" => "local",
         "id" => "au0_app",
         "country" => "USA",
         "city_state" => "Dallas, TX",
-        "hotel" => "The Westin Dallas Park Hotel",
-        "address" => "12720 Merit Dr, Dallas, TX 75251, USA",
-        "days" => "10th Sep - 14th Sep 2019",
-        "start_date" => "",
-        "end_date" => "",
+        "hotel" => "Omni Dallas Hotel",
+        "address" => "555 S Lamar St, Dallas, TX 75202, USA",
+        "days" => "16th Sep - 19th Sep 2019",
+        "start_date" => "2019-08-16",
+        "end_date" => "2019-08-19",
         "contact_no" => " +(852) 2369 1196",
         "dates" => [
-            array("date" => "2019-08-10", "timing1" => "07:00 AM", "timing2" => "09:00 PM"),
-            array("date" => "2019-08-11", "timing1" => "07:00 AM", "timing2" => "09:00 PM"),
-            array("date" => "2019-08-12", "timing1" => "07:00 AM", "timing2" => "09:00 PM"),
-            array("date" => "2019-08-13", "timing1" => "07:00 AM", "timing2" => "09:00 PM"),
-            array("date" => "2019-08-14", "timing1" => "07:00 AM", "timing2" => "09:00 PM"),
+            array("date" => "2019-08-16", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
+            array("date" => "2019-08-17", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
+            array("date" => "2019-08-18", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
+            array("date" => "2019-08-19", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
         ]
             ),];
 
@@ -458,7 +471,7 @@ class Shop extends CI_Controller {
                 }
             }
 
-            redirect('Shop/appointment');
+            redirect('Shop/appointment2');
         }
 
         $this->load->view('pages/appointment2', $data);
