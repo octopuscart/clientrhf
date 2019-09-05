@@ -393,14 +393,14 @@ class Shop extends CI_Controller {
         "hotel" => "Omni Dallas Hotel",
         "address" => "555 S Lamar St, Dallas, TX 75202, USA",
         "days" => "16th Sep - 19th Sep 2019",
-        "start_date" => "2019-08-16",
-        "end_date" => "2019-08-19",
+        "start_date" => "2019-09-16",
+        "end_date" => "2019-09-19",
         "contact_no" => " +(852) 2369 1196",
         "dates" => [
-            array("date" => "2019-08-16", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
-            array("date" => "2019-08-17", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
-            array("date" => "2019-08-18", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
-            array("date" => "2019-08-19", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
+            array("date" => "2019-09-16", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
+            array("date" => "2019-09-17", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
+            array("date" => "2019-09-18", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
+            array("date" => "2019-09-19", "timing1" => "07:00 AM", "timing2" => "11:00 PM"),
         ]
             ),];
 
