@@ -305,15 +305,15 @@ function createModel($value, $dtvalue, $timeslot) {
                                     <?php echo $value['address']; ?>
                                 </small>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <i class="fa fa-calendar"></i>
 
-                                <b style="    font-size: 12px;"><?php
+                                <b style="    font-size: 15px;"><?php
                                     echo $value["days"];
                                     $date1 = date_create($value['start_date']);
                                     //cho date_format($date1, "j<\s\u\p>S</\s\u\p>   F");
                                     ?></b>
-                                <br/><ul style="    margin-bottom: 0px;margin-top: 10px;    font-size: 10px;">
+                                <br/><ul style="    margin-bottom: 0px;margin-top: 10px;    font-size: 14px;">
 
 
 
@@ -326,7 +326,7 @@ function createModel($value, $dtvalue, $timeslot) {
                                         echo "<li>";
 
 
-                                        echo '<span class = "timeing_open" style="    width: 100px;">' . date_format(date_create($dtvalue1['date']), "d F Y") . "</span>: " . $dtvalue1['timing1'] . " to " . $dtvalue1['timing2'] . "<br/>";
+                                        echo '<span class = "timeing_open" style="    width: 150px;">' . date_format(date_create($dtvalue1['date']), "d F Y") . "</span>: " . $dtvalue1['timing1'] . " to " . $dtvalue1['timing2'] . "<br/>";
 
                                         echo "</li>";
                                     }
@@ -341,7 +341,7 @@ function createModel($value, $dtvalue, $timeslot) {
 //                                createModel($value, $dtvalue1, $timeslot);
                                 ?>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <span style="    line-height: 15px;
                                       padding: 0px 0px 10px;    color: #dd0101;
                                       float: left;">
