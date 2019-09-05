@@ -313,7 +313,7 @@ function createModel($value, $dtvalue, $timeslot) {
                                     $date1 = date_create($value['start_date']);
                                     //cho date_format($date1, "j<\s\u\p>S</\s\u\p>   F");
                                     ?></b>
-                                <br/><ul style="    margin-bottom: 0px;margin-top: 10px;    font-size: 14px;">
+                                <br/><ul style="    margin-bottom: 0px;margin-top: 10px;    font-weight: 600; color:black;   font-size: 14px;">
 
 
 
