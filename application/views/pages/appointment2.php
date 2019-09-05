@@ -294,7 +294,7 @@ function createModel($value, $dtvalue, $timeslot) {
 
                         <div class="row">
                             <div class="col-md-1"> <?php echo $value['country']; ?></div>
-                            <div class="col-md-2"><?php echo ucfirst(strtolower($value['city_state'])); ?></div>
+                            <div class="col-md-2"><?php echo $value['city_state']; ?></div>
                             <div class="col-md-3">
                                 <b>
                                     <i class="fa fa-building-o"></i>
