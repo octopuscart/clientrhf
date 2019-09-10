@@ -62,7 +62,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                 <th>Country</th>
                                 <th>City/State</th>
                                 <th style="width:200px;">Hotel Name & Address</th>
-                                <th>Booking Date/Time</th>
+                              
                             </tr>
                         </thead>
                         <tbody>
@@ -89,7 +89,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
                                             </small>
 
                                         </td>
-                                         <td><?php echo $value['datetime']; ?></td>
+                                       
                                     </tr>
 
 
