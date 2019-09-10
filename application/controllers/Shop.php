@@ -479,7 +479,7 @@ class Shop extends CI_Controller {
     }
 
     public function appointmentReport() {
-        $this->db->order_by("id desc");
+        $this->db->order_by("datetime desc");
         $query = $this->db->get('appointment_list');
         $result = $query->result_array();
         $data['appointmentdata'] = $result;

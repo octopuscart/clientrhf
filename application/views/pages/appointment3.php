@@ -51,7 +51,7 @@ if (isset($prefixshopappointment[$cdateshort])) {
 
                     </div>
 
-                    <table id="data-table" class="table table-bordered">
+                    <table id="data-table" class="table table-bordered" style="font-size: 12px;">
                         <thead>
                             <tr>
                                 <th>Name</th>
