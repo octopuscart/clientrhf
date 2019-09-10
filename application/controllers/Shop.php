@@ -370,7 +370,7 @@ class Shop extends CI_Controller {
         ];
         $timeslot2 = [];
         foreach ($timeslot as $key => $value) {
-             $t1 = explode(":", $value)[0];
+            $t1 = explode(":", $value)[0];
             $ap = explode(" ", $value)[1];
             array_push($timeslot2, $value);
             array_push($timeslot2, $t1 . ":10 " . $ap);
@@ -476,6 +476,14 @@ class Shop extends CI_Controller {
         }
 
         $this->load->view('pages/appointment2', $data);
+    }
+
+    public function appointmentReport() {
+        $this->db->order_by("id desc");
+        $query = $this->db->get('appointment_list');
+        $result = $query->result_array();
+        $data['appointmentdata'] = $result;
+        $this->load->view('pages/appointment3', $data);
     }
 
     public function testinsert() {
