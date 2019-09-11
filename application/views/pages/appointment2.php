@@ -184,6 +184,7 @@ function createModel($value, $dtvalue, $timeslot) {
                                         <option value="Paper Flier">Paper Flier</option>
                                         <option value="Instagram">Instagram</option>
                                         <option value="I am a Repeat Customer">I am a Repeat Customer</option>
+                                        <option value="Other">Other</option>
                                     </select>
 
                                 </div>
@@ -493,6 +494,7 @@ function createModel($value, $dtvalue, $timeslot) {
                                                         <option value="Paper Flier">Paper Flier</option>
                                                         <option value="Instagram">Instagram</option>
                                                         <option value="I am a Repeat Customer">I am a Repeat Customer</option>
+                                                        <option value="Other">Other</option>
                                                     </select>
 
                                                 </div>
