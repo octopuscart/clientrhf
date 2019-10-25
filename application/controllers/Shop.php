@@ -12,7 +12,7 @@ class Shop extends CI_Controller {
     }
 
     public function index() {
-        redirect("appointment");
+//        redirect("appointment");
         $product_home_slider_bottom = $this->Product_model->product_home_slider_bottom();
         $categories = $this->Product_model->productListCategories(0);
         $data["categories"] = $categories;
