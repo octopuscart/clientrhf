@@ -441,7 +441,7 @@ function createModel($value, $dtvalue, $timeslot) {
                                                   float: left;">
                                                 <i class="fa fa-phone-square"></i>  <?php echo $value['contact_no']; ?>
                                             </span>
-                                            <iframe  frameborder='0' scrolling='no'  marginheight='0' marginwidth='0'  height="100px" width="300px"  src="https://maps.google.com/?q=<?php echo $value['hotel']; ?>+<?php echo $value['address']; ?>&output=embed">
+                                            <iframe  frameborder='0' scrolling='no'  marginheight='0' marginwidth='0'  height="100px" width="300px"  src="https://maps.google.com/?q=<?php echo $value['hotel']; ?>+<?php echo $value['address']; ?>+<?php echo $value['city_state']; ?>&output=embed">
                                             </iframe>  
                                         </div>
 
