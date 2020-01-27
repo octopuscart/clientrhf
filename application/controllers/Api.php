@@ -165,6 +165,15 @@ class Api extends REST_Controller {
         $endpage = $attrdatak["end"];
         unset($attrdatak["start"]);
         unset($attrdatak["end"]);
+        
+         $psearch = "";
+        if (isset($attrdatak["search"])) {
+            $searchdata = $attrdatak["search"];
+            unset($attrdatak["search"]);
+            if($searchdata){
+            $psearch = " and title like '%$searchdata%' ";
+            }
+        }
 
         if (isset($attrdatak["minprice"])) {
             $mnpricr = $attrdatak["minprice"] - 1;
@@ -214,7 +223,7 @@ class Api extends REST_Controller {
         $categoriesString = ltrim($categoriesString, ", ");
 
         $product_query = "select pt.id as product_id, pt.*
-            from products as pt where pt.category_id in ($categoriesString) $pricequery $proquery and status = 1 order by display_index desc";
+            from products as pt where pt.category_id in ($categoriesString) $psearch $pricequery $proquery and status = 1 order by display_index desc";
         $product_result = $this->Product_model->query_exe($product_query);
 
         $productListSt = [];

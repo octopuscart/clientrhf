@@ -203,12 +203,29 @@ $image2 = "";
                 <!-- Shop Side Bar -->
                 <div class="col-md-2">
                     <div class="side-bar">
-                        <!--                        <div class="search">
-                                                    <form>
-                                                        <input type="text" placeholder="SEARCH">
-                                                        <button type="submit"> <i class="fa fa-search"></i></button>
-                                                    </form>
-                                                </div>-->
+                        <div class="search">
+                            <form action="#" style="margin-top: 20px;">
+
+                                <input type="text" name="search" placeholder="SEARCH" class="form-control" style="  
+                                       border-radius: 21px;
+                                       border-top-right-radius: 0;
+                                       border-bottom-right-radius: 0;
+                                       width: 126px;
+                                       float: left;
+                                       margin-bottom: 0;
+                                       height: 49px;
+                                       
+                                       ">
+                                <button type="submit" class="btn btn-default" style="
+                                        border-radius: 21px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 18px;
+    float: left;
+    padding: 0px 19px;
+                                        "> <i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
                         <div class="spacer-30"></div>
                         <?php if (count($categories)) { ?>
                             <!-- HEADING -->
@@ -270,7 +287,7 @@ $image2 = "";
                             ?>
                             <div class="heading">
                                 <h6>
-                                    <a href="<?php echo site_url('Product/ProductList/'.$custom_id.'/0') ?>"><i class="fa fa-arrow-left"></i> Back</a>   
+                                    <a href="<?php echo site_url('Product/ProductList/' . $custom_id . '/0') ?>"><i class="fa fa-arrow-left"></i> Back</a>   
 
                                 </h6>
                                 <hr class="dotted">
@@ -359,14 +376,14 @@ $image2 = "";
                                 <!-- start gallery items -->
                                 <div class="gallery-items" style="height: auto!important">
                                     <div class=" thumbnail card" style="    border: none;">
-<!--                                        <div class="product-img-holder">
-                                            <a href="#">
-
-                                                <div class="product_image_back" style="background: url(<?php echo custome_image_server; ?>/coman/fabricsx/{{product.folder}}.jpg);     height: 350px;background-size: cover;"></div>
-
-
-                                            </a>
-                                        </div>-->
+                                        <!--                                        <div class="product-img-holder">
+                                                                                    <a href="#">
+                                        
+                                                                                        <div class="product_image_back" style="background: url(<?php echo custome_image_server; ?>/coman/fabricsx/{{product.folder}}.jpg);     height: 350px;background-size: cover;"></div>
+                                        
+                                        
+                                                                                    </a>
+                                                                                </div>-->
                                         <center>
 
 
@@ -387,9 +404,9 @@ $image2 = "";
                                             <br>
                                             <p>
                                             <center> 
-                                                <a ng-if="product.video_link=='yes'" href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
+                                                <a ng-if="product.video_link == 'yes'" href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
                                                 </a> 
-                                                <a ng-if="product.video_link==''" href="#" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
+                                                <a ng-if="product.video_link == ''" href="#" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
                                                 </a> 
                                                 <button type="button" class="btn btn-primary" ng-click="askPriceSelection(product.product_id)" style="    padding: 0 5px; line-height: 1.9375rem">Price Enq.
 
@@ -650,7 +667,8 @@ $image2 = "";
 
 <script>
     var category_id = <?php echo $category; ?>;
-    var custom_id = <?php echo $custom_id; ?>;</script>
+    var custom_id = <?php echo $custom_id; ?>;
+    var searchdata = <?php echo isset($_GET["search"]) ? ($_GET["search"] != '' ? $_GET["search"] : '0') : "0"; ?>;</script>
 <!--angular controllers-->
 
 

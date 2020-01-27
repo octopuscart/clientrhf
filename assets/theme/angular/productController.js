@@ -3,13 +3,13 @@
  */
 
 App.controller('ProductController', function ($scope, $http, $timeout, $interval) {
-    
-    $scope.selectedProduct = {'product':{}};
-    
-    $scope.zoomProduct = function(product){
+
+    $scope.selectedProduct = {'product': {}};
+
+    $scope.zoomProduct = function (product) {
         $scope.selectedProduct.product = product;
     }
-    
+
     $scope.askPriceSelected = function () {
         var url = baseurl + "Api/priceAsk/" + custom_id;
         $http.get(url).then(function (rdata) {
@@ -49,7 +49,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
 
 
 
-   $scope.productResults = {};
+    $scope.productResults = {};
     $scope.init = 0;
     $scope.checkproduct = 0;
     $scope.pricerange = {'min': 0, 'max': 0};
@@ -74,7 +74,10 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
         var elempm = "maxprice=" + pmx;
         var elempx = "minprice=" + pmm;
 
-
+        if (searchdata) {
+            var search = "search=" + searchdata;
+            argsk.push(search);
+        }
 
         if (pmm.trim()) {
             $scope.pricerange.max = pmx;
@@ -89,8 +92,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
             if (countdata) {
                 countdata = countdata.split("-");
             }
-        }
-        else {
+        } else {
             countdata = [1, 12];
         }
 
@@ -113,30 +115,27 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
         $http.get(url).then(function (result) {
             if ($scope.productResults.products) {
                 $scope.productResults.products = result.data.products;
-            }
-            else {
+            } else {
                 $scope.productResults = result.data;
                 if ($scope.productResults.products.length) {
                     $scope.checkproduct = 1;
-                }
-                else {
+                } else {
 //                    $scope.productProcess.state = 2;
                 }
             }
-            
-            var totalcountdata  = result.data.product_count;
+
+            var totalcountdata = result.data.product_count;
             var productscounter = [];
-            for(i=1;i<=totalcountdata;i++){
+            for (i = 1; i <= totalcountdata; i++) {
                 productscounter.push(i);
             }
-            
+
             $scope.productResults['productscounter'] = productscounter;
 
 
             if ($scope.productResults.products.length) {
                 $scope.productProcess.state = 2;
-            }
-            else {
+            } else {
                 $scope.productProcess.state = 0;
             }
 
@@ -230,8 +229,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
             if (countdata) {
                 countdata = countdata.split("-");
             }
-        }
-        else {
+        } else {
             countdata = [1, 12];
         }
 
@@ -254,32 +252,29 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
         $http.get(url).then(function (result) {
             if ($scope.productResults.products) {
                 $scope.productResults.products = result.data.products;
-            }
-            else {
+            } else {
                 $scope.productResults = result.data;
                 if ($scope.productResults.products.length) {
                     $scope.checkproduct = 1;
-                }
-                else {
+                } else {
 //                    $scope.productProcess.state = 2;
                 }
             }
-            
-            var totalcountdata  = result.data.product_count;
-            
+
+            var totalcountdata = result.data.product_count;
+
 
 
             if ($scope.productResults.products.length) {
                 $scope.productProcess.state = 2;
-            }
-            else {
+            } else {
                 $scope.productProcess.state = 0;
             }
 
 
 
 
-        
+
 
             $scope.init = 1;
         }, function () {
@@ -300,16 +295,13 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
                 var attrlist = $scope.attribute_checked[atv.attribute_id];
                 if (attrlist.indexOf(atv.id) > -1) {
 
-                }
-                else {
+                } else {
                     $scope.attribute_checked[atv.attribute_id].push(atv.id)
                 }
-            }
-            else {
+            } else {
                 $scope.attribute_checked[atv.attribute_id] = [atv.id];
             }
-        }
-        else {
+        } else {
             var attrlist = $scope.attribute_checked[atv.attribute_id];
             var ind = attrlist.indexOf(atv.id)
             $scope.attribute_checked[atv.attribute_id].splice(ind, 1);
@@ -325,16 +317,13 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
                 var attrlist = $scope.attribute_checked_pre[atv.attribute];
                 if (attrlist.indexOf(atv.id) > -1) {
 
-                }
-                else {
+                } else {
                     $scope.attribute_checked_pre[atv.attribute].push(atv)
                 }
-            }
-            else {
+            } else {
                 $scope.attribute_checked_pre[atv.attribute] = [atv];
             }
-        }
-        else {
+        } else {
             var attrlist = $scope.attribute_checked_pre[atv.attribute];
             var ind = attrlist.indexOf(atv.id)
             $scope.attribute_checked_pre[atv.attribute].splice(ind, 1);
@@ -364,8 +353,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
         if (countdata) {
             var countdata1 = countdata.split("-");
             countdata = [Number(countdata1[0]), Number(countdata1[1])];
-        }
-        else {
+        } else {
             countdata = [1, 12];
         }
         console.log(countdata);
@@ -381,20 +369,20 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
 
     $(document).on("click", ".last_link", function () {
         $scope.productProcess.currentpage = "last";
-         $scope.getProducts2();
+        $scope.getProducts2();
     });
     $(document).on("click", ".first_link", function () {
         $scope.productProcess.currentpage = "last";
-         $scope.getProducts2();
+        $scope.getProducts2();
     });
 
     $(document).on("click", ".next_link", function () {
         $scope.productProcess.currentpage = Number($scope.productProcess.currentpage) + 1;
-         $scope.getProducts2();
+        $scope.getProducts2();
     });
     $(document).on("click", ".previous_link", function () {
         $scope.productProcess.currentpage = Number($scope.productProcess.currentpage) - 1;
-         $scope.getProducts2();
+        $scope.getProducts2();
     });
 
 
@@ -456,8 +444,7 @@ App.controller('ProductSearchController', function ($scope, $http, $timeout, $in
 
             if ($scope.productResults.products) {
                 $scope.productResults.products = result.data.products;
-            }
-            else {
+            } else {
                 $scope.productResults = result.data;
                 if ($scope.productResults.products.length) {
                     $scope.checkproduct = 1;
@@ -485,16 +472,13 @@ App.controller('ProductSearchController', function ($scope, $http, $timeout, $in
                 var attrlist = $scope.attribute_checked[atv.attribute_id];
                 if (attrlist.indexOf(atv.id) > -1) {
 
-                }
-                else {
+                } else {
                     $scope.attribute_checked[atv.attribute_id].push(atv.id)
                 }
-            }
-            else {
+            } else {
                 $scope.attribute_checked[atv.attribute_id] = [atv.id];
             }
-        }
-        else {
+        } else {
             var attrlist = $scope.attribute_checked[atv.attribute_id];
             var ind = attrlist.indexOf(atv.id)
             $scope.attribute_checked[atv.attribute_id].splice(ind, 1);
@@ -510,16 +494,13 @@ App.controller('ProductSearchController', function ($scope, $http, $timeout, $in
                 var attrlist = $scope.attribute_checked_pre[atv.attribute];
                 if (attrlist.indexOf(atv.id) > -1) {
 
-                }
-                else {
+                } else {
                     $scope.attribute_checked_pre[atv.attribute].push(atv)
                 }
-            }
-            else {
+            } else {
                 $scope.attribute_checked_pre[atv.attribute] = [atv];
             }
-        }
-        else {
+        } else {
             var attrlist = $scope.attribute_checked_pre[atv.attribute];
             var ind = attrlist.indexOf(atv.id)
             $scope.attribute_checked_pre[atv.attribute].splice(ind, 1);
