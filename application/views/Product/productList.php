@@ -214,15 +214,15 @@ $image2 = "";
                                        float: left;
                                        margin-bottom: 0;
                                        height: 49px;
-                                       
+
                                        ">
                                 <button type="submit" class="btn btn-default" style="
                                         border-radius: 21px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    width: 18px;
-    float: left;
-    padding: 0px 19px;
+                                        border-top-left-radius: 0;
+                                        border-bottom-left-radius: 0;
+                                        width: 18px;
+                                        float: left;
+                                        padding: 0px 19px;
                                         "> <i class="fa fa-search"></i></button>
                             </form>
                         </div>

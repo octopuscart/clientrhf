@@ -244,7 +244,9 @@ function createModel($value, $dtvalue, $timeslot) {
 
 <div >
     <!-- Inner Page Banner Area Start Here -->
-
+    <?php
+    $this->load->view('pages/appointmentExtraBlock');
+    ?>
 
     <!-- Inner Page Banner Area End Here -->
     <!-- Contact Us Page Area Start Here -->
