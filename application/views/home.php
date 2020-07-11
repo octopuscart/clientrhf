@@ -45,13 +45,7 @@ $this->load->view('layout/header');
             </div>
             <!-- end hero caption -->
         </li>
-        <li style="background: url('<?php echo base_url(); ?>assets/theme/images/slider2.jpg');height: 600px;" >
-            <!-- start hero caption -->
-            <div class="hero-caption-area">
-               
-            </div>
-            <!-- end hero caption -->
-        </li>
+       
     </ul>
 </div>
 <!-- end hero slider -->
