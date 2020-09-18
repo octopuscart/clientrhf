@@ -404,13 +404,13 @@ $image2 = "";
                                             <br>
                                             <p>
                                             <center> 
-                                                <a ng-if="product.video_link == 'yes'" href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
+<!--                                                <a ng-if="product.video_link == 'yes'" href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
                                                 </a> 
                                                 <a ng-if="product.video_link == ''" href="#" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
                                                 </a> 
                                                 <button type="button" class="btn btn-primary" ng-click="askPriceSelection(product.product_id)" style="    padding: 0 5px; line-height: 1.9375rem">Price Enq.
 
-                                                </button>
+                                                </button>-->
                                             </center>
                                             </p>
                                     </div>
