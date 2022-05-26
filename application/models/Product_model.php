@@ -17,7 +17,7 @@ class Product_model extends CI_Model {
 
     public function query_exe($query) {
         $query = $this->db->query($query);
-        if ($query->num_rows() > 0) {
+        if ($query) {
             foreach ($query->result_array() as $row) {
                 $data[] = $row;
             }
