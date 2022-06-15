@@ -53,19 +53,23 @@ $paymentstatus = "";
 </style>
 
 
-<!-- Inner Page Banner Area Start Here -->
-<section class="sub-bnr" data-stellar-background-ratio="0.5" style="margin-bottom: 10px;">
-    <div class="position-center-center">
-        <div class="container">
-            <h4>Order Details</h4>
+<div class="page-header" style="height: 160px">
+    <div class="container">
 
-            <!-- Breadcrumb -->
-            <ol class="breadcrumb">
-                <li>Order No. #<?php echo $order_data->order_no; ?></li>
-            </ol>
-        </div>
+        <h1 style="    color: black;
+            margin-bottom: 30px;
+            font-size: 30px;
+                text-shadow: 0px 0px;">Order Details</br>
+                  <p style="font-size:15px;margin:10px auto;">Order No. #<?php echo $order_data->order_no; ?></p>
+                 
+        </h1>
+
+        <!-- Breadcrumb -->
+       
+          
+        
     </div>
-</section>
+</div>
 
 
 

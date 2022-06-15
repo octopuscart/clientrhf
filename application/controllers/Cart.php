@@ -218,6 +218,8 @@ class Cart extends CI_Controller {
                 }
 
                 $sub_total_price = $session_cart['total_price'];
+                
+                
                 $total_quantity = $session_cart['total_quantity'];
 
                 $user_details = $this->User_model->user_details($this->user_id);

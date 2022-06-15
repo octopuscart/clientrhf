@@ -89,21 +89,22 @@ class Api extends REST_Controller {
     }
 
     function cartOperation_get() {
-       
+
         if ($this->checklogin) {
             $session_cart = $this->Product_model->cartData($this->user_id);
         } else {
             $session_cart = $this->Product_model->cartData();
         }
-        
-         $session_cart['shipping_price'] = 30;
-        $session_cart['discount'] = 10;
+        if ($session_cart['total_price']) {
+            $session_cart['shipping_price'] = 30;
+            $session_cart['discount'] = 10;
 
-        $session_cart['sub_total_price'] = $session_cart['total_price'];
+            $session_cart['sub_total_price'] = $session_cart['total_price'];
 
-        $session_cart['total_price'] = $session_cart['total_price'] - $session_cart['discount'];
+            $session_cart['total_price'] = $session_cart['total_price'] - $session_cart['discount'];
 
-        $session_cart['total_price'] = $session_cart['total_price'] + $session_cart['shipping_price'];
+            $session_cart['total_price'] = $session_cart['total_price'] + $session_cart['shipping_price'];
+        }
 
         $this->response($session_cart);
     }
