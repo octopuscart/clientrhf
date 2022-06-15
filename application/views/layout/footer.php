@@ -36,7 +36,7 @@
                     </ul>
 
                     <ul style="color:white">
-                        <li><a href="#" title="" style="color:white">FAQ's</a></li>
+                        <li><a href="<?php echo site_url("Shop/faq");?>" title="" style="color:white">FAQ's</a></li>
                         <li><a href="#" title="" style="color:white">Terms & Conditions</a></li>
                         <li><a href="#" title="" style="color:white">Privacy Policy</a></li>
                         <li><a href="#" title="" style="color:white">Shipping</a></li>

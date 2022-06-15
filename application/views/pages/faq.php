@@ -3,22 +3,18 @@ $this->load->view('layout/header');
 ?>
 
 
+
+
 <!-- Inner Page Banner Area Start Here -->
-<div class="inner-page-banner-area" style="    background: url(<?php echo base_url(); ?>assets/images/shop2.jpg);
-     background-size: cover;
-     background-position: 459px -1031px;">
+<div class="page-header" style="height: 160px">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcrumb-area">
-                    <h1>FAQ's</h1>
-                    <ul>
-                        <li><a href="#">Home</a> /</li>
-                        <li>FAQ's</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
+        <h1 style="    color: black;
+            margin-bottom: 30px;
+            font-size: 30px;
+            text-shadow: 0px 0px;">FAQ's</h1>
+
+
     </div>
 </div>
 <!-- Inner Page Banner Area End Here -->
@@ -33,7 +29,7 @@ $this->load->view('layout/header');
                     $temp = array("Will you keep a record of my order? " => "Yes, we will keep a record of your online order with all the details. In addition, we will keep your individual paper pattern. ",
                         "Once I complete the order online, how long does it take to deliver? " => "We will email your order confirmation within 24 hours with expected delivered date. We anticipate delivering all orders within 12-14 days of confirmation.",
                         "Can you ship my order internationally? " => "Yes, we can ship orders to anywhere in the world. Delivery times vary by region.",
-                        "What is your return policy?" => "Upon inspection, if Bespoke Tailors made an error, we will then make arrangements to receive back the order and have it corrected or redone.",
+                        "What is your return policy?" => "Upon inspection, if Rahman Fashions made an error, we will then make arrangements to receive back the order and have it corrected or redone.",
                         "What if I made a mistake in my order, can I fix it? " => "Yes, send us an email immediately and we will rectify the error.",
                         "Do you ship the orders door-to-door?" => "Yes, we ship orders door-to-door via UPS, Fedex, DHL or EMS Speedpost",
                         "What if my order doesn’t fit to my satisfaction?" => "Please contact us and we will do everything possible to handle the case and make you happy with your purchase.",
