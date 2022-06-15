@@ -241,3 +241,10 @@ span.onpopulertag {
     text-align: center;
     right: 0px;
 }
+
+.product-details-tab-area li.active a {
+    background: red;
+    color: white!important;
+    padding: 10px;
+    border-radius: 31px;
+}
