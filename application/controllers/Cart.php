@@ -40,7 +40,7 @@ class Cart extends CI_Controller {
 
     function details() {
 
-        $this->load->view('Cart/details');
+        $this->load->view('Cart/details2');
     }
 
     function detailsc() {

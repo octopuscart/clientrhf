@@ -17,6 +17,7 @@ class Product_model extends CI_Model {
 
     public function query_exe($query) {
         $query = $this->db->query($query);
+        $data = [];
         if ($query) {
             foreach ($query->result_array() as $row) {
                 $data[] = $row;
@@ -87,7 +88,7 @@ class Product_model extends CI_Model {
         $container = "";
         foreach ($category as $ckey => $cvalue) {
             $container .= $this->stringCategories($cvalue['id']);
-            $container .=", " . $cvalue['id'];
+            $container .= ", " . $cvalue['id'];
         }
         return $container;
     }
@@ -112,11 +113,11 @@ where pa.product_id = $product_id group by attribute_value_id";
     //product prices
     function category_items_prices_id($category_items_id, $item_id) {
 
-        $queryr = "SELECT cip.price, ci.item_name, cip.item_id, cip.id FROM custome_items_price as cip
+        $queryr = "SELECT cip.price, cip.sale_price, ci.item_name, cip.item_id, cip.id FROM custome_items_price as cip
                        join custome_items as ci on ci.id = cip.item_id
                        where cip.category_items_id = $category_items_id and cip.item_id = $item_id";
         $query = $this->db->query($queryr);
-        $category_items_price_array = $query->row();
+        $category_items_price_array = $query ? $query->row() : array();
         return $category_items_price_array;
     }
 
@@ -144,7 +145,6 @@ where pa.product_id = $product_id group by attribute_value_id";
             $productobj['item_name'] = $customeitem->item_name;
             $productattr = $this->singleProductAttrs($productobj['id']);
             $productobj['attrs'] = $productattr;
-
 
             $productobj['vendor'] = '';
             return $productobj;
@@ -193,7 +193,6 @@ join category_attribute_value as cav on cav.id = pa.attribute_value_id
 where pa.product_id in ($productatrvalue) group by attribute_value_id";
         $product_attr_value = $this->query_exe($query);
 
-
         $product_attrs = array();
         foreach ($product_attr_value as $key => $value) {
             $attrv = $value['attribute'];
@@ -225,7 +224,6 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
             $total_credit_limit = 0;
             $custome_items = [];
             $custome_items_name = [];
-
 
             foreach ($product as $key => $value) {
                 $productlist[$value['product_id']] = $value;
@@ -559,7 +557,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
                 'total_price' => $product_details['price'],
                 'item_id' => $product_details['item_id'],
                 'item_name' => $product_details['item_name'],
-                'file_name' => custome_image_server . PRODUCT_PATH_PRE . $product_details['folder'] . PRODUCT_PATH_POST,
+                'file_name' => custome_image_server . "/thumb/" . $product_details['folder'] . "/fabric20001.png",
                 'quantity' => $quantity,
                 'user_id' => $user_id,
                 'credit_limit' => $product_details['credit_limit'] ? $product_details['credit_limit'] : 0,
@@ -611,8 +609,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
                     'item_name' => $product_details['item_name'],
                     'vendor_id' => $product_details['user_id'],
                     'total_price' => $product_details['price'],
-                    'file_name' => custome_image_server . PRODUCT_PATH_PRE . $product_details['folder'] . PRODUCT_PATH_POST,
-                    'quantity' => 1,
+                    'file_name' => custome_image_server . "/thumb/" . $product_details['folder'] . "/fabric20001.png", 'quantity' => 1,
                     'product_id' => $product_id,
                     'date' => date('Y-m-d'),
                     'time' => date('H:i:s'),
@@ -627,7 +624,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
     //category list array
     function productListCategories($category_id) {
         $this->db->where('parent_id', $category_id);
-         $this->db->order_by('display_index desc');
+        $this->db->order_by('display_index desc');
         $query = $this->db->get('category');
         $category = $query->result_array();
         $container = [];
@@ -702,7 +699,6 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
     function product_home_slider_bottom() {
         $pquery = "SELECT pa.* FROM products as pa where home_slider = 'on' and variant_product_of<1";
         $product_home_slider = $this->query_exe($pquery);
-
 
         $pquery = "SELECT pa.* FROM products as pa where home_bottom = 'on'  and variant_product_of<1";
         $product_home_bottom = $this->query_exe($pquery);
@@ -878,7 +874,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
                 'attrs' => "",
                 'vendor_id' => $product_details['user_id'],
                 'total_price' => $product_details['price'] + $extra_cost,
-                'file_name' => custome_image_server . PRODUCT_PATH_PRE . $product_details['folder'] . PRODUCT_PATH_POST,
+                    'file_name' => custome_image_server . "/thumb/" . $product_details['folder'] . "/fabric20001.png", 'quantity' => 1,
                 'quantity' => $quantity,
                 'user_id' => $user_id,
                 'item_id' => $item_id,
@@ -948,7 +944,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
                     'extra_price' => $extra_cost,
                     'vendor_id' => $product_details['user_id'],
                     'total_price' => ($product_details['price'] + ($extra_cost)),
-                    'file_name' => custome_image_server . PRODUCT_PATH_PRE . $product_details['folder'] . PRODUCT_PATH_POST,
+                    'file_name' => custome_image_server . "/thumb/" . $product_details['folder'] . "/fabric20001.png", 'quantity' => 1,
                     'quantity' => 1,
                     'item_id' => $item_id,
                     'item_name' => $item_name,
@@ -1049,7 +1045,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
                 'attrs' => "",
                 'vendor_id' => $product_details['user_id'],
                 'total_price' => $value['total_price'],
-                'file_name' => custome_image_server . PRODUCT_PATH_PRE . $product_details['folder'] . PRODUCT_PATH_POST,
+                    'file_name' => custome_image_server . "/thumb/" . $product_details['folder'] . "/fabric20001.png", 'quantity' => 1,
                 'quantity' => $quantity,
                 'user_id' => $user_id,
                 'item_id' => $item_id,
@@ -1096,7 +1092,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
                 'attrs' => "",
                 'vendor_id' => $product_details['user_id'],
                 'total_price' => $value['total_price'],
-                'file_name' => custome_image_server . PRODUCT_PATH_PRE . $product_details['folder'] . PRODUCT_PATH_POST,
+                    'file_name' => custome_image_server . "/thumb/" . $product_details['folder'] . "/fabric20001.png", 'quantity' => 1,
                 'quantity' => $quantity,
                 'user_id' => 'guest',
                 'item_id' => $item_id,
@@ -1135,11 +1131,11 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
         foreach ($countryAppointment as $akey => $avalue) {
             $aid = $avalue['aid'];
             $this->db->where('aid', $aid);
-            
+
             $query = $this->db->get('appointment_entry');
             $timeData = $query->result_array();
             $avalue['dates'] = array();
-            foreach ($timeData as $tkey => $tvalue) { 
+            foreach ($timeData as $tkey => $tvalue) {
                 $temparray = array();
                 $temparray['date'] = $tvalue['date'];
                 $temparray['timing1'] = $tvalue['from_time'];
@@ -1148,12 +1144,12 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
             }
             array_push($appointmentData, $avalue);
         }
-        
+
         return $appointmentData;
     }
-    
+
     public function AppointmentDataAll() {
-        $date=date("Y-m-d");
+        $date = date("Y-m-d");
         $this->db->where('date>=', $date);
         $this->db->group_by('aid');
         $this->db->order_by('id');
@@ -1165,11 +1161,11 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
         foreach ($countryAppointment as $akey => $avalue) {
             $aid = $avalue['aid'];
             $this->db->where('aid', $aid);
-            
+
             $query = $this->db->get('appointment_entry');
             $timeData = $query->result_array();
             $avalue['dates'] = array();
-            foreach ($timeData as $tkey => $tvalue) { 
+            foreach ($timeData as $tkey => $tvalue) {
                 $temparray = array();
                 $temparray['date'] = $tvalue['date'];
                 $temparray['timing1'] = $tvalue['from_time'];
@@ -1178,10 +1174,8 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
             }
             array_push($appointmentData, $avalue);
         }
-        
+
         return $appointmentData;
     }
-    
-    
 
 }

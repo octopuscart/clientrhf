@@ -95,7 +95,6 @@
                                             <li><a href="<?php echo site_url('Product/ProductList/4/0') ?>">Jackets</a></li>
                                             <li><a href="<?php echo site_url('Product/ProductList/3/0') ?>">Pants</a></li>
                                             <li><a href="<?php echo site_url('Product/ProductList/5/0') ?>">Tuxedo Suits</a></li>
-                                            <li><a href="<?php echo site_url('Product/ProductList/8/0') ?>">Overcoats</a></li>
 
 
                                         </ul>

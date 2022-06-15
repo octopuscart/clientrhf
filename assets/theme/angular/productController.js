@@ -21,7 +21,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
 
     $scope.removePriceData = function (product_id) {
         var url = baseurl + "Api/priceAskDelete/" + custom_id + "/" + product_id;
-        $http.get(url).then(function (rdata) {
+            $http.get(url).then(function (rdata) {
 
             $scope.askPriceSelected();
         })
@@ -53,7 +53,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
     $scope.init = 0;
     $scope.checkproduct = 0;
     $scope.pricerange = {'min': 0, 'max': 0};
-    $scope.productProcess = {'state': 1, 'pagination': {'paginate': [1, 12], 'perpage': 12}, 'products': []};
+    $scope.productProcess = {'state': 1, 'pagination': {'paginate': [1, 24], 'perpage': 24}, 'products': []};
 
     $scope.getProducts = function (attrs) {
         $scope.productProcess.state = 1;
@@ -85,6 +85,25 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
             argsk.push(elempx);
             argsk.push(elempm);
         }
+        
+         var pricelist = [];
+        $(".pricefilter").each(function (i, o) {
+
+            if ($(this).is(":checked")) {
+                pricelist.push($(this).val());
+            }
+
+        })
+        var pricestr = pricelist.join("--");
+        var pricefilters = "pfilter=" + pricestr;
+        argsk.push(pricefilters);
+
+        if (pmm.trim()) {
+            $scope.pricerange.max = pmx;
+            $scope.pricerange.min = pmm;
+            argsk.push(elempx);
+            argsk.push(elempm);
+        }
 
 
         var countdata = $(".info_text").text().split(" ")[1];
@@ -93,7 +112,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
                 countdata = countdata.split("-");
             }
         } else {
-            countdata = [1, 12];
+            countdata = [1, 24];
         }
 
         var paginationdata = "start=" + countdata[0] + "&end=" + countdata[1];
@@ -106,7 +125,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
 
 
 
-        var url = baseurl + "Api/productListApi/" + category_id + "";
+        var url = baseurl + "Api/productListApi/" + category_id + "/"+custom_id;
 
         if (stargs) {
             url = url + "?" + stargs;
@@ -147,7 +166,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
             $timeout(function () {
 
                 $('#paging_container1').pajinate({
-                    items_per_page: 12,
+                    items_per_page: 24,
                     num_page_links_to_display: 5,
                 });
 
@@ -160,31 +179,31 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
 
 
                 //  Price Filter ( noUiSlider Plugin)
-                $("#price-range").noUiSlider({
-                    range: {
-                        'min': [Number($scope.productResults.price.minprice)],
-                        'max': [Number($scope.productResults.price.maxprice)]
-                    },
-                    start: [Number($scope.productResults.price.minprice), Number($scope.productResults.price.maxprice)],
-                    connect: true,
-                    serialization: {
-                        lower: [
-                            $.Link({
-                                target: $("#price-min")
-                            })
-                        ],
-                        upper: [
-                            $.Link({
-                                target: $("#price-max")
-                            })
-                        ],
-                        format: {
-                            // Set formatting
-                            decimals: 2,
-                            prefix: '$'
-                        }
-                    }
-                })
+//                $("#price-range").noUiSlider({
+//                    range: {
+//                        'min': [Number($scope.productResults.price.minprice)],
+//                        'max': [Number($scope.productResults.price.maxprice)]
+//                    },
+//                    start: [Number($scope.productResults.price.minprice), Number($scope.productResults.price.maxprice)],
+//                    connect: true,
+//                    serialization: {
+//                        lower: [
+//                            $.Link({
+//                                target: $("#price-min")
+//                            })
+//                        ],
+//                        upper: [
+//                            $.Link({
+//                                target: $("#price-max")
+//                            })
+//                        ],
+//                        format: {
+//                            // Set formatting
+//                            decimals: 2,
+//                            prefix: '$'
+//                        }
+//                    }
+//                })
 
 
                 $("#amount").val("$" + $("#price-range").slider("values", 0) + " - $" + $("#price-range").slider("values", 1));
@@ -230,7 +249,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
                 countdata = countdata.split("-");
             }
         } else {
-            countdata = [1, 12];
+            countdata = [1, 24];
         }
 
         var paginationdata = "start=" + countdata[0] + "&end=" + countdata[1];
@@ -243,7 +262,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
 
 
 
-        var url = baseurl + "Api/productListApi/" + category_id + "";
+        var url = baseurl + "Api/productListApi/" + category_id + "/"+custom_id;
 
         if (stargs) {
             url = url + "?" + stargs;
@@ -354,7 +373,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
             var countdata1 = countdata.split("-");
             countdata = [Number(countdata1[0]), Number(countdata1[1])];
         } else {
-            countdata = [1, 12];
+            countdata = [1, 24];
         }
         console.log(countdata);
 

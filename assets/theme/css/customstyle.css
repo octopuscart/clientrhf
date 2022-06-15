@@ -192,3 +192,52 @@ span.badge {
     float: left;
     text-transform: uppercase;
 }
+
+.table th, .table td {
+    padding: 0.75rem;
+  vertical-align: baseline;
+    border-top: 1px solid #e9ecef;
+}
+
+span.cutprice {
+    opacity: 0.7;
+    text-decoration: line-through;
+    font-size: 11px;
+}
+
+span.onsaletag{
+    
+}
+
+span.onsaletag {
+    position: absolute;
+    display: block;
+    color: whitesmoke;
+    font-size: 12px;
+    font-weight: bold;
+    background: red;
+    height: 35px;
+    width: 35px;
+    vertical-align: middle;
+    padding: 8px 2px;
+    border-radius: 18px;
+    margin: 5px;
+    text-align: center;
+}
+
+span.onpopulertag {
+    position: absolute;
+    display: block;
+    color: whitesmoke;
+    font-size: 12px;
+    font-weight: bold;
+    background: purple;
+    height: 35px;
+    width: 35px;
+    vertical-align: middle;
+    padding: 8px 2px;
+    border-radius: 18px;
+    margin: 5px;
+    text-align: center;
+    right: 0px;
+}

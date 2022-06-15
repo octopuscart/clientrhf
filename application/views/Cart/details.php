@@ -2,122 +2,170 @@
 $this->load->view('layout/header');
 ?>
 
-<!-- Inner Page Banner Area Start Here -->
-<div class="page-header" style="height: 160px">
-    <div class="container">
+<style>
+    .cartbutton{
+        width: 100%;
+        padding: 6px;
+        color: #fff!important;
+    }
+</style>
 
-        <h1 style="    color: black;
-            margin-bottom: 30px;
-            font-size: 30px;
-            text-shadow: 0px 0px;">Your Shopping Cart</h1>
+<!-- Slider -->
+<section class="sub-bnr" data-stellar-background-ratio="0.5">
+    <div class="position-center-center">
+        <div class="container">
+            <h4>Cart</h4>
 
-
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Cart</li>
+            </ol>
+        </div>
     </div>
-</div>
-<!-- Inner Page Banner Area End Here -->
-<!-- Cart Page Area Start Here -->
-<div class="cart-page-area">
-    <div class="container" ng-if="globleCartData.total_quantity">
-        <div class="row"  ng-if="gcheckcart.status == 2">
-            <div class="col-md-1"></div>
-            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                <div class="cart-page-top table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <td class="cart-form-heading text-left" style="width: 50%" colspan="2">Product</td>
-                                <td class="cart-form-heading text-center" >Quantity</td>
-                                <td class="cart-form-heading" style="    width: 135px;"></td>
-                            </tr>
-                        </thead>
-                        <tbody id="quantity-holder">
-                            <tr ng-repeat="product in globleCartData.products">
-                                <td class="cart-img-holder " style="    border-right: 0px;    width: 35px;">
-                                    <a href="#">
-                                        <img  src="{{product.file_name}}" alt=""  alt="cart" class="img-responsive cart_image_block">
-                                    </a>
-                                </td>
-                                <td  style="    border-left: 0px;">
-                                    <h3 style="font-size: 20px;"><a href="#">{{product.title}} - {{product.item_name}}</a>
-                                        <br/>
-                                        <small style="font-size: 10px">{{product.sku}}</small>
-                                    </h3>
-                                    <button type="button" ng-click="viewStyle(product)" class="btn btn-primary"  style="margin-top: 10px;    margin-top: 10px;
-                                            padding: 0px 10px;
-                                            line-height: 19px;">View Design</a>
+</section>
 
-                                </td>
-                                <td class="quantity text-center">
+<!-- Content -->
+<div id="content" ng-if="globleCartData.total_quantity"> 
 
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default quantity-minus" type="button" ng-click="updateCart(product, 'sub')" style="    padding: 0px 11px;"><i class="fa fa-minus" aria-hidden="true" ></i></button>
-                                        </span>
-                                        <input type="text" name='quantity' class="form-control quantity-input text-center" value="{{product.quantity}}"  placeholder="1">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default quantity-plus" type="button" ng-click="updateCart(product, 'add')" style="    padding: 0px 11px;"><i class="fa fa-plus" aria-hidden="true" ></i></button>
-                                        </span>
-                                    </div><!-- /input-group -->
+    <!-- Shop Content -->
+    <div class="shop-content pad-t-b-60">
+        <div class="container"> 
+            <!-- Payments Steps -->
+            <div class="shopping-cart text-center" >
+                <div class="cart-head">
+                    <ul class="row">
+                        <!-- PRODUCTS -->
+                        <li class="col-sm-2 text-left">
+                            <h6>PRODUCTS</h6>
+                        </li>
+                        <!-- NAME -->
+                        <li class="col-sm-4 text-left">
+                            <h6>NAME</h6>
+                        </li>
+                        <!-- PRICE -->
+                        <li class="col-sm-2">
+                            <h6>PRICE</h6>
+                        </li>
+                        <!-- QTY -->
+                        <li class="col-sm-1">
+                            <h6>QTY</h6>
+                        </li>
 
+                        <!-- TOTAL PRICE -->
+                        <li class="col-sm-2">
+                            <h6>TOTAL</h6>
+                        </li>
+                        <li class="col-sm-1"> </li>
+                    </ul>
+                </div>
 
-                                </td>
-                                <!--<td class="amount text-center">{{product.total_price|currency:" "}}</td>-->
-                                <td class="dismiss"><a href="#"  ng-click="removeCart(product.product_id)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                            </tr>
-                            
-                            <tr>
-                                <td colspan="6" class="text_right">
-                                      <section class="pad-t-b-30 light-gray-bg shopping-cart small-cart"  >
-                        <div class="container"> 
-                            <!-- SHOPPING INFORMATION -->
-                            <div class="cart-ship-info margin-top-0" style="    margin-bottom: 10px;"> 
-                                <div class="row">
-                                    <!-- SUB TOTAL -->
+                <!-- Cart Details -->
+                <ul class="row cart-details" ng-repeat="product in globleCartData.products" >
+                    <li class="col-sm-6">
+                        <div class="media"> 
+                            <!-- Media Image -->
+                            <div class="media-left media-middle"> 
+                                <a href="<?php echo site_url("Product/ProductDetails/"); ?>{{product.product_id}}" class="item-img"> 
+                                    <img class="media-object" src="{{product.file_name}}" alt="" style="height: 100px;width: auto;"> 
+                                </a> 
+                            </div>
 
-                                    <div class="col-md-4">
-                                        <a href="<?php echo site_url("Cart/details"); ?>" class="btn btn-primary pull-left" ><i class=" fa fa-arrow-left"></i> Customize More </a>
-
-                                    </div>
-                                    <div class="col-md-4">
-
-                                    
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="<?php echo site_url('Cart/checkoutInit') ?>" class="btn btn-primary pull-right" >Proceed To Checkout <i class=" fa fa-arrow-right"></i></a>
-
-                                    </div>
-
-
-
-
-
-
+                            <!-- Item Name -->
+                            <div class="media-body">
+                                <div class="position-center-center">
+                                    <h5>{{product.title}}</h5>
+                                    <!--<p>Lorem ipsum dolor sit amet</p>-->
                                 </div>
                             </div>
                         </div>
-                    </section>
-                                </td>
+                    </li>
 
-                            </tr>
+                    <!-- PRICE -->
+                    <li class="col-sm-2">
+                        <div class="position-center-center"> <span class="price">{{product.price|currency:" "}}</span> </div>
+                    </li>
 
-                        </tbody>
-                    </table>
-                  
-                </div>
+                    <!-- QTY -->
+                    <li class="col-sm-1">
+                        <div class="position-center-center">
+                            <div class="quinty"> 
+                                <!-- QTY -->
+                                <input type="number" value="{{product.quantity}}"  ng-model="product.quantity" min="1" max="5">
+                                <button class="btn btn-default btn-xs cartbutton" style="color: white" ng-click="updateCart(product.product_id, product.quantity)">Update</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- TOTAL PRICE -->
+                    <li class="col-sm-2">
+                        <div class="position-center-center"> <span class="price">{{product.total_price|currency:" "}}</span> </div>
+                    </li>
+
+                    <!-- REMOVE -->
+                    <li class="col-sm-1">
+                        <div class="position-center-center"> <a href="#." ng-click="removeCart(product.product_id)"><i class="icon-close"></i></a> </div>
+                    </li>
+
+                </ul>
+
+
             </div>
-            <div class="col-md-1"></div>
-
         </div>
-
     </div>
 
-    <?php
-    $this->load->view('Cart/noproduct');
-    ?>
+    <!--======= PAGES INNER =========-->
+    <section class="pad-t-b-60 light-gray-bg shopping-cart small-cart"  >
+        <div class="container"> 
 
+            <!-- SHOPPING INFORMATION -->
+            <div class="cart-ship-info margin-top-0"> 
 
+           
+                <div class="row">
+                    
+
+                    <!-- SUB TOTAL -->
+                    <div class="col-sm-12">
+                        <h6>grand total</h6>
+                        <div class="grand-total">
+                            <div class="order-detail">
+                                <p ng-repeat="product in globleCartData.products">{{product.title}} <span>{{product.total_price|currency:" "}}</span></p>
+                         
+
+                                <!-- SUB TOTAL -->
+                                <p class="all-total">TOTAL COST <span>{{globleCartData.total_price |currency:" "}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 text-right margin-top-30">
+                        <div class="coupn-btn"> <a href="<?php echo site_url("Cart/checkout"); ?>" class="btn btn-inverse">continue to order</a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
-<!-- Cart Page Area End Here -->
+<!-- End Content --> 
+
+<!-- Content -->
+<div id="content"  ng-if="!globleCartData.total_quantity"> 
+    <!-- Tesm Text -->
+    <section class="error-page text-center pad-t-b-130">
+        <div class="container "> 
+
+            <!-- Heading -->
+            <h1 style="font-size: 40px">No Product Found</h1>
+            <p>Please add product to cart<br>
+                You can go back to</p>
+            <hr class="dotted">
+            <a href="<?php echo site_url(); ?>" class="btn btn-inverse">BACK TO HOME</a>
+        </div>
+    </section>
+</div>
+<!-- End Content --> 
+
+
 <!--angular controllers-->
 <script src="<?php echo base_url(); ?>assets/theme/angular/productController.js"></script>
 

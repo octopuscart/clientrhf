@@ -110,7 +110,7 @@ $image2 = "";
                 break;
             case "2":
                 ?>
-                min-height: 520px;
+                min-height: 540px;
                 <?php
                 break;
             case "5":
@@ -125,7 +125,7 @@ $image2 = "";
                 break;
             case "4":
                 ?>
-                min-height: 520px;
+                min-height: 540px;
                 <?php
                 break;
             default:
@@ -138,12 +138,14 @@ $image2 = "";
     .gallery-items {
         border: 1px solid #e0e0e0;
         padding: 10px 10px;
-        height:520px!important;
+        height:445px!important;
         border-radius: 15px;
-    }   
+    }
 
     .imagehover{
-        height: 250px;border-radius: 10px;border-radius: 10px;
+        height: 250px;
+        border-radius: 10px;
+        border-radius: 10px;
         position: absolute;
         top: 0;
         left: 0;
@@ -206,7 +208,7 @@ $image2 = "";
                         <div class="search">
                             <form action="#" style="margin-top: 20px;">
 
-                                <input type="text" name="search" placeholder="SEARCH" class="form-control" style="  
+                                <input type="text" name="search" placeholder="SEARCH" class="form-control" style="
                                        border-radius: 21px;
                                        border-top-right-radius: 0;
                                        border-bottom-right-radius: 0;
@@ -229,13 +231,13 @@ $image2 = "";
                         <div class="spacer-30"></div>
                         <?php if (count($categories)) { ?>
                             <!-- HEADING -->
-                            <div class="heading">
+                            <div class="heading" >
                                 <h6>Products Categories</h6>
                                 <hr class="dotted">
                             </div>
 
                             <!-- CATEGORIES -->
-                            <ul class="cate" style="padding-left: 20px;">
+                            <ul class="cate" style="padding-left: 20px;margin-bottom: 20px;">
 
                                 <?php
                                 foreach ($categories as $key => $value) {
@@ -298,16 +300,22 @@ $image2 = "";
 
 
                         <!-- HEADING -->
-                        <!--                        <div  ng-if='atv.product_count'>
-                                                    <div class="heading">
-                                                        <h6>Filter by price</h6>
-                                                        <hr class="dotted">
-                                                    </div>
-                                                     PRICE 
-                                                    <div class="cost-price-content">
-                                                        <div id="price-range" class="price-range"></div>
-                                                        <span id="price-min" class="price-min">20</span> <span id="price-max" class="price-max">80</span> <a href="#." class="btn btn-small btn-inverse pull-right" >FILTER</a> </div>
-                                                </div>-->
+                        <!-- HEADING -->
+                        <div class="widget" style="margin-top: 30px;" >
+                            <div class="heading">
+                                <h6 class="widget-title font-alt">Filter by price</h6>
+                            </div>
+                            <hr class="dotted">
+                            <!-- PRICE -->
+                            <div class="cost-price-content12">
+                                <label ng-repeat="price in productResults.priceList" style='font-weight: 500;width: 100%;'>
+                                    <input type="checkbox" name='pricerange[]' class='pricefilter' value='{{price}}'> {{price|currency}}
+                                </label>
+                                <button class="col-xs-3 btn btn-link" style="    padding: 0;
+                                        margin-bottom: 20px;" ng-click="getProducts()" >FILTER</button> 
+                            </div>
+                        </div>
+
 
                         <!-- HEADING -->
 
@@ -324,11 +332,13 @@ $image2 = "";
                                     <label style="font-weight: 500;background: {{atv.additional_value}};padding: 0px 5px;float: left;
                                            margin-right: 5px;border: 1px solid #0000005e;border: 1px solid #0000005e;
                                            text-shadow: 0px 1px 4px #000;">
-                                        <input type="checkbox"  ng-model="atv.checked" ng-click="attributeProductGet(atv)" style="opacity: 0;"> 
 
                                         <i class="fa fa-check" ng-if="atv.checked" style="    position: absolute;
-                                           margin-top: -22px;
+                                           margin-top: 3px;
+                                           margin-left: 1px;
                                            color: #fff;"></i>
+                                        <input type="checkbox"  ng-model="atv.checked" ng-click="attributeProductGet(atv)" style="opacity: 0;"> 
+
                                         <!--{{atv.attribute_value}} ({{atv.product_count}})-->
                                     </label>
 
@@ -376,31 +386,28 @@ $image2 = "";
                                 <!-- start gallery items -->
                                 <div class="gallery-items" style="height: auto!important">
                                     <div class=" thumbnail card" style="    border: none;">
-                                        <!--                                        <div class="product-img-holder">
-                                                                                    <a href="#">
-                                        
-                                                                                        <div class="product_image_back" style="background: url(<?php echo custome_image_server; ?>/coman/fabricsx/{{product.folder}}.jpg);     height: 350px;background-size: cover;"></div>
-                                        
-                                        
-                                                                                    </a>
-                                                                                </div>-->
+                                        <span ng-if="product.is_sale == 'true'" class="onsaletag">Sale</span> 
+                                        <span ng-if="product.is_populer == 'true'" class="onpopulertag"><i class="fa fa-star"></i></span> 
                                         <center>
 
 
 
+                        
+                                                <img class="img-responsive" src="<?php echo custome_image_server; ?>/thumb/{{product.folder}}/fabric20001.png" alt="product" style="border-radius: 10px;">
 
-                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/fabricsx/{{product.folder}}.jpg" alt="product" style="height: 400px;border-radius: 10px;">
-                                            <div class="img-responsive imagehover" style="" ng-click="zoomProduct(product)" data-toggle="modal" data-target="#zoomModel">
-                                                <i class="fa fa-search-plus" style="    color: black;
-                                                   margin-top: 53%;"></i>
-                                            </div>
+                                                <div class="img-responsive imagehover" style="" ng-click="zoomProduct(product)" data-toggle="modal" data-target="#zoomModel">
+                                                    <i class="fa fa-search-plus" style="    color: black;
+                                                       margin-top: 53%;"></i>
+                                                </div>
+
 
 
 
                                             <h3 style="text-align: center;font-size: 15px">{{product.title}}
                                                 <br>
                                                 <span >{{product.short_description}} </span></h3>
-                                            <!--<p style="text-align: center">{{product.price|currency:"<?php echo globle_currency; ?> "}}</p>-->
+                                            <p style="text-align: center" ng-if="product.is_sale == 'true'"><span class="cutprice">{{product.org_price|currency:"<?php echo globle_currency; ?> "}}</span> {{product.price|currency:"<?php echo globle_currency; ?> "}}</p>
+                                            <p style="text-align: center" ng-if="product.is_sale != 'true'">{{product.price|currency:"<?php echo globle_currency; ?> "}}</p>
                                             <br>
                                             <p>
                                             <center> 
@@ -447,13 +454,7 @@ $image2 = "";
 
 
 
-                    <!--                     Pagination 
-                                        <ul class="pagination">
-                                            <li><a href="#.">1</a></li>
-                                            <li><a href="#.">2</a></li>
-                                            <li><a href="#.">....</a></li>
-                                            <li><a href="#.">&gt;</a></li>
-                                        </ul>-->
+
 
                     <div class="col-md-12" id="paging_container1">
                         <div class="showing-info">
@@ -565,7 +566,7 @@ $image2 = "";
 
                 </div>
                 <div class="modal-body">
-                    <img class="img-responsive" src="<?php echo custome_image_server; ?>/coman/fabricsx/{{selectedProduct.product.folder}}.jpg" alt="product" style="border-radius: 10px;">
+                    <img class="img-responsive" src="<?php echo custome_image_server; ?>/thumb/{{selectedProduct.product.folder}}/fabric20001.png" alt="product" style="border-radius: 10px;">
 
                 </div>
 
@@ -668,7 +669,7 @@ $image2 = "";
 <script>
     var category_id = <?php echo $category; ?>;
     var custom_id = <?php echo $custom_id; ?>;
-    var searchdata = <?php echo isset($_GET["search"]) ? ($_GET["search"] != '' ? $_GET["search"] : '0') : "0"; ?>;</script>
+    var searchdata = "<?php echo isset($_GET["search"]) ? ($_GET["search"] != '' ? $_GET["search"] : '0') : "0"; ?>";</script>
 <!--angular controllers-->
 
 
