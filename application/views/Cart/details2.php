@@ -77,7 +77,7 @@ $this->load->view('layout/header');
 
                                 </td>
                                 <td class="amount text-center">
-                                    <h3> {{globleCartData.total_price |currency:" "}}</h3>
+                                    <h3> {{globleCartData.sub_total_price |currency:" "}}</h3>
                                 </td>
                                 <td class="dismiss"></td>
                             </tr>

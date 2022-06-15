@@ -134,7 +134,7 @@ $this->load->view('layout/header');
                          
 
                                 <!-- SUB TOTAL -->
-                                <p class="all-total">TOTAL COST <span>{{globleCartData.total_price |currency:" "}}</span></p>
+                                <p class="all-total">TOTAL COST <span>{{globleCartData.sub_total_price |currency:" "}}</span></p>
                             </div>
                         </div>
                     </div>

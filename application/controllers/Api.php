@@ -89,11 +89,22 @@ class Api extends REST_Controller {
     }
 
     function cartOperation_get() {
+       
         if ($this->checklogin) {
             $session_cart = $this->Product_model->cartData($this->user_id);
         } else {
             $session_cart = $this->Product_model->cartData();
         }
+        
+         $session_cart['shipping_price'] = 30;
+        $session_cart['discount'] = 10;
+
+        $session_cart['sub_total_price'] = $session_cart['total_price'];
+
+        $session_cart['total_price'] = $session_cart['total_price'] - $session_cart['discount'];
+
+        $session_cart['total_price'] = $session_cart['total_price'] + $session_cart['shipping_price'];
+
         $this->response($session_cart);
     }
 
@@ -291,7 +302,7 @@ class Api extends REST_Controller {
             }
         }
 
-        $pricefilter =isset($attrdatak['pfilter']) ? $attrdatak['pfilter'] . "":"";
+        $pricefilter = isset($attrdatak['pfilter']) ? $attrdatak['pfilter'] . "" : "";
         $pricelistarray = array();
         if ($pricefilter) {
             $pricelistarrayt = explode("--", $pricefilter);
@@ -310,7 +321,7 @@ class Api extends REST_Controller {
                            where  attribute_id in (47) and attribute_value_id in ($val)
                            group by product_id";
                 $queryat = $this->db->query($query_attr);
-                $productslist = $queryat ? $queryat->result():array();
+                $productslist = $queryat ? $queryat->result() : array();
                 foreach ($productslist as $key => $value) {
                     array_push($products, $value->product_id);
                 }
@@ -358,8 +369,8 @@ class Api extends REST_Controller {
 
             $price_p = $item_price ? $item_price->price : 0;
             $price_s = $item_price ? $item_price->sale_price : 0;
-            
-            $value['price'] = $value['is_sale'] == 'true' ? $price_s:$price_p;
+
+            $value['price'] = $value['is_sale'] == 'true' ? $price_s : $price_p;
             $value['org_price'] = $price_p;
 
             array_push($pricecount, $value['price']);
@@ -593,8 +604,6 @@ class Api extends REST_Controller {
 //        $prodct_details['folder'] = $prodct_details['title'];
         $this->response($prodct_details);
     }
-    
-  
 
     //function for product list
     function cartOperationCustom_post() {
@@ -1198,9 +1207,6 @@ class Api extends REST_Controller {
 
         $this->session->set_userdata('session_enquiry_price', $session_enquiry_price);
     }
-    
-    
-    
 
 }
 

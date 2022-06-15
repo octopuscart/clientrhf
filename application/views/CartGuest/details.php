@@ -58,7 +58,7 @@ $this->load->view('layout/header');
                                         </div>
                                     </div>
                                 </td>
-                                <td class="amount">{{product.total_price|currency:" "}}</td>
+                                <td class="amount">{{product.sub_total_price|currency:" "}}</td>
                                 <td class="dismiss"><a href="#"  ng-click="removeCart(product.product_id)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                             </tr>
                             <tr>
@@ -66,7 +66,7 @@ $this->load->view('layout/header');
                                     TOTAL
                                 </td>
                                 <td class="text-center amount">
-                                    {{globleCartData.total_price|currency:"<?php echo globle_currency; ?>"}}
+                                    {{globleCartData.sub_total_price|currency:"<?php echo globle_currency; ?>"}}
                                 </td>
                                 <td></td>
                             </tr>

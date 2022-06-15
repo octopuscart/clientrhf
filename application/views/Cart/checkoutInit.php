@@ -146,6 +146,30 @@ $this->load->view('layout/header');
                                             <td class="amount text-center">{{product.total_price|currency:" "}}</td>
                                             
                                         </tr>
+                                         <tr>
+                                            <td colspan="4" class="text-right">
+                                               SUB TOTAL
+                                            </td>
+                                            <td class="text-center amount text-center">
+                                                {{globleCartData.sub_total_price|currency:"<?php echo globle_currency; ?>"}}
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td colspan="4" class="text-right">
+                                                COUPON DISCOUNT
+                                            </td>
+                                            <td class="text-center amount text-center">
+                                                {{globleCartData.discount|currency:"<?php echo globle_currency; ?>"}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" class="text-right">
+                                                SHIPPING
+                                            </td>
+                                            <td class="text-center amount text-center">
+                                                {{globleCartData.shipping_price|currency:"<?php echo globle_currency; ?>"}}
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td colspan="4" class="text-right">
                                                 TOTAL
