@@ -91,7 +91,7 @@ $this->load->view('layout/header');
     <div class="container" ng-if="globleCartData.total_quantity">
         <div class="row">
 
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                 <div class="panel panel-default">
                     <div class="panel-heading active" role="tab" id="headingOne">
@@ -101,7 +101,7 @@ $this->load->view('layout/header');
                                     <i class="fa fa-shopping-cart fa-stack-1x"></i>
                                     <i class="ion-bag fa-stack-1x "></i>
                                 </span>   My Shopping Bag
-                                <span style="float: right; line-height: 29px;" class="ng-binding">Total: {{globleCartData.total_quantity}}</span> 
+                                <span style="float: right; line-height: 29px;" class="ng-binding">Total:  {{globleCartData.total_price|currency:"<?php echo globle_currency; ?>"}} ({{globleCartData.total_quantity}}</small>)</span> 
                             </a>
                         </h4>
                     </div>
@@ -114,7 +114,9 @@ $this->load->view('layout/header');
                                     <thead>
                                         <tr>
                                             <td class="cart-form-heading text-left" colspan="2" style="width: 50%" colspan="2">Product</td>
+                                            <td class="cart-form-heading text-center">Price</td>
                                             <td class="cart-form-heading text-center" style="    width: 135px;">Quantity</td>
+                                            <td class="cart-form-heading text-center">Total</td>
                                         </tr>
                                     </thead>
                                     <tbody id="quantity-holder">
@@ -134,15 +136,48 @@ $this->load->view('layout/header');
                                                         line-height: 19px;">View Design</a>
 
                                             </td>
+                                            <td class="amount text-center" >{{product.price|currency:" "}}</td>
                                             <td class="quantity text-center">
 
                                                 {{product.quantity}}
 
 
                                             </td>
+                                            <td class="amount text-center">{{product.total_price|currency:" "}}</td>
                                             
                                         </tr>
-                                        
+                                         <tr>
+                                            <td colspan="4" class="text-right">
+                                               SUB TOTAL
+                                            </td>
+                                            <td class="text-center amount text-center">
+                                                {{globleCartData.sub_total_price|currency:"<?php echo globle_currency; ?>"}}
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td colspan="4" class="text-right">
+                                                COUPON DISCOUNT
+                                            </td>
+                                            <td class="text-center amount text-center">
+                                                {{globleCartData.discount|currency:"<?php echo globle_currency; ?>"}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" class="text-right">
+                                                SHIPPING
+                                            </td>
+                                            <td class="text-center amount text-center">
+                                                {{globleCartData.shipping_price|currency:"<?php echo globle_currency; ?>"}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" class="text-right">
+                                                TOTAL
+                                            </td>
+                                            <td class="text-center amount text-center">
+                                                {{globleCartData.total_price|currency:"<?php echo globle_currency; ?>"}}
+                                            </td>
+                                        </tr>
                                       <tr>
                                         <td colspan="5" class="text_right">
                                             <div class="proceed-button pull-left " >

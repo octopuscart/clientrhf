@@ -26,19 +26,24 @@ $this->load->view('layout/header');
     }
 </style>
 
-<section class="sub-bnr" data-stellar-background-ratio="0.5" style="margin-bottom: 10px;">
-    <div class="position-center-center">
-        <div class="container">
-            <h4>My Profile</h4>
+<div class="page-header" style="height: 160px">
+    <div class="container">
 
-            <!-- Breadcrumb -->
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="active">Account</li>
-            </ol>
-        </div>
+        <h1 style="    color: black;
+            margin-bottom: 30px;
+            font-size: 30px;
+                text-shadow: 0px 0px;">My Orders</br>
+                  <p style="font-size:15px;margin:10px auto;">Profile/Orders</p>
+                 
+        </h1>
+
+        <!-- Breadcrumb -->
+       
+          
+        
     </div>
-</section>
+</div>
+
 
 
 
@@ -58,14 +63,14 @@ $this->load->view('layout/header');
                     ?>
 
 
-                    <div class="col-md-9">
+                    <div class="col-md-9 mb-5" style=''>
                         <?php
                         foreach ($orderslist as $key => $value) {
                             ?>
-                            <div class="row  "> 
+                            <div class="row  " > 
                                 <div class="pricing">
 
-                                    <article class="order_box" style="padding: 10px">
+                                    <article class="row" style="padding: 10px">
                                         <div class="col-md-12">
                                             <h6>
                                                 Order No. #<?php echo $value->order_no; ?>

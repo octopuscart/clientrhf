@@ -102,13 +102,13 @@ $this->load->view('layout/header');
 
                     <div class="col-md-9" style="margin-top:20px">
                         <!-- Address Details -->
-                        <div class="col-md-12">
-                            <div class="">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <h6>Addresses
-                                    <!--<button class="btn btn-small" data-toggle="modal" data-target="#changeAddress" style="margin-left: 20px;padding: 5px 11px;color:white;"><i class="fa fa-plus"></i> Add New</button>-->
+                                    <button class="btn btn-small pull-right" data-toggle="modal" data-target="#changeAddress" style="margin-left: 20px;padding: 5px 11px;color:white;"><i class="fa fa-plus"></i> Add New</button>
                                 </h6>
                             </div>
-                            <div class="noti-check1" style="#f5f5f5">  
+                            <div class="col-md-12" style="#f5f5f5">  
                                 <div class="row">
                                     <?php
                                     if (count($user_address_details)) {
@@ -166,21 +166,21 @@ $this->load->view('layout/header');
                             </div>
                             <div class="modal-body checkout-form">
 
-                                <label class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
+                                <label class="col-md-12 col-xs-12">
                                     Address
                                     <input type="text" name="address"  value="" class="woocommerce-Input woocommerce-Input--text input-text">
                                 </label>
 
-                                <label class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
+                                <label class="col-md-12 col-xs-12">
                                     City
                                     <input type="text" name="city"  value="" class="woocommerce-Input woocommerce-Input--text input-text">
                                 </label>
                                 <br/>
-                                <label class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
+                                <label class="col-md-12 col-xs-12">
                                     State
                                     <input type="text" name="state"  value="" class="woocommerce-Input woocommerce-Input--text input-text">
                                 </label >
-                                <label class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
+                                <label class="col-md-12 col-xs-12">
                                     Pincode
                                     <input type="text" name="pincode"  value="" class="woocommerce-Input woocommerce-Input--text input-text">
                                 </label>
