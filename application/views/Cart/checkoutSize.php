@@ -236,7 +236,7 @@ $this->load->view('layout/header');
 
 
                                                             <div class="thumbnail" style="margin-bottom: 0px;">
-                                                                <img src="<?php echo $vimg; ?>" class="measurement_img">
+                                                                <!--<img src="<?php echo $vimg; ?>" class="measurement_img">-->
                                                                 <h4 class="measurement_lable">
                                                                     <?php
                                                                     echo $vlname;
