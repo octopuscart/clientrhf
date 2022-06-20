@@ -17,7 +17,7 @@ class Cart extends CI_Controller {
         }
 
         $this->checklogin = $this->session->userdata('logged_in');
-        $this->user_id =   $this->checklogin ? $this->checklogin['login_id']:0;
+        $this->user_id = $this->checklogin ? $this->checklogin['login_id'] : 0;
     }
 
     function redirectCart() {
@@ -36,16 +36,15 @@ class Cart extends CI_Controller {
     function applyCoupon() {
         $nexturl = $this->input->post("next_url");
         $couponcode = $this->input->post("couponcode");
-        $couponarray = array("has_coupon"=>0, "coupon_code"=>"", "coupon_discount"=>"");
-        if($couponcode == "RH10"){
+        $couponarray = array("has_coupon" => 0, "coupon_code" => "", "coupon_discount" => "");
+        if ($couponcode == "RH10") {
             $couponarray["has_coupon"] = 1;
             $couponarray["coupon_code"] = $couponcode;
             $couponarray["coupon_discount"] = 10;
         }
         $this->session->set_userdata('session_coupon', $couponarray);
-        
+
         redirect($nexturl);
-        
     }
 
     public function index() {
@@ -109,8 +108,12 @@ class Cart extends CI_Controller {
         $query = $this->db->get('custome_items');
         $custome_measurements = $query->row();
         $data['customitems'] = $custome_measurements;
-
         $data['custome_items'] = $custome_items;
+
+        $this->db->where('user_id', $this->user_id);
+        $query = $this->db->get('custom_measurement_profile');
+        $previous_measurements = $query ? $query->result_array() : array();
+        $data['previous_measurements'] = $previous_measurements;
 
         $measurementarray = explode(",", $custome_measurements->measurement);
 
@@ -228,7 +231,6 @@ class Cart extends CI_Controller {
                 }
 
                 $sub_total_price = $session_cart['total_price'];
-                
 
                 $total_quantity = $session_cart['total_quantity'];
 
@@ -261,9 +263,9 @@ class Cart extends CI_Controller {
                     'amount_in_word' => $this->Product_model->convert_num_word($sub_total_price),
                     'sub_total_price' => $session_cart['sub_total_price'],
                     'total_price' => $session_cart['total_price'],
-                    'coupon_code'=>$session_cart['coupon_code'],
-                    'discount'=>$session_cart['discount'],
-                    'shipping'=>$session_cart['shipping_price'],
+                    'coupon_code' => $session_cart['coupon_code'],
+                    'discount' => $session_cart['discount'],
+                    'shipping' => $session_cart['shipping_price'],
                     'total_quantity' => $total_quantity,
                     'status' => 'Order Confirmed',
                     'payment_mode' => $paymentmathod,

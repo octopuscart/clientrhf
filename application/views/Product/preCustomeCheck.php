@@ -59,7 +59,9 @@ $this->load->view('layout/header');
                                 <br/> <small>  {{style.cart_data.op_date_time}}</small>
                             </td>
 
-                            <td><button type="button" ng-click="addToCartCustomeFromPre(style.cart_data.id, false, true)" class="btn btn-warning"  >Use Design</button></td>
+                            <td>
+                                <button type="button" ng-click="addToCartCustomeFromPre(style.cart_data.id, false, true)" class="btn btn-warning"  >Use Design</button>
+                            </td>
 
                         </tr>
                     </table>
