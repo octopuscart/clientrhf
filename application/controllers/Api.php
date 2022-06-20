@@ -34,6 +34,22 @@ class Api extends REST_Controller {
         $this->response($session_cart['products'][$product_id]);
     }
 
+    function wishlistOperation_post() {
+        $product_id = $this->post('product_id');
+        $quantity = $this->post('quantity');
+        $item_id = $this->post('custome_id');
+        $returndata = array("product" => array(), "checkwishlist" => 0);
+
+        if ($this->checklogin) {
+            $session_cart = $this->Product_model->wishlistOperation($product_id, $quantity, $item_id, $this->user_id);
+            $session_cart = $this->Product_model->wishlistDataCustome($this->user_id);
+            $returndata["product"] = $session_cart['products'][$product_id];
+            $returndata["checkwishlist"] = 1;
+        }
+
+        $this->response($returndata);
+    }
+
     //multiple customization cart
     function cartOperationMultiple_get() {
         if ($this->checklogin) {
@@ -95,16 +111,7 @@ class Api extends REST_Controller {
         } else {
             $session_cart = $this->Product_model->cartData();
         }
-        if ($session_cart['total_price']) {
-            $session_cart['shipping_price'] = 30;
-            $session_cart['discount'] = 10;
 
-            $session_cart['sub_total_price'] = $session_cart['total_price'];
-
-            $session_cart['total_price'] = $session_cart['total_price'] - $session_cart['discount'];
-
-            $session_cart['total_price'] = $session_cart['total_price'] + $session_cart['shipping_price'];
-        }
 
         $this->response($session_cart);
     }
@@ -614,9 +621,11 @@ class Api extends REST_Controller {
         $customekey = $this->post('customekey');
         $customevalue = $this->post('customevalue');
         $extra_cost = $this->post('extra_price');
+        $is_shop_stored = $this->post("is_shop_stored");
+        $is_previous = $this->post("is_previous");
 
         if ($this->checklogin) {
-            $session_cart = $this->Product_model->cartOperationCustom($product_id, $quantity, $custome_id, $customekey, $customevalue, $extra_cost, $this->user_id);
+            $session_cart = $this->Product_model->cartOperationCustom($product_id, $quantity, $custome_id, $customekey, $customevalue, $extra_cost, $is_shop_stored, $is_previous, $this->user_id);
             $session_cart = $this->Product_model->cartDataCustome($this->user_id);
         } else {
             $session_cart = $this->Product_model->cartOperationCustom($product_id, $quantity, $custome_id, $customekey, $customevalue, $extra_cost);
@@ -636,7 +645,7 @@ class Api extends REST_Controller {
         $extra_cost = $this->post('extra_price');
 
         if ($this->checklogin) {
-            $session_cart = $this->Product_model->cartOperationCustomMulti($product_id, $quantity, $custome_id, $customekey, $customevalue, $extra_cost, $this->user_id);
+            $session_cart = $this->Product_model->cartOperationCustomMulti($product_id, $quantity, $custome_id, $customekey, $customevalue, $extra_cost, $is_shop_stored, $this->user_id);
             $session_cart = $this->Product_model->cartDataCustome($this->user_id);
         } else {
             $session_cart = $this->Product_model->cartOperationCustomMulti($product_id, $quantity, $custome_id, $customekey, $customevalue, $extra_cost);
@@ -1207,6 +1216,16 @@ class Api extends REST_Controller {
         unset($session_enquiry_price[$item_id][$product_id]);
 
         $this->session->set_userdata('session_enquiry_price', $session_enquiry_price);
+    }
+
+    function removeCoupon_post() {
+        $nexturl = $this->post('nexturl');
+        $this->session->set_userdata('session_coupon', array());
+    }
+
+    function getUserPreDesingByItem_get($user_id, $item_id) {
+        $previouse_profiledata = $this->Product_model->selectPreviouseProfiles($user_id, $item_id);
+        $this->response($previouse_profiledata);
     }
 
 }

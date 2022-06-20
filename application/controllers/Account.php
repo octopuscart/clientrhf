@@ -172,7 +172,6 @@ class Account extends CI_Controller {
                         'login_id' => $user_id,
                     );
 
-
                     try {
                         $this->User_model->registration_mail($user_id);
                     } catch (Exception $e) {
@@ -232,7 +231,6 @@ class Account extends CI_Controller {
             array_push($orderslistr, $value);
         }
         $data['orderslist'] = $orderslistr;
-
 
         $this->load->view('Account/orderList', $data);
     }
@@ -300,13 +298,24 @@ class Account extends CI_Controller {
         $creditlist = $query->result();
         $data['creditlist'] = $creditlist;
 
-
         $this->load->view('Account/credits', $data);
     }
 
     function testReg() {
         $user_id = $this->user_id;
         $this->User_model->registration_mail($user_id);
+    }
+
+    function wishlist() {
+        $user_id = $this->user_id;
+        $wishlistdata = $this->Product_model->wishlistDataCustome($this->user_id);
+        $data["wishlist"] = $wishlistdata["products"];
+        $this->load->view('Account/wishlist', $data);
+    }
+    
+    function removeWishlist($product_id){
+        $this->db->where("product_id", $product_id)->delete("cart_wishlist");
+        redirect(site_url("Account/wishlist"));
     }
 
 }

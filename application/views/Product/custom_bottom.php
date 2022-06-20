@@ -6,12 +6,12 @@
     <div class="total_price_block" style="
     margin-top: 19px;">
         <h5>
-<!--            <span ng-if="selecteElements[screencustom.fabric].totalextracost==0">
+            <span ng-if="selecteElements[screencustom.fabric].totalextracost==0">
                          {{screencustom.productobj.price|currency:"<?php echo globle_currency_type; ?>"}}
                      </span>
                      <span ng-if="selecteElements[screencustom.fabric].totalextracost">
                          {{(tonumber(screencustom.productobj.price)+tonumber(selecteElements[screencustom.fabric].totalextracost))|currency:"<?php echo globle_currency_type; ?>"}}
-                     </span>-->
+                     </span>
         </h5>
     </div>
 </div>

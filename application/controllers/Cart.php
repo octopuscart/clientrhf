@@ -17,7 +17,7 @@ class Cart extends CI_Controller {
         }
 
         $this->checklogin = $this->session->userdata('logged_in');
-        $this->user_id = $this->session->userdata('logged_in')['login_id'];
+        $this->user_id =   $this->checklogin ? $this->checklogin['login_id']:0;
     }
 
     function redirectCart() {
@@ -31,6 +31,21 @@ class Cart extends CI_Controller {
         } else {
             redirect('Cart/details');
         }
+    }
+
+    function applyCoupon() {
+        $nexturl = $this->input->post("next_url");
+        $couponcode = $this->input->post("couponcode");
+        $couponarray = array("has_coupon"=>0, "coupon_code"=>"", "coupon_discount"=>"");
+        if($couponcode == "RH10"){
+            $couponarray["has_coupon"] = 1;
+            $couponarray["coupon_code"] = $couponcode;
+            $couponarray["coupon_discount"] = 10;
+        }
+        $this->session->set_userdata('session_coupon', $couponarray);
+        
+        redirect($nexturl);
+        
     }
 
     public function index() {
@@ -97,7 +112,6 @@ class Cart extends CI_Controller {
 
         $data['custome_items'] = $custome_items;
 
-
         $measurementarray = explode(",", $custome_measurements->measurement);
 
         $this->db->select("*");
@@ -121,11 +135,10 @@ class Cart extends CI_Controller {
             }
 
             $this->session->set_userdata('measurement_style', $measurement_style);
-            
+
             if ($this->checklogin) {
-            redirect('Cart/checkoutShipping');
-            }
-            else{
+                redirect('Cart/checkoutShipping');
+            } else {
                 redirect('CartGuest/checkoutShipping');
             }
         }
@@ -193,7 +206,6 @@ class Cart extends CI_Controller {
 
         $data['checkoutmode'] = '';
 
-
         $session_data = $this->session->userdata('logged_in');
         if ($session_data) {
             $user_details = $this->User_model->user_details($this->user_id);
@@ -204,8 +216,6 @@ class Cart extends CI_Controller {
 
             $user_credits = $this->User_model->user_credits($this->user_id);
             $data['user_credits'] = $user_credits;
-
-
 
             //place order
             if (isset($_POST['place_order'])) {
@@ -219,7 +229,7 @@ class Cart extends CI_Controller {
 
                 $sub_total_price = $session_cart['total_price'];
                 
-                
+
                 $total_quantity = $session_cart['total_quantity'];
 
                 $user_details = $this->User_model->user_details($this->user_id);
@@ -230,8 +240,6 @@ class Cart extends CI_Controller {
 
                 $user_credits = $this->User_model->user_credits($this->user_id);
                 $data['user_credits'] = $user_credits;
-
-
 
                 //place order
 
@@ -251,8 +259,11 @@ class Cart extends CI_Controller {
                     'order_date' => date('Y-m-d'),
                     'order_time' => date('H:i:s'),
                     'amount_in_word' => $this->Product_model->convert_num_word($sub_total_price),
-                    'sub_total_price' => $sub_total_price,
-                    'total_price' => $sub_total_price,
+                    'sub_total_price' => $session_cart['sub_total_price'],
+                    'total_price' => $session_cart['total_price'],
+                    'coupon_code'=>$session_cart['coupon_code'],
+                    'discount'=>$session_cart['discount'],
+                    'shipping'=>$session_cart['shipping_price'],
                     'total_quantity' => $total_quantity,
                     'status' => 'Order Confirmed',
                     'payment_mode' => $paymentmathod,
@@ -275,7 +286,6 @@ class Cart extends CI_Controller {
                 $this->db->where('order_id', '0');
                 $this->db->where('user_id', $this->user_id);
                 $this->db->update('cart');
-
 
                 $custome_items = $session_cart['custome_items'];
                 $custome_items_ids = implode(", ", $custome_items);

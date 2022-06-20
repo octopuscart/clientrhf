@@ -106,7 +106,7 @@ $this->load->view('layout/header');
     <div class="container" ng-if="globleCartData.total_quantity">
         <div class="row">
             <?php
-            $this->load->view('CartGuest/itemblock', array('vtype' => 'items'));
+            $this->load->view('Cart/itemblock', array('vtype' => 'items'));
             ?>
             <?php
             $this->load->view('Cart/itemblock', array('vtype' => 'size'));

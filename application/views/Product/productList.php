@@ -392,13 +392,13 @@ $image2 = "";
 
 
 
-                        
-                                                <img class="img-responsive" src="<?php echo custome_image_server; ?>/thumb/{{product.folder}}/fabric20001.png" alt="product" style="border-radius: 10px;">
 
-                                                <div class="img-responsive imagehover" style="" ng-click="zoomProduct(product)" data-toggle="modal" data-target="#zoomModel">
-                                                    <i class="fa fa-search-plus" style="    color: black;
-                                                       margin-top: 53%;"></i>
-                                                </div>
+                                            <img class="img-responsive" src="<?php echo custome_image_server; ?>/thumb/{{product.folder}}/fabric20001.png" alt="product" style="border-radius: 10px;">
+
+                                            <div class="img-responsive imagehover" style="" ng-click="zoomProduct(product)" data-toggle="modal" data-target="#zoomModel">
+                                                <i class="fa fa-search-plus" style="    color: black;
+                                                   margin-top: 53%;"></i>
+                                            </div>
 
 
 
@@ -410,15 +410,21 @@ $image2 = "";
                                             <p style="text-align: center" ng-if="product.is_sale != 'true'">{{product.price|currency:"<?php echo globle_currency; ?> "}}</p>
                                             <br>
                                             <p>
-                                            <center> 
+                                            <div class="productBottomButtons text-left"> 
                                                 <a ng-if="product.video_link == 'yes'" href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
                                                 </a> 
                                                 <a ng-if="product.video_link == ''" href="#" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
                                                 </a> 
-                                                <button type="button" class="btn btn-primary" ng-click="askPriceSelection(product.product_id)" style="    padding: 0 5px; line-height: 1.9375rem">Price Enq.
+                                                <button type="button" class="btn btn-primary" ng-click="askPriceSelection(product.product_id)" style="    padding: 0 5px; line-height: 1.9375rem;margin: 0px 10px;">Price Enq.
 
                                                 </button>
-                                            </center>
+                                                <button type="button" class="btn btn-default" ng-click="addToWishlist(product.product_id, 1, <?php echo $custom_id; ?>)" title="Add To Wishlist" style="     padding: 0px 9px;
+                                                        line-height: 1.9375rem;
+                                                        margin: 0px 10px;
+                                                        float: right;"><i class="fa fa-heart"></i>
+
+                                                </button>
+                                            </div>
                                             </p>
                                     </div>
                                 </div>

@@ -5,6 +5,7 @@ $userlinks = [
     array("title" => "My Orders", "link" => site_url("Account/orderList")),
     array("title" => "Invoices", "link" => site_url("Account/index")),
     array("title" => "Payment List", "link" => site_url("Account/index")),
+    array("title" => "My Wishlist", "link" => site_url("Account/wishlist")),
     array("title" => "Newsletter Subscription Preference ", "link" => site_url("Account/index")),
     array("title" => "Invoices", "link" => site_url("Account/index")),
     array("title" => "Logout", "link" => site_url("Account/orderList"))];

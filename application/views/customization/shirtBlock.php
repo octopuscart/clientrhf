@@ -33,6 +33,7 @@
 
 
     <img src="<?php echo custome_image_server; ?>/shirt/output/{{screencustom.productobj.folder}}/{{img}}" class="fixpos animated"  ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].elements" >
+    <img src="<?php echo custome_image_server; ?>/shirt/overlay/{{img}}" class="fixpos animated"  ng-repeat="img in selecteElements[fab.product_id]['Cuff & Sleeve'].overlay" >
 
 
 
@@ -61,9 +62,10 @@
 
 
     <!--collar-->
-    <img src="<?php echo custome_image_server; ?>/shirt/output/{{screencustom.productobj.folder}}/collar_insert0001.png" class="fixpos animated" style="margin-top:1px;">
-    <img src="<?php echo custome_image_server; ?>/shirt/output/{{screencustom.productobj.folder}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Collar'].elements">
-    <img src="<?php echo custome_image_server; ?>/shirt/buttons/{{selecteElements[fab.product_id]['Buttons'].button}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Collar'].buttons">
+    <img src="<?php echo custome_image_server; ?>/shirt/output/{{screencustom.productobj.folder}}/collar_insert0001.png" class="fixpos animated" style="margin-top:0px;">
+    <img src="<?php echo custome_image_server; ?>/shirt/output/{{screencustom.productobj.folder}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Collar'].elements" style="{{selecteElements[fab.product_id]['Collar'].ext_style[img]}}">
+    <img src="<?php echo custome_image_server; ?>/shirt/buttons/{{selecteElements[fab.product_id]['Buttons'].button}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Collar'].buttons" >
+    <img src="<?php echo custome_image_server; ?>/shirt/overlay/{{img}}" class="fixpos animated"  ng-repeat="img in selecteElements[fab.product_id]['Collar'].overlay" >
 
     <!--front fly-->
     <img src="<?php echo custome_image_server; ?>/shirt/output/{{screencustom.productobj.folder}}/{{img}}" class="fixpos animated" ng-repeat="img in selecteElements[fab.product_id]['Front'].elements">

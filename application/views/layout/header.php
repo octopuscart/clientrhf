@@ -62,17 +62,17 @@
                 //$interpolateProvider.startSymbol('{$');
                 //$interpolateProvider.endSymbol('$}');
                 $httpProvider.defaults.headers.common = {};
-                        $httpProvider.defaults.headers.post = {};
+                $httpProvider.defaults.headers.post = {};
                 });
-                        var baseurl = "<?php echo base_url(); ?>index.php/";
-                        var imageurlg = "<?php echo imageserver; ?>";
-                        var globlecurrency = "<?php echo globle_currency; ?>";
-                        var avaiblecredits = 0;</script>
+                var baseurl = "<?php echo base_url(); ?>index.php/";
+                var imageurlg = "<?php echo imageserver; ?>";
+                var globlecurrency = "<?php echo globle_currency; ?>";
+                var avaiblecredits = 0;</script>
             <!-- start site header -->
             <header class="site-header" style>
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="col-lg-2 col-md-2 col-sm-12">
                             <!-- start logo -->
                             <div class="site-logo">
                                 <a href="<?php echo site_url(); ?>" title="Lagom Fitnness">
@@ -82,7 +82,7 @@
                             </div>
                             <!-- end logo -->
                         </div>
-                        <div class="col-lg-9 col-md-9 col-sm-12">
+                        <div class="col-lg-10 col-md-10 col-sm-12">
                             <!-- start main navigation -->
                             <nav class="main-navigation">
                                 <ul class="sf-menu">
@@ -108,7 +108,48 @@
 
                                     <li><a href="<?php echo site_url('Shop/contactus'); ?>" title="Contact">contact</a></li>
 
-                                    <li><a href="<?php echo site_url('Cart/details'); ?>" title="Contact"><i class="fa fa-cart-plus"></i> Cart  {{globleCartData.total_price|currency:"<?php echo globle_currency; ?>"}} ({{globleCartData.total_quantity}})<br/></a></li>
+                                    <!--<li><a href="<?php echo site_url('Cart/details'); ?>" title="Contact"><i class="fa fa-cart-plus"></i> Cart  {{globleCartData.total_price|currency:"<?php echo globle_currency; ?>"}} ({{globleCartData.total_quantity}})<br/></a></li>-->
+                                    <li class="dropdown"> 
+                                        <a href="<?php echo site_url('Cart/details'); ?>" class="dropdown-toggle" data-toggle="dropdown">
+                                            <i class="fa fa-cart-plus"></i> ({{globleCartData.total_quantity}})
+                                        </a>
+                                        <ul class="dropdown-menu miniicartdropdown" ng-if="globleCartData.sub_total_price > 0">
+                                            <li ng-repeat="product in globleCartData.products">
+                                                <p>{{product.title}} - {{product.item_name}}</p>
+                                                <p>{{product.total_price|currency:" "}}</p>
+                                            </li>
+
+                                            <li class="totalli">Total: {{globleCartData.sub_total_price|currency:"<?php echo globle_currency; ?> "}}</li>
+                                            <li><a href="<?php echo site_url('Cart/details'); ?>" class="btn btn-warning" title="Cart"><i class="fa fa-cart-plus"></i> View Cart  </a></li>
+                                        </ul>
+                                        <ul class="dropdown-menu miniicartdropdown" ng-if="!globleCartData.sub_total_price">
+                                            <li >
+                                                No product in cart.
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <?php
+                                    $session_data = $this->session->userdata('logged_in');
+                                    if ($session_data) {
+                                        ?>
+                                        <li class="dropdown"> <a href="<?php echo site_url("Account/profile"); ?>" class="dropdown-toggle" data-toggle="dropdown">Hi, <?php echo $session_data['first_name'] ? $session_data['first_name'] : 'User'; ?>! </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="<?php echo site_url("Account/profile"); ?>">Profile</a></li>
+                                                <li><a href="<?php echo site_url("Account/orderList"); ?>">My Order</a></li>
+                                                 <li><a href="<?php echo site_url("Account/wishlist"); ?>">My Wishlist</a></li>
+                                                <li><a href="<?php echo site_url("Account/logout"); ?>">Logout</a></li>
+                                            </ul>
+                                        </li>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <li> <a href="<?php echo site_url("Account/login"); ?>" >Sign In / Sign Up </a>
+                                        </li>
+
+                                        <?php
+                                    }
+                                    ?>
                                 </ul>
                             </nav>
                             <a href="javascript:;" id="menu-toggle" title="Menu"></a>

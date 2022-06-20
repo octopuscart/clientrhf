@@ -128,7 +128,7 @@ $this->load->view('layout/header');
                                 <div class="product-details-tab-area" style="margin: 0;">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <ul >
+                                            <ul class="nav nav-tabs" role="tablist">
                                                 <?php
                                                 if (PAYMENT_MODE_PAYPAL == 'on') {
                                                     ?>
@@ -139,7 +139,7 @@ $this->load->view('layout/header');
                                                 <?php
                                                 if (PAYMENT_MODE_BANK == 'on') {
                                                     ?>
-                                                    <li class="<?php echo DEFAULT_PAYMENT_MODE == 'Bank Transfer' ? 'active' : ''; ?>"><a href="#bank" data-toggle="tab" aria-expanded="true">Bank Transfer</a></li>
+                                                    <li ><a href="#bank" data-toggle="tab" aria-expanded="true" class="<?php echo DEFAULT_PAYMENT_MODE == 'Bank Transfer' ? 'active' : ''; ?>">Bank Transfer</a></li>
                                                     <?php
                                                 }
                                                 ?>
@@ -199,45 +199,8 @@ $this->load->view('layout/header');
                                                     <div class="tab-pane  <?php echo DEFAULT_PAYMENT_MODE == 'Bank Transfer' ? 'active in' : ''; ?>" id="bank">
                                                         <p>
 
-                                                        <div class="row">
-                                                            <div class="col-md-3">
-                                                                <div class="hideonmobile" style="    margin-top: 50px;"></div>
-                                                                <img src="<?php echo base_url(); ?>assets/paymentstatus/bank.png" >
-                                                            </div>
-                                                            <div class="col-md-7">
-<!--                                                                <table class="bankdetails">
-                                                                    <tr>
-                                                                        <th style="width: 120px;">Company Name</th>
-                                                                        <td></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Bank Name</th>
-                                                                        <td>Bank Of China</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>A/c No.</th>
-                                                                        <td></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Bank Code</th>
-                                                                        <td></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Branch Code</th>
-                                                                        <td></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Swift Code</th>
-                                                                        <td>BKCHHKHH</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Address</th>
-                                                                        <td>1 Garden Road, Hong Kong</td>
-                                                                    </tr>
-                                                                </table>-->
-                                                               
-                                                            </div>
-                                                        </div>
+                                                         <img src="<?php echo base_url(); ?>assets/paymentstatus/bank.png" >
+                                                          
                                                         </p>
                                                         <div class="cart-page-top table-responsive">
                                                             <table class="table table-hover">

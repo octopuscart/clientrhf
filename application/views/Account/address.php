@@ -103,12 +103,12 @@ $this->load->view('layout/header');
                     <div class="col-md-9" style="margin-top:20px">
                         <!-- Address Details -->
                         <div class="row">
-                            <div class="col-md-12">
-                                <h6>Addresses
-                                    <button class="btn btn-small pull-right" data-toggle="modal" data-target="#changeAddress" style="margin-left: 20px;padding: 5px 11px;color:white;"><i class="fa fa-plus"></i> Add New</button>
-                                </h6>
+                          
+                             <div class="col-md-12">
+                            <div class="" style="    margin-bottom: 50px;">
+                                <h6 style="    font-size: 23px;">Addresses <button class="btn btn-small btn-primary" data-toggle="modal" data-target="#changeAddress" style="margin-left: 20px;padding: 5px 11px;color:white;float: right;"><i class="fa fa-plus"></i> Add New</button></h6>
                             </div>
-                            <div class="col-md-12" style="#f5f5f5">  
+                            <div class="noti-check1" style="#f5f5f5">  
                                 <div class="row">
                                     <?php
                                     if (count($user_address_details)) {
@@ -124,11 +124,12 @@ $this->load->view('layout/header');
                                                 <?php } ?> 
                                                 <div class=" address_block <?php echo $value['status']; ?> ">
                                                     <p>
-                                                        <?php echo $value['address']; ?>,<br/>
-                                                        <?php echo $value['city']; ?>, <?php echo $value['state']; ?> <?php echo $value['pincode']; ?>
+                                                        <?php echo $value['address1']; ?>,<br/>
+                                                        <?php echo $value['address2']; ?>,<br/>
+                                                        <?php echo $value['city']; ?>
                                                     </p>
                                                     <?php if ($value['status'] != 'default') { ?> 
-                                                        <a href="<?php echo site_url("Account/address/?setAddress=" . $value['id']); ?>" class="btn btn-default btn-xs address_button">Set As Default</a>
+                                                        <a href="<?php echo site_url("Account/address/?setAddress=" . $value['id']); ?>" class="btn btn-default btn-small address_button">Set As Default</a>
                                                     <?php } ?> 
                                                 </div>
                                             </div>
@@ -144,6 +145,7 @@ $this->load->view('layout/header');
                                 </div>                            
 
                             </div>
+                        </div>
                         </div>
                     </div>
 

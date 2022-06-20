@@ -26,7 +26,7 @@ App.controller('customizationShirt', function ($scope, $http, $location, $filter
                 "Monogram Style": "10",
                 "summary": {},
                 "extraprice": {},
-                "totalextracost":0,
+                "totalextracost": 0,
             };
         }
         $scope.screencustom = {
@@ -173,8 +173,7 @@ App.controller('customizationShirt', function ($scope, $http, $location, $filter
             var monocolor = $scope.selecteElements[$scope.screencustom.fabric]['Monogram ColorBack'];
             var monostyle = $scope.selecteElements[$scope.screencustom.fabric]['Monogram Style']
             $scope.selecteElements[$scope.screencustom.fabric]['summary']['Monogram'] = [monoposition, monograminit, monocolor, monostyle].join(", ");
-        }
-        else {
+        } else {
             $scope.selecteElements[$scope.screencustom.fabric]['summary']['Monogram'] = "No";
         }
     }
@@ -237,15 +236,13 @@ App.controller('customizationShirt', function ($scope, $http, $location, $filter
         $scope.selecteElements[$scope.screencustom.fabric][obj.title] = element;
         if (element.extracost) {
             $scope.selecteElements[$scope.screencustom.fabric]['summary'][obj.title] = element.title + " ($" + element.extracost + ")";
-        }
-        else {
+        } else {
             $scope.selecteElements[$scope.screencustom.fabric]['summary'][obj.title] = element.title;
 
         }
         if (element.extracost) {
             $scope.selecteElements[$scope.screencustom.fabric]['extraprice'][obj.title] = element.extracost;
-        }
-        else {
+        } else {
             $scope.selecteElements[$scope.screencustom.fabric]['extraprice'][obj.title] = 0;
         }
 
@@ -290,8 +287,7 @@ App.controller('customizationShirt', function ($scope, $http, $location, $filter
     $scope.rotateModel = function () {
         if ($scope.screencustom.view_type == "front") {
             $scope.screencustom.view_type = "back";
-        }
-        else {
+        } else {
             $scope.screencustom.view_type = "front";
         }
     }
@@ -378,6 +374,7 @@ App.controller('customizationShirt', function ($scope, $http, $location, $filter
         })
     }
 
+  
 
 
 
@@ -434,8 +431,8 @@ App.controller('customizationShirt', function ($scope, $http, $location, $filter
 });
 
 App.controller('customizationShirtMulti', function ($scope, $http, $location, $filter) {
-    
-    
+
+
     var globlecart = baseurl + "ApiMulti/cartOperationShirt";
     $scope.product_quantity = 1;
 
@@ -458,8 +455,8 @@ App.controller('customizationShirtMulti', function ($scope, $http, $location, $f
                 "Monogram Background": "black",
                 "Monogram Style": "10",
                 "summary": {},
-                 "extraprice": {},
-                 "totalextracost":0,
+                "extraprice": {},
+                "totalextracost": 0,
             };
         }
         $scope.screencustom = {
@@ -593,7 +590,7 @@ App.controller('customizationShirtMulti', function ($scope, $http, $location, $f
         $scope.screencustom.fabric = fabric.product_id;
         $scope.screencustom.sku = fabric.sku;
         $scope.screencustom.productobj = fabric;
-         $scope.screencustom.staycost = fabric.price;
+        $scope.screencustom.staycost = fabric.price;
     }
     //
 
@@ -605,8 +602,7 @@ App.controller('customizationShirtMulti', function ($scope, $http, $location, $f
             var monocolor = $scope.selecteElements[$scope.screencustom.fabric]['Monogram ColorBack'];
             var monostyle = $scope.selecteElements[$scope.screencustom.fabric]['Monogram Style']
             $scope.selecteElements[$scope.screencustom.fabric]['summary']['Monogram'] = [monoposition, monograminit, monocolor, monostyle].join(", ");
-        }
-        else {
+        } else {
             $scope.selecteElements[$scope.screencustom.fabric]['summary']['Monogram'] = "No";
         }
     }
@@ -660,8 +656,8 @@ App.controller('customizationShirtMulti', function ($scope, $http, $location, $f
             $scope.selecteElements[$scope.screencustom.fabric].totalextracost += Number(prc);
         }
     }
-    
-    
+
+
     $scope.selectElement = function (obj, element) {
         console.log(element)
 
@@ -670,15 +666,13 @@ App.controller('customizationShirtMulti', function ($scope, $http, $location, $f
         $scope.selecteElements[$scope.screencustom.fabric]['summary'][obj.title] = element.title;
         if (element.extracost) {
             $scope.selecteElements[$scope.screencustom.fabric]['summary'][obj.title] = element.title + " ($" + element.extracost + ")";
-        }
-        else {
+        } else {
             $scope.selecteElements[$scope.screencustom.fabric]['summary'][obj.title] = element.title;
 
         }
         if (element.extracost) {
             $scope.selecteElements[$scope.screencustom.fabric]['extraprice'][obj.title] = element.extracost;
-        }
-        else {
+        } else {
             $scope.selecteElements[$scope.screencustom.fabric]['extraprice'][obj.title] = 0;
         }
         $scope.extracostcalculation();
@@ -722,8 +716,7 @@ App.controller('customizationShirtMulti', function ($scope, $http, $location, $f
     $scope.rotateModel = function () {
         if ($scope.screencustom.view_type == "front") {
             $scope.screencustom.view_type = "back";
-        }
-        else {
+        } else {
             $scope.screencustom.view_type = "front";
         }
     }
@@ -790,8 +783,7 @@ App.controller('customizationShirtMulti', function ($scope, $http, $location, $f
                     console.log(fll, nd)
                     if (nd == fll) {
                         window.location = baseurl + "Cart/detailsc";
-                    }
-                    else {
+                    } else {
 
                         var nform = flist[ind];
                         $http.post(globlecart, nform).then(function (rdata) {
