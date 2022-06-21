@@ -428,7 +428,7 @@ class Api extends REST_Controller {
                 }
             }
         }
-        $productListFinal = array_slice($productListFinal, $startpage, 24);
+        $productListFinal = array_slice($productListFinal, $startpage, 12);
         $this->output->set_header('Content-type: application/json');
         $productArray = array('attributes' => $attr_filter,
             'products' => $productListFinal,
@@ -1225,6 +1225,10 @@ class Api extends REST_Controller {
 
     function getUserPreDesingByItem_get($user_id, $item_id) {
         $previouse_profiledata = $this->Product_model->selectPreviouseProfiles($user_id, $item_id);
+        $this->response($previouse_profiledata);
+    }
+    function getUserPreMeasurementByItem_get( $item_id) {
+        $previouse_profiledata = $this->Product_model->selectPreviousMeasurements($user_id, $item_id);
         $this->response($previouse_profiledata);
     }
 

@@ -1430,4 +1430,11 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
         return $preitemdata;
     }
 
+    //previouse measurements
+    public function selectPreviousMeasurements($user_id, $items){
+         $this->db->where('user_id', $this->user_id);
+        $query = $this->db->get('custom_measurement_profile');
+        $previous_measurements = $query ? $query->result_array() : array();
+        $data['previous_measurements'] = $previous_measurements;
+    }
 }

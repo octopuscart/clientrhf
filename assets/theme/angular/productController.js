@@ -53,7 +53,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
     $scope.init = 0;
     $scope.checkproduct = 0;
     $scope.pricerange = {'min': 0, 'max': 0};
-    $scope.productProcess = {'state': 1, 'pagination': {'paginate': [1, 24], 'perpage': 24}, 'products': []};
+    $scope.productProcess = {'state': 1, 'pagination': {'paginate': [1, 12], 'perpage': 12}, 'products': []};
 
     $scope.getProducts = function (attrs) {
         $scope.productProcess.state = 1;
@@ -112,7 +112,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
                 countdata = countdata.split("-");
             }
         } else {
-            countdata = [1, 24];
+            countdata = [1, 12];
         }
 
         var paginationdata = "start=" + countdata[0] + "&end=" + countdata[1];
@@ -166,7 +166,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
             $timeout(function () {
 
                 $('#paging_container1').pajinate({
-                    items_per_page: 24,
+                    items_per_page: 12,
                     num_page_links_to_display: 5,
                 });
 
@@ -249,7 +249,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
                 countdata = countdata.split("-");
             }
         } else {
-            countdata = [1, 24];
+            countdata = [1, 12];
         }
 
         var paginationdata = "start=" + countdata[0] + "&end=" + countdata[1];
@@ -373,7 +373,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
             var countdata1 = countdata.split("-");
             countdata = [Number(countdata1[0]), Number(countdata1[1])];
         } else {
-            countdata = [1, 24];
+            countdata = [1, 12];
         }
         console.log(countdata);
 

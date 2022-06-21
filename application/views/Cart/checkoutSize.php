@@ -192,9 +192,9 @@ $this->load->view('layout/header');
                                                         <tr>
                                                             <th>
                                                                 <h3><?php echo $value["profile"]; ?></h3>
- <button type="button" ng-click="viewStyleOnly(style.cart_data.item_name, style.style)" class="btn btn-default"  style="padding: 5px 21px;
-                                        line-height: normal;
-                                        margin-top: 10px;">View</button>
+                                                                <button type="button" ng-click="viewStyleOnly(style.cart_data.item_name, style.style)" class="btn btn-default"  style="padding: 5px 21px;
+                                                                        line-height: normal;
+                                                                        margin-top: 10px;">View</button>
                                                             </th>
                                                             <td>
                                                                 <?php
@@ -205,10 +205,10 @@ $this->load->view('layout/header');
                                                                 ?>
 
                                                             </td>
-                                                           
+
 
                                                             <td>Created On: <?php echo $value["datetime"]; ?></td>
- <td>                                
+                                                            <td>                                
                                                                 <button type="button" ng-click="addToCartCustomeFromPre(style.cart_data.id, false, true)" class="btn btn-warning"  >Apply Measurement</button>
                                                             </td>
                                                         </tr>
@@ -627,12 +627,14 @@ foreach ($measurements_list as $key => $value) {
             console.log("--" + (stsize.join(" ")).trim() + "--");
         }
 
+$scope.measurementPreData = {"userdata":[]};
+        $http.get(baseurl + "Api/getUserPreMeasurementByItem_get/" + custom_items).then(function (rdata) {
+            $scope.measurementPreData.userdata = rdata.data;
+        });
 
 
 
-
-
-    })
+    });
 
 
 
