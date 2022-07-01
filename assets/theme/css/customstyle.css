@@ -1,5 +1,15 @@
 
 
+.btn {
+    font-family: "Sintony", sans-serif;
+    padding: 0 18px;
+    font-size: 0.875rem;
+    line-height: 2.9375rem;
+    text-transform: uppercase;
+    border-radius: 1.5625rem;
+    cursor: pointer;
+}
+
 
 
 
@@ -52,7 +62,7 @@ input.form-control {
 .custome_summary_popup td {
     text-align: left;
     width: 50%;
-    padding: 5px;
+   padding: 5px!important;
     font-size: 15px;
 }
 
@@ -61,7 +71,7 @@ input.form-control {
     text-align: right;
     padding-right: 12px;
     width: 50%;
-    padding: 5px;
+    padding: 5px!important;
     font-size: 15px;
 }
 
@@ -325,4 +335,27 @@ span.onpopulertag {
         padding: 0 10px;
     font-size: 0.875rem;
     line-height: 1.5rem;
+}
+
+
+.custome_summary_popup table{
+    width:100%;
+}
+
+.custome_summary_popup table tr {
+    border-bottom: 1px solid #ededed;
+}
+
+
+.list-group-item.active a{
+    z-index: 2;
+    color: #fff;
+    background-color: #fd8123;
+    border-color: #fd8123;
+}
+
+span.inchvaluemes {
+    font-size: 10px;
+    vertical-align: text-top;
+    margin-left: 3px;
 }

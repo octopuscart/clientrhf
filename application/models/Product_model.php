@@ -660,7 +660,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
             $userorderstatus = $query->result();
             $order_data['order_status'] = $userorderstatus;
 
-            if ($order_details->payment_mode == 'PayPal') {
+            if ($order_details) {
                 $this->db->where('order_id', $order_details->id);
                 $query = $this->db->get('paypal_status');
                 $paypal_details = $query->result();
@@ -680,7 +680,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
             $cart_items = $query->result();
 
             $this->db->order_by('display_index', 'asc');
-            $this->db->where('order_id', $order_details->id);
+            $this->db->where('custom_measurement_profile', $order_details->measurement_id);
             $query = $this->db->get('custom_measurement');
             $custom_measurement = $query->result_array();
 
@@ -1063,7 +1063,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
 
     //custom product model
     //cart operation session 
-    public function cartOperationCustom($product_id, $quantity, $custom_id, $customekey, $customevalue, $extra_cost = 0, $is_shop_stored = 0, $is_previous=0, $user_id = 0, $setSession = 0) {
+    public function cartOperationCustom($product_id, $quantity, $custom_id, $customekey, $customevalue, $extra_cost = 0, $is_shop_stored = 0, $is_previous = 0, $user_id = 0, $setSession = 0) {
 
         $this->db->where('id', $custom_id);
         $query = $this->db->get('custome_items');
@@ -1079,11 +1079,11 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
         $item_name = $customeitem->item_name;
         $item_id = $customeitem->id;
         $customtype = "Custom";
-        if($is_shop_stored){
+        if ($is_shop_stored) {
             $customtype = "Shop Stored";
         }
-        if($is_previous){
-             $customtype = "Previous";
+        if ($is_previous) {
+            $customtype = "Previous";
         }
 
         if ($user_id != 0) {
@@ -1403,10 +1403,14 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
 
     //previouse customization
     public function selectPreviouseProfiles($user_id, $item_id) {
-        $row_query = "SELECT id, item_name, op_date_time, order_id FROM `cart` where user_id = $user_id and   item_id = $item_id and order_id!=0 and attrs ='Custom' and status!='delete' and id in (select cart_id from cart_customization);";
+        $itemquery = "";
+        if ($item_id) {
+            $itemquery = " and  item_id = $item_id";
+        }
+        $row_query = "SELECT id, item_name, item_id,  op_date_time, order_id FROM `cart` where user_id = $user_id $itemquery   and attrs ='Custom' and status!='delete' and id in (select cart_id from cart_customization) order by status ;";
         $query = $this->db->query($row_query);
         $data = [];
-        $preitemdata = array("has_pre_design"=>false, "designs"=>array());
+        $preitemdata = array("has_pre_design" => false, "designs" => array());
         if ($query) {
             $customdatadata = $query->result_array();
             foreach ($customdatadata as $key => $value) {
@@ -1420,7 +1424,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
                 }
                 $preitemdata["designs"][$value["id"]] = array(
                     "name" => $profilename,
-                    "order_no" => $order_no ? $order_no["order_no"] : "No Order",
+                    "order_no" => $order_no ? $order_no["order_no"] : "RF". str_replace("-", "/", $value["id"]),
                     "cart_data" => $value,
                     "style" => $customdata
                 );
@@ -1431,10 +1435,11 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
     }
 
     //previouse measurements
-    public function selectPreviousMeasurements($user_id, $items){
-         $this->db->where('user_id', $this->user_id);
+    public function selectPreviousMeasurements($user_id, $items) {
+        $this->db->where('user_id', $this->user_id);
         $query = $this->db->get('custom_measurement_profile');
         $previous_measurements = $query ? $query->result_array() : array();
         $data['previous_measurements'] = $previous_measurements;
     }
+
 }

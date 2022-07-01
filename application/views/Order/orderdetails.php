@@ -253,7 +253,7 @@ $paymentstatus = "";
 
                                         <td style="text-align: right;width: 100px"">Price</td>
                                         <td style="text-align: right;width: 10px">Qantity</td>
-                                        <td style="text-align: right;width: 100px">Total</td>
+                                        <td style="text-align: right;width: 120px">Total</td>
                                     </tr>
                                     <!--cart details-->
                                     <?php

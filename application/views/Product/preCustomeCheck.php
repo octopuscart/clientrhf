@@ -28,7 +28,7 @@ $this->load->view('layout/header');
                     <a  class="btn btn-warning" href="<?php echo site_url("Product/customizationRedirectV2/$item_id/$product_id") ?>" >Create Now Design</a>
 
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 chooseStyleBlock" ng-if="customizationDict.has_pre_desing" style="    background: #ffffff;">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 chooseStyleBlock" ng-if="customizationDict.has_pre_design" style="    background: #ffffff;">
                     <h1 style="    color: black;
                         margin-bottom: 30px;
                         font-size: 30px;
@@ -45,12 +45,14 @@ $this->load->view('layout/header');
 
                             <th></th>
                         </tr>
-                        <tr ng-repeat="style in customizationDict.prestyle">
+                        <tr ng-repeat="(stkey, style) in customizationDict.prestyle">
                             <td>
                                 <h3>{{style.name}}</h3>
                                 <button type="button" ng-click="viewStyleOnly(style.cart_data.item_name, style.style)" class="btn btn-default"  style="padding: 5px 21px;
                                         line-height: normal;
                                         margin-top: 10px;">View</button>
+                                <button type="button" class="btn btn-default btn-small-xs"  title ="Favorite Profile"><i class="text-danger fa {{style.cart_data.status=='f'?'fa-heart':'fa-heart-o'}}"></i></button>
+
 
                             </td>
 
@@ -60,7 +62,7 @@ $this->load->view('layout/header');
                             </td>
 
                             <td>
-                                <button type="button" ng-click="addToCartCustomeFromPre(style.cart_data.id, false, true)" class="btn btn-warning"  >Use Design</button>
+                                <button type="button" ng-click="addToCartCustomeFromPre(stkey, false, true)" class="btn btn-warning"  >Use Design</button>
                             </td>
 
                         </tr>
@@ -72,7 +74,7 @@ $this->load->view('layout/header');
                         margin-bottom: 30px;
                         font-size: 30px;
                         text-shadow: 0px 0px;">Shop Stored</h1>
-                    <p>If you have purchased recently from our shop, We are having your recent desing.</p>
+                    <p>If you have purchased recently from our shop, We are having your recent design.</p>
                     <br/>
                     <button type="button" ng-click="addToCartCustomeFromPre(style.cart_data.id, true, false)" class="btn btn-warning"  >Most Recent Purchase</button>
 

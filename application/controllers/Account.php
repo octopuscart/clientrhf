@@ -212,12 +212,64 @@ class Account extends CI_Controller {
     }
 
     //orders list
+    function invoiceList() {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
+        $this->db->where('user_id', $this->user_id);
+        $query = $this->db->order_by("id desc")->get('user_order');
+        $orderlist = $query->result();
+
+        $orderslistr = [];
+        foreach ($orderlist as $key => $value) {
+
+            $this->db->order_by('id', 'desc');
+            $this->db->where('order_id', $value->id);
+            $query = $this->db->get('user_order_status');
+            $status = $query->row();
+            $value->status = $status ? $status->status : $value->status;
+            array_push($orderslistr, $value);
+        }
+        $data['orderslist'] = $orderslistr;
+
+        $this->load->view('Account/invoiceList', $data);
+    }
+
+    //orders list
+    function paymentList() {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
+        $this->db->where('user_id', $this->user_id);
+        $query = $this->db->order_by("id desc")->get('user_order');
+        $orderlist = $query->result();
+
+        $orderslistr = [];
+        foreach ($orderlist as $key => $value) {
+
+            $this->db->order_by('id', 'desc');
+            $this->db->where('order_id', $value->id);
+  
+            $query = $this->db->get('paypal_status');
+            $status = $query->row();
+            if ($status) {
+                $value->status = $status;
+
+                array_push($orderslistr, $value);
+            }
+        }
+        $data['orderslist'] = $orderslistr;
+
+        $this->load->view('Account/paymentList', $data);
+    }
+
+    //orders list
     function orderList() {
         if ($this->user_id == 0) {
             redirect('Account/login');
         }
         $this->db->where('user_id', $this->user_id);
-        $query = $this->db->get('user_order');
+        $query = $this->db->order_by("id desc")->get('user_order');
         $orderlist = $query->result();
 
         $orderslistr = [];
@@ -260,10 +312,12 @@ class Account extends CI_Controller {
             $this->db->update('shipping_address');
 
             $category_array = array(
-                'address' => $this->input->post('address'),
+                'address1' => $this->input->post('address1'),
+                'address2' => $this->input->post('address2'),
                 'city' => $this->input->post('city'),
                 'state' => $this->input->post('state'),
-                'pincode' => $this->input->post('pincode'),
+                'zipcode' => $this->input->post('zipcode'),
+                'country' => $this->input->post('country'),
                 'user_id' => $this->user_id,
                 'status' => 'default',
             );
@@ -306,16 +360,42 @@ class Account extends CI_Controller {
         $this->User_model->registration_mail($user_id);
     }
 
+    function myDesigns() {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
+        $data["user_id"] = $this->user_id;
+        $data["product_id"] = 0;
+        $data["item_id"] = 0;
+        $this->load->view('Account/designs', $data);
+    }
+
+    function myMeasurements() {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
+        $data["user_id"] = $this->user_id;
+        $data["product_id"] = 0;
+        $data["item_id"] = 0;
+        $this->load->view('Account/measurements', $data);
+    }
+
     function wishlist() {
         $user_id = $this->user_id;
         $wishlistdata = $this->Product_model->wishlistDataCustome($this->user_id);
         $data["wishlist"] = $wishlistdata["products"];
         $this->load->view('Account/wishlist', $data);
     }
-    
-    function removeWishlist($product_id){
+
+    function removeWishlist($product_id) {
         $this->db->where("product_id", $product_id)->delete("cart_wishlist");
         redirect(site_url("Account/wishlist"));
+    }
+
+    function newsletter() {
+        $user_id = $this->user_id;
+        $data["user_id"] = $user_id;
+        $this->load->view('Account/newsletter', $data);
     }
 
 }

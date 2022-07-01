@@ -12,7 +12,7 @@ $this->load->view('layout/header');
     .noti-check1{
         background: #f5f5f5;
         padding: 25px 30px;
-       
+
         font-weight: 600;
         margin-bottom: 30px;
     }
@@ -61,7 +61,7 @@ $this->load->view('layout/header');
         color: green;
     }
 
-    
+
 
     .cartdetail_small {
         float: left;
@@ -103,49 +103,49 @@ $this->load->view('layout/header');
                     <div class="col-md-9" style="margin-top:20px">
                         <!-- Address Details -->
                         <div class="row">
-                          
-                             <div class="col-md-12">
-                            <div class="" style="    margin-bottom: 50px;">
-                                <h6 style="    font-size: 23px;">Addresses <button class="btn btn-small btn-primary" data-toggle="modal" data-target="#changeAddress" style="margin-left: 20px;padding: 5px 11px;color:white;float: right;"><i class="fa fa-plus"></i> Add New</button></h6>
-                            </div>
-                            <div class="noti-check1" style="#f5f5f5">  
-                                <div class="row">
-                                    <?php
-                                    if (count($user_address_details)) {
-                                        ?>
+
+                            <div class="col-md-12">
+                                <div class="" style="    margin-bottom: 50px;">
+                                    <h6 style="    font-size: 23px;">Addresses <button class="btn btn-small btn-primary" data-toggle="modal" data-target="#changeAddress" style="margin-left: 20px;padding: 5px 11px;color:white;float: right;"><i class="fa fa-plus"></i> Add New</button></h6>
+                                </div>
+                                <div class="noti-check1" style="#f5f5f5">  
+                                    <div class="row">
                                         <?php
-                                        foreach ($user_address_details as $key => $value) {
+                                        if (count($user_address_details)) {
                                             ?>
-                                            <div class="col-md-12">
-                                                <?php if ($value['status'] == 'default') { ?> 
-                                                    <div class="checkcart <?php echo $value['status']; ?> ">
-                                                        <i class="fa fa-check fa-2x"></i>
-                                                    </div>
-                                                <?php } ?> 
-                                                <div class=" address_block <?php echo $value['status']; ?> ">
-                                                    <p>
-                                                        <?php echo $value['address1']; ?>,<br/>
-                                                        <?php echo $value['address2']; ?>,<br/>
-                                                        <?php echo $value['city']; ?>
-                                                    </p>
-                                                    <?php if ($value['status'] != 'default') { ?> 
-                                                        <a href="<?php echo site_url("Account/address/?setAddress=" . $value['id']); ?>" class="btn btn-default btn-small address_button">Set As Default</a>
+                                            <?php
+                                            foreach ($user_address_details as $key => $value) {
+                                                ?>
+                                                <div class="col-md-12">
+                                                    <?php if ($value['status'] == 'default') { ?> 
+                                                        <div class="checkcart <?php echo $value['status']; ?> ">
+                                                            <i class="fa fa-check fa-2x"></i>
+                                                        </div>
                                                     <?php } ?> 
+                                                    <div class=" address_block <?php echo $value['status']; ?> ">
+                                                        <p>
+                                                            <?php echo $value['address1']; ?>,<br/>
+                                                            <?php echo $value['address2']; ?>,<br/>
+                                                            <?php echo $value['city']; ?>
+                                                        </p>
+                                                        <?php if ($value['status'] != 'default') { ?> 
+                                                            <a href="<?php echo site_url("Account/address/?setAddress=" . $value['id']); ?>" class="btn btn-default btn-small address_button">Set As Default</a>
+                                                        <?php } ?> 
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <?php
+                                            }
+                                        } else {
+                                            ?>
+                                            <h4><i class="fa fa-warning"></i> Please Add Shipping Address</h4>
+
                                             <?php
                                         }
-                                    } else {
                                         ?>
-                                        <h4><i class="fa fa-warning"></i> Please Add Shipping Address</h4>
+                                    </div>                            
 
-                                        <?php
-                                    }
-                                    ?>
-                                </div>                            
-
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
 
@@ -154,38 +154,79 @@ $this->load->view('layout/header');
                 </div>
                 </section>
             </div>
-            <!-- End Content --> 
+
 
 
             <!-- Modal -->
             <div class="modal  fade" id="changeAddress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="    z-index: 20000000;">
-                <div class="modal-dialog modal-sm woocommerce" role="document">
+                <div class="modal-dialog  woocommerce" role="document">
                     <form action="#" method="post">
                         <div class="modal-content">
                             <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel" style="font-size: 15px">Add New Address</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel" style="font-size: 15px">Add Address</h4>
+
                             </div>
                             <div class="modal-body checkout-form">
 
-                                <label class="col-md-12 col-xs-12">
-                                    Address
-                                    <input type="text" name="address"  value="" class="woocommerce-Input woocommerce-Input--text input-text">
-                                </label>
+                                <table class="table">
+                                    <tbody><tr>
+                                            <td style="line-height: 25px;">
+                                                <span for="name" class=""><b>Address (Line 1)</b></span>
+                                            </td>
+                                            <td>
+                                                <input type="text" required="" name="address1" class="form-control woocommerce-Input woocommerce-Input--email input-text" value="" style="margin-bottom: 0px; ">
+                                            </td>
+                                        </tr>
 
-                                <label class="col-md-12 col-xs-12">
-                                    City
-                                    <input type="text" name="city"  value="" class="woocommerce-Input woocommerce-Input--text input-text">
-                                </label>
-                                <br/>
-                                <label class="col-md-12 col-xs-12">
-                                    State
-                                    <input type="text" name="state"  value="" class="woocommerce-Input woocommerce-Input--text input-text">
-                                </label >
-                                <label class="col-md-12 col-xs-12">
-                                    Pincode
-                                    <input type="text" name="pincode"  value="" class="woocommerce-Input woocommerce-Input--text input-text">
-                                </label>
+                                        <tr>
+                                            <td style="line-height: 25px;">
+                                                <span for="name" class=""><b>Address (Line 2)</b></span>
+                                            </td>
+                                            <td>
+                                                <input type="text" required="" name="address2" class="form-control woocommerce-Input woocommerce-Input--email input-text" value="" style="margin-bottom: 0px; ">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="line-height: 25px;">
+                                                <span for="name" class=""><b>Town/City</b></span>
+
+                                            </td>
+                                            <td>
+                                                <input type="text" required="" name="city" class="form-control woocommerce-Input woocommerce-Input--email input-text" value="" style="margin-bottom: 0px; ">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="line-height: 25px;">
+                                                <span for="name"><b>State</b></span>
+                                            </td>
+                                            <td>
+                                                <input type="text" required="" name="state" class="form-control woocommerce-Input woocommerce-Input--email input-text" value="" style="margin-bottom: 0px; ">
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td style="line-height: 25px;">
+                                                <span for="name"><b>Zip/Postal</b></span>
+                                            </td>
+                                            <td>
+                                                <input type="text"  name="zipcode" class="form-control " value="" style="margin-bottom: 0px; ">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="line-height: 25px;">
+                                                <span for="name"><b>Country</b></span>
+                                            </td>
+                                            <td>
+                                                <input type="text" required="" name="country" class="form-control" value="" style="margin-bottom: 0px; ">
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" name="add_address" class="btn btn-primary btn-small" style="color: white">Add Address</button>
@@ -194,15 +235,16 @@ $this->load->view('layout/header');
                     </form>
                 </div>
             </div>
+            
 
-           
+
 
             <?php
             $this->load->view('layout/footer');
             ?>
- <script>
-            $(function(){
-                $(".woocommerce-MyAccount-navigation-link--dashboard").removeClass("active");
-                $(".address_page").addClass("active");
-            })
+            <script>
+                $(function () {
+                    $(".woocommerce-MyAccount-navigation-link--dashboard").removeClass("active");
+                    $(".address_page").addClass("active");
+                })
             </script>

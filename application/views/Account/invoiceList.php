@@ -68,32 +68,32 @@ $this->load->view('layout/header');
                         foreach ($orderslist as $key => $value) {
                             ?>
                             <div class="row  " > 
+                                <div class="pricing">
 
+                                    <div class="row" style="padding: 10px">
+                                        <div class="col-md-12">
+                                            <h6>
+                                                Order No. #<?php echo $value->order_no; ?>
 
-                                <article class="row" style="padding: 10px">
-                                    <div class="col-md-12">
-                                        <h6>
-                                            Order No. #<?php echo $value->order_no; ?>
-
-                                        </h6>
+                                            </h6>
+                                        </div>
+                                        <div class="col-md-4">
+                                            Total Amount: {{<?php echo $value->total_price; ?>|currency:"<?php echo globle_currency; ?> "}}
+                                            <br/>
+                                            Total Products: {{<?php echo $value->total_quantity; ?>}}
+                                        </div>
+                                        <div class="col-md-4">
+                                            Status: <?php echo $value->status; ?><br/>
+                                            <span style="margin: 0px">
+                                                <i class="fa fa-calendar"></i> <?php echo $value->order_date; ?>  <?php echo $value->order_time; ?>
+                                            </span>
+                                        </div>
+                                        <div class="col-md-4 text-left">
+                                            <a href="<?php echo ADMINURL. "index.php/Order/order_pdf/" . $value->id; ?>" class="btn btn-warning" style="margin: 0px;    ;">Download Invoice</a>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        Total Amount: {{<?php echo $value->total_price; ?>|currency:"<?php echo globle_currency; ?> "}}
-                                        <br/>
-                                        Total Products: {{<?php echo $value->total_quantity; ?>}}
-                                    </div>
-                                    <div class="col-md-4">
-                                        Status: <?php echo $value->status; ?><br/>
-                                        <span style="margin: 0px">
-                                            <i class="fa fa-calendar"></i> <?php echo $value->order_date; ?>  <?php echo $value->order_time; ?>
-                                        </span>
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                        <a href="<?php echo site_url('order/orderdetails/' . $value->order_key); ?>" class="btn btn-warning" style="margin: 0px;    ;">View Order</a>
 
-                                    </div>
-                                </article>
-
+                                </div>
                             </div>
                             <?php
                         }

@@ -2,23 +2,47 @@
  Producrt list controllers
  */
 
-App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
+App.controller('PreMeasurementCheck', function ($scope, $http, $timeout, $interval) {
 
-    $scope.customizationDict = {'prestyle': {}, "has_pre_design": false};
+    $scope.customizationDict = {'premeasurements': {}, "has_pre_measurement": false};
 
+    $scope.viewMeasurementOnly = function (style_name, custom_dict) {
+        var styleobj = custom_dict;
+        var customhtmlarray = [];
+        for (i in styleobj) {
+            var ks = styleobj[i].measurement_key;
+            var kv = styleobj[i].measurement_value;
+            var checkspace = kv.split(" ")[1];
+            if (checkspace) {
+                kv = " " + kv.replace(" ", "<span class='inchvaluemes'>") + "</span>";
+            }
 
+            var summaryhtml = "<tr><th>" + ks + "</th><td>" + kv + ' Inch</td></tr>';
 
-    $scope.getUserDesings = function () {
-        var url = adminurl + "Api/getUserPreDesingByItem/" + user_id + "/" + item_id;
+            customhtmlarray.push(summaryhtml);
+        }
+        customhtmlarray = customhtmlarray.join("");
+        var customdiv = "<div class='custome_summary_popup'><table>" + customhtmlarray + "</table></div>";
+        swal({
+            title: style_name,
+            html: customdiv,
+
+            confirmButtonClass: 'btn btn-default',
+        });
+    }
+
+    $scope.getUserMeasurement = function () {
+        var url = adminurl + "Api/getUserPreMeasurementByItem/" + user_id + "/" + itemarrays;
+        console.log(url);
         $http.get(url).then(function (rdata) {
-            $scope.customizationDict.prestyle = rdata.data.designs;
+            $scope.customizationDict.premeasurements = rdata.data.measurement;
             console.log(rdata.data);
-            $scope.customizationDict.has_pre_design = rdata.data.has_pre_design;
+            $scope.customizationDict.has_pre_measurement = rdata.data.has_pre_measurement;
         });
     };
-    $scope.getUserDesings();
+    $scope.getUserMeasurement();
 
-    $scope.askForEmail = function (design_id) {
+    $scope.askForEmail = function (measurements_id) {
         swal({
             title: 'Please Confirm',
             type: 'warning',
@@ -32,23 +56,23 @@ App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
 //            title: 'Adding to Cart',
             allowEscapeKey: false,
             allowOutsideClick: false,
-            text: "Are you sure want to mail this design?",
+            text: "Are you sure want to mail this measurements?",
 
             preConfirm: function () {
 
                 swal({
-                    title: 'Sending design on your email.',
+                    title: 'Sending measurements on your email.',
                     onOpen: function () {
                         swal.showLoading()
                     }
                 });
 
-                $http.get(adminurl + "Order/selectPreviouseProfilesReport/" + design_id + "/0").then(function (rdata) {
+                $http.get(adminurl + "Order/selectPreviouseMeasurementProfilesReport/" + measurements_id + "/0").then(function (rdata) {
                     swal.close();
                     swal({
                         title: 'Email Sent',
                         type: 'success',
-                        text: 'Desing profile has been sent on your mail.',
+                        text: 'Measurements profile has been sent on your mail.',
                         imageWidth: 100,
                         timer: 1500,
                         imageAlt: 'Custom image',
@@ -68,7 +92,7 @@ App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
         })
     }
 
-    $scope.setAsFavorite = function (design_id, status) {
+    $scope.setAsFavorite = function (measurements_id, status) {
         swal({
             title: 'Please Confirm',
             type: 'warning',
@@ -82,31 +106,31 @@ App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
 //            title: 'Adding to Cart',
             allowEscapeKey: false,
             allowOutsideClick: false,
-            text: status === 'f' ? "Are you sure want to remove this design from  favorite?" : "Are you sure want to mark as favorite this design?",
+            text: status === 'f' ? "Are you sure want to remove this measurements from  favorite?" : "Are you sure want to mark as favorite this measurements?",
 
             preConfirm: function () {
 
                 swal({
-                    title:  status === 'f' ? "Removing from favorite" : 'Setting as your favorite design.',
+                    title: status === 'f' ? "Removing from favorite" : 'Setting as your favorite measurements.',
                     onOpen: function () {
                         swal.showLoading()
                     }
                 });
-                var url = adminurl + "Api/favoriteUserPreDesing/" + design_id + "/" + status;
+                var url = adminurl + "Api/favoriteUserPreMeasurement/" + measurements_id + "/" + status;
 
                 $http.get(url).then(function (rdata) {
                     swal.close();
                     swal({
                         title: status === 'f' ? "Removed from favorite" : 'Marked as favorite',
                         type: 'success',
-                        text: status === 'f' ? "Desing profile has been removed from favorite." : 'Desing profile has been marked as favorite.',
+                        text: status === 'f' ? "Measurements profile has been removed from favorite." : 'Measurements profile has been marked as favorite.',
                         imageWidth: 100,
                         timer: 1500,
                         imageAlt: 'Custom image',
                         showConfirmButton: false,
                         animation: true,
                         onClose: function () {
-                            $scope.getUserDesings();
+                            $scope.getUserMeasurement();
                         }
                     })
                 }, function () {
@@ -119,7 +143,7 @@ App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
         })
     }
 
-    $scope.askForDelete = function (design_id) {
+    $scope.askForDelete = function (measurements_id) {
         swal({
             title: 'Please Confirm',
             type: 'warning',
@@ -133,31 +157,31 @@ App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
 //            title: 'Adding to Cart',
             allowEscapeKey: false,
             allowOutsideClick: false,
-            text: "Are you sure want to delete this design?",
+            text: "Are you sure want to delete this measurements?",
 
             preConfirm: function () {
 
                 swal({
-                    title: 'Deleting your design.',
+                    title: 'Deleting your measurements.',
                     onOpen: function () {
                         swal.showLoading()
                     }
                 });
-                var url = adminurl + "Api/deleteUserPreDesing/" + design_id;
+                var url = adminurl + "Api/deleteUserPreMeasurement/" + measurements_id;
 
                 $http.get(url).then(function (rdata) {
                     swal.close();
                     swal({
-                        title: 'Desing Deleted',
+                        title: 'Measurements Deleted',
                         type: 'success',
-                        text: 'Desing profile has been deleted.',
+                        text: 'Measurements profile has been deleted.',
                         imageWidth: 100,
                         timer: 1500,
                         imageAlt: 'Custom image',
                         showConfirmButton: false,
                         animation: true,
                         onClose: function () {
-                            $scope.getUserDesings();
+                            $scope.getUserMeasurement();
                         }
                     })
                 }, function () {
@@ -171,41 +195,31 @@ App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
     }
 
 
-    $scope.addToCartCustomeFromPre = function (selected_id, is_shop_stored = false, is_previouse = true) {
+    $scope.applyMessurements = function (selected_id, style_name, custom_dict) {
+        var styleobj = custom_dict;
         var customhtmlarray = [];
-        var form = new FormData()
-        if (is_shop_stored) {
-            var ks = "Design Type";
-            var kv = "Shop Stored";
-            form.append("customekey[]", ks);
-            form.append("customevalue[]", kv);
-            console.log(ks, kv);
-            var summaryhtml = "<tr><th>" + ks + "</th><td>" + kv + "</td></tr>";
-            customhtmlarray.push(summaryhtml);
-        } else {
-            var summerydata = $scope.customizationDict.prestyle[selected_id].style;
-
-            for (i in summerydata) {
-                var ks = summerydata[i].style_key;
-                var kv = summerydata[i].style_value;
-                form.append("customekey[]", ks);
-                form.append("customevalue[]", kv);
-                console.log(ks, kv);
-                var summaryhtml = "<tr><th>" + ks + "</th><td>" + kv + "</td></tr>";
-                customhtmlarray.push(summaryhtml);
+        for (i in styleobj) {
+            var ks = styleobj[i].measurement_key;
+            var kv = styleobj[i].measurement_value;
+            var checkspace = kv.split(" ")[1];
+            if (checkspace) {
+                kv = " " + kv.replace(" ", "<span class='inchvaluemes'>") + "</span>";
             }
-        }
 
+            var summaryhtml = "<tr><th>" + ks + "</th><td>" + kv + ' Inch</td></tr>';
+
+            customhtmlarray.push(summaryhtml);
+        }
         customhtmlarray = customhtmlarray.join("");
-        var customdiv = "<div class='custome_summary_popup'><table class='table'>" + customhtmlarray + "</table></div>"
+        var customdiv = "<div class='custome_summary_popup'><table>" + "<tr><th colspan=2 class='text-center'>Profile: " + style_name + "</th></tr>" + customhtmlarray + "</table></div>";
 
         swal({
-            title: 'Confirm Design',
+            title: 'Confirm Measurements',
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#000',
             cancelButtonColor: 'red',
-            confirmButtonText: 'Yes, Add To Cart',
+            confirmButtonText: 'Yes, Apply',
             cancelButtonText: 'No, Cancel!',
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
@@ -216,35 +230,23 @@ App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
             preConfirm: function () {
 
                 swal({
-                    title: 'Appling design',
+                    title: 'Appling Measurements',
                     onOpen: function () {
-                        swal.showLoading()
+                        swal.showLoading();
                     }
                 });
-                var globlecart = baseurl + "Api/cartOperationCustom";
 
-//                var form = new FormData()
-                form.append('product_id', product_id);
-                form.append('quantity', 1);
-                form.append('custome_id', item_id);
-                form.append('extra_price', 0);
-                form.append("is_shop_stored", is_shop_stored ? 1 : 0);
-                form.append("is_previous", is_previouse ? 1 : 0);
-                $http.post(globlecart, form).then(function (rdata) {
+                $http.get(baseurl + "Cart/setPreviouseMeausrement/" + selected_id).then(function (rdata) {
                     swal.close();
-                    $scope.getCartData();
                     swal({
-                        title: 'Added To Cart',
+                        title: 'Measurements Applied',
                         type: 'success',
-                        html: "<p class='swalproductdetail'><span>" + rdata.data.title + "</span><br>" + "Quantity: " + rdata.data.quantity + "</p>",
-                        imageUrl: rdata.data.file_name,
-                        imageWidth: 100,
-                        timer: 1500,
-                        imageAlt: 'Custom image',
-                        showConfirmButton: false,
+                        text: "Your selected measurements applied for your order.",
+                        showConfirmButton: true,
                         animation: true,
+                        timer: 1500,
                         onClose: function () {
-                            window.location = baseurl + "Cart/details";
+                            window.location = baseurl + "Cart/checkoutShipping";
                         }
                     })
                 }, function () {
@@ -256,6 +258,8 @@ App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
             },
         })
     }
+
+
 
 
 

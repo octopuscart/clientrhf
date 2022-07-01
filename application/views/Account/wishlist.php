@@ -73,10 +73,10 @@ $this->load->view('layout/header');
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <td class="cart-form-heading text-left" style="width: 40%" colspan="2">Product</td>
-                                                        <td class="cart-form-heading text-right" >Price</td>
+                                                        <td class="cart-form-heading text-left" style="width: 30%" colspan="2">Product</td>
+                                                        <td class="cart-form-heading text-center" >Price</td>
 
-                                                        <td class="cart-form-heading" style="    width: 300px;"></td>
+                                                        <td class="cart-form-heading" style="    width: 350px;"></td>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="quantity-holder">
@@ -95,14 +95,14 @@ $this->load->view('layout/header');
                                                                 </h3>
 
                                                             </td>
-                                                            <td class="text-right">
+                                                            <td class="text-center">
                                                                 <span class="price">{{<?php echo $value["price"]; ?>|currency:" "}}</span>
                                                             </td>
 
                                                             <td class="dismiss">
-                                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $value["item_id"]; ?>/<?php echo $value["product_id"]; ?>" class="btn btn-warning btn-small-xs" ><i class="fa fa-paint-brush" aria-hidden="true"></i> Design Now</a>
+                                                                <a href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $value["item_id"]; ?>/<?php echo $value["product_id"]; ?>" class="btn btn-warning btn-small" ><i class="fa fa-paint-brush" aria-hidden="true"></i> Design Now</a>
 
-                                                                <a href="<?php echo site_url("Account/removeWishlist/".$value["product_id"]) ?>" class="btn btn-danger btn-small-xs" ><i class="fa fa-times" aria-hidden="true"></i> Remove</a>
+                                                                <a href="<?php echo site_url("Account/removeWishlist/".$value["product_id"]) ?>" class="btn btn-danger btn-small" ><i class="fa fa-trash" aria-hidden="true"></i> </a>
                                                             </td>
                                                         </tr>
                                                     <?php }

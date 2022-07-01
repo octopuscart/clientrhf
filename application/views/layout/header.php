@@ -50,6 +50,7 @@
 <!--        <link href="<?php echo base_url(); ?>assets/theme/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>-->
 
 
+        <script src="<?php echo base_url(); ?>assets/theme/js/jquery-2.1.0.min.js"></script> <!-- jQuery Library Import -->
 
 
 
@@ -65,6 +66,7 @@
                 $httpProvider.defaults.headers.post = {};
                 });
                 var baseurl = "<?php echo base_url(); ?>index.php/";
+                var adminurl = "<?php echo ADMINURL ?>index.php/";
                 var imageurlg = "<?php echo imageserver; ?>";
                 var globlecurrency = "<?php echo globle_currency; ?>";
                 var avaiblecredits = 0;</script>
@@ -137,7 +139,7 @@
                                             <ul class="dropdown-menu">
                                                 <li><a href="<?php echo site_url("Account/profile"); ?>">Profile</a></li>
                                                 <li><a href="<?php echo site_url("Account/orderList"); ?>">My Order</a></li>
-                                                 <li><a href="<?php echo site_url("Account/wishlist"); ?>">My Wishlist</a></li>
+                                                <li><a href="<?php echo site_url("Account/wishlist"); ?>">My Wishlist</a></li>
                                                 <li><a href="<?php echo site_url("Account/logout"); ?>">Logout</a></li>
                                             </ul>
                                         </li>
@@ -147,9 +149,9 @@
                                         <li> <a href="<?php echo site_url("Account/login"); ?>" >Sign In / Sign Up </a>
                                         </li>
 
-                                        <?php
-                                    }
-                                    ?>
+    <?php
+}
+?>
                                 </ul>
                             </nav>
                             <a href="javascript:;" id="menu-toggle" title="Menu"></a>
