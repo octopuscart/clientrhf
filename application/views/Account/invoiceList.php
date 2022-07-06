@@ -32,8 +32,8 @@ $this->load->view('layout/header');
         <h1 style="    color: black;
             margin-bottom: 30px;
             font-size: 30px;
-            text-shadow: 0px 0px;">My Orders</br>
-            <p style="font-size:15px;margin:10px auto;">Profile/Orders</p>
+            text-shadow: 0px 0px;">My Invoices</br>
+            <p style="font-size:15px;margin:10px auto;">Profile/Invoices</p>
 
         </h1>
 
