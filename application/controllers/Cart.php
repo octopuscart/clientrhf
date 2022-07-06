@@ -37,10 +37,36 @@ class Cart extends CI_Controller {
         $nexturl = $this->input->post("next_url");
         $couponcode = $this->input->post("couponcode");
         $couponarray = array("has_coupon" => 0, "coupon_code" => "", "coupon_discount" => "");
-        if ($couponcode == "RH10") {
-            $couponarray["has_coupon"] = 1;
-            $couponarray["coupon_code"] = $couponcode;
-            $couponarray["coupon_discount"] = 10;
+        if ($couponcode) {
+
+            $this->db->where("code", $couponcode);
+            $this->db->where("valid_till>", date("Y-m-d"));
+            $querycoupon = $this->db->get("coupon_conf");
+
+            if ($querycoupon) {
+                $couopndata = $querycoupon->row_array();
+                print_r($couopndata);
+                if ($couopndata) {
+                    if ($couopndata["coupon_type"] == "All User") {
+                        $couponarray["has_coupon"] = 1;
+                        $couponarray["coupon_code"] = $couponcode;
+                        $couponarray["coupon_discount"] = $couopndata["value"];
+                        $couponarray["coupon_discount_type"] = $couopndata["value_type"];
+                        $couponarray["coupon_message"] = $couopndata["promotion_message"];
+                    } else {
+                        $exitcoupon = $this->db->where("coupon_code", $couponcode)->get("user_order");
+                        if ($exitcoupon && $exitcoupon->result_array()) {
+                            
+                        } else {
+                            $couponarray["has_coupon"] = 1;
+                            $couponarray["coupon_code"] = $couponcode;
+                            $couponarray["coupon_discount"] = $couopndata["value"];
+                            $couponarray["coupon_discount_type"] = $couopndata["value_type"];
+                            $couponarray["coupon_message"] = $couopndata["promotion_message"];
+                        }
+                    }
+                }
+            }
         }
         $this->session->set_userdata('session_coupon', $couponarray);
 
@@ -227,7 +253,7 @@ class Cart extends CI_Controller {
         $this->redirectCart();
         $measurement_style = $this->session->userdata('measurement_style');
         $data['measurement_style_type'] = $measurement_style ? $measurement_style['measurement_style'] : "Please Select Size";
-        print_r($measurement_style);
+
 
         $data['checkoutmode'] = '';
 
@@ -354,7 +380,9 @@ class Cart extends CI_Controller {
                 }
 
 
-
+                $this->session->unset_userdata("session_coupon");
+                
+                
                 $order_status_data = array(
                     'c_date' => date('Y-m-d'),
                     'c_time' => date('H:i:s'),

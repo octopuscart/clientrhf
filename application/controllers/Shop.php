@@ -8,7 +8,8 @@ class Shop extends CI_Controller {
         parent::__construct();
         $this->load->model('Product_model');
         $this->load->library('session');
-        $this->user_id = $this->session->userdata('logged_in')['login_id'];
+        $this->userobj = $this->session->userdata('logged_in');
+        $this->user_id = $this->userobj ? $this->userobj['login_id'] : 0;
     }
 
     public function index() {
@@ -27,6 +28,9 @@ class Shop extends CI_Controller {
 
         $query = $this->db->get('sliders');
         $data['sliders'] = $query->result();
+
+        $query = $this->db->get('content_testimonial');
+        $data['content_testimonial'] = $query->result_array();
 
         $this->load->view('home', $data);
     }
@@ -91,7 +95,9 @@ class Shop extends CI_Controller {
     }
 
     public function faq() {
-        $this->load->view('pages/faq');
+        $query = $this->db->get('content_faq');
+        $data['content_faq'] = $query->result_array();
+        $this->load->view('pages/faq', $data);
     }
 
     public function catalogue() {
@@ -227,9 +233,6 @@ class Shop extends CI_Controller {
                 $measurement_key = $this->input->post('measurement_key');
                 $measurement_value = $this->input->post('measurement_value');
 
-
-
-
                 $subject = "Measurement From Customer";
                 $this->email->subject($subject);
 
@@ -237,8 +240,6 @@ class Shop extends CI_Controller {
                 $price_enquiry['measurement_key'] = $measurement_key;
                 $price_enquiry['measurement_value'] = $measurement_value;
                 $price_enquiry['subject'] = $subject;
-
-
 
                 $htmlsmessage = $this->load->view('Email/measurements_enquiry', $price_enquiry, true);
                 $this->email->message($htmlsmessage);
@@ -286,10 +287,6 @@ class Shop extends CI_Controller {
 
         $data['appointmentdetailslocal'] = $appointmentdetailslocal;
 
-
-
-
-
         $allappointment = $this->Product_model->AppointmentDataAll();
         $data['appointmentdatausa'] = $allappointment;
 
@@ -313,7 +310,6 @@ class Shop extends CI_Controller {
 
             $this->db->insert('appointment_list', $appointment);
             $appointment['contact_no2'] = $this->input->post('contact_no2');
-
 
             $emailsender = email_sender;
             $sendername = email_sender_name;
@@ -339,7 +335,6 @@ class Shop extends CI_Controller {
 
                 $appointment['appointment'] = $appointment;
 
-
                 $htmlsmessage = $this->load->view('Email/appointment', $appointment, true);
                 if (REPORT_MODE == 1) {
                     $this->email->message($htmlsmessage);
@@ -363,7 +358,7 @@ class Shop extends CI_Controller {
     }
 
     public function appointment2() {
-        
+
         redirect("appointment");
         $timeslot = [
             "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM",
@@ -408,7 +403,6 @@ class Shop extends CI_Controller {
 
         $data['appointmentdetailslocal'] = $appointmentdetailslocal;
 
-
         $data['appointmentdatausa'] = array();
 
         if (isset($_POST['submit'])) {
@@ -431,7 +425,6 @@ class Shop extends CI_Controller {
 
             $this->db->insert('appointment_list', $appointment);
             $appointment['contact_no2'] = $this->input->post('contact_no2');
-
 
             $emailsender = email_sender;
             $sendername = email_sender_name;
@@ -456,7 +449,6 @@ class Shop extends CI_Controller {
                 $this->email->subject($subject);
 
                 $appointment['appointment'] = $appointment;
-
 
                 $htmlsmessage = $this->load->view('Email/appointment', $appointment, true);
                 if (REPORT_MODE == 1) {
@@ -489,41 +481,27 @@ class Shop extends CI_Controller {
     }
 
     public function testinsert() {
-        $foldersstrip = ['7601.jpg', '7602.jpg', '7606.jpg', '7612.jpg', '7613.jpg', '7630.jpg', '7649.jpg', '7672.jpg', '7677.jpg'];
-        foreach ($foldersstrip as $key => $value) {
-            $folder = $value;
-            $foldermain = str_replace(".jpg", "", $folder);
-            //$titles = explode("_", $folder);
-
-
-            $title = "RT" . $foldermain;
-
-            $products = array(
-                "category_id" => 44,
-                "sku" => $title,
-                "category_items_id" => 1,
-                "title" => $title,
-                "short_description" => "2 Ply 100% Cotton",
-                "description" => "2 Ply 100% Cotton",
-                "video_link" => "",
-                "regular_price" => "95",
-                "sale_price" => "0",
-                "credit_limit" => "",
-                "price" => "95",
-                "file_name" => $foldermain . "shirt_model20001.png",
-                "file_name1" => $foldermain . "shirt_model10001.png",
-                "file_name2" => $foldermain . "fabricx0001.png",
-                "file_name3" => "",
-                "user_id" => "10",
-                "op_date_time" => "",
-                "status" => "1",
-                "home_slider" => "",
-                "home_bottom" => "",
-                "keywords" => "",
-                "stock_status" => "In Stock",
-                "variant_product_of" => "",
-                "folder" => $foldermain);
-            # $this->db->insert('products', $products);
+        $temp = array("Will you keep a record of my order? " => "Yes, we will keep a record of your online order with all the details. In addition, we will keep your individual paper pattern. ",
+            "Once I complete the order online, how long does it take to deliver? " => "We will email your order confirmation within 24 hours with expected delivered date. We anticipate delivering all orders within 12-14 days of confirmation.",
+            "Can you ship my order internationally? " => "Yes, we can ship orders to anywhere in the world. Delivery times vary by region.",
+            "What is your return policy?" => "Upon inspection, if Rahman Fashions made an error, we will then make arrangements to receive back the order and have it corrected or redone.",
+            "What if I made a mistake in my order, can I fix it? " => "Yes, send us an email immediately and we will rectify the error.",
+            "Do you ship the orders door-to-door?" => "Yes, we ship orders door-to-door via UPS, Fedex, DHL or EMS Speedpost",
+            "What if my order doesn’t fit to my satisfaction?" => "Please contact us and we will do everything possible to handle the case and make you happy with your purchase.",
+            "Can I send you a garment that fits perfectly to copy the measurements?" => "Yes, of course! That will help us to create perfect fit clothing for you.",
+            "What does ‘bespoke’ mean?" => "The word bespoke means made-to-order or custom-made. It is most known for its centuries-old relationship with tailor-made suits.",
+            "Are the buttons on jacket sleeves working or artificial?" => "We construct all jackets with working buttons."
+        );
+        $count = 2;
+        foreach ($temp as $key => $value) {
+            $count+=1;
+            $insertArray = array(
+                "question"=>$key,
+                "answer"=>$value,
+                "display_index"=>$count
+            );
+            
+            $this->db->insert("content_faq", $insertArray);
         }
     }
 

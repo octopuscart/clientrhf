@@ -132,28 +132,28 @@ $this->load->view('layout/header');
                                                 <?php
                                                 if (PAYMENT_MODE_PAYPAL == 'on') {
                                                     ?>
-                                                    <li class="<?php echo DEFAULT_PAYMENT_MODE == 'PayPal' ? 'active' : ''; ?>"><a href="#paypal" data-toggle="tab" aria-expanded="false">PayPal</a></li>
+                                                    <li class="<?php echo DEFAULT_PAYMENT_MODE == 'PayPal' ? 'active' : ''; ?>"><a href="#paypal" data-toggle="tab" aria-expanded="false" class="<?php echo DEFAULT_PAYMENT_MODE == 'PayPal' ? 'active' : ''; ?>">PayPal</a></li>
                                                     <?php
                                                 }
                                                 ?>
                                                 <?php
                                                 if (PAYMENT_MODE_BANK == 'on') {
                                                     ?>
-                                                    <li ><a href="#bank" data-toggle="tab" aria-expanded="true" class="<?php echo DEFAULT_PAYMENT_MODE == 'Bank Transfer' ? 'active' : ''; ?>">Bank Transfer</a></li>
+                                                    <li class="<?php echo DEFAULT_PAYMENT_MODE == 'Bank Transfer' ? 'active' : ''; ?>" ><a href="#bank" data-toggle="tab" aria-expanded="true" class="<?php echo DEFAULT_PAYMENT_MODE == 'Bank Transfer' ? 'active' : ''; ?>">Bank Transfer</a></li>
                                                     <?php
                                                 }
                                                 ?>
                                                 <?php
                                                 if (PAYMENT_MODE_COD == 'on') {
                                                     ?>
-                                                    <li class="<?php echo DEFAULT_PAYMENT_MODE == 'Cash On Delivery' ? 'active' : ''; ?>"><a href="#cash" data-toggle="tab" aria-expanded="false">Cash On Delivery</a></li>
+                                                    <li class="<?php echo DEFAULT_PAYMENT_MODE == 'Cash On Delivery' ? 'active' : ''; ?>"><a href="#cash" data-toggle="tab" aria-expanded="false"  class="<?php echo DEFAULT_PAYMENT_MODE == 'Cash On Delivery' ? 'active' : ''; ?>">Cash On Delivery</a></li>
                                                     <?php
                                                 }
                                                 ?>
                                                 <?php
                                                 if (PAYMENT_MODE_CHEQUE == 'on') {
                                                     ?>
-                                                    <li class="<?php echo DEFAULT_PAYMENT_MODE == 'Cheque On Delivery' ? 'active' : ''; ?>"><a href="#cheque" data-toggle="tab" aria-expanded="false">Cheque On Delivery</a></li>
+                                                    <li class="<?php echo DEFAULT_PAYMENT_MODE == 'Cheque On Delivery' ? 'active' : ''; ?>"><a href="#cheque" data-toggle="tab" aria-expanded="false" class="<?php echo DEFAULT_PAYMENT_MODE == 'Cheque On Delivery' ? 'active' : ''; ?>">Cheque On Delivery</a></li>
                                                     <?php
                                                 }
                                                 ?>

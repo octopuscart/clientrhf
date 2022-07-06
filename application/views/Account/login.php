@@ -2,6 +2,7 @@
 $this->load->view('layout/header');
 ?>
 <!-- Inner Page Banner Area Start Here -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
 <div class="page-header" style="height: 160px">
@@ -19,7 +20,7 @@ $this->load->view('layout/header');
 
 <!-- Inner Page Banner Area End Here -->
 <!-- Login Registration Page Area Start Here -->
-<div class="login-registration-page-area" style="padding: 20px 0;    color: white;background: url(<?php echo base_url(); ?>assets/theme/images/backimages.jpg);background-size: cover">
+<div class="login-registration-page-area" ng-controller="LoginController" style="padding: 20px 0;    color: white;background: url(<?php echo base_url(); ?>assets/theme/images/backimages.jpg);background-size: cover">
     <div class="container">
         <div class="row" style="    margin-bottom: 50px;">
             <div class="col-lg-12">
@@ -54,25 +55,27 @@ $this->load->view('layout/header');
             ?>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-bottom: 15px;">
                 <div class="login-registration-field" style="padding: 30px;
-    background: white;
-    color: black;">
+                     background: white;
+                     color: black;">
                     <h2 class="cart-area-title">Login</h2>
                     <form method="post" action="#">
                         <label>Email address *</label>
                         <input type="email"  class="form-control"name="email" placeholder="Email " required=""/>
                         <label>Password *</label>
                         <input type="password"  class="form-control"name="password" placeholder="Password *" required=""/>
-   <br/>
+                   
+                        <p>Forgotten password? <a href="#" ng-click="requestPasswordReset()">Click here</a></p>
+                        <br/>
                         <button class="btn btn-primary" name="signIn" type="submit" value="signIn">Login</button>
-                        <!--<span><input type="checkbox" name="remember"/>Remember Me</span>-->
+                        
                     </form>
                 </div>
             </div>
             <div class="col-md-2"></div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding-bottom: 15px;">
                 <div class="login-registration-field" style="padding: 30px;
-    background: white;
-    color: black;">
+                     background: white;
+                     color: black;">
                     <h2 class="cart-area-title">Register</h2>
                     <form action="#" method="post">
                         <div class="row">
@@ -115,36 +118,36 @@ $this->load->view('layout/header');
                             <div class="col-md-6">
                                 <input type="hidden" name="birth_date" id="birth_date" value="{{birth_year}}-{{birth_month}}-{{date_birth}}"> 
                                 <label>Date Of Birth *</label>
-                               <div class="row" style="    margin: 0;">
-                                <select id="birth_year" name="birth_year"  ng-model="birth_year" class="form-control bg_light w_full border_none bith_date_select_year"  required >
-                                    <option value="" >-YYYY-</option>
-                                    <?php
-                                    for ($i = (date('Y') - 100); $i <= date('Y'); $i++) {
-                                        echo "<option value='$i'>$i</option>";
-                                    }
-                                    ?>
-                                </select>
+                                <div class="row" style="    margin: 0;">
+                                    <select id="birth_year" name="birth_year"  ng-model="birth_year" class="form-control bg_light w_full border_none bith_date_select_year"  required >
+                                        <option value="" >-YYYY-</option>
+                                        <?php
+                                        for ($i = (date('Y') - 100); $i <= date('Y'); $i++) {
+                                            echo "<option value='$i'>$i</option>";
+                                        }
+                                        ?>
+                                    </select>
 
-                                <select id="birth_month" ng-model="birth_month" name="birth_month" class="form-control bg_light w_full border_none bith_date_select" required >
-                                    <option value="" >-MM-</option>
-                                     <?php
-                                    for ($i = 1; $i <= 12; $i++) {
-                                        $mmdate = $i<10?"0".$i:$i;
-                                        echo "<option value='$mmdate'>$mmdate</option>";
-                                    }
-                                    ?>
-                                </select> 
+                                    <select id="birth_month" ng-model="birth_month" name="birth_month" class="form-control bg_light w_full border_none bith_date_select" required >
+                                        <option value="" >-MM-</option>
+                                        <?php
+                                        for ($i = 1; $i <= 12; $i++) {
+                                            $mmdate = $i < 10 ? "0" . $i : $i;
+                                            echo "<option value='$mmdate'>$mmdate</option>";
+                                        }
+                                        ?>
+                                    </select> 
 
-                                <select id="birth_date" name="date_birth" ng-model="date_birth" class="form-control bg_light w_full border_none bith_date_select"  required >
-                                    <option value="" >-DD-</option>
-                                     <?php
-                                    for ($i = 1; $i <= 31; $i++) {
-                                         $dddate = $i<10?"0".$i:$i;
-                                        echo "<option value='$dddate'>$dddate</option>";
-                                    }
-                                    ?>
-                                </select>
-                               </div>
+                                    <select id="birth_date" name="date_birth" ng-model="date_birth" class="form-control bg_light w_full border_none bith_date_select"  required >
+                                        <option value="" >-DD-</option>
+                                        <?php
+                                        for ($i = 1; $i <= 31; $i++) {
+                                            $dddate = $i < 10 ? "0" . $i : $i;
+                                            echo "<option value='$dddate'>$dddate</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
 
                             </div>
                         </div>
@@ -169,18 +172,19 @@ $this->load->view('layout/header');
                             <div class="col-md-6">
                                 <label>Country *</label>
                                 <select name="country" id="country" class="form-control"  onchange="countryChange()" class="r_corners bg_light w_full border_none" style="width: 100%;height: 40px;padding: 5px;" required >
-                                   <option value="" >Select Country</option>
-                                            <?php
-                                            foreach ($countrylist as $key => $value) {
-                                                echo $country = ucwords(strtolower($value->country_name));
-                                                echo "<option value='$country'>$country</option>";
-                                            }
-                                            ?>
+                                    <option value="" >Select Country</option>
+                                    <?php
+                                    foreach ($countrylist as $key => $value) {
+                                        echo $country = ucwords(strtolower($value->country_name));
+                                        echo "<option value='$country'>$country</option>";
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div> 
 
-
+  <div class="g-recaptcha" data-sitekey="6LfdDbogAAAAAEXM7ycO6LBIwEBH67XOUlb-nPEJ"></div>
+      <br/>
 
                         <br/>
 
@@ -195,7 +199,7 @@ $this->load->view('layout/header');
 <!-- Login Registration Page Area End Here -->
 
 <!--angular controllers-->
-<script src="<?php echo base_url(); ?>assets/theme/angular/productController.js"></script>
+<script src="<?php echo base_url(); ?>assets/theme/angular/loginController.js"></script>
 
 
 <?php

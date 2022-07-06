@@ -8,7 +8,7 @@ $this->load->view('layout/header');
         <li style="background: url('<?php echo base_url(); ?>assets/theme/images/slider1.jpg');height: 600px;" >
             <!-- start hero caption -->
             <div class="hero-caption-area">
-               
+
             </div>
             <!-- end hero caption -->
         </li>
@@ -45,7 +45,7 @@ $this->load->view('layout/header');
             </div>
             <!-- end hero caption -->
         </li>
-       
+
     </ul>
 </div>
 <!-- end hero slider -->
@@ -126,7 +126,7 @@ $this->load->view('layout/header');
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="spacer-20 visible-sm"></div>
-                <a href="<?php echo site_url('Shop/appointment');?>" title="Email us now" class="btn btn-secondary pull-right">Make an Appointment</a>
+                <a href="<?php echo site_url('Shop/appointment'); ?>" title="Email us now" class="btn btn-secondary pull-right">Make an Appointment</a>
             </div>
         </div>
     </div>
@@ -212,67 +212,51 @@ $this->load->view('layout/header');
             <h2>What <br> our client’s say</h2>
             <div class="thumb-slider2 flexslider">
                 <ul class="slides">
-                    <li>
-                        <!-- start testimonial -->
-                        <div class="testimonial testimonial-style4">
-                            <blockquote>
-                                <p style='    padding: 0px 60px;'>I have been a very pleased customer for three years. The owner Michael gives very personalized service in helping selecting fabrics and meeting scheduling needs.
-                                    Please go see Michael! I’m sure you will find him to meet your tailoring needs in Hong Kong</p>
-                            </blockquote>
-                        </div>
-                        <!-- end testimonial -->
-                    </li>
-                    <li>
-                        <!-- start testimonial -->
-                        <div class="testimonial testimonial-style4">
-                            <blockquote>
-                                <p style='    padding: 0px 60px;'>
-                                    Was in HK for about a week and stumbled into this shop after exploring quite a few others in the neighborhood.  The service was excellent, and the staff was very friendly and helpful.                                        </p>
-                            </blockquote>
-                        </div>
-                        <!-- end testimonial -->
-                    </li>
-                    <li>
-                        <!-- start testimonial -->
-                        <div class="testimonial testimonial-style4">
-                            <blockquote>
-                                <p style='    padding: 0px 60px;'>
-                                    I came into Hong Kong and only had a couple of days in the city and I came upon Rahman fashions in the city and I am very impressed.                                         </p>
-                            </blockquote>
-                        </div>
-                        <!-- end testimonial -->
-                    </li>
+
+                    <?php
+                    foreach ($content_testimonial as $key => $value) {
+                        ?>
+                        <li>
+                            <!-- start testimonial -->
+                            <div class="testimonial testimonial-style4">
+                                <blockquote>
+                                    <p style='    padding: 0px 60px;'>
+                                        <?php
+                                        echo $value["review"];
+                                        ?>
+                                    </p>
+                                </blockquote>
+                            </div>
+                            <!-- end testimonial -->
+                        </li>
+                        <?php
+                    }
+                    ?>
+
+
                 </ul>
             </div>
             <div class="testimonial-author thumb-carousel2 flexslider" style="    margin: 0 0 20px;">
                 <ul class="slides">
-                    <li class="testimonial">
-                        <a href="#">
+                    <?php
+                    foreach ($content_testimonial as $key => $value) {
+                        ?>
+                        <li class="testimonial">
+                            <a href="#">
 
-                            <cite>
-                                <strong>Ric Young</strong>
-                                <span>Google Review</span>
-                            </cite>
-                        </a>
-                    </li>
-                    <li class="testimonial">
-                        <a href="#">
-
-                            <cite>
-                                <strong>Avraham Feingold</strong>
-                                <span>Google Review</span>
-                            </cite>
-                        </a>
-                    </li>
-                    <li class="testimonial">
-                        <a href="#">
-
-                            <cite>
-                                <strong>Naftali Gross</strong>
-                                <span>Google Review</span>
-                            </cite>
-                        </a>
-                    </li>
+                                <cite>
+                                    <strong><?php
+                                        echo $value["name"];
+                                        ?></strong>
+                                    <span><?php
+                                        echo $value["source"];
+                                        ?></span>
+                                </cite>
+                            </a>
+                        </li>
+                        <?php
+                    }
+                    ?>
                 </ul>
             </div>
         </div>

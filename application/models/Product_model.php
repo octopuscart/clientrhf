@@ -378,10 +378,19 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
             $finalcartdata['discount'] = 0;
             $session_coupon = $this->session->userdata('session_coupon');
 
-            $finalcartdata['shipping_price'] = 30;
+            $query = $this->db->get('configuration_cartcheckout');
+            $systemlog = $query->row_array();
+
+            $finalcartdata['shipping_price'] = $systemlog["shipping_price"];
             $finalcartdata['coupon_code'] = "";
-            if (isset($session_coupon)) {
-                $finalcartdata['discount'] = $session_coupon["has_coupon"] ? $session_coupon["coupon_discount"] : "0";
+            $dicountvalue = 0;
+            if (isset($session_coupon["has_coupon"]) && $session_coupon["has_coupon"]) {
+                if ($session_coupon["coupon_discount_type"] == "Fixed") {
+                    $dicountvalue = $session_coupon["coupon_discount"];
+                } else {
+                    $dicountvalue = ($finalcartdata['total_price'] * $session_coupon["coupon_discount"]) / 100;
+                }
+                $finalcartdata['discount'] = number_format($dicountvalue, 2, '.', '');
                 $finalcartdata['coupon'] = $session_coupon;
                 $finalcartdata['coupon_code'] = $session_coupon["coupon_code"];
             }
@@ -1424,7 +1433,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
                 }
                 $preitemdata["designs"][$value["id"]] = array(
                     "name" => $profilename,
-                    "order_no" => $order_no ? $order_no["order_no"] : "RF". str_replace("-", "/", $value["id"]),
+                    "order_no" => $order_no ? $order_no["order_no"] : "RF" . str_replace("-", "/", $value["id"]),
                     "cart_data" => $value,
                     "style" => $customdata
                 );

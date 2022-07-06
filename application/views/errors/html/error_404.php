@@ -5,12 +5,28 @@ $ci =& get_instance();
 $ci->load->helper('url');
 ?>
 <?php
-include APPPATH.'/views/layout/header.php';
+include APPPATH.'/views/layout/header1.php';
 ?>
+<div class="page-header" style="height: 160px">
+    <div class="container">
+
+        <h1 style="    color: black;
+            margin-bottom: 30px;
+            font-size: 30px;
+            text-shadow: 0px 0px;">Page Not Found
+
+        </h1>
+
+        <!-- Breadcrumb -->
+
+
+
+    </div>
+</div>
 <!-- Content -->
 <div id="content"> 
     <!-- Tesm Text -->
-    <section class="error-page text-center pad-t-b-130 banner-w3">
+    <section class="error-page text-center pad-t-b-130 banner-w3 mt-5 mb-5" >
         <div class="container "> 
             <div class="latest-w3">
                 <!-- Heading -->

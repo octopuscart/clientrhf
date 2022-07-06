@@ -1,5 +1,5 @@
 <?php
-$this->load->view('layout/header');
+$this->load->view('layout/header1');
 ?>
 
 <!-- Content -->

@@ -77,7 +77,7 @@
                     <td >
                         <center><img src="<?php echo site_mail_logo; ?> " style="margin: 10px;
                                      height: 50px;padding: 10px;background: white;
-                                   
+
                                      width: auto;"/><br/>
                             <h4 style="color: black;"> Order No.: <?php echo $order_data->order_no; ?></h4>
                         </center>
@@ -85,7 +85,7 @@
 
                 </tr>
             </table>
-               <table class="detailstable" align="center" border="0" cellpadding="0" cellspacing="0" width="700" style="background: #fff">
+            <table class="detailstable" align="center" border="0" cellpadding="0" cellspacing="0" width="700" style="background: #fff">
                 <tr>
                     <td style="font-size: 12px;width: 50%" >
                         <b>Shipping Address</b><br/><hr/>
@@ -154,7 +154,7 @@
                     </td>
                 </tr>
             </table>
-                <table class="carttable"  border-color= "#9E9E9E" align="center" border="1" cellpadding="0" cellspacing="0" width="700" style="background: #fff;padding:20px">
+            <table class="carttable"  border-color= "#9E9E9E" align="center" border="1" cellpadding="0" cellspacing="0" width="700" style="background: #fff;padding:20px">
                 <tr style="font-weight: bold">
                     <td style="width: 20px;text-align: center">S.No.</td>
                     <td colspan="2"  style="text-align: center">Product</td>
@@ -251,11 +251,11 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: right">Shipping Amount</td>
-                    <td style="text-align: right;width: 60px"><?php echo globle_currency . " " . number_format($order_data->discount, 2, '.', ''); ?> </td>
+                    <td style="text-align: right;width: 60px"><?php echo globle_currency . " " . number_format($order_data->shipping, 2, '.', ''); ?> </td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: right">Coupon Discount</td>
-                    <td style="text-align: right;width: 60px"><?php echo globle_currency . " " . number_format($order_data->shipping, 2, '.', ''); ?> </td>
+                    <td style="text-align: right;width: 60px"><?php echo globle_currency . " " . number_format($order_data->discount, 2, '.', ''); ?> </td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: right">Total Amount</td>
@@ -263,41 +263,41 @@
                 </tr>
 
                 <?php if ($order_data->payment_mode == 'Bank Transfer') { ?>
-<!--                    <tr><td colspan="6" style="font-size: 12px;">
-                            <table class="bankdetails">
-                                <tbody>
-                                    <tr>
-                                        <th style="width: 120px;text-align: left" colspan="4">Company Name: Royal Trading</th>
-                                    </tr>
-                                    <tr>
-                                        <th>Bank Name</th>
-                                        <td>Bank Of China</td>
-                                        <th>A/c No.</th>
-                                        <td>012 721 00092404</td>
-                                    </tr>
-                                    <tr>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <th>Bank Code</th>
-                                        <td>012</td>
-                                         <th>Branch Code</th>
-                                        <td>721</td>
-                                    </tr>
-                                    <tr>
-                                       
-                                    </tr>
-                                    <tr>
-                                        <th>Swift Code</th>
-                                        <td>BKCHHKHH</td>
-                                        <th>Address</th>
-                                        <td>1 Garden Road, Hong Kong</td>
-                                    </tr>
-                                  
-                                </tbody></table>
-                        </td>
+    <!--                    <tr><td colspan="6" style="font-size: 12px;">
+                                <table class="bankdetails">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 120px;text-align: left" colspan="4">Company Name: Royal Trading</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Bank Name</th>
+                                            <td>Bank Of China</td>
+                                            <th>A/c No.</th>
+                                            <td>012 721 00092404</td>
+                                        </tr>
+                                        <tr>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <th>Bank Code</th>
+                                            <td>012</td>
+                                             <th>Branch Code</th>
+                                            <td>721</td>
+                                        </tr>
+                                        <tr>
+                                           
+                                        </tr>
+                                        <tr>
+                                            <th>Swift Code</th>
+                                            <td>BKCHHKHH</td>
+                                            <th>Address</th>
+                                            <td>1 Garden Road, Hong Kong</td>
+                                        </tr>
+                                      
+                                    </tbody></table>
+                            </td>
 
-                    </tr>-->
+                        </tr>-->
                     <?php
                 }
                 ?>

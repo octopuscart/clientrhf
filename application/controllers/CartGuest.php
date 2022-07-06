@@ -271,6 +271,7 @@ class CartGuest extends CI_Controller {
             );
 
             $this->session->unset_userdata($newdata);
+            $this->session->unset_userdata("session_coupon");
             $this->session->sess_destroy();
 
             redirect('Order/orderdetailsguest/' . $orderkey);
