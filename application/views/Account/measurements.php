@@ -96,17 +96,18 @@ $this->load->view('layout/header');
 
                                     <td>{{mesval.meausrement_data.datetime}}</td>
                                     <td>                                
-                                        <a href="<?php echo ADMINURL . "index.php/Order/selectPreviouseMeasurementProfilesReport/"; ?>/{{mesval.meausrement_data.id}}/1" class="btn btn-default"  title ="Dowload Profile"><i class="fa fa-download"></i></a>
+                                        <a href="<?php echo ADMINURL . "index.php/Order/selectPreviouseMeasurementProfilesReport/"; ?>/{{mesval.meausrement_data.id}}/1" class="btn btn-default greencolorbg"  title ="Dowload Profile"><i class="fa fa-download"></i></a>
                                         &nbsp;
                                         <button type="button" ng-click="askForEmail(mesval.meausrement_data.id)" class="btn btn-default"  title ="Email Profile"><i class="fa fa-envelope"></i></button>
                                         &nbsp;
                                         <!--<button type="button" ng-click="addToCartCustomeFromPre(style.cart_data.id, false, true)" class="btn btn-warning"  title ="Update Profile"><i class="fa fa-edit"></i></button>-->
                                         <!--&nbsp;-->
-
+                                        <a href="<?php echo site_url("Account/editMeasurement"); ?>/{{mesval.meausrement_data.id}}" class="btn btn-default yellocolorbg"  title ="Edit Profile"><i class="fa fa-edit"></i></a>
+                                        &nbsp;
                                         <button type="button" ng-click="askForDelete(mesval.meausrement_data.id)" class="btn btn-danger"  title ="Delte Profile"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
-                               
+
                             </table>
                         </div>
 

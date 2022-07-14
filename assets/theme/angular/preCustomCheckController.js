@@ -87,7 +87,7 @@ App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
             preConfirm: function () {
 
                 swal({
-                    title:  status === 'f' ? "Removing from favorite" : 'Setting as your favorite design.',
+                    title: status === 'f' ? "Removing from favorite" : 'Setting as your favorite design.',
                     onOpen: function () {
                         swal.showLoading()
                     }
@@ -230,6 +230,9 @@ App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
                 form.append('extra_price', 0);
                 form.append("is_shop_stored", is_shop_stored ? 1 : 0);
                 form.append("is_previous", is_previouse ? 1 : 0);
+                form.append("profile_name", is_previouse ? 1 : 0);
+                form.append("desing_profile_id", is_previouse ? 1 : 0);
+                form.append("desing_profile", is_previouse ? 1 : 0);
                 $http.post(globlecart, form).then(function (rdata) {
                     swal.close();
                     $scope.getCartData();
@@ -258,8 +261,68 @@ App.controller('PreCustomCheck', function ($scope, $http, $timeout, $interval) {
     }
 
 
+    $scope.getSingleDesing = function (design_id) {
+        var url = adminurl + "Api/getUserPreDesingByItem/" + design_id;
+        $http.get(url).then(function (rdata) {
+            $scope.customizationDict.prestyle = rdata.data.designs;
+            console.log(rdata.data);
+            $scope.customizationDict.has_pre_design = rdata.data.has_pre_design;
+        });
+    }
 
 
 })
 
+
+App.controller('EditDesing', function ($scope, $http, $timeout, $interval) {
+
+    $scope.customizationDict = {'prestyle': {}, "desingElements": {}, "designKeys": {}};
+
+    $scope.getSingleDesing = function (design_id) {
+        var url = adminurl + "Api/getSingleDesing/" + design_id;
+        $http.get(url).then(function (rdata) {
+            $scope.customizationDict.prestyle = rdata.data;
+        });
+    }
+    $scope.getSingleDesing(design_id);
+
+    $scope.createDesingBlock = function (stindex, desingkey, desingvalue, elementlist) {
+        var elementlistdata = {};
+        for (ele in elementlist) {
+            var eleobj = elementlist[ele];
+            elementlistdata[eleobj.title] = eleobj.title;
+        }
+        console.log('#styleelement' + stindex);
+        if ($scope.customizationDict.designKeys[desingkey] == 'yes') {
+            $('#styleelement' + stindex).editable({
+                source: elementlistdata
+            });
+        } else {
+            $('#styleelement' + stindex).parents("tr").hide();
+        }
+    }
+
+    $scope.getDesingElementByItem = function (item_id) {
+        var url = customurl;
+        $http.get(url).then(function (rdata) {
+            $scope.customizationDict.desingElements = rdata.data.data;
+            var customdictkey = rdata.data.keys;
+            for (kind in customdictkey) {
+                var tempkey = customdictkey[kind];
+                $scope.customizationDict.designKeys[tempkey.title] = tempkey.editable;
+            }
+
+            for (stindex in $scope.customizationDict.prestyle.style) {
+                var desingkeyobj = $scope.customizationDict.prestyle.style[stindex];
+                var desingkey = desingkeyobj.style_key;
+                var desingvalue = desingkeyobj.style_value;
+                console.log(desingkey, desingvalue);
+                $scope.createDesingBlock(stindex, desingkey, desingvalue, $scope.customizationDict.desingElements[desingkey]);
+            }
+        });
+    }
+    $scope.getDesingElementByItem(item_id);
+
+
+})
 

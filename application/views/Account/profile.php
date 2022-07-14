@@ -1,6 +1,12 @@
 <?php
 $this->load->view('layout/header');
 ?>
+<style>
+    .profile-image {
+        width: 182px ;
+        height: 182px;
+    }
+</style>
 
 <div class="page-header" style="height: 160px">
     <div class="container">
@@ -8,14 +14,14 @@ $this->load->view('layout/header');
         <h1 style="    color: black;
             margin-bottom: 30px;
             font-size: 30px;
-                text-shadow: 0px 0px;">My Profile</br>
-                 
+            text-shadow: 0px 0px;">My Profile</br>
+
         </h1>
 
         <!-- Breadcrumb -->
-       
-          
-        
+
+
+
     </div>
 </div>
 
@@ -38,7 +44,7 @@ $this->load->view('layout/header');
                     ?>
 
 
-                    <div class="col-md-9 checkout-form">
+                    <div class="col-md-9 checkout-form row">
                         <?php
                         if ($msg) {
                             ?>
@@ -51,7 +57,17 @@ $this->load->view('layout/header');
                             <?php
                         }
                         ?>
-
+                        <div class="col-md-3">
+                            <div class="profile-image" style="background: url(<?php echo ADMINURL; ?>assets/emoji/user.png); background-size: cover;margin-top:150px;">
+                                <?php
+                                if ($user_details->image) {
+                                    ?>
+                                    <img src='<?php echo ADMINURL; ?>assets/profile_image/<?php echo $user_details->image; ?>' style="width: 100%;   height: auto;" />
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
                         <div class="col-md-6">  
                             <h6><?php echo $user_details->email; ?> <small>Email (For Login)</small> </h6><br/>
                             <div class="woocommerce-MyAccount-content "> 
@@ -65,15 +81,15 @@ $this->load->view('layout/header');
                                         <div class="col-md-6 col-xs-12">
                                             <label>
                                                 First Name    </label>
-                                                <input type="text" name="first_name" class="form-control"  value="<?php echo $user_details->first_name; ?>">
-                                         
+                                            <input type="text" name="first_name" class="form-control"  value="<?php echo $user_details->first_name; ?>">
+
                                         </div>
                                         <div class="col-md-6 col-xs-12">
 
                                             <label>
                                                 Last Name    </label>
-                                                <input type="text" name="last_name" class="form-control"  value="<?php echo $user_details->last_name; ?>">
-                                        
+                                            <input type="text" name="last_name" class="form-control"  value="<?php echo $user_details->last_name; ?>">
+
                                         </div>
 
 
@@ -81,8 +97,8 @@ $this->load->view('layout/header');
 
                                             <label>
                                                 Contact No.    </label>
-                                                <input type="text" name="contact_no" class="form-control"  value="<?php echo $user_details->contact_no; ?>">
-                                        
+                                            <input type="text" name="contact_no" class="form-control"  value="<?php echo $user_details->contact_no; ?>">
+
                                         </div>
 
 
@@ -91,26 +107,26 @@ $this->load->view('layout/header');
 
                                             <label>
                                                 Gender    </label> 
-                                                <select name="gender" class="form-control" style="    background: #f5f5f5;
-                                                        height: 45px;
-                                                        font-size: 12px;
-                                                        line-height: 50px;
-                                                        border: none;
-                                                        color: #000;
-                                                        width: 100%;
-                                                        padding: 0 25px;border-radius: 0;">
-                                                    <option  value="Male" <?php echo $user_details->gender == 'Male' ? "selected" : ""; ?>>Male</option>
-                                                    <option  value="Female" <?php echo $user_details->gender == 'Female' ? "selected" : ""; ?>>Female</option>
-                                                </select>
-                                        
+                                            <select name="gender" class="form-control" style="    background: #f5f5f5;
+                                                    height: 45px;
+                                                    font-size: 12px;
+                                                    line-height: 50px;
+                                                    border: none;
+                                                    color: #000;
+                                                    width: 100%;
+                                                    padding: 0 25px;border-radius: 0;">
+                                                <option  value="Male" <?php echo $user_details->gender == 'Male' ? "selected" : ""; ?>>Male</option>
+                                                <option  value="Female" <?php echo $user_details->gender == 'Female' ? "selected" : ""; ?>>Female</option>
+                                            </select>
+
                                         </div>
 
                                         <div class="col-md-6 col-xs-12">
 
                                             <label>
                                                 Date of Birth   </label>
-                                                <input type="date" class="form-control" name="birth_date"  value="<?php echo $user_details->birth_date; ?>">
-                                         
+                                            <input type="date" class="form-control" name="birth_date"  value="<?php echo $user_details->birth_date; ?>">
+
                                         </div>
 
 
@@ -179,7 +195,7 @@ $this->load->view('layout/header');
                     <form action="#" method="post">
                         <div class="modal-content">
                             <div class="modal-header">
-                                                                <h4 class="modal-title" id="myModalLabel" style="font-size: 15px">Change Password</h4>
+                                <h4 class="modal-title" id="myModalLabel" style="font-size: 15px">Change Password</h4>
 
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>

@@ -149,7 +149,9 @@ App.controller('customizationShirt', function ($scope, $http, $location, $filter
 //end of shirt implemantation
 
 
-
+    $scope.writeRemark = function () {
+        $scope.selecteElements[$scope.screencustom.fabric]['summary']['Remark'] = $("#remark").val;
+    }
 
 
 
@@ -374,7 +376,7 @@ App.controller('customizationShirt', function ($scope, $http, $location, $filter
         })
     }
 
-  
+
 
 
 

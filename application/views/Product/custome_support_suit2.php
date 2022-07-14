@@ -101,7 +101,30 @@ $this->load->view('Product/custom_select_left');
                         </div>
                     </div>
                     
-                    
+                    <div ng-switch-when="Remark">
+                        <h5 class="customization_heading">{{k.title}}</h5>
+                        <div class="col-md-12 customization_items customization_items_elements">
+                            <div class="row">
+
+                                <div style="clear:both "></div>
+
+                                <div class="row" style="margin: 0;opacity: {{selecteElements[screencustom.fabric]['summary'][k.title]=='No'?0.2:1 }};" >
+                                  <div class="col-md-12 monogram_init">
+                                        <h6>Max Char limit 150</h6>
+                                        <textarea type="text" maxlength="150"  ng-model="selecteElements[screencustom.fabric]['summary']['Remark']" ></textarea>
+                                    </div>
+
+
+
+
+                                    <div style="clear:both "></div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
                     
 

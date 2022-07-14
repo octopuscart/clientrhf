@@ -267,3 +267,54 @@ App.controller('PreMeasurementCheck', function ($scope, $http, $timeout, $interv
 })
 
 
+
+
+App.controller('EditMeasurement', function ($scope, $http, $timeout, $interval) {
+
+    $scope.customizationDict = {'prestyle': {}, "measurementData": {}, "designKeys": {}};
+
+    $scope.getSingleDesing = function (measurement_id) {
+        var url = adminurl + "Api/getSingleMeasurementById/" + measurement_id;
+        $http.get(url).then(function (rdata) {
+            console.log(rdata.data);
+            $scope.customizationDict.prestyle = rdata.data;
+        });
+    }
+    $scope.getSingleDesing(measurement_id);
+
+    $scope.createDesingBlock = function (stindex, desingkey, desingvalue, elementlist) {
+        var elementlistdata = {};
+
+        console.log(desingvalue, desingkey, elementlist.min_value, elementlist.max_value);
+
+        for (i = elementlist.min_value; i <= elementlist.max_value; i++) {
+            elementlistdata[i+" "] = i+" ";
+        }
+
+
+        $('#styleelement' + stindex).editable();
+
+    }
+
+    $scope.getDesingElementByItem = function () {
+        var url = adminurl + "Api/getMeausrementData";
+        $http.get(url).then(function (rdata) {
+
+            $scope.customizationDict.measurementData = rdata.data;
+
+            for (stindex in $scope.customizationDict.prestyle.measurements) {
+                var desingkeyobj = $scope.customizationDict.prestyle.measurements[stindex];
+                var desingkey = desingkeyobj.measurement_key;
+                var desingvalue = desingkeyobj.measurement_value;
+
+                $scope.createDesingBlock(stindex, desingkey, desingvalue, $scope.customizationDict.measurementData[desingkey]);
+            }
+        });
+    }
+    $scope.getDesingElementByItem();
+
+
+})
+
+
+

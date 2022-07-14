@@ -1088,32 +1088,51 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
         $item_name = $customeitem->item_name;
         $item_id = $customeitem->id;
         $customtype = "Custom";
+        $profile_id = "";
         if ($is_shop_stored) {
             $customtype = "Shop Stored";
         }
         if ($is_previous) {
             $customtype = "Previous";
         }
+        $profile_name = $item_name . " " . date("Y-m-m-h:i:s");
+        if ($customtype == "Custom") {
+
+            $customProfileCreate = array(
+                "profile" => $profile_name,
+                "item_id" => $item_id,
+                "item_name" => $item_name,
+                "user_id" => $user_id,
+                "datetime" => date("Y-m-d H:i:s A"),
+                "status" => "",
+                "display_index" => "1"
+            );
+            $this->db->insert('cart_customization_profile', $customProfileCreate);
+
+            $profile_id = $this->db->insert_id();
+        }
 
         if ($user_id != 0) {
             $cartdata = $this->cartData($user_id);
             $product_details = $this->productDetails($product_id, $item_id);
             $product_dict = array(
-                'title' => $product_details['title'],
-                'price' => $product_details['price'] + $extra_cost,
-                'extra_price' => $extra_cost,
-                'sku' => $product_details['sku'], 'folder' => $product_details['folder'],
-                'attrs' => $customtype,
-                'vendor_id' => $product_details['user_id'],
-                'total_price' => $product_details['price'] + $extra_cost,
-                'file_name' => custome_image_server . "/thumb/" . $product_details['folder'] . "/fabric20001.png", 'quantity' => 1,
-                'quantity' => $quantity,
-                'user_id' => $user_id,
-                'item_id' => $item_id,
-                'item_name' => $item_name,
-                'credit_limit' => $product_details['credit_limit'] ? $product_details['credit_limit'] : 0,
-                'product_id' => $product_id,
-                'op_date_time' => date('Y-m-d H:i:s'),
+            'title' => $product_details['title'],
+            'price' => $product_details['price'] + $extra_cost,
+            'extra_price' => $extra_cost,
+            'sku' => $product_details['sku'], 'folder' => $product_details['folder'],
+            'attrs' => $customtype,
+            'vendor_id' => $product_details['user_id'],
+            'total_price' => $product_details['price'] + $extra_cost,
+            'file_name' => custome_image_server . "/thumb/" . $product_details['folder'] . "/fabric20001.png", 'quantity' => 1,
+            'quantity' => $quantity,
+            'user_id' => $user_id,
+            'item_id' => $item_id,
+            'item_name' => $item_name,
+            'credit_limit' => $product_details['credit_limit'] ? $product_details['credit_limit'] : 0,
+            'product_id' => $product_id,
+            'op_date_time' => date('Y-m-d H:i:s'),
+            'desing_profile_id' => $profile_id,
+            'desing_profile' => $customtype == "Shop Stored" ? "Shop Stored" : $profile_name
             );
             if (isset($cartdata['products'][$product_id])) {
 
@@ -1134,6 +1153,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
 //                $custom_dict
 
                 $this->db->insert('cart', $product_dict);
+
                 $last_id = $this->db->insert_id();
                 $display_index = 1;
                 foreach ($custom_dict as $key => $value) {
@@ -1144,6 +1164,17 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
                         'cart_id' => $last_id,
                     );
                     $this->db->insert('cart_customization', $custom_array);
+                    $custom_array2 = array(
+                        'style_key' => $key,
+                        'style_value' => $value,
+                        'display_index' => $display_index,
+                        'profile_id' => $profile_id,
+                    );
+
+                    if ($customtype == "Custom") {
+                        $this->db->insert('cart_customization_profile_design', $custom_array2);
+                    }
+
                     $display_index++;
                 }
             }

@@ -81,7 +81,7 @@ $this->load->view('layout/header');
                                     <td>
                                         <h3>{{style.name}}</h3>
                                         <br/>
-                                        <button type="button" ng-click="viewStyleOnly(style.cart_data.item_name, style.style)" class="btn btn-default btn-small-xs"  title ="Update Profile">View</button>
+                                        <button type="button" ng-click="viewStyleOnly(style.cart_data.profile, style.style)" class="btn btn-default btn-small-xs"  title ="Update Profile">View</button>
                                         <button type="button" ng-click="setAsFavorite(style.cart_data.id, style.cart_data.status)" class="btn btn-default btn-small-xs"  title ="Favorite Profile"><i class="text-danger fa {{style.cart_data.status=='f'?'fa-heart':'fa-heart-o'}}"></i></button>
 
 
@@ -94,13 +94,14 @@ $this->load->view('layout/header');
 
                                     <td>
 
-                                        <a href="<?php echo ADMINURL . "index.php/Order/selectPreviouseProfilesReport/"; ?>/{{style.cart_data.id}}/1" class="btn btn-default"  title ="Dowload Profile"><i class="fa fa-download"></i></a>
+                                        <a href="<?php echo ADMINURL . "index.php/Order/selectPreviouseProfilesReport/"; ?>/{{style.cart_data.id}}/1" class="btn btn-default greencolorbg"  title ="Dowload Profile"><i class="fa fa-download"></i></a>
                                         &nbsp;
                                         <button type="button" ng-click="askForEmail(style.cart_data.id)" class="btn btn-default"  title ="Email Profile"><i class="fa fa-envelope"></i></button>
                                         &nbsp;
                                         <!--<button type="button" ng-click="addToCartCustomeFromPre(style.cart_data.id, false, true)" class="btn btn-warning"  title ="Update Profile"><i class="fa fa-edit"></i></button>-->
                                         <!--&nbsp;-->
-
+                                        <a href="<?php echo site_url("Account/editDesing"); ?>/{{style.cart_data.id}}/{{style.cart_data.item_id}}" class="btn btn-default yellocolorbg"  title ="Edit Profile"><i class="fa fa-edit"></i></a>
+                                        &nbsp;
                                         <button type="button" ng-click="askForDelete(style.cart_data.id)" class="btn btn-danger"  title ="Delte Profile"><i class="fa fa-trash"></i></button>
 
                                     </td>

@@ -390,6 +390,39 @@ class Account extends CI_Controller {
         $this->load->view('Account/designs', $data);
     }
 
+    function editDesing($design_id, $item_id) {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
+        $data["design_id"] = $design_id;
+        $data["item_id"] = $item_id;
+        $custom_id = $item_id;
+        $customurl = site_url("customApi/customeElements");
+        if ($custom_id == 1) {
+            $customurl = site_url("customApi/customeElements");
+        }
+        if ($custom_id == 2) {
+            $customurl = site_url("customApi/customeElementsSuit");
+        }
+        if ($custom_id == 4) {
+            $customurl = site_url("customApi/customeElementsJacket");
+        }
+        if ($custom_id == 3) {
+            $customurl = site_url("customApi/customeElementsPant");
+        }
+        if ($custom_id == 5) {
+            $customurl = site_url("customApi/customeElementsTuxedoSuit");
+        }
+        if ($custom_id == 6) {
+            $customurl = site_url("customApi/customeElementsTuxedoSuit");
+        }
+        if ($custom_id == 7) {
+            $customurl = site_url("customApi/customeElementsTuxedoSuit");
+        }
+        $data["customurl"] = $customurl;
+        $this->load->view('Account/editDesigns', $data);
+    }
+
     function myMeasurements() {
         if ($this->user_id == 0) {
             redirect('Account/login');
@@ -398,6 +431,14 @@ class Account extends CI_Controller {
         $data["product_id"] = 0;
         $data["item_id"] = 0;
         $this->load->view('Account/measurements', $data);
+    }
+
+    function editMeasurement($measurement_id) {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
+        $data["measurement_id"] = $measurement_id;
+        $this->load->view('Account/editMeasurements', $data);
     }
 
     function wishlist() {

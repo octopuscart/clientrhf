@@ -1,6 +1,34 @@
 /* 
  Shop Cart product controllers
  */
+
+App.directive('fileModel', ['$parse', function ($parse) {
+        return {
+            restrict: 'A',
+            link: function (scope, element, attrs) {
+                var model = $parse(attrs.fileModel);
+                var modelSetter = model.assign;
+                console.log(model);
+                element.bind('change', function () {
+                    scope.$apply(function () {
+                        function imageIsLoaded(e) {
+
+                            $(element[0]).parents(".thumbnail").find("img").attr('src', e.target.result);
+                        }
+                        var reader = new FileReader();
+                        reader.onload = imageIsLoaded;
+                        reader.readAsDataURL(element[0].files[0]);
+                        modelSetter(scope, element[0].files[0]);
+                    });
+                });
+            }
+        };
+    }]);
+
+
+
+
+
 App.controller('ShopController', function ($scope, $http, $timeout, $interval, $filter) {
     $scope.tonumber = function (numberx) {
         return Number(numberx);
@@ -288,12 +316,12 @@ App.controller('ShopController', function ($scope, $http, $timeout, $interval, $
             } else {
                 swal({
                     title: 'Unable to add Wishlist',
-                     html:
-    'In order to add product in wishlist please login or register,' +
-    '<br/> <br/><a class="btn btn-danger" href="'+baseurl+'/Account/login">Login Now</a> ' +
-    '',
-                    text:"In order to add product in wishlist please login or register",
-                    type:"warning"
+                    html:
+                            'In order to add product in wishlist please login or register,' +
+                            '<br/> <br/><a class="btn btn-danger" href="' + baseurl + '/Account/login">Login Now</a> ' +
+                            '',
+                    text: "In order to add product in wishlist please login or register",
+                    type: "warning"
                 });
             }
         }

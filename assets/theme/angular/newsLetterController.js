@@ -7,9 +7,9 @@ App.controller('newsLetterController', function ($scope, $http, $timeout, $inter
 
     $scope.newsalertDict = {'listdata': {
             'Full Experience': {'title': 'Full Experience', 'description': 'I want the full Nita Fashions Experience.'},
-            'Sales/Promotion': {'title': 'Sales/Promotion', 'description': 'I would like to only know about products that are on Sales/Promotion.'},
+            'Sales Or Promotion': {'title': 'Sales Or Promotion', 'description': 'I would like to only know about products that are on Sales/Promotion.'},
             'New Arrival': {'title': 'New Arrival', 'description': 'I would like to only know about products that are New/Trending.'},
-            'Monthly': {'title': 'Monthly Subscription', 'description': 'I would like to receive monthly newsletters subscription from Nita Fashions.'},
+            'Monthly Subscription': {'title': 'Monthly Subscription', 'description': 'I would like to receive monthly newsletters subscription from Nita Fashions.'},
             'Unsubscribe': {'title': 'Unsubscribe', 'description': 'I would like to unsubscribe newsletters from Nita Fashions.'},
 
         },

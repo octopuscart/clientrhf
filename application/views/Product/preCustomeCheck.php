@@ -47,10 +47,8 @@ $this->load->view('layout/header');
                         </tr>
                         <tr ng-repeat="(stkey, style) in customizationDict.prestyle">
                             <td>
-                                <h3>{{style.name}}</h3>
-                                <button type="button" ng-click="viewStyleOnly(style.cart_data.item_name, style.style)" class="btn btn-default"  style="padding: 5px 21px;
-                                        line-height: normal;
-                                        margin-top: 10px;">View</button>
+                                <h3>{{style.name}}</h3><br/>
+                                <button type="button" ng-click="viewStyleOnly(style.cart_data.item_name, style.style)" class="btn btn-default btn-small-xs"  style="">View</button>
                                 <button type="button" class="btn btn-default btn-small-xs"  title ="Favorite Profile"><i class="text-danger fa {{style.cart_data.status=='f'?'fa-heart':'fa-heart-o'}}"></i></button>
 
 

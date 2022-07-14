@@ -128,6 +128,55 @@ class Cart extends CI_Controller {
         $this->session->set_userdata('measurement_style', $measurement_style);
     }
 
+    function measurements() {
+        $this->db->select("*");
+        $this->db->order_by('display_index', 'asc');
+//        $this->db->where_in('id', $measurementarray);
+        $query = $this->db->get('measurement');
+        $custome_measurements = $query->result_array();
+        $data['measurements_list'] = $custome_measurements;
+
+        $this->db->select("*");
+        $this->db->order_by('display_index', 'asc');
+        $query = $this->db->get('measurement_posture');
+        $measurement_posture = $query->result_array();
+
+        $measurement_posture_array = array();
+        foreach ($measurement_posture as $pkey => $pvalue) {
+
+            $this->db->select("title, image");
+            $this->db->where_in('measurement_posture_id', $pvalue["id"]);
+            $query = $this->db->get('measurement_posture_value');
+            $measurement_posture_array[$pvalue["title"]] = $query ? $query->result_array() : array();
+        }
+        $data['measurement_posture'] = $measurement_posture_array;
+
+        if (isset($_POST['submit_measurement'])) {
+            $measurement_style = array(
+                'measurement_style' => $this->input->post('measurement_type'),
+                'measurement_dict' => array()
+            );
+            $measurement_title = $this->input->post('measurement_title');
+            $measurement_value = $this->input->post('measurement_value');
+
+            foreach ($measurement_title as $key => $value) {
+                $mvalue = $measurement_value[$key];
+                $mtitle = $value;
+                $measurement_style['measurement_dict'][$mtitle] = $mvalue;
+            }
+
+            $this->session->set_userdata('measurement_style', $measurement_style);
+
+            if ($this->checklogin) {
+                redirect('Cart/checkoutShipping');
+            } else {
+                redirect('CartGuest/checkoutShipping');
+            }
+        }
+
+        $this->load->view('Cart/user_measurements', $data);
+    }
+
     function checkoutSize() {
         $this->redirectCart();
 
@@ -162,7 +211,7 @@ class Cart extends CI_Controller {
         $previous_measurements = $query ? $query->result_array() : array();
         $data['previous_measurements'] = $previous_measurements;
 
-        $measurementarray = explode(",", $custome_measurements->measurement);
+        $measurementarray = explode(", ", $custome_measurements->measurement);
 
         $this->db->select("*");
         $this->db->order_by('display_index', 'asc');
@@ -253,7 +302,6 @@ class Cart extends CI_Controller {
         $this->redirectCart();
         $measurement_style = $this->session->userdata('measurement_style');
         $data['measurement_style_type'] = $measurement_style ? $measurement_style['measurement_style'] : "Please Select Size";
-
 
         $data['checkoutmode'] = '';
 
@@ -381,21 +429,21 @@ class Cart extends CI_Controller {
 
 
                 $this->session->unset_userdata("session_coupon");
-                
-                
+
                 $order_status_data = array(
                     'c_date' => date('Y-m-d'),
                     'c_time' => date('H:i:s'),
                     'order_id' => $last_id,
                     'status' => "Order Confirmed",
                     'user_id' => $this->user_id,
-                    'remark' => "Order Confirmed By Using " . $paymentmathod . ",  Waiting For Payment",
+                    'remark' => "Order Confirmed By Using " . $paymentmathod . ", Waiting For Payment",
                 );
                 $this->db->insert('user_order_status', $order_status_data);
 //                    $this->Product_model->order_to_vendor($last_id);
                 redirect('Order/orderdetails/' . $orderkey);
             }
-            $this->load->view('Cart/checkoutPayment', $data);
+            $this->load->view('Cart/checkoutPayment', $data
+            );
         } else {
             redirect('Account/login?page=checkoutInit');
         }

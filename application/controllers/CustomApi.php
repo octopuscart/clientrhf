@@ -10,7 +10,7 @@ class CustomApi extends REST_Controller {
         $this->load->model('Product_model');
         $this->load->library('session');
         $this->checklogin = $this->session->userdata('logged_in');
-        $this->user_id =  $this->checklogin ?  $this->checklogin['login_id']:0;
+        $this->user_id = $this->checklogin ? $this->checklogin['login_id'] : 0;
     }
 
     //shirt Implemantation
@@ -28,17 +28,20 @@ class CustomApi extends REST_Controller {
                     "viewtype" => "front",
                     "type" => "main",
                     "colrow" => "4",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Collar Insert",
                     "viewtype" => "front",
                     "type" => "submain",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Cuff & Sleeve",
                     "viewtype" => "front",
                     "type" => "main",
                     "colrow" => "4",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Cuff Insert",
@@ -50,36 +53,48 @@ class CustomApi extends REST_Controller {
                     "viewtype" => "front",
                     "type" => "main",
                     "colrow" => "4",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Back",
                     "viewtype" => "back",
                     "type" => "main",
                     "colrow" => "4",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Pocket",
                     "viewtype" => "front",
                     "type" => "main",
                     "colrow" => "4",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Bottom",
                     "viewtype" => "front",
                     "type" => "main",
                     "colrow" => "4",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Buttons",
                     "viewtype" => "front",
                     "type" => "submain",
                     "colrow" => "2",
+                    "editable" => "no",
                 ),
                 array(
                     "title" => "Monogram",
                     "viewtype" => "front",
                     "type" => "main",
                     "colrow" => "4",
+                    "editable" => "no",
+                ),
+                array(
+                    "title" => "Remark",
+                    "viewtype" => "front",
+                    "type" => "main",
+                  
                 ),
             ],
             "collar_cuff_insert" => array(),
@@ -864,7 +879,8 @@ class CustomApi extends REST_Controller {
                             "collar_fullcutaway_5w0001.png" => "margin-top: 5px;"
                         )
                     )
-                ]
+                ],
+                "Remark"=>[],
             ),
             "cuff_collar_insert" => ["p10", "p11", "p2", "p18"],
             "monogram_colors" => [
@@ -1314,9 +1330,9 @@ class CustomApi extends REST_Controller {
                     "customization_category_id" => "4",
                     "image" => "suit_elements/breastpocket/breast_pocket_patch.png",
                     "show_buttons" => "true",
-                     "overlay" => ["patch_pocket_breast.png"],
+                    "overlay" => ["patch_pocket_breast.png"],
                 )
-                ],
+            ],
             "Ticket Pocket" => [
                 array(
                     "status" => "1",
@@ -1329,7 +1345,7 @@ class CustomApi extends REST_Controller {
                     "status" => "0",
                     "title" => "Pipe Pocket",
                     "overlay" => ["ticket_pocket_w_overlay.png"],
-                     "elements" => [],
+                    "elements" => [],
                     "customization_category_id" => "4",
                     "image" => "suit_elements/pocket/ticketpocket_w.png",
                     "show_buttons" => "true",
@@ -1853,45 +1869,50 @@ class CustomApi extends REST_Controller {
                     "viewtype" => "front",
                     "type" => "main",
                     "colrow" => "4",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Lapel Style",
                     "viewtype" => "front",
                     "type" => "main",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Lapel Button Hole",
                     "viewtype" => "front",
                     "type" => "main",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Breast Pocket",
                     "viewtype" => "front",
                     "type" => "main",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Lower Pocket",
                     "viewtype" => "front",
                     "type" => "main",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Ticket Pocket",
                     "viewtype" => "front",
                     "type" => "main",
+                    "editable" => "yes",
                 ),
-                
-                
-               
                 array(
                     "title" => "Back Vent",
                     "viewtype" => "back",
                     "type" => "main",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Sleeve Buttons",
                     "viewtype" => "front",
                     "type" => "main",
                     "style_side" => "    background-size: 19%!important;",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Number of Pleat",
@@ -1902,26 +1923,37 @@ class CustomApi extends REST_Controller {
                     "title" => "Front Pocket Style",
                     "viewtype" => "pant",
                     "type" => "main",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Number of Back Pocket",
                     "viewtype" => "pantback",
                     "type" => "main",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Waistband",
                     "viewtype" => "pant",
                     "type" => "main",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Cuff",
                     "viewtype" => "pant",
                     "type" => "main",
+                    "editable" => "yes",
                 ),
                 array(
                     "title" => "Buttons",
                     "viewtype" => "front",
                     "type" => "submain",
+                    "editable" => "no",
+                ),
+                array(
+                    "title" => "Remark",
+                    "viewtype" => "front",
+                    "type" => "main",
+                  
                 ),
             ],
             "collar_cuff_insert" => array(),
@@ -2261,7 +2293,7 @@ class CustomApi extends REST_Controller {
                     "type" => "main",
                     "colrow" => "4",
                 ),
-                 array(
+                array(
                     "title" => "Ticket Pocket",
                     "viewtype" => "front",
                     "type" => "main",
