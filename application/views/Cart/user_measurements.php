@@ -160,14 +160,16 @@ $this->load->view('layout/header');
                         <div class="catalog">
                             <hr/>
                             <div class="row">
-                                <div class="col-md-4" style="overflow-y: auto;height:500px;">
+                                <div class="col-md-4" style="overflow-y: auto;height:400px;">
                                     <ul class="nav nav-tabs tabs-left"> 
-                                        <li class="list-group-item" style="width: 100%" ng-repeat="(mes, mesv) in measurementDict">
-                                            <a  href="#custome{{$index}}" data-toggle="tab" >
+                                        <li class="list-group-item"  ng-repeat="(mes, mesv) in measurementDict">
+                                            <a  href="#custome{{$index}}" style="width: 100%" data-toggle="tab" >
                                                 <span class="badge">{{mesv.mvalue}} {{mesv.frvalue}}  {{mesv.unit}}</span>
                                                 {{mes}}
                                                 <input class="input_display_none" name="measurement_key[]" value="{{mes}}">
                                                 <input class="input_display_none" name="measurement_value[]" value="{{mesv.mvalue}} {{mesv.frvalue}}">
+                                                <input class="input_display_none" name="measurement_unit[]" value="{{mesv.unit}}">
+
                                             </a>
                                         </li>
                                         <li class="list-group-item" style="width: 100%">
@@ -208,8 +210,7 @@ $this->load->view('layout/header');
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <input class="input_display_none" name="measurement_key[]" value="<?php echo $value['title']; ?>">
-                                                                        <select class="form-control" name="measurement_value[]" ng-model="measurementDict['<?php echo $value['title']; ?>'].mvalue"  style="padding: 12px 4px;">
+                                                                        <select class="form-control" name="selectbox[]" ng-model="measurementDict['<?php echo $value['title']; ?>'].mvalue"  style="padding: 12px 4px;">
                                                                             <?php
                                                                             for ($ft = $value['min_value']; $ft <= $value['max_value']; $ft++) {
                                                                                 echo "<option>" . $ft . "</option>";
@@ -242,8 +243,7 @@ $this->load->view('layout/header');
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <input class="input_display_none" name="measurement_key[]" value="<?php echo $value['title']; ?>">
-                                                                        <select class="form-control" name="measurement_value[]" ng-model="measurementDict['<?php echo $value['title']; ?>'].mvalue"  style="padding: 12px 4px;">
+                                                                        <select class="form-control" name="selectbox[]" ng-model="measurementDict['<?php echo $value['title']; ?>'].mvalue"  style="padding: 12px 4px;">
                                                                             <?php
                                                                             for ($ft = $value['min_value']; $ft <= $value['max_value']; $ft++) {
                                                                                 for ($ftin = 0; $ftin <= 11; $ftin++) {
@@ -276,9 +276,7 @@ $this->load->view('layout/header');
 
                                                                     </div>
                                                                     <div class="col-md-3">
-                                                                        <input class="input_display_none" name="measurement_key[]" value="<?php echo $value['title']; ?>">
-                                                                        <input class="input_display_none" name="measurement_value[]" value="{{measurementDict['<?php echo $value['title']; ?>'].mvalue}} {{measurementDict['<?php echo $value['title']; ?>'].frvalue}}">
-
+            
                                                                         <span class="measurement_text">{{measurementDict['<?php echo $value['title']; ?>'].mvalue}}</span> <small class="fr_value">{{measurementDict['<?php echo $value['title']; ?>'].frvalue}}"</small>
 
                                                                     </div>
@@ -334,9 +332,7 @@ $this->load->view('layout/header');
 
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <input class="input_display_none" name="measurement_key[]" value="<?php echo $pkey; ?>">
-                                                                <input class="input_display_none" name="measurement_value[]" value="{{measurementDict['<?php echo $pkey; ?>'].mvalue}}">
-
+                                       
                                                             </div>
                                                             <div class="col-md-12 row">
                                                                 <hr/>
@@ -392,7 +388,7 @@ $this->load->view('layout/header');
                                                                     <div class="input-group">
 
                                                                         <div class="custom-file">
-                                                                            <input type="file" class="" name='picture[]' id="inputGroupFile01" file-model="filename" >
+                                                                            <input type="file" class="" name='picture[]' id="inputGroupFile01" file-model="filename" accept="image/*">
                                                                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                                                         </div>
                                                                         <br/>
@@ -488,7 +484,7 @@ foreach ($measurements_list as $key => $value) {
 }
 foreach ($measurement_posture as $pkey => $pvalue) {
     ?>
-        $scope.measurementDict["<?php echo $pkey; ?>"] = {'mvalue': '<?php echo $pvalue[0]['title']; ?>', 'frvalue': '', "unit":""};
+        $scope.measurementDict["<?php echo $pkey; ?>"] = {'mvalue': '<?php echo $pvalue[0]['title']; ?>', 'frvalue': '', "unit":"posture"};
     <?php
 }
 ?>

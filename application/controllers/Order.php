@@ -12,11 +12,12 @@ class Order extends CI_Controller {
         $session_user = $this->session->userdata('logged_in');
         if ($session_user) {
             $this->user_id = $session_user['login_id'];
+            $this->checklogin = $this->session->userdata('logged_in');
         } else {
             $this->user_id = 0;
+            $this->checklogin = false;
         }
-        $this->checklogin = $this->session->userdata('logged_in');
-        $this->user_id = $this->session->userdata('logged_in')['login_id'];
+        
     }
 
     public function index() {
@@ -35,6 +36,7 @@ class Order extends CI_Controller {
             redirect('/');
         }
         $order_details = $this->Product_model->getOrderDetails($order_key, 'key');
+      
         $this->db->order_by('id', 'desc');
         $this->db->where('order_id', $order_details['order_data']->id);
         $query = $this->db->get('vendor_order');

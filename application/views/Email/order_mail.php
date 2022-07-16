@@ -230,7 +230,12 @@
                         if (count($measurements_items)) {
                             foreach ($measurements_items as $keym => $valuem) {
                                 $mvalues = explode(" ", $valuem['measurement_value']);
-                                echo "<p class='style_block'><b>" . $valuem['measurement_key'] . " </b><span> " . $mvalues[0] . " <span class='fr_value'>" . $mvalues[1] . '"' . "</span></span></p>";
+                                $unit = $valuem['unit'] == "inch" ? '"' : '';
+                                if ($unit) {
+                                    echo "<p class='style_block'><b>" . $valuem['measurement_key'] . " </b><span> " . $mvalues[0] . " <span class='fr_value'>" . $mvalues[1] . "$unit</span></span></p>";
+                                } else {
+                                    echo "<p class='style_block'><b>" . $valuem['measurement_key'] . " </b><span> " . $valuem['measurement_value'] . " </span></p>";
+                                }
                             }
                         }
                         ?>  
@@ -263,41 +268,41 @@
                 </tr>
 
                 <?php if ($order_data->payment_mode == 'Bank Transfer') { ?>
-    <!--                    <tr><td colspan="6" style="font-size: 12px;">
-                                <table class="bankdetails">
-                                    <tbody>
-                                        <tr>
-                                            <th style="width: 120px;text-align: left" colspan="4">Company Name: Royal Trading</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Bank Name</th>
-                                            <td>Bank Of China</td>
-                                            <th>A/c No.</th>
-                                            <td>012 721 00092404</td>
-                                        </tr>
-                                        <tr>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th>Bank Code</th>
-                                            <td>012</td>
-                                             <th>Branch Code</th>
-                                            <td>721</td>
-                                        </tr>
-                                        <tr>
-                                           
-                                        </tr>
-                                        <tr>
-                                            <th>Swift Code</th>
-                                            <td>BKCHHKHH</td>
-                                            <th>Address</th>
-                                            <td>1 Garden Road, Hong Kong</td>
-                                        </tr>
-                                      
-                                    </tbody></table>
-                            </td>
+            <!--                    <tr><td colspan="6" style="font-size: 12px;">
+                                        <table class="bankdetails">
+                                            <tbody>
+                                                <tr>
+                                                    <th style="width: 120px;text-align: left" colspan="4">Company Name: Royal Trading</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Bank Name</th>
+                                                    <td>Bank Of China</td>
+                                                    <th>A/c No.</th>
+                                                    <td>012 721 00092404</td>
+                                                </tr>
+                                                <tr>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <th>Bank Code</th>
+                                                    <td>012</td>
+                                                     <th>Branch Code</th>
+                                                    <td>721</td>
+                                                </tr>
+                                                <tr>
+                                                   
+                                                </tr>
+                                                <tr>
+                                                    <th>Swift Code</th>
+                                                    <td>BKCHHKHH</td>
+                                                    <th>Address</th>
+                                                    <td>1 Garden Road, Hong Kong</td>
+                                                </tr>
+                                              
+                                            </tbody></table>
+                                    </td>
 
-                        </tr>-->
+                                </tr>-->
                     <?php
                 }
                 ?>

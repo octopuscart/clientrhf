@@ -59,15 +59,15 @@ $paymentstatus = "";
         <h1 style="    color: black;
             margin-bottom: 30px;
             font-size: 30px;
-                text-shadow: 0px 0px;">Order Details</br>
-                  <p style="font-size:15px;margin:10px auto;">Order No. #<?php echo $order_data->order_no; ?></p>
-                 
+            text-shadow: 0px 0px;">Order Details</br>
+            <p style="font-size:15px;margin:10px auto;">Order No. #<?php echo $order_data->order_no; ?></p>
+
         </h1>
 
         <!-- Breadcrumb -->
-       
-          
-        
+
+
+
     </div>
 </div>
 
@@ -313,12 +313,12 @@ $paymentstatus = "";
                                             <?php
                                             if ($product->extra_price > 0) {
                                                 ?>
-                                            <span  style="font-size: 12px;
-                                          font-weight: 600;
-                                          text-align: center;">
-                                        <br/>
-                                       {{ <?php echo $product->price - $product->extra_price; ?> |currency:""}}
-                                              + {{ <?php echo $product->extra_price; ?> |currency:""}}
+                                                <span  style="font-size: 12px;
+                                                       font-weight: 600;
+                                                       text-align: center;">
+                                                    <br/>
+                                                    {{ <?php echo $product->price - $product->extra_price; ?> |currency:""}}
+                                                    + {{ <?php echo $product->extra_price; ?> |currency:""}}
                                                 </span>
                                                 <?php
                                             }
@@ -354,7 +354,12 @@ $paymentstatus = "";
                                                             echo "<ul class='list-group'>";
                                                             foreach ($measurements_items as $keym => $valuem) {
                                                                 $mvalues = explode(" ", $valuem['measurement_value']);
-                                                                echo "<li class='list-group-item'>" . $valuem['measurement_key'] . " <span class='measurement_right_text'><span class='measurement_text'>" . $mvalues[0] . "</span><span class='fr_value'>" . $mvalues[1] . '"' . "</span></span></li>";
+                                                                $unit = $valuem['unit'] == "inch" ? '"' : '';
+                                                                if ($unit) {
+                                                                    echo "<li class='list-group-item'>" . $valuem['measurement_key'] . " <span class='measurement_right_text'><span class='measurement_text'>" . $mvalues[0] . "</span><span class='fr_value'>" . $mvalues[1] . '' . "$unit</span></span></li>";
+                                                                } else {
+                                                                    echo "<li class='list-group-item'>" . $valuem['measurement_key'] . " <span class='measurement_right_text'><span class='measurement_text'>" . $valuem['measurement_value'] . "</span></span></li>";
+                                                                }
                                                             }
                                                             echo "</ul>";
                                                             ?>                             
@@ -444,7 +449,7 @@ $paymentstatus = "";
                                         <td colspan="2" style="text-align: right">Coupon Discount</td>
                                         <td style="text-align: right;width: 60px">{{"<?php echo $order_data->discount; ?>"|currency:"<?php echo globle_currency; ?> "}} </td>
                                     </tr>
-                                     <tr>
+                                    <tr>
                                         <td colspan="2" style="text-align: right">Shipping</td>
                                         <td style="text-align: right;width: 60px">{{"<?php echo $order_data->shipping; ?>"|currency:"<?php echo globle_currency; ?> "}} </td>
                                     </tr>
@@ -476,57 +481,55 @@ $paymentstatus = "";
 <script>
 
     App.controller('OrderDetailsController', function ($scope, $http, $timeout, $interval) {
-        var url = baseurl + "Api/order_mail/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
-        $scope.checkmailsend = 0;
-        $scope.sendOrderMail = function (order_no) {
-            swal({
-                title: 'Sending Mail...',
-                onOpen: function () {
-                    swal.showLoading()
-                },
-            })
+    var url = baseurl + "Api/order_mail/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
+    $scope.checkmailsend = 0;
+    $scope.sendOrderMail = function (order_no) {
+    swal({
+    title: 'Sending Mail...',
+            onOpen: function () {
+            swal.showLoading()
+            },
+    })
             $http.get(url).then(function (rdata) {
-                swal({timer: 1500,
+    swal({timer: 1500,
+            title: 'Mail Sent!',
+            type: 'success', })
+    }, function () {
+    swal({timer: 1500,
+            title: 'Unable To Send Mail!',
+            type: 'error', })
+    })
+    }
+
+    $interval(function () {
+    if ($scope.checkmailsend == 1) {
+    }
+    else {
+    $scope.sendOrderMailCheck();
+    }
+    }, 2000)
+
+            $scope.sendOrderMailCheck = function (order_no) {
+            var url1 = baseurl + "Api/order_mailcheck/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
+            $http.get(url1).then(function (rdata) {
+            $scope.checkmailsend = rdata.data.checkpre;
+            if ($scope.checkmailsend == 0) {
+            var url2 = baseurl + "Api/order_mailchecksend/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
+            $http.get(url2).then(function (rdata) {
+            swal({timer: 1500,
                     title: 'Mail Sent!',
                     type: 'success', })
             }, function () {
-                swal({timer: 1500,
+            swal({timer: 1500,
                     title: 'Unable To Send Mail!',
                     type: 'error', })
             })
-        }
-
-        $interval(function () {
-            if ($scope.checkmailsend == 1) {
             }
-            else {
-                $scope.sendOrderMailCheck();
-            }
-        }, 2000)
-
-        $scope.sendOrderMailCheck = function (order_no) {
-            var url1 = baseurl + "Api/order_mailcheck/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
-
-
-            $http.get(url1).then(function (rdata) {
-                $scope.checkmailsend = rdata.data.checkpre;
-                if ($scope.checkmailsend == 0) {
-                    var url2 = baseurl + "Api/order_mailchecksend/" + <?php echo $order_data->id; ?> + "/" + '<?php echo $order_data->order_no; ?>';
-                    $http.get(url2).then(function (rdata) {
-                        swal({timer: 1500,
-                            title: 'Mail Sent!',
-                            type: 'success', })
-                    }, function () {
-                        swal({timer: 1500,
-                            title: 'Unable To Send Mail!',
-                            type: 'error', })
-                    })
-                }
 
             }, function () {
 
             })
-        }
+            }
 
     })
 
