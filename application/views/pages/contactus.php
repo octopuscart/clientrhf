@@ -10,10 +10,10 @@ $this->load->view('layout/header');
         float: left;
     }
     .form-control {
-    border: 1px solid #e5e5e5;
-    border-radius: 0;
-    padding: 12px 30px;
-    margin-bottom: 10px;
+        border: 1px solid #e5e5e5;
+        border-radius: 0;
+        padding: 12px 30px;
+        margin-bottom: 10px;
     }
 </style>
 
@@ -34,7 +34,7 @@ $this->load->view('layout/header');
                     <div class="contact-info">
                         <h4>Address</h4>
                         <p> 
-Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, Tsim Sha Tsui,<br/> Kowloon, Hong Kong<br>(MTR Exit No. N5)<br>                        </p>
+                            Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, Tsim Sha Tsui,<br/> Kowloon, Hong Kong<br>(MTR Exit No. N5)<br>                        </p>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,19 @@ Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, 
                     <div class="contact-info">
                         <h4>Email</h4>
                         <p><a href="mailto:rftailor@biznetvigator.com" title=" rftailor@biznetvigator.com"> rftailor@biznetvigator.com</a> </p>
+                   
+                     <div class="spacer-10"></div>
+                    <h5 class="text-white">Our Timings</h5>
+                    <div class="spacer-10"></div>
+                    <dl>
+                        <dt>Monday to Saturday</dt>
+                        <p>09:00 AM to 09:00 PM</p>
+                        <dt>Sunday</dt>
+                        <p>10:00 AM to 07:00 PM</p>
+                    </dl>
                     </div>
+
+                   
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12">
@@ -75,45 +87,45 @@ Shop No. 30, G/F, <br/>Mirador Mansion, 1-J Mody Road, <br/> 54-64 Nathan Road, 
                 <div class="col-lg-8 col-md-12 col-sm-12">
 
 
-                 
+
                     <!-- start fillform -->
                     <div class="fillform">
-                        <form role="form"  action="#" class="contact-form" method="post" >
+                        <form role="form"  action="#" class="" method="post" >
                             <div  class="row">
                                 <div  class="col-sm-6">
-                                        <input type="text" class="form-control" name="last_name" id="name" placeholder="Last Name" required="">
+                                    <input type="text" class="form-control" name="last_name" id="name" placeholder="Last Name" required="">
                                 </div >
                                 <div  class="col-sm-6">
-                                        <input type="text" class="form-control" name="first_name" id="name" placeholder="First Name" required="">
+                                    <input type="text" class="form-control" name="first_name" id="name" placeholder="First Name" required="">
                                 </div >
                                 <div  class="col-sm-12">
-                                        <input type="text" class="form-control" name="email" id="email" placeholder="Email" required="">
+                                    <input type="text" class="form-control" name="email" id="email" placeholder="Email" required="">
                                 </div >
                                 <div  class="col-sm-12">
-                                        <input type="text" class="form-control" name="contact" id="company" placeholder="Contact No.">
-                                </div >
-
-                                <div  class="col-sm-12">
-                                        <select name="subject" placeholder="Subject" class="form-control" style="  height: 50px;
-                                                background: #fafafa; " required="">
-                                            <option>Enquiry</option>
-                                            <option>Send Swatches</option>
-                                            <option>Feedback</option>
-                                            <option>Appointment</option>
-                                            <option>Alteration</option> 
-                                        </select>
+                                    <input type="text" class="form-control" name="contact" id="company" placeholder="Contact No.">
                                 </div >
 
+                                <div  class="col-sm-12">
+                                    <select name="subject" placeholder="Subject" class="form-control" style="  height: 50px;
+                                            background: #fafafa; " required="">
+                                        <option>Enquiry</option>
+                                        <option>Send Swatches</option>
+                                        <option>Feedback</option>
+                                        <option>Appointment</option>
+                                        <option>Alteration</option> 
+                                    </select>
+                                </div >
+
 
                                 <div  class="col-sm-12">
-                                        <textarea class="form-control" name="message"  rows="5" placeholder="Message" required=""></textarea>
+                                    <textarea class="form-control" name="message"  rows="5" placeholder="Message" required=""></textarea>
                                 </div >
                                 <div  class="col-sm-12 text-left">
                                     <button type="submit"  class="btn btn-inverse" name="sendmessage" value="sendmessage" >SUBMIT</button>
                                 </div >
                             </div >
                         </form>
-                   
+
                     </div>
                     <!-- end fillform -->
                 </div>

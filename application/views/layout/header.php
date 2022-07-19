@@ -101,6 +101,8 @@
 
                                         </ul>
                                     </li>
+                                    <li><a href="<?php echo site_url("offers"); ?>">Offers</a></li>
+
                                     <li><a href="<?php echo site_url("appointment"); ?>">Schedule</a></li>
 
                                     <li><a href="<?php echo site_url("Shop/lookbook"); ?>" title="Trainers">Look Book</a></li>
@@ -149,9 +151,9 @@
                                         <li> <a href="<?php echo site_url("Account/login"); ?>" >Sign In / Sign Up </a>
                                         </li>
 
-    <?php
-}
-?>
+                                        <?php
+                                    }
+                                    ?>
                                 </ul>
                             </nav>
                             <a href="javascript:;" id="menu-toggle" title="Menu"></a>

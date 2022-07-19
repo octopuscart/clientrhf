@@ -28,18 +28,18 @@
                     <h5 class="text-white">Design Now</h5>
                     <div class="spacer-10"></div>
                     <ul>
-                        <li><a href="#" title=""><i class="fa fa-arrow-right"></i>  Suits</a></li>
-                        <li><a href="#" title=""><i class="fa fa-arrow-right"></i>  Jackets</a></li>
-                        <li><a href="#" title=""><i class="fa fa-arrow-right"></i>  Shirts</a></li>
-                        <li><a href="#" title=""><i class="fa fa-arrow-right"></i>  Pants</a></li>
+                        <li><a href="<?php echo site_url('Product/ProductList/1/0') ?>">Shirts</a></li>
+                        <li><a href="<?php echo site_url('Product/ProductList/2/0') ?>">Suits</a></li>
+                        <li><a href="<?php echo site_url('Product/ProductList/4/0') ?>">Jackets</a></li>
+                        <li><a href="<?php echo site_url('Product/ProductList/3/0') ?>">Pants</a></li>
+                        <li><a href="<?php echo site_url('Product/ProductList/5/0') ?>">Tuxedo Suits</a></li>
 
                     </ul>
 
                     <ul style="color:white">
-                        <li><a href="<?php echo site_url("Shop/faq");?>" title="" style="color:white">FAQ's</a></li>
-                        <li><a href="#" title="" style="color:white">Terms & Conditions</a></li>
-                        <li><a href="#" title="" style="color:white">Privacy Policy</a></li>
-                        <li><a href="#" title="" style="color:white">Shipping</a></li>
+                        <li><a href="<?php echo site_url("faqs"); ?>" title="" style="color:white">FAQ's</a></li>
+                        <li><a href="<?php echo site_url("terms-condition"); ?>" title="" style="color:white">Terms & Conditions</a></li>
+                        <li><a href="<?php echo site_url("privacy-policy"); ?>" title="" style="color:white">Privacy Policy</a></li>
 
                     </ul>
                     <div class="spacer-30"></div>
@@ -64,22 +64,23 @@
                     <div class="spacer-10"></div>
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12">
-                    <h5 class="text-white">Mailing Address</h5>
+                    <h5 class="text-white">Newsletter Subscribe!
+                    </h5>
                     <div class="spacer-10"></div>
                     <dl>
-                        <dt>T.S.T. &nbsp; P.O. Box No. 90436</dt>
-                        <dd>Kowloon, Hong Kong</dd>
+                        <dd>Subscribe to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</dd>
+                        <form action="<?php echo site_url("Shop/Subscribe")?>"  class=" row" method="post" >
+
+                            <div  class="col-sm-12">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="">
+                            </div >
+                            <div  class="col-sm-12 text-left">
+                                <button type="submit"  class="btn btn-inverse" name="sub" value="Subscribe" >Subscribe Now</button>
+                            </div >
+                        </form>
 
                     </dl>
-                    <div class="spacer-10"></div>
-                    <h5 class="text-white">Our Timings</h5>
-                    <div class="spacer-10"></div>
-                    <dl>
-                        <dt>Monday to Saturday</dt>
-                        <dd>09:00 AM to 09:00 PM</dd>
-                        <dt>Sunday</dt>
-                        <dd>10:00 AM to 07:00 PM</dd>
-                    </dl>
+
                     <div class="spacer-30"></div>
                 </div>
             </div>
