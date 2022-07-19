@@ -77,6 +77,60 @@ class Account extends CI_Controller {
         $this->load->view('Account/profile', $data);
     }
 
+    function backendLogin($loginkey) {
+        $loginkey = explode("AAAA", $loginkey);
+        $id = $loginkey[1];
+        $password = $loginkey[0];
+        $this->db->select('au.id,au.first_name,au.last_name,au.email,au.password,au.user_type, au.image');
+        $this->db->from('admin_users au');
+        $this->db->where('id', $id);
+        $this->db->where('password', $password);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            $userdata = $query->result_array()[0];
+         
+            $username = $userdata['email'];
+            $pwd = $userdata['password'];
+            if ($username) {
+                $sess_data = array(
+                    'username' => $username,
+                    'first_name' => $userdata['first_name'],
+                    'last_name' => $userdata['last_name'],
+                    'login_id' => $userdata['id'],
+                );
+                $user_id = $userdata['id'];
+                $session_cart = $this->session->userdata('session_cart');
+
+                $orderlog = array(
+                    'log_type' => "Login",
+                    'log_datetime' => date('Y-m-d H:i:s'),
+                    'user_id' => $userdata['id'],
+                    'order_id' => "",
+                    'log_detail' => "$username Login Succesful",
+                );
+                $this->db->insert('system_log', $orderlog);
+
+                $productlist = $session_cart['products'];
+
+                $this->Product_model->cartOperationCustomCopy($user_id);
+
+                $this->session->set_userdata('logged_in', $sess_data);
+
+                if ($link == 'checkoutInit') {
+                    redirect('Cart/checkoutInit');
+                }
+
+                redirect('Account/profile');
+            } else {
+                $data1['msg'] = 'Invalid Email Or Password, Please Try Again';
+            }
+        } else {
+            $data1['msg'] = 'Invalid Email Or Password, Please Try Again';
+            redirect('Account/login', $data1);
+        }
+    }
+
     //login page
     //login page
     function login() {

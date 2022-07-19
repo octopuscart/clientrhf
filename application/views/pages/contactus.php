@@ -46,19 +46,19 @@ $this->load->view('layout/header');
                     <div class="contact-info">
                         <h4>Email</h4>
                         <p><a href="mailto:rftailor@biznetvigator.com" title=" rftailor@biznetvigator.com"> rftailor@biznetvigator.com</a> </p>
-                   
-                     <div class="spacer-10"></div>
-                    <h5 class="text-white">Our Timings</h5>
-                    <div class="spacer-10"></div>
-                    <dl>
-                        <dt>Monday to Saturday</dt>
-                        <p>09:00 AM to 09:00 PM</p>
-                        <dt>Sunday</dt>
-                        <p>10:00 AM to 07:00 PM</p>
-                    </dl>
+
+                        <div class="spacer-10"></div>
+                        <h5 class="text-white">Our Timings</h5>
+                        <div class="spacer-10"></div>
+                        <dl>
+                            <dt>Monday to Saturday</dt>
+                            <p>09:00 AM to 09:00 PM</p>
+                            <dt>Sunday</dt>
+                            <p>10:00 AM to 07:00 PM</p>
+                        </dl>
                     </div>
 
-                   
+
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12">
@@ -120,6 +120,8 @@ $this->load->view('layout/header');
                                 <div  class="col-sm-12">
                                     <textarea class="form-control" name="message"  rows="5" placeholder="Message" required=""></textarea>
                                 </div >
+                                <div class="g-recaptcha" data-sitekey="6LfdDbogAAAAAEXM7ycO6LBIwEBH67XOUlb-nPEJ"></div>
+
                                 <div  class="col-sm-12 text-left">
                                     <button type="submit"  class="btn btn-inverse" name="sendmessage" value="sendmessage" >SUBMIT</button>
                                 </div >
