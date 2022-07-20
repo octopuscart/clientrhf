@@ -1,10 +1,13 @@
 /* 
  Producrt list controllers
  */
+function  changeFilterData () {
+        $("#filterdata").submit();
 
+    }
 App.controller('ProductController', function ($scope, $http, $timeout, $interval) {
 
-    $scope.selectedProduct = {'product': {}};
+    $scope.selectedProduct = {'product': {}, "filterdata": "Related"};
 
     $scope.zoomProduct = function (product) {
         $scope.selectedProduct.product = product;
@@ -21,7 +24,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
 
     $scope.removePriceData = function (product_id) {
         var url = baseurl + "Api/priceAskDelete/" + custom_id + "/" + product_id;
-            $http.get(url).then(function (rdata) {
+        $http.get(url).then(function (rdata) {
 
             $scope.askPriceSelected();
         })
@@ -45,8 +48,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
         })
     }
 
-
-
+    
 
 
     $scope.productResults = {};
@@ -79,14 +81,19 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
             argsk.push(search);
         }
 
+        if (filter) {
+            var filterA = "filter=" + filter;
+            argsk.push(filterA);
+        }
+
         if (pmm.trim()) {
             $scope.pricerange.max = pmx;
             $scope.pricerange.min = pmm;
             argsk.push(elempx);
             argsk.push(elempm);
         }
-        
-         var pricelist = [];
+
+        var pricelist = [];
         $(".pricefilter").each(function (i, o) {
 
             if ($(this).is(":checked")) {
@@ -125,7 +132,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
 
 
 
-        var url = baseurl + "Api/productListApi/" + category_id + "/"+custom_id;
+        var url = baseurl + "Api/productListApi/" + category_id + "/" + custom_id;
 
         if (stargs) {
             url = url + "?" + stargs;
@@ -262,7 +269,7 @@ App.controller('ProductController', function ($scope, $http, $timeout, $interval
 
 
 
-        var url = baseurl + "Api/productListApi/" + category_id + "/"+custom_id;
+        var url = baseurl + "Api/productListApi/" + category_id + "/" + custom_id;
 
         if (stargs) {
             url = url + "?" + stargs;

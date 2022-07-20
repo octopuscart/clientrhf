@@ -9,7 +9,7 @@ class Product extends CI_Controller {
         $this->load->model('Product_model');
         $this->load->library('session');
         $this->user_obj = $this->session->userdata('logged_in');
-         $this->user_id = $this->user_obj ? $this->user_obj['login_id']:0;
+        $this->user_id = $this->user_obj ? $this->user_obj['login_id'] : 0;
     }
 
     public function index() {
@@ -35,6 +35,7 @@ class Product extends CI_Controller {
         $data["custom_item"] = $customeitem->item_name;
         $data["custom_id"] = $custom_id;
         $data["item_price"] = $customeitem->price;
+        $data["appliedFilter"] = isset($_GET["filter"]) ? $_GET["filter"] : "Related";
 
         $session_last_custom = $this->session->userdata('session_last_custom');
 

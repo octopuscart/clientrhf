@@ -352,8 +352,48 @@ $image2 = "";
                 </div>
 
                 <!-- Main Shop Itesm -->          
-                <div class="col-md-10" style="margin-bottom: 50px"> 
+                <div class="col-md-10" style="margin-bottom: 50px;margin-top: 10px;"> 
 
+                    <form action="" id="filterdata">
+                        <div class="row">
+                            <div class="col-md-9 ">
+                                <?php
+                                $getquerydata = $_GET;
+                                unset($getquerydata["filter"]);
+                                foreach ($getquerydata as $key => $value) {
+                                    echo "<input type='hidden' name='$key' value='$value'/>";
+                                }
+                                $searchitem = $getquerydata['search'] ? $getquerydata['search'] : "";
+                                if ($searchitem) {
+                                    echo "Search result for <b>$searchitem</b>";
+                                    ?>
+                                &nbsp;&nbsp;<a href="<?php echo current_url(); ?>" class="text-danger"><i class="fa fa-times"></i> Clear Search</a>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <div class="col-md-3 col-lg-offset-9">
+
+                                <select name="filter" class="form-control" onchange="changeFilterData()"  style="    background: #f5f5f5;
+                                        height: 45px;
+                                        font-size: 12px;
+                                        line-height: 50px;
+                                        border: none;
+                                        color: #000;
+                                        width: 100%;
+                                        margin-bottom: 0px;
+                                        padding: 0 25px;border-radius: 0;">
+                                    <option  value="Related" <?php echo $appliedFilter == 'Related' ? "selected" : ""; ?>>Related</option>
+                                    <option  value="Sales" <?php echo $appliedFilter == 'Sales' ? "selected" : ""; ?>>Sales First</option>
+                                    <option  value="Popular" <?php echo $appliedFilter == 'Popular' ? "selected" : ""; ?>>Popular First</option>
+
+                                </select>
+
+
+
+                            </div>
+                        </div>
+                    </form>
 
                     <div id="content1"  ng-if="productProcess.state == 1" style="padding: 100px 0px;"> 
 
@@ -387,7 +427,7 @@ $image2 = "";
                                 <div class="gallery-items" style="height: auto!important">
                                     <div class=" thumbnail card" style="    border: none;">
                                         <span ng-if="product.is_sale == 'true'" class="onsaletag">Sale</span> 
-                                        <span ng-if="product.is_populer == 'true'" class="onpopulertag"><i class="fa fa-star"></i></span> 
+                                        <span ng-if="product.is_populer == 'true'" class="onpopulertag">HOT</span> 
                                         <center>
 
 
@@ -675,7 +715,8 @@ $image2 = "";
 <script>
     var category_id = <?php echo $category; ?>;
     var custom_id = <?php echo $custom_id; ?>;
-    var searchdata = "<?php echo isset($_GET["search"]) ? ($_GET["search"] != '' ? $_GET["search"] : '0') : "0"; ?>";</script>
+    var searchdata = "<?php echo isset($_GET["search"]) ? ($_GET["search"] != '' ? $_GET["search"] : '0') : "0"; ?>";
+    var filter = "<?php echo $appliedFilter; ?>";</script>
 <!--angular controllers-->
 
 

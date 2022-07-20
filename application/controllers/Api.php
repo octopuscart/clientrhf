@@ -309,6 +309,22 @@ class Api extends REST_Controller {
                 $psearch = " and title like '%$searchdata%' ";
             }
         }
+        $filterquery = "";
+        if (isset($attrdatak["filter"])) {
+            switch ($attrdatak["filter"]) {
+                case "Sales":
+                    $filterquery = "  is_sale desc, ";
+
+                    break;
+                case "Popular":
+                    $filterquery = "  is_populer  desc, ";
+                    break;
+                case "Related":
+
+                    break;
+                default:
+            }
+        }
 
         $pricefilter = isset($attrdatak['pfilter']) ? $attrdatak['pfilter'] . "" : "";
         $pricelistarray = array();
@@ -358,8 +374,8 @@ class Api extends REST_Controller {
         $categoriesString = $this->Product_model->stringCategories($category_id) . ", " . $category_id;
         $categoriesString = ltrim($categoriesString, ", ");
 
-        $product_query = "select pt.id as product_id, pt.*
-            from products as pt where pt.category_id in ($categoriesString) $psearch $pricequery $proquery order by display_index desc";
+         $product_query = "select pt.id as product_id, pt.*
+            from products as pt where pt.category_id in ($categoriesString) $psearch $pricequery $proquery  order by $filterquery display_index desc";
         $product_result = $this->Product_model->query_exe($product_query);
 
         $productListSt = [];
@@ -1227,7 +1243,8 @@ class Api extends REST_Controller {
         $previouse_profiledata = $this->Product_model->selectPreviouseProfiles($user_id, $item_id);
         $this->response($previouse_profiledata);
     }
-    function getUserPreMeasurementByItem_get( $item_id) {
+
+    function getUserPreMeasurementByItem_get($item_id) {
         $previouse_profiledata = $this->Product_model->selectPreviousMeasurements($user_id, $item_id);
         $this->response($previouse_profiledata);
     }

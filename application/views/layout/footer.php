@@ -55,8 +55,8 @@
                     <!-- start social media -->
                     <div class="social-media">
                         <ul>
-                            <li class="active"><a href="#" title="facebook"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="active"><a href="https://www.facebook.com/pages/category/Apparel---clothing/Rahman-Fashions-469828976756600/" title="facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" title="instagram"><i class="fa fa-instagram"></i></a></li>
                             <li><a href="#" title="twitter"><i class="fa fa-twitter"></i></a></li>
                         </ul>
                     </div>
