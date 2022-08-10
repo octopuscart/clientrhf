@@ -254,22 +254,214 @@ function createModel($value, $dtvalue, $timeslot) {
     <div class="single-blog-page-area" style="padding: 0px 0 0px;background: url(<?php echo base_url(); ?>assets/theme2/img/mapback.png);background-size: contain;">
         <div class="container contact-us-page-area" style="padding: 50px 0 30px;">
             <div class="row" style="border-bottom: 2px solid;    background: #ffffffb5; ">
-                     <!--global appointment-->
+                <div class="contact-us-right">
+                    <h2 class="title-sidebar text-center" style="margin-bottom: 30px;padding-bottom:  30px;border-bottom: 1px dotted ">Local Appointment</h2>
+                       <div class="row appointmentheader">
+                                    <div class="col-md-1">
+                                        Country
+                                    </div>
+                                    <div class="col-md-2">
+                                        City/State
+                                    </div>
+                                    <div class="col-md-3">
+                                        Hotel Name & Address
+                                    </div>
+                                    <div class="col-md-3">
+                                        From Date - To Date
+                                    </div>
+                                    <div class="col-md-2">
+
+
+                                    </div>
+                                </div>
+                        <?php
+                        foreach ($appointmentdetailslocal as $key => $value) {
+                            ?>
+
+
+                            <div class="row">
+                                <div class="col-md-1"> <?php echo $value['country']; ?></div>
+                                <div class="col-md-2"><?php echo ucfirst(strtolower($value['city_state'])); ?></div>
+                                <div class="col-md-3">
+                                    <b>
+                                        <i class="fa fa-building-o"></i>
+                                        <span style="line-height: 14px;"> <?php echo $value['hotel']; ?></span>
+                                    </b>
+                                    <br/>
+                                    <small>
+                                        <?php echo $value['address']; ?>
+                                    </small>
+                                </div>
+                                <div class="col-md-3">
+
+                                    <b><?php
+                                        echo $value["days"];
+                                        $date1 = date_create($value['start_date']);
+                                        // echo date_format($date1, "j<\s\u\p>S</\s\u\p>   F");
+                                        ?></b>
+                                   
+                                    <ul style="    margin-bottom: 0px;margin-top: 10px;    font-size: 10px;">
+
+
+                                        <li class="">
+
+                                            <span class="timeing_opensm"> <i class="fa fa-clock-o"></i> Timing</span><br/>
+                                            <span class="timeing_open">Mon - Sat</span>: 09:00 AM to 09:00 PM<br/>
+                                            <span class="timeing_open">Sun</span>: 10:00 AM to 07:00 PM
+                                        </li>
+
+                                    </ul>
+
+
+                                    <br/>
+
+                                    <button class="btn btn-danger btn-lg" style="background: #dd0101;    margin: 10px 0px;" data-toggle="modal" data-target="#<?php echo $value['id']; ?>">Book Now</button>
+                                    <?php
+                                    createModel($value, '', $timeslot);
+                                    ?>
+                                </div>
+                                <div class="col-md-3">
+                                    <span style="    line-height: 15px;
+                                          padding: 0px 0px 10px;    color: #dd0101;
+                                          float: left;">
+                                        <i class="fa fa-phone-square"></i>  <?php echo $value['contact_no']; ?>
+                                    </span>
+                                    <iframe  frameborder='0' scrolling='no'  marginheight='0' marginwidth='0'  height="100px" width="100%"  src="https://maps.google.com/?q=<?php echo $value['hotel']; ?>+<?php echo $value['address']; ?>&output=embed">
+                                    </iframe>  
+                                </div>
+
+                            </div>
+
+                            <?php
+                        }
+                        ?>
+                 
+                </div>
+            </div>
+
+            <!--global appointment-->
             <div class="row"  style="border-bottom: 2px solid;    background: #ffffffb8; ">
 
 
-                <div class="col-md-12">
+                <div style="width:100%">
 
                     <!-- Nav tabs -->
+                   
+                                <h2 class="title-sidebar text-center" style="margin: 15px;padding-bottom:  15px;border-bottom: 1px dotted ;    width: 100%;">
 
-                    <h2 class="title-sidebar text-center" style="margin: 15px;padding-bottom:  15px;border-bottom: 1px dotted ;    width: 100%;">
+                                    Global Appointment
+                                   
+                                </h2>
+                    <p style="    text-align: center;">Please note that the room will be registered under the name of Chief Fashion Consultant <b> Mr. MD S Rahman (Michael).</b><br/>
+     Contact Call/WhatsApp U.S.A Mobile no. <b>+(1) 917 915 6552.</b><br/>
+                                    Hong Kong Mobile no.  <b>+(852) 9500 0744.</b> 
+                                    </p>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+         
+                        <div role="tabpanel" class="tab-pane contact-us-right active" id="usa_appointment">
+                            <?php
+                            if (count($appointmentdatausa)) {
+                                ?>
 
-                        Global Appointment
 
-                    </h2>
 
-                    <iframe src="<?php echo base_url("assets/rhschedule_29-08-2022_to_01-10-2022.pdf"); ?>" style="width: 100%;height: 700px">
-                    </iframe>
+                                <div class="row appointmentheader">
+                                    <div class="col-md-1">
+                                        Country
+                                    </div>
+                                    <div class="col-md-2">
+                                        City/State
+                                    </div>
+                                    <div class="col-md-3">
+                                        Hotel Name & Address
+                                    </div>
+                                    <div class="col-md-3">
+                                        From Date - To Date
+                                    </div>
+                                    <div class="col-md-2">
+
+
+                                    </div>
+                                </div>
+
+                                <?php
+                                foreach ($appointmentdatausa as $key => $value) {
+                                    ?>
+                                    <div class="row appointmentfooter">
+                                        <div class="col-md-1"> <?php echo $value['country']; ?></div>
+                                        <div class="col-md-2"><?php echo $value['city_state']; ?></div>
+                                        <div class="col-md-3">
+                                            <b>
+                                                <i class="fa fa-building-o"></i>
+                                                <span style="line-height: 14px;"> <?php echo $value['hotel']; ?></span>
+                                            </b>
+                                            <br/>
+                                            <small>
+                                                <?php echo $value['address']; ?>
+                                            </small>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <i class="fa fa-calendar"></i>
+
+                                            <b style="    font-size: 12px;"><?php
+                                                echo $value["days"];
+                                                $date1 = date_create($value['start_date']);
+                                                // echo date_format($date1, "j<\s\u\p>S</\s\u\p>   F");
+                                                ?></b>
+                                            <br/><ul style="    margin-bottom: 0px;margin-top: 10px;    font-size: 10px;">
+
+
+
+
+
+
+                                                <?php
+                                                $dataes = $value['dates'];
+                                                foreach ($dataes as $dtkey1 => $dtvalue1) {
+                                                    echo "<li>";
+                                                   
+
+                                                    echo '<span class = "timeing_open" style="    width: 100px;">' .   date_format(date_create($dtvalue1['date']), "d F Y")  . "</span>: " . $dtvalue1['timing1'] . " to " . $dtvalue1['timing2'] . "<br/>";
+
+                                                    echo "</li>";
+                                                }
+                                                ?>
+                                            </ul>
+
+
+                                            <br/>
+
+                                            <button class="btn btn-danger btn-lg" style="background: #dd0101;    margin: 10px 0px;" data-toggle="modal" data-target="#<?php echo $value['id']; ?>">Book Now</button>
+                                            <?php
+                                            createModel($value, $dtvalue1, $timeslot);
+                                            ?>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span style="    line-height: 15px;
+                                                  padding: 0px 0px 10px;    color: #dd0101;
+                                                  float: left;">
+                                                <i class="fa fa-phone-square"></i>  <?php echo $value['contact_no']; ?>
+                                            </span>
+                                            <iframe  frameborder='0' scrolling='no'  marginheight='0' marginwidth='0'  height="100px" width="300px"  src="https://maps.google.com/?q=<?php echo $value['hotel']; ?>+<?php echo $value['address']; ?>+<?php echo $value['city_state']; ?>&output=embed">
+                                            </iframe>  
+                                        </div>
+
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+
+                                <?php
+                            } else {
+                                ?>
+                                <h5 class="text-center" style="width: 100%;margin-bottom: 20px">Coming Soon....</h5>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+
                 </div>
 
 
@@ -284,94 +476,7 @@ function createModel($value, $dtvalue, $timeslot) {
                 
                                 </div>-->
 
-         
-                
-                <div class="contact-us-right">
-                    <h2 class="title-sidebar text-center" style="margin-bottom: 30px;padding-bottom:  30px;border-bottom: 1px dotted ">Local Appointment</h2>
-                    <div class="row appointmentheader">
-                        <div class="col-md-1">
-                            Country
-                        </div>
-                        <div class="col-md-2">
-                            City/State
-                        </div>
-                        <div class="col-md-3">
-                            Hotel Name & Address
-                        </div>
-                        <div class="col-md-3">
-                            From Date - To Date
-                        </div>
-                        <div class="col-md-2">
-
-
-                        </div>
-                    </div>
-                    <?php
-                    foreach ($appointmentdetailslocal as $key => $value) {
-                        ?>
-
-
-                        <div class="row">
-                            <div class="col-md-1"> <?php echo $value['country']; ?></div>
-                            <div class="col-md-2"><?php echo ucfirst(strtolower($value['city_state'])); ?></div>
-                            <div class="col-md-3">
-                                <b>
-                                    <i class="fa fa-building-o"></i>
-                                    <span style="line-height: 14px;"> <?php echo $value['hotel']; ?></span>
-                                </b>
-                                <br/>
-                                <small>
-                                    <?php echo $value['address']; ?>
-                                </small>
-                            </div>
-                            <div class="col-md-3">
-
-                                <b><?php
-                                    echo $value["days"];
-                                    $date1 = date_create($value['start_date']);
-                                    // echo date_format($date1, "j<\s\u\p>S</\s\u\p>   F");
-                                    ?></b>
-
-                                <ul style="    margin-bottom: 0px;margin-top: 10px;    font-size: 10px;">
-
-
-                                    <li class="">
-
-                                        <span class="timeing_opensm"> <i class="fa fa-clock-o"></i> Timing</span><br/>
-                                        <span class="timeing_open">Mon - Sat</span>: 09:00 AM to 09:00 PM<br/>
-                                        <span class="timeing_open">Sun</span>: 10:00 AM to 07:00 PM
-                                    </li>
-
-                                </ul>
-
-
-                                <br/>
-
-                                <button class="btn btn-danger btn-lg" style="background: #dd0101;    margin: 10px 0px;" data-toggle="modal" data-target="#<?php echo $value['id']; ?>">Book Now</button>
-                                <?php
-                                createModel($value, '', $timeslot);
-                                ?>
-                            </div>
-                            <div class="col-md-3">
-                                <span style="    line-height: 15px;
-                                      padding: 0px 0px 10px;    color: #dd0101;
-                                      float: left;">
-                                    <i class="fa fa-phone-square"></i>  <?php echo $value['contact_no']; ?>
-                                </span>
-                                <iframe  frameborder='0' scrolling='no'  marginheight='0' marginwidth='0'  height="100px" width="100%"  src="https://maps.google.com/?q=<?php echo $value['hotel']; ?>+<?php echo $value['address']; ?>&output=embed">
-                                </iframe>  
-                            </div>
-
-                        </div>
-
-                        <?php
-                    }
-                    ?>
-
-                </div>
             </div>
-
-       
         </div>
     </div>
     <!-- Single Blog Page Area End Here -->
@@ -385,18 +490,18 @@ function createModel($value, $dtvalue, $timeslot) {
 <!--angular controllers-->
 <script src="<?php echo base_url(); ?>assets/theme/angular/productController.js"></script>
 <script>
-                                        $(document).ready(function () {
-                                            $("#appintmentDate").datepicker({
-                                                minDate: 0,
-                                                dateFormat: "yy-mm-dd"
-                                            });
-                                            $.datepicker.parseDate("yy-mm-dd", "<?php echo date('Y-m-d'); ?>");
-                                            $('#dateselection').on('change', function (e) {
-                                                var $optionSelected = $("option:selected", this);
-                                                console.log(this);
-                                                $optionSelected.tab('show')
-                                            });
-                                        });
+                                                                        $(document).ready(function () {
+                                                                            $("#appintmentDate").datepicker({
+                                                                                minDate: 0,
+                                                                                dateFormat: "yy-mm-dd"
+                                                                            });
+                                                                            $.datepicker.parseDate("yy-mm-dd", "<?php echo date('Y-m-d'); ?>");
+                                                                            $('#dateselection').on('change', function (e) {
+                                                                                var $optionSelected = $("option:selected", this);
+                                                                                console.log(this);
+                                                                                $optionSelected.tab('show')
+                                                                            });
+                                                                        });
 
 </script>
 
