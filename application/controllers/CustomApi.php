@@ -606,7 +606,7 @@ class CustomApi extends REST_Controller {
                         "overlay" => ["cuff_m_franch_squre_overlay.png"]
                     ),
                  
-                    ,
+                    
                     array(
                         "status" => "0",
                         "title" => "Convertible Cuff Cutaway",
