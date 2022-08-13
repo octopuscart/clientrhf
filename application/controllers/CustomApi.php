@@ -605,26 +605,7 @@ class CustomApi extends REST_Controller {
                         "french" => "1",
                         "overlay" => ["cuff_m_franch_squre_overlay.png"]
                     ),
-                    array(
-                        "status" => "0",
-                        "title" => "French Cuff Squared",
-                        "sleeve1" => ["shirt_sleeve0001.png"],
-                        "customization_category_id" => "3",
-                        "elements" => ["cuff_m_franch_squre_20001.png"],
-                        "insertele" => ["cuff_m_franch_squre0001.png"],
-                        "inserteleo" => ["cuff_m_franch_squre0001.png"],
-                        "stitching38" => ["cuff_m_franch_squre0001st38.png"],
-                        "stitching14" => ["cuff_m_franch_squre0001st14.png"],
-                        "image" => "customization/cuff_franch_squre.jpg",
-                        "insert_style_css" => "",
-                        "insert_style" => "cuff_m_franch_squre_insert0001.png",
-                        "insert_overlay" => "cuff_franch_insert_overlay.png",
-                        "insert_overlay_css" => "",
-                        "insert_full" => ["cuff_franch_rounded0001.png"],
-                        "buttons" => "cuff_m_franch_squre_button0001.png",
-                        "sleeve" => ["b_full_shirt_sleeve0001.png"],
-                        "french" => "1",
-                    )
+                 
                     ,
                     array(
                         "status" => "0",
