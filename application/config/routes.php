@@ -54,8 +54,11 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['appointment'] = "Shop/appointment";
 $route['sitemap_index\.xml'] = "Sitemap/index";
-$route['privacy-policy'] = 'Shop/privacy_policy';
-$route['terms-condition'] = 'Shop/terms_condition';
+
+$route['privacy-policy'] = 'Shop/page/privacy-policy';
+$route['terms-condition'] = 'Shop/page/terms-condition';
+$route['return-policy'] = 'Shop/page/return-policy';
+
 $route['faqs'] = 'Shop/faq';
 $route['profile'] = 'Account/profile';
 $route['contact'] = 'Shop/contactus';

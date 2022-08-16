@@ -115,6 +115,7 @@ where pa.product_id = $product_id group by attribute_value_id";
 
         $queryr = "SELECT cip.price, cip.sale_price, ci.item_name, cip.item_id, cip.id FROM custome_items_price as cip
                        join custome_items as ci on ci.id = cip.item_id
+                      
                        where cip.category_items_id = $category_items_id and cip.item_id = $item_id";
         $query = $this->db->query($queryr);
         $category_items_price_array = $query ? $query->row() : array();
@@ -380,9 +381,14 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
 
             $query = $this->db->get('configuration_cartcheckout');
             $systemlog = $query->row_array();
+            
+            $session_pick_from_store = $this->session->userdata('session_pick_from_store');
+            $is_store_pick = $session_pick_from_store;
 
-            $finalcartdata['shipping_price'] = $systemlog["shipping_price"];
+            $finalcartdata['shipping_price'] = $is_store_pick ? 0 : $systemlog["shipping_price"];
             $finalcartdata['coupon_code'] = "";
+            $finalcartdata['store_pick'] = $is_store_pick;
+            $finalcartdata['store_pick_check'] = $is_store_pick;
             $dicountvalue = 0;
             if (isset($session_coupon["has_coupon"]) && $session_coupon["has_coupon"]) {
                 if ($session_coupon["coupon_discount_type"] == "Fixed") {
@@ -1116,23 +1122,23 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
             $cartdata = $this->cartData($user_id);
             $product_details = $this->productDetails($product_id, $item_id);
             $product_dict = array(
-            'title' => $product_details['title'],
-            'price' => $product_details['price'] + $extra_cost,
-            'extra_price' => $extra_cost,
-            'sku' => $product_details['sku'], 'folder' => $product_details['folder'],
-            'attrs' => $customtype,
-            'vendor_id' => $product_details['user_id'],
-            'total_price' => $product_details['price'] + $extra_cost,
-            'file_name' => custome_image_server . "/thumb/" . $product_details['folder'] . "/fabric20001.png", 'quantity' => 1,
-            'quantity' => $quantity,
-            'user_id' => $user_id,
-            'item_id' => $item_id,
-            'item_name' => $item_name,
-            'credit_limit' => $product_details['credit_limit'] ? $product_details['credit_limit'] : 0,
-            'product_id' => $product_id,
-            'op_date_time' => date('Y-m-d H:i:s'),
-            'desing_profile_id' => $profile_id,
-            'desing_profile' => $customtype == "Shop Stored" ? "Shop Stored" : $profile_name
+                'title' => $product_details['title'],
+                'price' => $product_details['price'] + $extra_cost,
+                'extra_price' => $extra_cost,
+                'sku' => $product_details['sku'], 'folder' => $product_details['folder'],
+                'attrs' => $customtype,
+                'vendor_id' => $product_details['user_id'],
+                'total_price' => $product_details['price'] + $extra_cost,
+                'file_name' => custome_image_server . "/thumb/" . $product_details['folder'] . "/fabric20001.png", 'quantity' => 1,
+                'quantity' => $quantity,
+                'user_id' => $user_id,
+                'item_id' => $item_id,
+                'item_name' => $item_name,
+                'credit_limit' => $product_details['credit_limit'] ? $product_details['credit_limit'] : 0,
+                'product_id' => $product_id,
+                'op_date_time' => date('Y-m-d H:i:s'),
+                'desing_profile_id' => $profile_id,
+                'desing_profile' => $customtype == "Shop Stored" ? "Shop Stored" : $profile_name
             );
             if (isset($cartdata['products'][$product_id])) {
 

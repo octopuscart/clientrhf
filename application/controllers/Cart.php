@@ -38,14 +38,11 @@ class Cart extends CI_Controller {
         $couponcode = $this->input->post("couponcode");
         $couponarray = array("has_coupon" => 0, "coupon_code" => "", "coupon_discount" => "");
         if ($couponcode) {
-
             $this->db->where("code", $couponcode);
             $this->db->where("valid_till>", date("Y-m-d"));
             $querycoupon = $this->db->get("coupon_conf");
-
             if ($querycoupon) {
                 $couopndata = $querycoupon->row_array();
-                print_r($couopndata);
                 if ($couopndata) {
                     if ($couopndata["coupon_type"] == "All User") {
                         $couponarray["has_coupon"] = 1;
@@ -69,7 +66,6 @@ class Cart extends CI_Controller {
             }
         }
         $this->session->set_userdata('session_coupon', $couponarray);
-
         redirect($nexturl);
     }
 
@@ -336,9 +332,10 @@ class Cart extends CI_Controller {
                 $this->db->set('status', "");
                 $this->db->where('user_id', $this->user_id);
                 $this->db->update('shipping_address');
+                $address1 = $this->input->post('address1');
 
                 $category_array = array(
-                    'address1' => $this->input->post('address1'),
+                    'address1' => $address1,
                     'address2' => $this->input->post('address2'),
                     'city' => $this->input->post('city'),
                     'state' => $this->input->post('state'),
@@ -348,6 +345,9 @@ class Cart extends CI_Controller {
                     'status' => 'default',
                 );
                 $this->db->insert('shipping_address', $category_array);
+                if($address1=="Pick From Store"){
+                    redirect('Cart/checkoutPayment');
+                }
                 redirect('Cart/checkoutShipping');
             }
             $this->load->view('Cart/checkoutShipping', $data);

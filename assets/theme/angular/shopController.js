@@ -514,6 +514,68 @@ App.controller('ShopController', function ($scope, $http, $timeout, $interval, $
         );
     }
 
+    $scope.checkPickFromStore = function (pickfromstore) {
+        console.log(pickfromstore);
+        if (pickfromstore) {
+            swal({
+                title: "Please confirm",
+                text: "Are you sure want to pick order from store?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, I will',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: false
+            }).then(
+                    function () {
+                        console.log("yes pressed")
+                        var form = new FormData()
+                        form.append('nexturl', window.location.origin + window.location.pathname);
+                        $http.post(baseurl + "/Api/PickFromStore", form).then(function (rdata) {
+                            window.location.reload();
+                        });
+                    },
+                    function (dismiss) {
+                        $timeout(function(){
+                                $scope.globleCartData["store_pick"] = !pickfromstore;
+                        });
+                    
+                        if (dismiss === 'timer') {
+
+                        }
+                    }
+            );
+        } else {
+            swal({
+                title: "Please confirm",
+                text: "Are you sure want to cancel pick order from store?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Cancel',
+                cancelButtonText: 'No',
+                reverseButtons: false
+            }).then(
+                    function () {
+                        console.log("yes pressed")
+                        var form = new FormData()
+                        form.append('nexturl', window.location.origin + window.location.pathname);
+                        $http.post(baseurl + "/Api/removePickFromStore", form).then(function (rdata) {
+                            window.location.reload();
+                        });
+                    },
+                    function (dismiss) {
+                        $timeout(function(){
+                                $scope.globleCartData["store_pick"] = !pickfromstore;
+                        });
+                    
+                        if (dismiss === 'timer') {
+
+                        }
+                    }
+            );
+
+        }
+    }
+
 
 })
 

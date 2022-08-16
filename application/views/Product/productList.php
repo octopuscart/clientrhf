@@ -165,6 +165,23 @@ $image2 = "";
         opacity: 1;
     }
 
+    .widget{
+        clear:both;
+    }
+    .colorwidget {
+        display: inline-block;
+    }
+
+    .colorwidget label{
+          padding: 0px 5px;
+    float: left;
+    margin-right: 7px;
+    border: 1px solid #0000005e;
+    border: 1px solid #0000005e;
+    text-shadow: 0px 1px 4px #000;
+    margin-bottom: 0px;
+    }
+
 
 </style>
 
@@ -203,7 +220,7 @@ $image2 = "";
             <div class="row"> 
 
                 <!-- Shop Side Bar -->
-                <div class="col-md-2">
+                <div class="col-md-2 ">
                     <div class="side-bar">
                         <div class="search">
                             <form action="#" style="margin-top: 20px;">
@@ -317,35 +334,52 @@ $image2 = "";
                         </div>
 
 
+
+
                         <!-- HEADING -->
+                        <div class="widget"  >
+                            <div class="product_attr" ng-repeat="(attrk, attrv) in productResults.attributes" >
+                                <div class="heading" ng-if='attrv.widget == "color"'>
+                                    <h6>Color</h6>
+                                    <hr class="dotted">
+                                </div>
 
-                        <div class="product_attr" ng-repeat="(attrk, attrv) in productResults.attributes" >
-                            <div class="heading" ng-if='attrv.widget == "color"'>
-                                <h6>Color</h6>
-                                <hr class="dotted">
-                            </div>
+                                <!-- COLORE -->
+                                <div class="cate" ng-if='attrv.widget == "color"' style="    list-style-type: none;">
+                                    <div class="colorwidget" ng-repeat="atv in attrv" ng-if='atv.product_count'>
 
-                            <!-- COLORE -->
-                            <ul class="cate" ng-if='attrv.widget == "color"' style="    list-style-type: none;">
-                                <li ng-repeat="atv in attrv" ng-if='atv.product_count'>
+                                        <label style="font-weight: 500;background: {{atv.additional_value}};">
 
-                                    <label style="font-weight: 500;background: {{atv.additional_value}};padding: 0px 5px;float: left;
-                                           margin-right: 5px;border: 1px solid #0000005e;border: 1px solid #0000005e;
-                                           text-shadow: 0px 1px 4px #000;">
+                                            <i class="fa fa-check" ng-if="atv.checked" style="    position: absolute;
+                                               margin-top: 3px;
+                                               margin-left: 1px;
+                                               color: #fff;"></i>
+                                            <input type="checkbox"  ng-model="atv.checked" ng-click="attributeProductGet(atv)" style="opacity: 0;"> 
 
-                                        <i class="fa fa-check" ng-if="atv.checked" style="    position: absolute;
-                                           margin-top: 3px;
-                                           margin-left: 1px;
-                                           color: #fff;"></i>
-                                        <input type="checkbox"  ng-model="atv.checked" ng-click="attributeProductGet(atv)" style="opacity: 0;"> 
-
-                                        <!--{{atv.attribute_value}} ({{atv.product_count}})-->
-                                    </label>
+                                            <!--{{atv.attribute_value}} ({{atv.product_count}})-->
+                                        </label>
 
 
                                     <!--<a href="#."><input type="checkbox">{{atv.attribute_value}} <span>(32) </span></a>-->
-                                </li>
-                            </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HEADING -->
+                        <div class="widget" >
+                            <div class="heading" style="margin-top: 30px;" >
+                                <h6 class="widget-title font-alt">Filter by Brand</h6>
+                            </div>
+                            <hr class="dotted">
+                            <!-- PRICE -->
+                            <div class="cost-price-content12">
+                                <label ng-repeat="(brand, price) in productResults.brandList" style='font-weight: 500;width: 100%;'>
+                                    <input type="checkbox" name='pricerange[]' class='pricefilter' value='{{price}}'> {{brand}}
+                                </label>
+                                <button class="col-xs-3 btn btn-link" style="    padding: 0;
+                                        margin-bottom: 20px;" ng-click="getProducts()" >FILTER</button> 
+                            </div>
                         </div>
 
                     </div>
@@ -367,7 +401,7 @@ $image2 = "";
                                 if ($searchitem) {
                                     echo "Search result for <b>$searchitem</b>";
                                     ?>
-                                &nbsp;&nbsp;<a href="<?php echo current_url(); ?>" class="text-danger"><i class="fa fa-times"></i> Clear Search</a>
+                                    &nbsp;&nbsp;<a href="<?php echo current_url(); ?>" class="text-danger"><i class="fa fa-times"></i> Clear Search</a>
                                     <?php
                                 }
                                 ?>
@@ -451,10 +485,9 @@ $image2 = "";
                                             <br>
                                             <p>
                                             <div class="productBottomButtons text-left"> 
-                                                <a ng-if="product.video_link == 'yes'" href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
+                                                <a  href="<?php echo site_url("Product/customizationRedirect/") ?><?php echo $custom_id; ?>/{{product.product_id}}" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
                                                 </a> 
-                                                <a ng-if="product.video_link == ''" href="#" class="btn btn-danger"  title="Customize this fabric" style="    padding: 0 5px; line-height: 1.9375rem">Design Now
-                                                </a> 
+                                              
                                                 <button type="button" class="btn btn-primary" ng-click="askPriceSelection(product.product_id)" style="    padding: 0 5px; line-height: 1.9375rem;margin: 0px 10px;">Price Enq.
 
                                                 </button>

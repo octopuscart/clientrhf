@@ -374,7 +374,7 @@ class Api extends REST_Controller {
         $categoriesString = $this->Product_model->stringCategories($category_id) . ", " . $category_id;
         $categoriesString = ltrim($categoriesString, ", ");
 
-         $product_query = "select pt.id as product_id, pt.*
+        $product_query = "select pt.id as product_id, pt.*
             from products as pt where pt.category_id in ($categoriesString) $psearch $pricequery $proquery  order by $filterquery display_index desc";
         $product_result = $this->Product_model->query_exe($product_query);
 
@@ -387,15 +387,25 @@ class Api extends REST_Controller {
 
         $priceListWidget = array();
 
+        $brandWidget = array();
+
         foreach ($product_result as $key => $value) {
             $value['attr'] = $this->Product_model->singleProductAttrs($value['product_id']);
             $item_price = $this->Product_model->category_items_prices_id($value['category_items_id'], $custom_id);
+
+            $brandcheck = $this->db->select("category_name as brand")->where("id", $value['category_items_id'])->get("category_items");
+            $brandname = $brandcheck ? $brandcheck->row_array()["brand"] : "";
 
             $price_p = $item_price ? $item_price->price : 0;
             $price_s = $item_price ? $item_price->sale_price : 0;
 
             $value['price'] = $value['is_sale'] == 'true' ? $price_s : $price_p;
             $value['org_price'] = $price_p;
+
+            if ($brandname) {
+                $brandWidget[$brandname] = $price_p;
+            }
+
 
             array_push($pricecount, $value['price']);
 
@@ -451,6 +461,7 @@ class Api extends REST_Controller {
             'product_count' => count($productListSt),
             'price' => $pricelist,
             "priceList" => $priceListWidget,
+            "brandList" => $brandWidget
         );
         $this->response($productArray);
     }
@@ -1237,6 +1248,16 @@ class Api extends REST_Controller {
     function removeCoupon_post() {
         $nexturl = $this->post('nexturl');
         $this->session->set_userdata('session_coupon', array());
+    }
+
+    function PickFromStore_post() {
+        $nexturl = $this->post('nexturl');
+        $this->session->set_userdata('session_pick_from_store', true);
+    }
+
+    function removePickFromStore_post() {
+        $nexturl = $this->post('nexturl');
+        $this->session->set_userdata('session_pick_from_store', false);
     }
 
     function getUserPreDesingByItem_get($user_id, $item_id) {

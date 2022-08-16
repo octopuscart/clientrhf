@@ -25,11 +25,11 @@ $this->load->view('layout/header');
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <td class="cart-form-heading text-left" style="width: 40%" colspan="2">Product</td>
+                                <td class="cart-form-heading text-left" style="width: 50%" colspan="2">Product</td>
                                 <td class="cart-form-heading text-center" >Price</td>
                                 <td class="cart-form-heading text-center" >Quantity</td>
                                 <td class="cart-form-heading text-right" style="width: 250px;">Total</td>
-                                <td class="cart-form-heading" style="    width: 135px;"></td>
+
                             </tr>
                         </thead>
                         <tbody id="quantity-holder">
@@ -44,9 +44,9 @@ $this->load->view('layout/header');
                                         <br/>
                                         <small style="font-size: 10px">{{product.sku}}</small>
                                     </h3>
-                                    <button type="button" ng-click="viewStyle(product)" class="btn btn-primary"  style="margin-top: 10px;    margin-top: 10px;
-                                            padding: 0px 10px;
-                                            line-height: 19px;">View Design</a>
+                                    <button type="button" ng-click="viewStyle(product)" class="btn btn-primary btn-small-xs"  >View Design</button> &nbsp;
+                                    <a href="#" class="btn btn-default btn-small-xs"  ng-click="removeCart(product.product_id)"><i class="fa fa-times" aria-hidden="true"></i> Remove</a>
+
 
                                 </td>
                                 <td>
@@ -67,7 +67,7 @@ $this->load->view('layout/header');
 
                                 </td>
                                 <td class="amount text-right">{{product.total_price|currency:" "}}</td>
-                                <td class="dismiss"><a href="#"  ng-click="removeCart(product.product_id)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+
                             </tr>
                             <tr>
                                 <td colspan="4" class="text-right">
@@ -107,7 +107,23 @@ $this->load->view('layout/header');
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="4" class="text-right">
+                                <td colspan="2" >
+                                    <div class="coupon_form" ng-if="!globleCartData.store_pick_check">
+                                        <div class="input-group">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" ng-model="globleCartData.store_pick" ng-click="checkPickFromStore(globleCartData.store_pick)"> Check here </label>
+                                            </div>
+                                        </div>
+                                        If you want to pick order from store. No shipping cost will be applied. 
+                                    </div>
+                                    <div class="coupon_form" ng-if="globleCartData.store_pick_check">
+                                        You have selected pick order from store.
+                                        <br/>
+                                        <button class="btn btn-danger removecouponbutton" ng-click="checkPickFromStore(false)">Click here</button> to cancel pick order from store
+
+                                    </div>
+                                </td>
+                                <td colspan="2" class="text-right">
                                     SHIPPING
                                 </td>
                                 <td class="text-right amount text-right">

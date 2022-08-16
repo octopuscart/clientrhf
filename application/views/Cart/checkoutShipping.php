@@ -109,10 +109,14 @@ $this->load->view('layout/header');
                                 <span class="fa-stack">
                                     <i class="fa fa-map-marker fa-stack-1x"></i>
                                     <i class="ion-bag fa-stack-1x "></i>
-                                </span>   Shopping Address
-                                <span style="float: right; line-height: 29px;" class="ng-binding">
+                                </span>   Shipping Address
+                                <span style="float: right; line-height: 29px;" class="ng-binding" ng-if="!globleCartData.store_pick_check">
                                     <button class="btn btn-danger" data-toggle="modal" data-target="#changeAddress" style="margin-left: 20px;padding: 5px 11px;color:white;line-height: 16px;"><i class="fa fa-plus"></i> Add New</button>
                                 </span> 
+                                <span style="float: right; line-height: 29px;font-size: 12px;font-weight: 300" ng-if="globleCartData.store_pick_check">
+                                    Pick order from store.
+
+                                </span>
                             </a>
                         </h4>
                     </div>
@@ -121,7 +125,7 @@ $this->load->view('layout/header');
                         <div class="order-sheet" style="margin-top: 30px">
 
 
-                            <div class="row" >  
+                            <div class="row" ng-if="!globleCartData.store_pick_check">  
                                 <div class="col-md-12">
 
                                     <?php
@@ -160,6 +164,62 @@ $this->load->view('layout/header');
                                 </div>                            
 
                             </div>
+
+                            <div class="row" ng-if="globleCartData.store_pick_check">  
+                                <div class="col-md-12">
+                                    <form action="#" method="post">
+                                        <table class="table">
+                                            <tbody>
+                                                
+                                                <tr>
+                                                    <td style="line-height: 25px;">
+                                                        <span for="name" class="">Date</span>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                        $starttime = 9;
+                                                        $endtime = 21;
+                                                        $current_date = date("Y-m-d");
+                                                        $expdate = date('Y-m-d', strtotime("+10 days", strtotime($current_date)));
+                                                        ?>
+                                                        <input type="date" required="" name="address2" class="form-control woocommerce-Input woocommerce-Input--email input-text" min="<?php echo $expdate; ?>" value="<?php echo $expdate; ?>" style="margin-bottom: 0px; ">
+                                                    </td>
+                                                    <td></td>
+                                                    <td style="line-height: 25px;">
+                                                        <span for="name" class=""><b>Time</b></span>
+                                                    </td>
+                                                    <td>
+                                                        <select name="city" class="form-control woocommerce-Input woocommerce-Input--email input-text" >
+                                                            <?php
+                                                            for ($tt = $starttime; $tt <= $endtime; $tt++) {
+                                                                echo "<option value='$tt:00'>$tt:00</option>";
+                                                            }
+                                                            ?>
+                                                        </select>
+
+                                                        <input type="hidden"  name="address1" class="form-control woocommerce-Input woocommerce-Input--email input-text" value="Pick From Store" style="margin-bottom: 0px; ">
+
+                                                        <input type="hidden"  name="state" class="form-control woocommerce-Input woocommerce-Input--email input-text" value="" style="margin-bottom: 0px; ">
+                                                        <input type="hidden"  name="zipcode" class="form-control " value="" style="margin-bottom: 0px; ">
+                                                        <input type="hidden"  name="country" class="form-control" value="" style="margin-bottom: 0px; ">
+                                                    </td>
+                                                    <td>
+                                                        <button type="submit" name="add_address" class="btn btn-primary btn-small" style="color: white">Confirm Date/Time</button>
+
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+
+
+
+
+                                    </form>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="cart-page-top table-responsive">
                             <table class="table table-hover">
@@ -193,8 +253,8 @@ $this->load->view('layout/header');
 
 
 <?php
-    $this->load->view('Cart/noproduct');
-    ?>
+$this->load->view('Cart/noproduct');
+?>
 
 
 
@@ -205,7 +265,7 @@ $this->load->view('layout/header');
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel" style="font-size: 15px">Add New Address</h4>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
                 </div>
                 <div class="modal-body checkout-form">
@@ -288,9 +348,9 @@ $this->load->view('layout/header');
 <!--angular controllers-->
 <script src="<?php echo base_url(); ?>assets/theme/angular/productController.js"></script>
 <script>
-    var avaiblecredits =0;
+                                var avaiblecredits = 0;
 </script>
 
 <?php
-$this->load->view('layout/footer', array('custom_item'=>0, 'custom_id'=>0));
+$this->load->view('layout/footer', array('custom_item' => 0, 'custom_id' => 0));
 ?>

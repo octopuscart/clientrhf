@@ -157,7 +157,7 @@ $paymentstatus = "";
                                 <h3 class="headerorder"><i class="fa fa-map"></i> Shipping Address</h3>
 
                                 <li>  <?php echo $order_data->address1; ?><br/><?php echo $order_data->address2; ?><br/>
-                                    <?php echo $order_data->state; ?>  <?php echo $order_data->city; ?> <?php echo $order_data->country; ?>, <?php echo $order_data->zipcode; ?></li>
+                                    <?php echo $order_data->state; ?>  <?php echo $order_data->city; ?> <?php echo $order_data->country ? $order_data->country.", ":""; ?><?php echo $order_data->zipcode; ?></li>
                             </article>
                         </div>
 

@@ -62,26 +62,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" >
-                                    <div class="coupon_form" >
-                                        <form ng-if="globleCartData.coupon.has_coupon != '1'" action="<?php echo site_url("Cart/applyCoupon") ?>" method="post">
-                                            <div class="input-group">
-                                                <input type="hidden" name="next_url" value="<?php echo current_url(); ?>"/>
-                                                <input type="text" name='couponcode' class="form-control coupon-input text-left" value=""  placeholder="Enter Coupon Here..." required=""/>
-                                                <button class="btn btn-default quantity-plus" type="submit"  style="    padding: 0px 11px;"><i class="fa fa-check" aria-hidden="true" ></i> Apply Coupon</button>
 
-                                            </div>
-                                        </form>
-                                        <span ng-if="globleCartData.coupon.has_coupon == '1'">
-                                            <div class="col-md-12">
-                                                Applied Coupon Code: <b>{{globleCartData.coupon.coupon_code}}</b> 
-                                                <button class="btn btn-danger removecouponbutton" ng-click="removeCoupon()">Remove Coupon</button>
-                                            </div>
-                                            <div class="col-md-12">{{globleCartData.coupon.coupon_message}}</div>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td colspan="2" class="text-right">
+                                <td colspan="4" class="text-right">
 
 
                                     COUPON DISCOUNT

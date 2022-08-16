@@ -40,6 +40,7 @@
                         <li><a href="<?php echo site_url("faqs"); ?>" title="" style="color:white">FAQ's</a></li>
                         <li><a href="<?php echo site_url("terms-condition"); ?>" title="" style="color:white">Terms & Conditions</a></li>
                         <li><a href="<?php echo site_url("privacy-policy"); ?>" title="" style="color:white">Privacy Policy</a></li>
+                        <li><a href="<?php echo site_url("return-policy"); ?>" title="" style="color:white">Return Policy</a></li>
 
                     </ul>
                     <div class="spacer-30"></div>
