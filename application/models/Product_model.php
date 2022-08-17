@@ -993,7 +993,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
             );
             $this->db->insert('user_order_log', $orderlog);
 
-            $subject = "Order Confirmation - Your Order with Rahman Fashions [" . $order_no . "] has been successfully placed!";
+            $subject = "Order Confirmation - Your Order with ".email_sender_name." [" . $order_no . "] has been successfully placed!";
             $this->email->subject($subject);
 
             if ($checkcode) {
