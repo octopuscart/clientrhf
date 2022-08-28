@@ -347,10 +347,10 @@ class Shop extends CI_Controller {
                     $this->email->print_debugger();
                     $send = $this->email->send();
                     if ($send) {
-                        echo json_encode("send");
+                       redirect('Shop/appointment');
                     } else {
                         $error = $this->email->print_debugger(array('headers'));
-                        echo json_encode($error);
+                       redirect('Shop/appointment');
                     }
                 } else {
                     echo $htmlsmessage;
