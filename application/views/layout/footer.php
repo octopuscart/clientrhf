@@ -70,12 +70,11 @@
                     <div class="spacer-10"></div>
                     <dl>
                         <dd>Subscribe to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</dd>
-                        <form action="<?php echo site_url("Shop/subscribe") ?>"  class=" row" method="post" >
-
+                     
                             <div  class="col-sm-12 text-left">
                                 <button type="button"  class="btn btn-inverse" ng-click="requestNewsletterSubscription()" name="sub" value="Subscribe" >Subscribe Now</button>
                             </div >
-                        </form>
+                       
 
                     </dl>
 

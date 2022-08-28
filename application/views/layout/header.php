@@ -56,8 +56,8 @@
 
     </head>
 
-    <body ng-app="App">
-        <div ng-controller="ShopController">
+    <body ng-app="App" ng-controller="ShopController">
+        <div >
             <script>
                 var App = angular.module('App', []).config(function ($interpolateProvider, $httpProvider) {
                 //$interpolateProvider.startSymbol('{$');
