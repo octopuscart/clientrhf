@@ -70,13 +70,10 @@
                     <div class="spacer-10"></div>
                     <dl>
                         <dd>Subscribe to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</dd>
-                        <form action="<?php echo site_url("Shop/Subscribe")?>"  class=" row" method="post" >
+                        <form action="<?php echo site_url("Shop/subscribe") ?>"  class=" row" method="post" >
 
-                            <div  class="col-sm-12">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="">
-                            </div >
                             <div  class="col-sm-12 text-left">
-                                <button type="submit"  class="btn btn-inverse" name="sub" value="Subscribe" >Subscribe Now</button>
+                                <button type="button"  class="btn btn-inverse" ng-click="requestNewsletterSubscription()" name="sub" value="Subscribe" >Subscribe Now</button>
                             </div >
                         </form>
 

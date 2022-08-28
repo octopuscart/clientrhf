@@ -535,10 +535,10 @@ App.controller('ShopController', function ($scope, $http, $timeout, $interval, $
                         });
                     },
                     function (dismiss) {
-                        $timeout(function(){
-                                $scope.globleCartData["store_pick"] = !pickfromstore;
+                        $timeout(function () {
+                            $scope.globleCartData["store_pick"] = !pickfromstore;
                         });
-                    
+
                         if (dismiss === 'timer') {
 
                         }
@@ -563,10 +563,10 @@ App.controller('ShopController', function ($scope, $http, $timeout, $interval, $
                         });
                     },
                     function (dismiss) {
-                        $timeout(function(){
-                                $scope.globleCartData["store_pick"] = !pickfromstore;
+                        $timeout(function () {
+                            $scope.globleCartData["store_pick"] = !pickfromstore;
                         });
-                    
+
                         if (dismiss === 'timer') {
 
                         }
@@ -574,6 +574,72 @@ App.controller('ShopController', function ($scope, $http, $timeout, $interval, $
             );
 
         }
+    }
+
+    $scope.requestNewsletterSubscription = function () {
+        swal({
+            title: "Newsletter Subscription",
+            input: 'email',
+            showCancelButton: true,
+            confirmButtonColor: '#000',
+            cancelButtonColor: 'red',
+            confirmButtonText: 'Subscribe Now',
+            cancelButtonText: 'No, Cancel!',
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            text: "Please enter your email id.",
+
+            preConfirm: function (result) {
+
+                swal({
+                    title: 'Subscribing to our mailing list',
+                    onOpen: function () {
+                        swal.showLoading();
+                    }
+                });
+
+                var form = new FormData()
+                form.append('email', result);
+                $http.post(adminurl + "Api/newsletterSubscription", form).then(function (rdata) {
+                    var returndata = rdata.data;
+                    swal.close();
+                    if (returndata.status == "200") {
+                        swal({
+                            title: 'Thank you for Subscription',
+                            type: 'success',
+                            text: 'You has been subscribed to our mailing list',
+                            imageWidth: 100,
+//                            timer: 1500,
+                            showConfirmButton: false,
+                            animation: true,
+                            onClose: function () {
+                            }
+                        });
+                    } else {
+                        swal({
+                            title: 'Already Subscribed',
+                            type: 'warnning',
+                            text: "You are already subscribed to our newsletter",
+                            imageWidth: 100,
+//                            timer: 1500,
+                            showConfirmButton: false,
+                            animation: true,
+                            onClose: function () {
+
+                            }
+                        });
+                    }
+                }, function () {
+                    swal.close();
+                    swal({
+                        title: 'Something Wrong..',
+                    })
+                });
+            },
+
+        })
     }
 
 
