@@ -612,7 +612,7 @@ App.controller('ShopController', function ($scope, $http, $timeout, $interval, $
                             text: 'You has been subscribed to our mailing list',
                             imageWidth: 100,
 //                            timer: 1500,
-                            showConfirmButton: false,
+                            showConfirmButton: true,
                             animation: true,
                             onClose: function () {
                             }
@@ -624,7 +624,7 @@ App.controller('ShopController', function ($scope, $http, $timeout, $interval, $
                             text: "You are already subscribed to our newsletter",
                             imageWidth: 100,
 //                            timer: 1500,
-                            showConfirmButton: false,
+                            showConfirmButton: true,
                             animation: true,
                             onClose: function () {
 
