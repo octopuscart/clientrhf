@@ -610,9 +610,11 @@ App.controller('ShopController', function ($scope, $http, $timeout, $interval, $
                             title: 'Thank you for Subscription',
                             type: 'success',
                             text: 'You has been subscribed to our mailing list',
+                            confirmButtonClass: 'btn btn-success',
+                            cancelButtonClass: 'btn btn-danger',
                             imageWidth: 100,
 //                            timer: 1500,
-                            showConfirmButton: true,
+//                            showConfirmButton: true,
                             animation: true,
                             onClose: function () {
                             }
@@ -620,11 +622,13 @@ App.controller('ShopController', function ($scope, $http, $timeout, $interval, $
                     } else {
                         swal({
                             title: 'Already Subscribed',
-                            type: 'warnning',
+                            type: 'info',
                             text: "You are already subscribed to our newsletter",
                             imageWidth: 100,
+                            confirmButtonClass: 'btn btn-success',
+                            cancelButtonClass: 'btn btn-danger',
 //                            timer: 1500,
-                            showConfirmButton: true,
+//                            showConfirmButton: true,
                             animation: true,
                             onClose: function () {
 
