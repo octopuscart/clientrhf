@@ -128,10 +128,10 @@ class User_model extends CI_Model {
             $this->email->print_debugger();
             $send = $this->email->send();
             if ($send) {
-                echo json_encode("send");
+//                echo json_encode("send");
             } else {
                 $error = $this->email->print_debugger(array('headers'));
-                echo json_encode($error);
+//                echo json_encode($error);
             }
         }
     }
