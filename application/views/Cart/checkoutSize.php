@@ -453,6 +453,10 @@ $this->load->view('layout/footer', array('custom_item' => 0, 'custom_id' => 0));
     $http.get(baseurl + "Api/getUserPreMeasurementByItem_get/" + custom_items).then(function (rdata) {
     $scope.measurementPreData.userdata = rdata.data;
     });
+    $scope.slidedemo = function (mestitle) {
+
+    $scope.measurementstyle.title = mestitle;
+    };
 <?php
 if ($has_user) {
     ?>
