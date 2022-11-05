@@ -226,7 +226,7 @@ class CartGuest extends CI_Controller {
             $this->db->set('order_key', $orderkey);
             $this->db->where('id', $last_id);
             $this->db->update('user_order');
-            print_r($order_array);
+         
 
             $this->Product_model->cartOperationCustomCopyOrder($last_id);
 
