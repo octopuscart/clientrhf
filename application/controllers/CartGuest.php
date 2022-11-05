@@ -158,8 +158,117 @@ class CartGuest extends CI_Controller {
         }
         $this->load->view('CartGuest/checkoutShipping', $data);
     }
+    
+        function checkoutPayment() {
+        $this->redirectCart();
+        $measurement_style = $this->session->userdata('measurement_style');
+        $data['measurement_style_type'] = $measurement_style ? $measurement_style['measurement_style'] : "Please Select Size";
 
-    function checkoutPayment() {
+        $user_address_details = $this->session->userdata('shipping_address');
+        $data['user_address_details'] = $user_address_details ? [$this->session->userdata('shipping_address')] : [];
+
+        $user_details = $this->session->userdata('customer_inforamtion');
+        $data['user_details'] = $user_details ? $this->session->userdata('customer_inforamtion') : array();
+
+        $data['checkoutmode'] = 'Guest';
+
+        if (isset($_POST['place_order'])) {
+
+            //place order
+
+            $address = $user_address_details;
+
+            if ($this->checklogin) {
+                $session_cart = $this->Product_model->cartData($this->user_id);
+            } else {
+                $session_cart = $this->Product_model->cartData();
+            }
+
+
+            $sub_total_price = $session_cart['total_price'];
+            $total_quantity = $session_cart['total_quantity'];
+
+            //place order
+
+            $address = $user_address_details;
+            $paymentmathod = $this->input->post('place_order');
+            $order_array = array(
+                'name' => $user_details['name'],
+                'email' => $user_details['email'],
+                'user_id' => 'guest',
+                'contact_no' => $user_details['contact_no'],
+                'zipcode' => $address['zipcode'],
+                'address1' => $address['address1'],
+                'address2' => $address['address2'],
+                'city' => $address['city'],
+                'state' => $address['state'],
+                'country' => $address['country'],
+                'order_date' => date('Y-m-d'),
+                'order_time' => date('H:i:s'),
+                'amount_in_word' => $this->Product_model->convert_num_word($sub_total_price),
+                'sub_total_price' => $session_cart['sub_total_price'],
+                'total_price' => $session_cart['total_price'],
+                'coupon_code' => $session_cart['coupon_code'],
+                'discount' => $session_cart['discount'],
+                'shipping' => $session_cart['shipping_price'],
+                'total_quantity' => $total_quantity,
+                'status' => 'Order Confirmed',
+                'payment_mode' => $paymentmathod,
+                'measurement_style' => $measurement_style['measurement_style'],
+                'credit_price' => $this->input->post('credit_price') || 0,
+            );
+
+            $this->db->insert('user_order', $order_array);
+            $last_id = $this->db->insert_id();
+            $orderno = "RF" . date('Y/m/d') . "/" . $last_id;
+            $orderkey = md5($orderno);
+            $this->db->set('order_no', $orderno);
+            $this->db->set('order_key', $orderkey);
+            $this->db->where('id', $last_id);
+            $this->db->update('user_order');
+            print_r($order_array);
+
+            $this->Product_model->cartOperationCustomCopyOrder($last_id);
+
+            $custome_items = $session_cart['custome_items'];
+            $custome_items_ids = implode(", ", $custome_items);
+            $custome_items_ids_profile = implode("", $custome_items);
+            $custome_items_nameslist = $session_cart['custome_items_name'];
+            $custome_items_names = implode(", ", $custome_items_nameslist);
+
+            if (isset($measurement_style["measurement_id"])) {
+                $this->db->set('measurement_id', $measurement_style["measurement_id"]);
+                $this->db->where('id', $last_id);
+                $this->db->update('user_order');
+            }
+
+
+            $order_status_data = array(
+                'c_date' => date('Y-m-d'),
+                'c_time' => date('H:i:s'),
+                'order_id' => $last_id,
+                'status' => "Order Confirmed",
+                'user_id' => 'guest',
+                'remark' => "Order Confirmed By Using " . $paymentmathod . ",  Waiting For Payment",
+            );
+            $this->db->insert('user_order_status', $order_status_data);
+
+            $newdata = array(
+                'username' => '',
+                'password' => '',
+                'logged_in' => FALSE,
+            );
+
+            $this->session->unset_userdata($newdata);
+            $this->session->unset_userdata("session_coupon");
+            $this->session->sess_destroy();
+
+            redirect('Order/orderdetailsguest/' . $orderkey);
+        }
+        $this->load->view('Cart/checkoutPayment', $data);
+    }
+
+    function checkoutPayment2() {
         $this->redirectCart();
         $measurement_style = $this->session->userdata('measurement_style');
         $data['measurement_style_type'] = $measurement_style ? $measurement_style['measurement_style'] : "Please Select Size";
@@ -225,44 +334,44 @@ class CartGuest extends CI_Controller {
             $this->db->set('order_key', $orderkey);
             $this->db->where('id', $last_id);
             $this->db->update('user_order');
-
+//
             $this->Product_model->cartOperationCustomCopyOrder($last_id);
-
-            $custome_items = $session_cart['custome_items'];
-            $custome_items_ids = implode(", ", $custome_items);
-            $custome_items_ids_profile = implode("", $custome_items);
-            $custome_items_nameslist = $session_cart['custome_items_name'];
-            $custome_items_names = implode(", ", $custome_items_nameslist);
-
-            if (isset($measurement_style["measurement_id"])) {
-                $this->db->set('measurement_id', $measurement_style["measurement_id"]);
-                $this->db->where('id', $last_id);
-                $this->db->update('user_order');
-            }
-
-
-            $order_status_data = array(
-                'c_date' => date('Y-m-d'),
-                'c_time' => date('H:i:s'),
-                'order_id' => $last_id,
-                'status' => "Order Confirmed",
-                'user_id' => 'guest',
-                'remark' => "Order Confirmed By Using " . $paymentmathod . ",  Waiting For Payment",
-            );
-            $this->db->insert('user_order_status', $order_status_data);
-//                    $this->Product_model->order_to_vendor($last_id);
-
-            $newdata = array(
-                'username' => '',
-                'password' => '',
-                'logged_in' => FALSE,
-            );
-
-            $this->session->unset_userdata($newdata);
-            $this->session->unset_userdata("session_coupon");
-            $this->session->sess_destroy();
-
-            redirect('Order/orderdetailsguest/' . $orderkey);
+//
+//            $custome_items = $session_cart['custome_items'];
+//            $custome_items_ids = implode(", ", $custome_items);
+//            $custome_items_ids_profile = implode("", $custome_items);
+//            $custome_items_nameslist = $session_cart['custome_items_name'];
+//            $custome_items_names = implode(", ", $custome_items_nameslist);
+//
+//            if (isset($measurement_style["measurement_id"])) {
+//                $this->db->set('measurement_id', $measurement_style["measurement_id"]);
+//                $this->db->where('id', $last_id);
+//                $this->db->update('user_order');
+//            }
+//
+//
+//            $order_status_data = array(
+//                'c_date' => date('Y-m-d'),
+//                'c_time' => date('H:i:s'),
+//                'order_id' => $last_id,
+//                'status' => "Order Confirmed",
+//                'user_id' => 'guest',
+//                'remark' => "Order Confirmed By Using " . $paymentmathod . ",  Waiting For Payment",
+//            );
+//            $this->db->insert('user_order_status', $order_status_data);
+////                    $this->Product_model->order_to_vendor($last_id);
+//
+//            $newdata = array(
+//                'username' => '',
+//                'password' => '',
+//                'logged_in' => FALSE,
+//            );
+//
+//            $this->session->unset_userdata($newdata);
+//            $this->session->unset_userdata("session_coupon");
+//            $this->session->sess_destroy();
+//
+//            redirect('Order/orderdetailsguest/' . $orderkey);
         }
         $this->load->view('Cart/checkoutPayment', $data);
     }
