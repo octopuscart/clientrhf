@@ -69,7 +69,7 @@ class PayPalPayment extends CI_Controller {
                 '&PAYMENTREQUEST_0_AMT=' . urlencode($total_amt) .
                 '&PAYMENTREQUEST_0_CURRENCYCODE=' . urlencode(paypal_api_currency_code) .
                 '&LOCALECODE=GB' . //PayPal pages to match the language on your website.
-                '&LOGOIMG=http://bespoketailorshk.costcointernational.com/assets/images/logo73.png' . //site logo
+                '&LOGOIMG=' . site_mail_logo . //site logo
                 '&CARTBORDERCOLOR=000000' . //border color of cart
                 '&ALLOWNOTE=1';
         $this->load->library('paypalclass');
