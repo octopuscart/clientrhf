@@ -34,7 +34,7 @@ class PayPalPaymentGuest extends CI_Controller {
         $paypaldata = "";
         $products = $session_cart['products'];
         $total_amt = $session_cart['total_price'];
-         $total_amt = $session_cart['total_price'];
+        $total_amt = $session_cart['total_price'];
         $countitem = 0;
         foreach ($products as $keyp => $valuep) {
             $ItemNumber = $valuep['sku'];
@@ -249,6 +249,32 @@ class PayPalPaymentGuest extends CI_Controller {
                     $this->session->unset_userdata($newdata);
                     $this->session->unset_userdata("session_coupon");
                     $this->session->sess_destroy();
+
+                    $array_payment = array(
+                        'c_date' => date('Y-m-d'),
+                        'c_time' => date('H:i:s'),
+                        'order_id' => $last_id,
+                        'status' => $payment_status . " Using PayPal",
+                        'user_id' => $this->user_id,
+                        'remark' => "Order Confirmed, Payment Made Using PayPay.",
+                        "txn_no" => urldecode($httpParsedResponseAr["TRANSACTIONID"]),
+                        "message" => $message,
+                        "long_message" => $long_message,
+                        "total_amount" => urldecode($httpParsedResponseAr["AMT"]),
+                        "currency_code" => urldecode($httpParsedResponseAr["COUNTRYCODE"]),
+                        "payment_status" => $payment_status,
+                        "payment_error_code" => $payment_error_code,
+                        "token" => urldecode($httpParsedResponseAr["TOKEN"]),
+                        "payer_id" => urldecode($httpParsedResponseAr["PAYERID"]),
+                        "payer_email" => urldecode($httpParsedResponseAr["EMAIL"]),
+                        "payer_info" => urldecode($httpParsedResponseAr["FIRSTNAME"]) . " " . urldecode($httpParsedResponseAr["LASTNAME"]),
+                        "currection_id" => urldecode($httpParsedResponseAr["CORRELATIONID"]),
+                        "ack" => urldecode($httpParsedResponseAr["ACK"]),
+                        "timestemp" => urldecode($httpParsedResponseAr["TIMESTAMP"]),
+                        "error_code" => $error_code,
+                        "checkoutstatus" => urldecode($httpParsedResponseAr["CHECKOUTSTATUS"]),
+                    );
+                    $this->db->insert('paypal_status', $array_payment);
 
                     redirect('Order/orderdetailsguest/' . $orderkey);
 

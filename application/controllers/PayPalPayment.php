@@ -60,7 +60,7 @@ class PayPalPayment extends CI_Controller {
                 '&RETURNURL=' . urlencode($PayPalReturnURL) .
                 '&CANCELURL=' . urlencode($PayPalCancelURL);
 
-        $paypaldata.= '&NOSHIPPING=0' . '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($total_amt) .
+        $paypaldata .= '&NOSHIPPING=0' . '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($total_amt) .
                 '&PAYMENTREQUEST_0_TAXAMT=' . urlencode('0') .
                 '&PAYMENTREQUEST_0_SHIPPINGAMT=' . urlencode($session_cart["shipping_price"]) .
                 '&PAYMENTREQUEST_0_HANDLINGAMT=' . urlencode('0') .
@@ -141,7 +141,6 @@ class PayPalPayment extends CI_Controller {
                     $measurement_style = $this->session->userdata('measurement_style');
                     $data['measurement_style_type'] = $measurement_style ? $measurement_style['measurement_style'] : "Please Select Size";
 
-
                     if ($this->checklogin) {
                         $session_cart = $this->Product_model->cartData($this->user_id);
                     } else {
@@ -157,12 +156,11 @@ class PayPalPayment extends CI_Controller {
                     $user_credits = $this->User_model->user_credits($this->user_id);
                     $data['user_credits'] = $user_credits;
 
-
-
                     //place order
 
                     $address = $user_address_details[0];
-
+                    $sub_total_price = $session_cart['total_price'];
+                    $total_quantity = $session_cart['total_quantity'];
                     $order_array = array(
                         'name' => $user_details->first_name . " " . $user_details->last_name,
                         'email' => $user_details->email,
@@ -176,68 +174,52 @@ class PayPalPayment extends CI_Controller {
                         'country' => $address['country'],
                         'order_date' => date('Y-m-d'),
                         'order_time' => date('H:i:s'),
-                        'amount_in_word' => $this->Product_model->convert_num_word(urldecode($httpParsedResponseAr["AMT"])),
-                        'sub_total_price' => urldecode($httpParsedResponseAr["AMT"]), //;$this->input->post('sub_total_price'),
-                        'total_price' => urldecode($httpParsedResponseAr["AMT"]),
-                        'total_quantity' => $session_cart['total_quantity'],
-                        'status' => 'Payment Completed',
-                        'payment_mode' => 'PayPal',
+                        'amount_in_word' => $this->Product_model->convert_num_word($sub_total_price),
+                        'sub_total_price' => $session_cart['sub_total_price'],
+                        'total_price' => $session_cart['total_price'],
+                        'coupon_code' => $session_cart['coupon_code'],
+                        'discount' => $session_cart['discount'],
+                        'shipping' => $session_cart['shipping_price'],
+                        'total_quantity' => $total_quantity,
+                        'status' => 'Order Confirmed',
+                        'payment_mode' => "PayPal",
                         'measurement_style' => $measurement_style['measurement_style'],
+                        'measurement_id' => "",
                         'credit_price' => $this->input->post('credit_price') || 0,
                     );
 
                     $this->db->insert('user_order', $order_array);
                     $last_id = $this->db->insert_id();
-                    $orderno = "OCT" . date('Y/m/d') . "/" . $last_id;
+                    $orderno = "RF" . date('Y/m/d') . "/" . $last_id;
                     $orderkey = md5($orderno);
                     $this->db->set('order_no', $orderno);
                     $this->db->set('order_key', $orderkey);
                     $this->db->where('id', $last_id);
                     $this->db->update('user_order');
 
-
-
                     $this->db->set('order_id', $last_id);
                     $this->db->where('order_id', '0');
                     $this->db->where('user_id', $this->user_id);
                     $this->db->update('cart');
 
-                    $custome_items = $session_cart['custome_items'];
-                    $custome_items_ids = implode(", ", $custome_items);
-                    $custome_items_ids_profile = implode("", $custome_items);
-                    $custome_items_nameslist = $session_cart['custome_items_name'];
-                    $custome_items_names = implode(", ", $custome_items_nameslist);
-
-                    $measurement_style_array = $measurement_style['measurement_dict'];
-
-                    if (count($measurement_style_array)) {
-                        $order_measurement_profile = array(
-                            'datetime' => date('Y-m-d H:i:s'),
-                            'order_id' => $last_id,
-                            'measurement_items' => $custome_items_names,
-                            'measurement_items_id' => $custome_items_ids,
-                            'user_id' => $this->user_id,
-                            'display_index' => '1',
-                            "profile" => "MES/" . $this->user_id . "/" . $custome_items_ids_profile . "/" . $last_id,
-                        );
-                        $this->db->insert('custom_measurement_profile', $order_measurement_profile);
-                        $mprofile_id = $this->db->insert_id();
-                        $display_index = 1;
-                        foreach ($measurement_style_array as $key => $value) {
-                            $custom_array = array(
-                                'measurement_key' => $key,
-                                'measurement_value' => $value,
-                                'display_index' => $display_index,
-                                'order_id' => $last_id,
-                                'custom_measurement_profile' => $mprofile_id
-                            );
-                            $this->db->insert('custom_measurement', $custom_array);
-                            $display_index++;
-                        }
+                    if (isset($measurement_style["measurement_id"])) {
+                        $this->db->set('measurement_id', $measurement_style["measurement_id"]);
+                        $this->db->where('id', $last_id);
+                        $this->db->update('user_order');
                     }
 
 
+                    $this->session->unset_userdata("session_coupon");
 
+                    $order_status_data = array(
+                        'c_date' => date('Y-m-d'),
+                        'c_time' => date('H:i:s'),
+                        'order_id' => $last_id,
+                        'status' => "Order Confirmed",
+                        'user_id' => $this->user_id,
+                        'remark' => "Order Confirmed By Using " . $paymentmathod . ", Waiting For Payment",
+                    );
+                    $this->db->insert('user_order_status', $order_status_data);
 
                     $array_payment = array(
                         'c_date' => date('Y-m-d'),
@@ -265,7 +247,6 @@ class PayPalPayment extends CI_Controller {
                     );
                     $this->db->insert('paypal_status', $array_payment);
 
-
                     $order_status_data = array(
                         'c_date' => date('Y-m-d'),
                         'c_time' => date('H:i:s'),
@@ -279,8 +260,6 @@ class PayPalPayment extends CI_Controller {
                     redirect('Order/orderdetails/' . $orderkey);
 
                     $this->load->view('Cart/checkoutPayment', $data);
-
-
 
 // echo '<br /><b>Stuff to store in database :</b><br /><pre>';
                     /*
