@@ -50,10 +50,10 @@ class PayPalPayment extends CI_Controller {
 //        $total_amt = $total_amt - $discountcalculate;
 //        $total_amt = number_format($total_amt, 2, '.', '');
 //
-//        $paypaldata .= '&L_PAYMENTREQUEST_0_NAME' . $countitem . '=' . urlencode("GIFT DISCOUNT") .
-//                '&L_PAYMENTREQUEST_0_NUMBER' . $countitem . '=' . urlencode("GFT0001") .
-//                '&L_PAYMENTREQUEST_0_AMT' . $countitem . '=-' . urlencode($discountcalculate) .
-//                '&L_PAYMENTREQUEST_0_QTY' . $countitem . '=' . urlencode(1);
+        $paypaldata .= '&L_PAYMENTREQUEST_0_NAME' . $countitem . '=' . urlencode($session_cart["coupon"]) .
+                '&L_PAYMENTREQUEST_0_NUMBER' . $countitem . '=' . urlencode($session_cart["coupon_code"]) .
+                '&L_PAYMENTREQUEST_0_AMT' . $countitem . '=-' . urlencode($session_cart["discount"]) .
+                '&L_PAYMENTREQUEST_0_QTY' . $countitem . '=' . urlencode(1);
 
         $setexpresscheckout = '&METHOD=SetExpressCheckout' .
                 '&PAYMENTREQUEST_0_PAYMENTACTION=' . urlencode("SALE") .
@@ -62,7 +62,7 @@ class PayPalPayment extends CI_Controller {
 
         $paypaldata.= '&NOSHIPPING=0' . '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($total_amt) .
                 '&PAYMENTREQUEST_0_TAXAMT=' . urlencode('0') .
-                '&PAYMENTREQUEST_0_SHIPPINGAMT=' . urlencode('0') .
+                '&PAYMENTREQUEST_0_SHIPPINGAMT=' . urlencode($session_cart["shipping_price"]) .
                 '&PAYMENTREQUEST_0_HANDLINGAMT=' . urlencode('0') .
                 '&PAYMENTREQUEST_0_SHIPDISCAMT=' . urlencode('0') .
                 '&PAYMENTREQUEST_0_INSURANCEAMT=' . urlencode('0') .

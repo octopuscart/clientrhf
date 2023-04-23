@@ -406,6 +406,8 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
             $finalcartdata['total_price'] = $finalcartdata['total_price'] - $finalcartdata['discount'];
 
             $finalcartdata['total_price'] = $finalcartdata['total_price'] + $finalcartdata['shipping_price'];
+            
+            $finalcartdata['total_price'] = round($finalcartdata['total_price'], 2);
         }
         return $finalcartdata;
     }
