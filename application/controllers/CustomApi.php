@@ -2079,6 +2079,8 @@ class CustomApi extends REST_Controller {
                 $jacketstyle[$value["title"]] = $value;
             }
         }
+        
+     
 
         $customeele["data"]["Buttons"] = [
             array(
