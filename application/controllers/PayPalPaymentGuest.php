@@ -230,8 +230,6 @@ class PayPalPaymentGuest extends CI_Controller {
 
                     $this->Product_model->cartOperationCustomCopyOrder($last_id);
 
-                    $this->Product_model->cartOperationCustomCopyOrder($last_id);
-
                     $custome_items = $session_cart['custome_items'];
                     $custome_items_ids = implode(", ", $custome_items);
                     $custome_items_ids_profile = implode("", $custome_items);
