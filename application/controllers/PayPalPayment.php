@@ -112,7 +112,7 @@ class PayPalPayment extends CI_Controller {
 //We need to execute the "DoExpressCheckoutPayment" at this point to Receive payment from user.
             $this->load->library('paypalclass');
             $httpParsedResponseAr = $this->paypalclass->PPHttpPost('DoExpressCheckoutPayment', $doexpresscheckout . $paypaldata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
-print_r($httpParsedResponseAr);
+
 //Check if everything went ok..
             if ("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])) {
                 if (isset($httpParsedResponseAr["L_LONGMESSAGE0"])) {
