@@ -35,7 +35,6 @@ class PayPalPaymentGuest extends CI_Controller {
         } else {
             $session_cart = $this->Product_model->cartData();
         }
-        print_r($session_cart);
         $PayPalReturnURL = site_url("PayPalPaymentGuest/success");
         $PayPalCancelURL = site_url("PayPalPaymentGuest/cancel");
 
@@ -75,8 +74,8 @@ class PayPalPaymentGuest extends CI_Controller {
                 '&PAYMENTREQUEST_0_PAYMENTACTION=' . urlencode("SALE") .
                 '&RETURNURL=' . urlencode($PayPalReturnURL) .
                 '&CANCELURL=' . urlencode($PayPalCancelURL);
-
-        $paypaldata .= '&NOSHIPPING=0' . '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($sub_total_price) .
+        $isShipping = $session_cart["shipping_price"] ? 1 : 0;
+        $paypaldata .= '&NOSHIPPING=' . $isShipping . '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($sub_total_price) .
                 '&PAYMENTREQUEST_0_TAXAMT=' . urlencode('0') .
                 '&PAYMENTREQUEST_0_SHIPPINGAMT=' . urlencode($session_cart["shipping_price"]) .
                 '&PAYMENTREQUEST_0_HANDLINGAMT=' . urlencode('0') .
