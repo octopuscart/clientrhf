@@ -92,7 +92,7 @@ class PayPalPaymentGuest extends CI_Controller {
                 '&ALLOWNOTE=1';
 //        $this->load->view('home', $data);
         $this->load->library('paypalclass');
-print_r($paypaldata);
+
 //        set payment on session
         $this->session->set_userdata('session_paypal', $paypaldata);
         $session_paypal = $this->session->userdata('session_paypal');
