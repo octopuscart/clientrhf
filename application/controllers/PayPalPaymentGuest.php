@@ -259,10 +259,6 @@ class PayPalPaymentGuest extends CI_Controller {
                         'logged_in' => FALSE,
                     );
 
-                    $this->session->unset_userdata($newdata);
-                    $this->session->unset_userdata("session_coupon");
-                    $this->session->sess_destroy();
-
                     $array_payment = array(
                         'c_date' => date('Y-m-d'),
                         'c_time' => date('H:i:s'),
@@ -288,7 +284,9 @@ class PayPalPaymentGuest extends CI_Controller {
                         "checkoutstatus" => urldecode($httpParsedResponseAr["CHECKOUTSTATUS"]),
                     );
                     $this->db->insert('paypal_status', $array_payment);
-
+                    $this->session->unset_userdata($newdata);
+                    $this->session->unset_userdata("session_coupon");
+                    $this->session->sess_destroy();
                     redirect('Order/orderdetailsguest/' . $orderkey);
 
                     $this->load->view('Cart/checkoutPayment', $data);
