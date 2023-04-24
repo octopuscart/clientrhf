@@ -94,6 +94,7 @@ class PayPalPayment extends CI_Controller {
     }
 
     public function success() {
+        $paymentmathod = "PayPal";
         $PayPalMode = $this->PayPalModeCheck; // sandbox or live
         $PayPalApiUsername = paypal_api_username; //PayPal API Username
         $PayPalApiPassword = paypal_api_password; //Paypal API password

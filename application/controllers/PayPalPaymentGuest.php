@@ -23,6 +23,7 @@ class PayPalPaymentGuest extends CI_Controller {
     }
 
     public function process() {
+        $paymentmathod = "PayPal";
         $PayPalMode = ''; // sandbox or live
         $PayPalApiUsername = paypal_api_username; //PayPal API Username
         $PayPalApiPassword = paypal_api_password; //Paypal API password
@@ -111,6 +112,7 @@ class PayPalPaymentGuest extends CI_Controller {
     }
 
     public function success() {
+        $paymentmathod = "PayPal";
         if ($this->checklogin) {
             $session_cart = $this->Product_model->cartData($this->user_id);
         } else {
