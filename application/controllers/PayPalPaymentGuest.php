@@ -64,6 +64,9 @@ class PayPalPaymentGuest extends CI_Controller {
 //
         $session_coupon = $this->session->userdata('session_coupon');
         if (isset($session_coupon["has_coupon"]) && $session_coupon["has_coupon"]) {
+            
+            $sub_total_price = $sub_total_price - $session_cart["discount"];
+            $sub_total_price = round($sub_total_price, 2);
             $paypaldata .= '&L_PAYMENTREQUEST_0_NAME' . $countitem . '=' . urlencode($session_cart["coupon"]) .
                     '&L_PAYMENTREQUEST_0_NUMBER' . $countitem . '=' . urlencode($session_cart["coupon_code"]) .
                     '&L_PAYMENTREQUEST_0_AMT' . $countitem . '=-' . urlencode($session_cart["discount"]) .
@@ -89,7 +92,7 @@ class PayPalPaymentGuest extends CI_Controller {
                 '&ALLOWNOTE=1';
 //        $this->load->view('home', $data);
         $this->load->library('paypalclass');
-
+print_r($paypaldata);
 //        set payment on session
         $this->session->set_userdata('session_paypal', $paypaldata);
         $session_paypal = $this->session->userdata('session_paypal');
