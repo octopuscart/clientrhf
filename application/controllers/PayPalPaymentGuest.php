@@ -9,8 +9,15 @@ class PayPalPaymentGuest extends CI_Controller {
         $this->load->model('Product_model');
         $this->load->library('session');
         $this->load->model('User_model');
+        $session_user = $this->session->userdata('logged_in');
+        if ($session_user) {
+            $this->user_id = $session_user['login_id'];
+        } else {
+            $this->user_id = 0;
+        }
+
         $this->checklogin = $this->session->userdata('logged_in');
-        $this->user_id = $this->session->userdata('logged_in')['login_id'];
+        $this->user_id = $this->checklogin ? $this->checklogin['login_id'] : 0;
         $query = $this->db->get('configuration_site');
         $siteconfiguration = $query->row();
     }
@@ -35,6 +42,7 @@ class PayPalPaymentGuest extends CI_Controller {
         $products = $session_cart['products'];
         $total_amt = $session_cart['total_price'];
         $total_amt = $session_cart['total_price'];
+        $sub_total_price = $session_cart['sub_total_price'];
         $countitem = 0;
         foreach ($products as $keyp => $valuep) {
             $ItemNumber = $valuep['sku'];
@@ -64,7 +72,7 @@ class PayPalPaymentGuest extends CI_Controller {
                 '&RETURNURL=' . urlencode($PayPalReturnURL) .
                 '&CANCELURL=' . urlencode($PayPalCancelURL);
 
-        $paypaldata .= '&NOSHIPPING=0' . '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($total_amt) .
+        $paypaldata .= '&NOSHIPPING=0' . '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($sub_total_price) .
                 '&PAYMENTREQUEST_0_TAXAMT=' . urlencode('0') .
                 '&PAYMENTREQUEST_0_SHIPPINGAMT=' . urlencode($session_cart["shipping_price"]) .
                 '&PAYMENTREQUEST_0_HANDLINGAMT=' . urlencode('0') .

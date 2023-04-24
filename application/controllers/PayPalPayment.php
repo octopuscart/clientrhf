@@ -11,10 +11,11 @@ class PayPalPayment extends CI_Controller {
         $this->load->model('User_model');
         $this->checklogin = $this->session->userdata('logged_in');
         $this->user_id = $this->session->userdata('logged_in')['login_id'];
+        $this->PayPalModeCheck = '';
     }
 
     public function process() {
-        $PayPalMode = ''; // sandbox or live
+        $PayPalMode = $this->PayPalModeCheck; // sandbox or live
         $PayPalApiUsername = paypal_api_username; //PayPal API Username
         $PayPalApiPassword = paypal_api_password; //Paypal API password
         $PayPalApiSignature = paypal_api_signature; //Paypal API Signature
@@ -31,6 +32,7 @@ class PayPalPayment extends CI_Controller {
         $paypaldata = "";
         $products = $session_cart['products'];
         $total_amt = $session_cart['total_price'];
+        $sub_total_price = $session_cart['sub_total_price'];
         $countitem = 0;
         foreach ($products as $keyp => $valuep) {
             $ItemNumber = $valuep['sku'];
@@ -59,8 +61,8 @@ class PayPalPayment extends CI_Controller {
                 '&PAYMENTREQUEST_0_PAYMENTACTION=' . urlencode("SALE") .
                 '&RETURNURL=' . urlencode($PayPalReturnURL) .
                 '&CANCELURL=' . urlencode($PayPalCancelURL);
-
-        $paypaldata .= '&NOSHIPPING=0' . '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($total_amt) .
+        $isShipping = $session_cart["shipping_price"]?1:0;
+        $paypaldata .= '&NOSHIPPING='.$isShipping . '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($sub_total_price) .
                 '&PAYMENTREQUEST_0_TAXAMT=' . urlencode('0') .
                 '&PAYMENTREQUEST_0_SHIPPINGAMT=' . urlencode($session_cart["shipping_price"]) .
                 '&PAYMENTREQUEST_0_HANDLINGAMT=' . urlencode('0') .
@@ -82,6 +84,7 @@ class PayPalPayment extends CI_Controller {
             $paypalurl = 'https://www' . $PayPalMode . '.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=' . $httpParsedResponseAr["TOKEN"] . '';
             header('Location: ' . $paypalurl);
         } else {
+            print_r($httpParsedResponseAr);
             $data["error"] = '<div style="color:red"><b>Error : </b>' . urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]) . '</div>';
             $this->load->view('paypal/error', $data);
         }
@@ -89,7 +92,7 @@ class PayPalPayment extends CI_Controller {
     }
 
     public function success() {
-        $PayPalMode = ''; // sandbox or live
+        $PayPalMode = $this->PayPalModeCheck; // sandbox or live
         $PayPalApiUsername = paypal_api_username; //PayPal API Username
         $PayPalApiPassword = paypal_api_password; //Paypal API password
         $PayPalApiSignature = paypal_api_signature; //Paypal API Signature
@@ -109,6 +112,7 @@ class PayPalPayment extends CI_Controller {
 //We need to execute the "DoExpressCheckoutPayment" at this point to Receive payment from user.
             $this->load->library('paypalclass');
             $httpParsedResponseAr = $this->paypalclass->PPHttpPost('DoExpressCheckoutPayment', $doexpresscheckout . $paypaldata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
+print_r($httpParsedResponseAr);
 //Check if everything went ok..
             if ("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])) {
                 if (isset($httpParsedResponseAr["L_LONGMESSAGE0"])) {
