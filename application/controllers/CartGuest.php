@@ -158,8 +158,8 @@ class CartGuest extends CI_Controller {
         }
         $this->load->view('CartGuest/checkoutShipping', $data);
     }
-    
-        function checkoutPayment() {
+
+    function checkoutPayment() {
         $this->redirectCart();
         $measurement_style = $this->session->userdata('measurement_style');
         $data['measurement_style_type'] = $measurement_style ? $measurement_style['measurement_style'] : "Please Select Size";
@@ -226,7 +226,6 @@ class CartGuest extends CI_Controller {
             $this->db->set('order_key', $orderkey);
             $this->db->where('id', $last_id);
             $this->db->update('user_order');
-         
 
             $this->Product_model->cartOperationCustomCopyOrder($last_id);
 
