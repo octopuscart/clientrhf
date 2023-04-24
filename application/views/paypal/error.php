@@ -3,19 +3,21 @@ $this->load->view('layout/header');
 ?>
 
 <!-- Inner Page Banner Area Start Here -->
-<div class="inner-page-banner-area">
+<div class="page-header" style="height: 160px">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcrumb-area">
-                    <h1>Cart Page</h1>
-                    <ul>
-                        <li><a href="#">Home</a> /</li>
-                        <li>Cart</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
+        <h1 style="    color: black;
+            margin-bottom: 30px;
+            font-size: 30px;
+            text-shadow: 0px 0px;">Order Details</br>
+            <p style="font-size:15px;margin:10px auto;">Payment</p>
+
+        </h1>
+
+        <!-- Breadcrumb -->
+
+
+
     </div>
 </div>
 <!-- Inner Page Banner Area End Here -->
