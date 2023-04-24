@@ -51,18 +51,20 @@ class PayPalPayment extends CI_Controller {
 //
 //        $total_amt = $total_amt - $discountcalculate;
 //        $total_amt = number_format($total_amt, 2, '.', '');
-//
-        $paypaldata .= '&L_PAYMENTREQUEST_0_NAME' . $countitem . '=' . urlencode($session_cart["coupon"]) .
-                '&L_PAYMENTREQUEST_0_NUMBER' . $countitem . '=' . urlencode($session_cart["coupon_code"]) .
-                '&L_PAYMENTREQUEST_0_AMT' . $countitem . '=-' . urlencode($session_cart["discount"]) .
-                '&L_PAYMENTREQUEST_0_QTY' . $countitem . '=' . urlencode(1);
-
+//        
+        $session_coupon = $this->session->userdata('session_coupon');
+        if (isset($session_coupon["has_coupon"]) && $session_coupon["has_coupon"]) {
+            $paypaldata .= '&L_PAYMENTREQUEST_0_NAME' . $countitem . '=' . urlencode($session_cart["coupon"]) .
+                    '&L_PAYMENTREQUEST_0_NUMBER' . $countitem . '=' . urlencode($session_cart["coupon_code"]) .
+                    '&L_PAYMENTREQUEST_0_AMT' . $countitem . '=-' . urlencode($session_cart["discount"]) .
+                    '&L_PAYMENTREQUEST_0_QTY' . $countitem . '=' . urlencode(1);
+        }
         $setexpresscheckout = '&METHOD=SetExpressCheckout' .
                 '&PAYMENTREQUEST_0_PAYMENTACTION=' . urlencode("SALE") .
                 '&RETURNURL=' . urlencode($PayPalReturnURL) .
                 '&CANCELURL=' . urlencode($PayPalCancelURL);
-        $isShipping = $session_cart["shipping_price"]?1:0;
-        $paypaldata .= '&NOSHIPPING='.$isShipping . '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($sub_total_price) .
+        $isShipping = $session_cart["shipping_price"] ? 1 : 0;
+        $paypaldata .= '&NOSHIPPING=' . $isShipping . '&PAYMENTREQUEST_0_ITEMAMT=' . urlencode($sub_total_price) .
                 '&PAYMENTREQUEST_0_TAXAMT=' . urlencode('0') .
                 '&PAYMENTREQUEST_0_SHIPPINGAMT=' . urlencode($session_cart["shipping_price"]) .
                 '&PAYMENTREQUEST_0_HANDLINGAMT=' . urlencode('0') .
