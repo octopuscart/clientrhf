@@ -271,5 +271,10 @@ class Product extends CI_Controller {
         $data['tuxedotype'] = "0";
         $this->load->view('Product/customization_suit_v2', $data);
     }
+        //function for product list
+    function fabrics($category = "Shirts") {
+        $data["category"] = $category ? $category : "Shirts";
+        $this->load->view('Product/fabricList', $data);
+    }
 
 }

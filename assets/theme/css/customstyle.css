@@ -15,8 +15,9 @@
 
 .site-header .main-navigation ul li a {
     color: rgba(0, 0, 0, 0.8);
+    font-size: 12px;
+    font-weight: bold;
 }
-
 .site-header {
     width: 100%;
     padding: 10px 0;

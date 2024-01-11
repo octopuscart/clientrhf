@@ -106,7 +106,16 @@
                                     <li><a href="<?php echo site_url("appointment"); ?>">Schedule</a></li>
 
                                     <li><a href="<?php echo site_url("Shop/lookbook"); ?>" title="Trainers">Look Book</a></li>
+                                    <li><a href="#" title="Gallery">Fabrics</a>
+                                        <ul>
+                                            <li><a href="<?php echo site_url('Product/fabrics/Shirts') ?>">Shirts</a></li>
+                                            <li><a href="<?php echo site_url('Product/fabrics/Suits') ?>">Suits</a></li>
+                                            <li><a href="<?php echo site_url('Product/fabrics/Overcoats') ?>">Overcoats</a></li>
+ 
 
+
+                                        </ul>
+                                    </li>
                                     <li><a href="<?php echo site_url("Shop/measurements_guide"); ?>" title="Trainers">Measurement</a></li>
 
 

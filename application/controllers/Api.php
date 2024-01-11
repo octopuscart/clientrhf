@@ -1270,6 +1270,62 @@ class Api extends REST_Controller {
         $this->response($previouse_profiledata);
     }
 
+        //ProductList APi
+    public function productFabricListApi_get($category_id) {
+
+
+        $attrdatak = $this->get();
+        $startpage = $attrdatak["start"] ? $attrdatak["start"] - 1 : 0;
+        $endpage = $attrdatak["end"];
+        unset($attrdatak["start"]);
+        unset($attrdatak["end"]);
+        $products = [];
+        $countpr = 0;
+        $pricequery = "";
+        $psearch = "";
+     
+        $filterquery = "";
+
+
+        $productdict = [];
+
+
+        $proquery = "";
+
+        $product_query = "select *
+            from product_fabrics where category ='$category_id'  order by  display_index desc";
+        $product_result = $this->Product_model->query_exe($product_query);
+
+        $productListSt = [];
+
+        $productListFinal = [];
+        $productListFinalTotal = [];
+
+        $pricecount = [];
+
+        $priceListWidget = array();
+
+        $brandWidget = array();
+
+        foreach ($product_result as $key => $value) {
+            $value['image'] = $value['folder']."/".$value["title"].".jpg";
+    
+            array_push($productListFinal, $value);
+        }
+
+        $attr_filter = array();
+        $pricelist = array();
+
+        $productListFinal = array_slice($productListFinal, $startpage, 12);
+        $this->output->set_header('Content-type: application/json');
+        $productArray = array('attributes' => $attr_filter,
+            'products' => $productListFinal,
+            'product_count' => count($product_result),
+        
+        );
+        $this->response($productArray);
+    }
+
 }
 
 ?>
