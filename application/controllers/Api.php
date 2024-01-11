@@ -1293,7 +1293,7 @@ class Api extends REST_Controller {
         $proquery = "";
 
         $product_query = "select *
-            from product_fabrics where category ='$category_id'  order by  display_index desc";
+            from product_fabrics where category ='$category_id'  order by  display_index asc";
         $product_result = $this->Product_model->query_exe($product_query);
 
         $productListSt = [];
