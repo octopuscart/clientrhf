@@ -268,8 +268,7 @@ function createModel($value, $dtvalue, $timeslot) {
 
                     </h2>
 
-                    <iframe src="<?php echo base_url("assets/schedule07032024.pdf"); ?>" style="width: 100%;height:1500px">
-                    </iframe>
+                   <img src="<?php echo base_url(); ?>assets/schedule07032024.jpg" style="width:100%;"/>
                 </div>
 
 
