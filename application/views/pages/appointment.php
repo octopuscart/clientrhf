@@ -1,4 +1,4 @@
-LM;L<?php
+<?php
 $this->load->view('layout/header');
 $prefixshopappointment = array('Sun' => [9, 19], 'Other' => [9, 21]);
 $cdateshort = date("D");
