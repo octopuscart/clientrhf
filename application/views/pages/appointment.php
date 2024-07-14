@@ -258,9 +258,9 @@ function createModel($value, $dtvalue, $timeslot) {
             <div class="row"  style="border-bottom: 2px solid;    background: #ffffffb8; ">
 
 
-                <div class="col-md-12">
+<!--                <div class="col-md-12">
 
-                    <!-- Nav tabs -->
+                     Nav tabs 
 
                     <h2 class="title-sidebar text-center" style="margin: 15px;padding-bottom:  15px;border-bottom: 1px dotted ;    width: 100%;">
 
@@ -269,7 +269,7 @@ function createModel($value, $dtvalue, $timeslot) {
                     </h2>
 
                    <img src="<?php echo base_url(); ?>assets/schedule07032024.jpg" style="width:100%;"/>
-                </div>
+                </div>-->
 
 
 
