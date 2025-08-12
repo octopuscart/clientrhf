@@ -32,7 +32,7 @@
             <div class=" row">
                 <div class="col-md-2" style=""></div>
                 <div class="col-md-8" style="">
-                    <p>
+                    <!-- <p>
                         Greeting, from Rahman Fashion Hong Kong once again. 
                         It is our great pleasure to announce our Autumn and Winter 2024 trips to 
                         <b>USA, MEXICO and CANADA.</b> Enclosed below are all the details of my trip with 
@@ -45,9 +45,9 @@
                         appointment in advance with our master tailor  <b>RAHMAN,MD.S(MICHAEL)</b> 
                         please email us at  <b>rftailor@biznetvigator.com</b> , 
                         our USA mobile number  <b>+1-917-774-1908 or HK number +85295000744</b>
-                    </p> 
+                    </p>  -->
                     <hr/>
-                    <img src="<?php echo base_url(); ?>assets/schedule11082024.jpg"  style="appointmentblockimage"/>
+                    <img src="<?php echo base_url(); ?>assets/rahmanschedule_page-13-08-2025.jpg"  style="appointmentblockimage"/>
                 </div>
                 <div class="col-md-2" style=""></div>
 
