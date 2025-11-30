@@ -68,3 +68,7 @@ Acknowledgement
 
 The CodeIgniter team would like to thank EllisLab, all the
 contributors to the CodeIgniter project and you, the CodeIgniter user.
+
+
+ALTER TABLE `user_order` ADD `payment_details` VARCHAR(350) NOT NULL AFTER `payment_mode`;
+
