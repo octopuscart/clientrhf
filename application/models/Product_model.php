@@ -986,7 +986,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
             $this->email->set_newline("\r\n");
             $this->email->from(email_bcc, $sendername);
             $this->email->to($order_details['order_data']->email);
-            $this->email->bcc(email_bcc);
+            $this->email->cc(email_bcc);
 
             $orderlog = array(
                 'log_type' => 'Email',
