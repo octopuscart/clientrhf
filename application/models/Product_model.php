@@ -974,7 +974,7 @@ where pa.product_id in ($productatrvalue) group by attribute_value_id";
 
     function order_mail($order_id, $subject = "") {
         setlocale(LC_MONETARY, 'en_US');
-        $checkcode = 0; //REPORT_MODE;
+        $checkcode = REPORT_MODE;
         $order_details = $this->getOrderDetails($order_id, 0);
 
         $emailsender = email_sender;
