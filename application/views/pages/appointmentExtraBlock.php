@@ -47,7 +47,8 @@
                         our USA mobile number  <b>+1-917-774-1908 or HK number +85295000744</b>
                     </p>  -->
                     <hr/>
-                    <img src="<?php echo base_url(); ?>assets/rahmanschedule_page-13-08-2025.jpg"  style="appointmentblockimage"/>
+                    <embed src="<?php echo base_url(); ?>assets/Usa-Canada-Trip-2026.pdf" width="100%" height="600px" type="application/pdf">
+                    <!-- <img src="<?php echo base_url(); ?>assets/rahmanschedule_page-13-08-2025.jpg"  style="appointmentblockimage"/> -->
                 </div>
                 <div class="col-md-2" style=""></div>
 
