@@ -26,7 +26,7 @@
     <div class="row" style="border-bottom: 2px solid;    background: #ffffffb5; ">
         <div class="col-md-12">
             <h2 class="title-sidebar text-center" style="margin-bottom: 30px;padding-bottom:  30px;border-bottom: 1px dotted ">
-                USA MEXICO AND CANADA TRIP 2024
+                USA& CANADA & MEXICO TRIP-2026
             </h2>
 
             <div class=" row">
