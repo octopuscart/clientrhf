@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 require("configdbconnect.php");
 $configuration = $globleConnectDB;
 
-$baselink = 'http://' . $_SERVER['SERVER_NAME'];
+$baselink = 'https://www.rahmanfashions.com';
 switch ($baselink) {
     case "http://localhost":
         $baselinkmain = $baselink . $configuration['localpath'];
