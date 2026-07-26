@@ -29,21 +29,8 @@ require("configdbconnect.php");
 $configuration = $globleConnectDB;
 
 $baselink = 'https://www.rahmanfashions.com';
-switch ($baselink) {
-    case "http://localhost":
-        $baselinkmain = $baselink . $configuration['localpath'];
-        break;
-    case "http://192.168.1.2":
-        $baselinkmain = $baselink . $configuration['localpath'];
-        break;
-    case "http://192.168.1.3":
-        $baselinkmain = $baselink . $configuration['localpath'];
-        break;
-    default:
-        $baselinkmain = $configuration['site_url'];
-}
 
-$config['base_url'] = $baselinkmain;
+$config['base_url'] = $baselink;
 //$config['base_url'] = $baselinkmain; 
 //Important
 $config['rest_enable_keys'] = FALSE;
