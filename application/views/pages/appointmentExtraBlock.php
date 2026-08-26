@@ -26,7 +26,7 @@
     <div class="row" style="border-bottom: 2px solid;    background: #ffffffb5; ">
         <div class="col-md-12">
             <h2 class="title-sidebar text-center" style="margin-bottom: 30px;padding-bottom:  30px;border-bottom: 1px dotted ">
-                USA& CANADA & MEXICO TRIP-2026
+                USA & CANADA & MEXICO SEPTEMBER TRIP 2026 
             </h2>
 
             <div class=" row">
@@ -47,7 +47,7 @@
                         our USA mobile number  <b>+1-917-774-1908 or HK number +85295000744</b>
                     </p>  -->
                     <hr/>
-                    <embed src="<?php echo base_url(); ?>assets/Usa-Canada-Trip-2026.pdf" width="100%" height="600px" type="application/pdf">
+                    <embed src="<?php echo base_url(); ?>assets/USA-SEPT-Trip -2026.pdf" width="100%" height="600px" type="application/pdf">
                     <!-- <img src="<?php echo base_url(); ?>assets/rahmanschedule_page-13-08-2025.jpg"  style="appointmentblockimage"/> -->
                 </div>
                 <div class="col-md-2" style=""></div>
